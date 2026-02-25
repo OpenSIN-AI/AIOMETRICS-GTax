@@ -10,7 +10,9 @@ import fitz
 from pathlib import Path
 
 # --- CONFIGURATION ---
-NVIDIA_API_KEY = "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"
+NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "").strip()
+if not NVIDIA_API_KEY:
+    raise SystemExit("Missing NVIDIA_API_KEY environment variable")
 DRIVE_BASE = Path("/Users/jeremy/Library/CloudStorage/GoogleDrive-info@zukunftsorientierte-energie.de/Meine Ablage/Ablage Jeremy Schulze")
 
 MAPPING = {
@@ -20,7 +22,8 @@ MAPPING = {
 }
 
 def make_safe_filename(s):
-    if not s: return "Unbekannt"
+    if not s:
+        return "Unbekannt"
     s = str(s).replace('ü', 'ue').replace('ä', 'ae').replace('ö', 'oe').replace('ß', 'ss')
     s = s.replace('Ü', 'Ue').replace('Ä', 'Ae').replace('Ö', 'Oe')
     s = re.sub(r'[^a-zA-Z0-9_\-\.]', '_', s)
@@ -97,12 +100,14 @@ def main():
                 cat_folder = MAPPING.get(data.get("category"), "08_Sonstiges")
                 year = make_safe_filename(data.get("year", "Unbekannt"))
                 fname = make_safe_filename(data.get("suggested_filename", f_path.name))
-                if not fname.lower().endswith(".pdf"): fname += ".pdf"
+                if not fname.lower().endswith(".pdf"):
+                    fname += ".pdf"
                 
                 dest_dir = DRIVE_BASE / cat_folder / year
                 dest_dir.mkdir(parents=True, exist_ok=True)
                 dest_path = dest_dir / fname
-                if dest_path.exists(): dest_path = dest_dir / f"{dest_path.stem}_{os.urandom(2).hex()}.pdf"
+                if dest_path.exists():
+                    dest_path = dest_dir / f"{dest_path.stem}_{os.urandom(2).hex()}.pdf"
                 
                 shutil.move(str(f_path), str(dest_path))
                 sys.stdout.write(f"  DONE: -> {cat_folder}/{year}/{fname}\n")
@@ -111,8 +116,10 @@ def main():
                 if "Fehlerhafte_Analyse" not in str(f_path):
                     err_dir = DRIVE_BASE / "08_Sonstiges" / "Unbekannt" / "Fehlerhafte_Analyse"
                     err_dir.mkdir(parents=True, exist_ok=True)
-                    try: shutil.move(str(f_path), str(err_dir / f_path.name))
-                    except: pass
+                    try:
+                        shutil.move(str(f_path), str(err_dir / f_path.name))
+                    except Exception:
+                        pass
             sys.stdout.flush()
             time.sleep(1)
 

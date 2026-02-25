@@ -1,7 +1,7 @@
 import requests
 import os
 
-API_KEY = "ak_d7C_5oCKr5NS0gDyANN-"
+API_KEY = os.environ.get("COMPOSIO_API_KEY", "").strip()
 DRIVE_FOLDER_ID = "1xoOfpTUwxMa_pIHoP71aCDH0Eb03tzyf"
 TEMP_DIR = "/tmp/composio_contracts"
 
@@ -44,6 +44,9 @@ def upload_to_drive(file_path, file_name):
     pass
 
 def main():
+    if not API_KEY:
+        raise SystemExit("Missing COMPOSIO_API_KEY environment variable")
+
     if not os.path.exists(TEMP_DIR):
         os.makedirs(TEMP_DIR)
 

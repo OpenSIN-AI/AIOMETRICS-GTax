@@ -1,7 +1,8 @@
 import requests
+import os
 
 # Composio config
-COMPOSIO_API_KEY = "ak_d7C_5oCKr5NS0gDyANN-"
+COMPOSIO_API_KEY = os.environ.get("COMPOSIO_API_KEY", "").strip()
 DRIVE_FOLDER_ID = "1xoOfpTUwxMa_pIHoP71aCDH0Eb03tzyf"
 GOOGLE_CREDENTIALS_PATH = "/Users/jeremy/dev/Meine-Google-Credentials/credentials.json"
 
@@ -35,6 +36,9 @@ def execute_action(action, params, account_id):
     return resp.json()
 
 def main():
+    if not COMPOSIO_API_KEY:
+        raise SystemExit("Missing COMPOSIO_API_KEY environment variable")
+
     accounts = get_gmail_accounts()
     print(f"Found {len(accounts)} active Gmail accounts in Composio.")
 
