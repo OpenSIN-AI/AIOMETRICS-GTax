@@ -1,6 +1,6 @@
 # AUDIT 2023 STRICT
 
-- Zeitstempel: 2026-02-25T19:07:03.424Z
+- Zeitstempel: 2026-02-25T19:49:32.663Z
 - Spreadsheet: https://docs.google.com/spreadsheets/d/1z-13LMaXRsDbtJFkujGJIwxVHyUgsBwM9W-LNlGg9-o
 - Einnahmen Folder: 1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge
 - Ausgaben Folder: 1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH
