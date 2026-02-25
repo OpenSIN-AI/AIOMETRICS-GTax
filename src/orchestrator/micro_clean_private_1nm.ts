@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { google, drive_v3 } from 'googleapis';
 import { JWT } from 'google-auth-library';
+import { withPipelineLock } from './pipeline_lock.js';
 
 const SOURCE_FOLDER_ID = '1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH'; // Ausgaben_2023
 const PRIVATE_FOLDER_ID = '1Mt2Ojg_pgxwVh8jRJfhVE389KFTjEJqe'; // Private Belege
@@ -167,7 +168,7 @@ async function main(): Promise<void> {
   }, null, 2));
 }
 
-main().catch((e) => {
+withPipelineLock('micro_clean_private_1nm', main).catch((e) => {
   console.error(e);
   process.exit(1);
 });

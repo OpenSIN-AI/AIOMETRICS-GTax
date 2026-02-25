@@ -9,9 +9,34 @@ BUDGET_MS="${MICRO_LANE_BUDGET_MS:-170000}"
 
 echo "[micro-lane-swarm] start interval=${INTERVAL_SEC}s budget_ms=${BUDGET_MS}"
 
-if [ ! -f dist-micro/orchestrator/micio_scheduler.js ] || [ ! -f dist-micro/orchestrator/zio_guard_worker.js ] || [ ! -f dist-micro/orchestrator/aiometrics_worker.js ]; then
+required_files=(
+  "dist-micro/orchestrator/micio_scheduler.js"
+  "dist-micro/orchestrator/zio_guard_worker.js"
+  "dist-micro/orchestrator/aiometrics_worker.js"
+  "dist-micro/orchestrator/micro_sync_drive_changes.js"
+  "dist-micro/orchestrator/micro_enrich_buchhaltung_db.js"
+  "dist-micro/orchestrator/micro_tax_category_assign.js"
+  "dist-micro/orchestrator/micro_konto_assign.js"
+  "dist-micro/orchestrator/micro_sheet_formula_guard.js"
+  "dist-micro/orchestrator/micro_ocr_audit_1nm.js"
+  "dist-micro/orchestrator/micro_local_118_tesseract_filter.js"
+  "dist-micro/orchestrator/check_2023_integrity.js"
+  "dist-micro/orchestrator/audit_2023_strict.js"
+)
+
+missing=0
+for f in "${required_files[@]}"; do
+  if [ ! -f "${f}" ]; then
+    missing=1
+    break
+  fi
+done
+
+if [ "${missing}" -eq 1 ]; then
   npm run -s build
 fi
+
+mkdir -p logs
 
 while true; do
   echo "[micro-lane-swarm] tick $(date -u +"%Y-%m-%dT%H:%M:%SZ")"

@@ -8,6 +8,7 @@ import { google, drive_v3 } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { createWorker, Worker } from 'tesseract.js';
 import { RUNTIME_POLICY, envInt } from './shared/runtime_policy.js';
+import { withPipelineLock } from './pipeline_lock.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -376,7 +377,7 @@ async function main(): Promise<void> {
   }, null, 2));
 }
 
-main().finally(async () => {
+withPipelineLock('micro_ocr_audit_1nm', main).finally(async () => {
   if (tesseractWorker) {
     try {
       await tesseractWorker.terminate();

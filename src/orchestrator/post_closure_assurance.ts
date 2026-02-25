@@ -18,6 +18,9 @@ type FinalAcceptanceKpis = {
   qaAccuracy: number;
   criticalQaIssues: number;
   idempotencyPass: boolean;
+  dashboardFormulaDriftCount: number;
+  dashboardValueDriftCount: number;
+  bidirectionalDriftIncidents: number;
 };
 
 type FinalAcceptanceStage = {
@@ -52,6 +55,13 @@ type FinalAcceptanceReport = {
   hardFailReasons: string[];
   yearlyGateStatus: YearlyGateStatus[];
   governanceFindings: GovernanceFinding[];
+  contractSync?: {
+    gates?: {
+      gateA?: { pass?: boolean };
+      gateB?: { pass?: boolean };
+      gateC?: { pass?: boolean; formulaDriftCount?: number; valueDriftCount?: number };
+    };
+  };
   after: {
     records: number;
     categories: Record<string, number>;
@@ -295,6 +305,23 @@ function ensureDirStructure(): void {
   }
 }
 
+function normalizeKpis(raw: Partial<FinalAcceptanceKpis> | undefined): FinalAcceptanceKpis {
+  return {
+    totalDriveOnly: Number(raw?.totalDriveOnly || 0),
+    totalSheetOnly: Number(raw?.totalSheetOnly || 0),
+    totalDuplicateIds: Number(raw?.totalDuplicateIds || 0),
+    forbiddenMarkerHits: Number(raw?.forbiddenMarkerHits || 0),
+    qaSampleSize: Number(raw?.qaSampleSize || 0),
+    qaSampleCriticalPassed: Number(raw?.qaSampleCriticalPassed || 0),
+    qaAccuracy: Number(raw?.qaAccuracy || 0),
+    criticalQaIssues: Number(raw?.criticalQaIssues || 0),
+    idempotencyPass: Boolean(raw?.idempotencyPass),
+    dashboardFormulaDriftCount: Number(raw?.dashboardFormulaDriftCount || 0),
+    dashboardValueDriftCount: Number(raw?.dashboardValueDriftCount || 0),
+    bidirectionalDriftIncidents: Number(raw?.bidirectionalDriftIncidents || 0)
+  };
+}
+
 function parseHistory(): AssuranceHistoryEntry[] {
   if (!fs.existsSync(HISTORY_PATH)) return [];
   const rows = fs
@@ -313,7 +340,7 @@ function parseHistory(): AssuranceHistoryEntry[] {
         reportTimestamp: parsed.reportTimestamp || parsed.timestamp,
         runId: parsed.runId,
         done: parsed.done,
-        kpis: parsed.kpis as FinalAcceptanceKpis,
+        kpis: normalizeKpis(parsed.kpis),
         categories: parsed.categories || {},
         yearCounters: parsed.yearCounters || {},
         hardFailReasons: parsed.hardFailReasons || [],
@@ -359,7 +386,8 @@ function classifyAlerts(report: FinalAcceptanceReport): AssuranceAlertKind[] {
   if (
     report.kpis.totalDriveOnly > 0 ||
     report.kpis.totalSheetOnly > 0 ||
-    report.kpis.totalDuplicateIds > 0
+    report.kpis.totalDuplicateIds > 0 ||
+    report.kpis.bidirectionalDriftIncidents > 0
   ) {
     kinds.add('drive_drift');
   }
@@ -367,7 +395,9 @@ function classifyAlerts(report: FinalAcceptanceReport): AssuranceAlertKind[] {
   if (
     report.kpis.qaAccuracy < 0.99 ||
     report.kpis.criticalQaIssues > 0 ||
-    report.kpis.forbiddenMarkerHits > 0
+    report.kpis.forbiddenMarkerHits > 0 ||
+    report.kpis.dashboardFormulaDriftCount > 0 ||
+    report.kpis.dashboardValueDriftCount > 0
   ) {
     kinds.add('parser_drift');
   }
@@ -581,6 +611,9 @@ function writeDailyKpi(report: FinalAcceptanceReport): string {
   lines.push(`- qaAccuracy: ${(report.kpis.qaAccuracy * 100).toFixed(2)}%`);
   lines.push(`- criticalQaIssues: ${report.kpis.criticalQaIssues}`);
   lines.push(`- idempotencyPass: ${report.kpis.idempotencyPass}`);
+  lines.push(`- dashboardFormulaDriftCount: ${report.kpis.dashboardFormulaDriftCount}`);
+  lines.push(`- dashboardValueDriftCount: ${report.kpis.dashboardValueDriftCount}`);
+  lines.push(`- bidirectionalDriftIncidents: ${report.kpis.bidirectionalDriftIncidents}`);
   lines.push('');
   lines.push('## Categories');
   lines.push('');
@@ -1249,6 +1282,9 @@ function writeFinalCertification(params: {
   lines.push(`- qaAccuracy: ${(params.report.kpis.qaAccuracy * 100).toFixed(2)}%`);
   lines.push(`- criticalQaIssues: ${params.report.kpis.criticalQaIssues}`);
   lines.push(`- idempotencyPass: ${params.report.kpis.idempotencyPass}`);
+  lines.push(`- dashboardFormulaDriftCount: ${params.report.kpis.dashboardFormulaDriftCount}`);
+  lines.push(`- dashboardValueDriftCount: ${params.report.kpis.dashboardValueDriftCount}`);
+  lines.push(`- bidirectionalDriftIncidents: ${params.report.kpis.bidirectionalDriftIncidents}`);
   lines.push('');
   lines.push('## Manual QA Coverage');
   lines.push('');
@@ -1338,12 +1374,14 @@ async function main(): Promise<void> {
   if (!report) {
     throw new Error(`Missing final acceptance report: ${FINAL_REPORT_PATH}`);
   }
+  report.kpis = normalizeKpis(report.kpis);
 
   const contractKeys = [
     'done',
     'kpis',
     'scopeYears',
     'yearlyGateStatus',
+    'contractSync',
     'criticalQaIssues',
     'governanceFindings',
     'hardFailReasons',

@@ -74,6 +74,11 @@ export interface SheetGovernanceResult {
   requiredTabs: string[];
   presentTabs: string[];
   findings: SheetGovernanceFinding[];
+  dashboardGate?: {
+    ok: boolean;
+    formulaDriftCount: number;
+    valueDriftCount: number;
+  };
 }
 
 export interface AuditSchemaMigrationResult {

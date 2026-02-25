@@ -4,6 +4,7 @@ import * as path from 'path';
 import { randomUUID } from 'crypto';
 import { google, drive_v3 } from 'googleapis';
 import { JWT } from 'google-auth-library';
+import { withPipelineLock } from './pipeline_lock.js';
 
 interface SyncState {
   pageToken: string;
@@ -477,7 +478,7 @@ async function main(): Promise<void> {
   });
 }
 
-main().catch((e) => {
+withPipelineLock('micro_sync_drive_changes', main).catch((e) => {
   eventLog('run_error', {
     error: e instanceof Error ? e.message : String(e)
   });

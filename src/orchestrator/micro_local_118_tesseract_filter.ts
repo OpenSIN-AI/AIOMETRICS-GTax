@@ -7,6 +7,7 @@ import { promisify } from 'util';
 import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { createWorker, Worker } from 'tesseract.js';
+import { withPipelineLock } from './pipeline_lock.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -366,7 +367,7 @@ async function main(): Promise<void> {
   }, null, 2));
 }
 
-main().finally(async () => {
+withPipelineLock('micro_local_118_tesseract_filter', main).finally(async () => {
   if (ocrWorker) {
     try {
       await ocrWorker.terminate();

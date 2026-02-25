@@ -107,6 +107,15 @@ type LoopStatus = {
   doneCandidate: boolean;
 };
 
+type ContractSyncReport = {
+  gates: {
+    gateA: { pass: boolean };
+    gateB: { pass: boolean };
+    gateC: { pass: boolean; formulaDriftCount: number; valueDriftCount: number };
+  };
+  status: 'green' | 'red';
+};
+
 const DUPLICATE_FOLDER_ID = '1n750UVJdcNSV-1Uo0vjKv2gAtS8jegfz';
 const MISSING_FOLDER_ID = '1mvZzo7eCeyThITWSuZf0UHsB4KYt7MNy';
 const DEFAULT_ACCOUNTING_ROOT = process.env.ACCOUNTING_ROOT_FOLDER_ID || '1azt2ULJv8_iJGWdNbQfWv0Jd1AY7XR1p';
@@ -188,11 +197,31 @@ async function runCommand(command: string, args: string[], extraEnv: Record<stri
   });
 }
 
-async function runNodeScript(scriptPath: string, extraEnv: Record<string, string> = {}): Promise<void> {
-  await runCommand(process.execPath, [scriptPath], {
+function resolveOrchestratorScriptPath(scriptName: string): string[] {
+  const distPath = path.join(process.cwd(), 'dist', 'orchestrator', `${scriptName}.js`);
+  if (fs.existsSync(distPath)) {
+    return [distPath];
+  }
+  return ['--import', 'tsx', `src/orchestrator/${scriptName}.ts`];
+}
+
+async function runOrchestratorScript(scriptName: string, extraEnv: Record<string, string> = {}): Promise<void> {
+  await runCommand(process.execPath, resolveOrchestratorScriptPath(scriptName), {
     ...extraEnv,
     PIPELINE_LOCK_BYPASS: '1'
   });
+}
+
+function readContractSyncReport(): ContractSyncReport | null {
+  const reportPath = path.join(process.cwd(), 'docs', 'CONTRACT_SYNC_GUARD.json');
+  if (!fs.existsSync(reportPath)) {
+    return null;
+  }
+  try {
+    return JSON.parse(fs.readFileSync(reportPath, 'utf8')) as ContractSyncReport;
+  } catch {
+    return null;
+  }
 }
 
 function isValidYear(year: string): boolean {
@@ -1096,7 +1125,6 @@ async function main() {
     }
   ]);
 
-  const distRoot = path.join(process.cwd(), 'dist', 'orchestrator');
   const stageResults: StageResult[] = [];
   const loopHistory: LoopStatus[] = [];
 
@@ -1131,15 +1159,15 @@ async function main() {
 
   for (let loop = 1; loop <= maxLoops; loop++) {
     canRun = await runStage(stageResults, `start_sync#${loop}`, async () => {
-      await runNodeScript(path.join(distRoot, 'main.js'));
+      await runOrchestratorScript('main');
     }, canRun);
 
     canRun = await runStage(stageResults, `soft_audit#${loop}`, async () => {
-      await runNodeScript(path.join(distRoot, 'soft_audit.js'), { AUDIT_LEVEL: 'soft' });
+      await runOrchestratorScript('soft_audit', { AUDIT_LEVEL: 'soft' });
     }, canRun);
 
     canRun = await runStage(stageResults, `integrity_check#${loop}`, async () => {
-      await runNodeScript(path.join(distRoot, 'check_2023_integrity.js'), { CHECK_YEARS: scopeYears.join(',') });
+      await runOrchestratorScript('check_2023_integrity', { CHECK_YEARS: scopeYears.join(',') });
       integritySummary = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'docs', 'CHECK_DRIVE_SHEETS_SYNC.json'), 'utf8'));
       yearlyGateStatus = computeYearlyGateStatus(integritySummary);
     }, canRun);
@@ -1164,7 +1192,7 @@ async function main() {
     }, canRun);
 
     canRun = await runStage(stageResults, `quality_check#${loop}`, async () => {
-      await runNodeScript(path.join(distRoot, 'check_2023_integrity.js'), { CHECK_YEARS: scopeYears.join(',') });
+      await runOrchestratorScript('check_2023_integrity', { CHECK_YEARS: scopeYears.join(',') });
       integritySummary = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'docs', 'CHECK_DRIVE_SHEETS_SYNC.json'), 'utf8'));
       yearlyGateStatus = computeYearlyGateStatus(integritySummary);
 
@@ -1174,14 +1202,30 @@ async function main() {
       afterSnapshot = await collectSnapshot(sheetsApi, spreadsheetId);
     }, canRun);
 
+    canRun = await runStage(stageResults, `contract_sync_guard#${loop}`, async () => {
+      await runOrchestratorScript('contract_sync_guard', { CONTRACT_SCOPE_YEARS: scopeYears.join(',') });
+      const contract = readContractSyncReport();
+      if (!contract) {
+        throw new Error('Missing contract_sync_guard report');
+      }
+    }, canRun);
+
     canRun = await runStage(stageResults, `governance_check#${loop}`, async () => {
       governance = await sheetsService.checkSheetGovernance(scopeYears);
+      const contract = readContractSyncReport();
+      if (contract) {
+        governance.dashboardGate = {
+          ok: contract.gates.gateC.pass,
+          formulaDriftCount: contract.gates.gateC.formulaDriftCount,
+          valueDriftCount: contract.gates.gateC.valueDriftCount
+        };
+      }
     }, canRun);
 
     canRun = await runStage(stageResults, `idempotency_check#${loop}`, async () => {
       idempotency.firstRunId = await sheetsService.getLatestReconcileRunId();
       const auditBefore = await sheetsService.getAuditMutationCount();
-      await runNodeScript(path.join(distRoot, 'main.js'), { SYNC_ONLY: '1' });
+      await runOrchestratorScript('main', { SYNC_ONLY: '1' });
       idempotency.secondRunId = await sheetsService.getLatestReconcileRunId();
       const auditAfter = await sheetsService.getAuditMutationCount();
       idempotency.secondRunMutations = Math.max(0, auditAfter - auditBefore);
@@ -1193,6 +1237,12 @@ async function main() {
     }, canRun);
 
     const mismatchTotal = yearlyGateStatus.reduce((sum, item) => sum + item.driveOnly + item.sheetOnly + item.duplicateDriveIds, 0);
+    const contractSyncReport: ContractSyncReport | null = readContractSyncReport();
+    const contractPass = Boolean(
+      contractSyncReport?.gates?.gateA?.pass &&
+      contractSyncReport?.gates?.gateB?.pass &&
+      contractSyncReport?.gates?.gateC?.pass
+    );
     const doneCandidate =
       mismatchTotal === 0 &&
       afterSnapshot.forbiddenMarkerHits === 0 &&
@@ -1200,7 +1250,8 @@ async function main() {
       qa.criticalQaIssues === 0 &&
       governance.ok &&
       governance.findings.filter((f) => f.severity === 'CRITICAL').length === 0 &&
-      idempotency.pass;
+      idempotency.pass &&
+      contractPass;
     loopHistory.push({ iteration: loop, mismatchTotal, doneCandidate });
 
     if (doneCandidate || !canRun) {
@@ -1233,9 +1284,16 @@ async function main() {
   }
 
   await runStage(stageResults, 'final_report', async () => {
+    const contractSyncReport: ContractSyncReport | null = readContractSyncReport();
     const totalDriveOnly = yearlyGateStatus.reduce((sum, item) => sum + item.driveOnly, 0);
     const totalSheetOnly = yearlyGateStatus.reduce((sum, item) => sum + item.sheetOnly, 0);
     const totalDuplicateIds = yearlyGateStatus.reduce((sum, item) => sum + item.duplicateDriveIds, 0);
+    const contractGateA = Boolean(contractSyncReport?.gates?.gateA?.pass);
+    const contractGateB = Boolean(contractSyncReport?.gates?.gateB?.pass);
+    const contractGateC = Boolean(contractSyncReport?.gates?.gateC?.pass);
+    const dashboardFormulaDriftCount = Number(contractSyncReport?.gates?.gateC?.formulaDriftCount || 0);
+    const dashboardValueDriftCount = Number(contractSyncReport?.gates?.gateC?.valueDriftCount || 0);
+    const bidirectionalDriftIncidents = (contractGateA ? 0 : 1) + (contractGateB ? 0 : 1);
 
     const hardFailReasons: string[] = [];
     for (const stage of stageResults) {
@@ -1252,6 +1310,10 @@ async function main() {
     const criticalGovernance = governance.findings.filter((f) => f.severity === 'CRITICAL');
     if (criticalGovernance.length > 0) hardFailReasons.push('GOVERNANCE_CRITICAL_FINDINGS');
     if (!idempotency.pass) hardFailReasons.push('IDEMPOTENCY_FAILED');
+    if (!contractSyncReport) hardFailReasons.push('CONTRACT_SYNC_REPORT_MISSING');
+    if (!contractGateA || !contractGateB || !contractGateC) hardFailReasons.push('CONTRACT_SYNC_GATE_FAILED');
+    if (dashboardFormulaDriftCount > 0) hardFailReasons.push('DASHBOARD_FORMULA_DRIFT');
+    if (dashboardValueDriftCount > 0) hardFailReasons.push('DASHBOARD_VALUE_DRIFT');
     if (nonImprovingRuns >= 2 && fs.existsSync(unresolvedPath)) hardFailReasons.push('NO_IMPROVEMENT_ESCALATION');
 
     const done = hardFailReasons.length === 0;
@@ -1272,10 +1334,14 @@ async function main() {
         qaSampleCriticalPassed: qa.criticalPassed,
         qaAccuracy: qa.accuracy,
         criticalQaIssues: qa.criticalQaIssues,
-        idempotencyPass: idempotency.pass
+        idempotencyPass: idempotency.pass,
+        dashboardFormulaDriftCount,
+        dashboardValueDriftCount,
+        bidirectionalDriftIncidents
       },
       yearlyGateStatus,
       governanceFindings: governance.findings,
+      contractSync: contractSyncReport,
       criticalQaIssues: qa.criticalQaIssues,
       qaIssues: qa.issues,
       auditSchemaMigration,
@@ -1311,6 +1377,12 @@ async function main() {
     md.push(`- qa_accuracy_critical: ${(qa.accuracy * 100).toFixed(2)}% (${qa.criticalPassed}/${qa.total})`);
     md.push(`- critical_qa_issues: ${qa.criticalQaIssues}`);
     md.push(`- idempotency_pass: ${idempotency.pass}`);
+    md.push(`- dashboard_formula_drift_count: ${dashboardFormulaDriftCount}`);
+    md.push(`- dashboard_value_drift_count: ${dashboardValueDriftCount}`);
+    md.push(`- bidirectional_drift_incidents: ${bidirectionalDriftIncidents}`);
+    md.push(`- contract_gate_A: ${contractGateA}`);
+    md.push(`- contract_gate_B: ${contractGateB}`);
+    md.push(`- contract_gate_C: ${contractGateC}`);
     md.push('');
     md.push('## Hard Fail Reasons');
     md.push('');

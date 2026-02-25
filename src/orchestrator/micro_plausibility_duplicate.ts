@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
+import { withPipelineLock } from './pipeline_lock.js';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const YEAR = process.env.AUDIT_YEAR || '2023';
@@ -180,8 +181,7 @@ async function main(): Promise<void> {
   }, null, 2));
 }
 
-main().catch((e) => {
+withPipelineLock('micro_plausibility_duplicate', main).catch((e) => {
   console.error(e);
   process.exit(1);
 });
-

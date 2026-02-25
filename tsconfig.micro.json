@@ -8,7 +8,8 @@
     "src/orchestrator/zio_guard_worker.ts",
     "src/orchestrator/micio_scheduler.ts",
     "src/orchestrator/aiometrics_worker.ts",
-    "src/orchestrator/audit_2023_strict.ts"
+    "src/orchestrator/audit_2023_strict.ts",
+    "src/orchestrator/check_2023_integrity.ts"
   ],
   "exclude": [
     "node_modules",
