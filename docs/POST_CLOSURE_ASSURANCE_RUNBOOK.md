@@ -35,6 +35,7 @@ npm run post-closure-assurance
 11. Writes rolling final certification report (`FINAL_7D_CERTIFICATION_*`).
 12. Emits incident artifacts on failed runs and blocker artifacts after 2 consecutive failed runs.
 13. Writes alert file with status `OK` or `ALERT`.
+14. Enforces monotonic clock semantics (`period_end >= period_start`) and emits `clockConsistencyOk`.
 
 ## Outputs
 - `docs/assurance/ASSURANCE_ALERT.json`
@@ -62,6 +63,7 @@ npm run post-closure-assurance
 
 ## Stability window semantics
 - Window start is fixed to the latest green acceptance run when the window is initialized.
+- Runner timestamps are captured after acceptance and normalized so `period_end` never precedes `period_start`.
 - `stabilityWindow.pass` is true only when the window status is `completed`.
 - Completion requires all of the following:
 - full time coverage of the configured window (default `7` days)
@@ -71,6 +73,7 @@ npm run post-closure-assurance
 - If any failed run occurs in the window, status becomes `broken`.
 - Alert escalation:
 - `status=ALERT` if latest run is red OR window has failed runs OR definition/scope drift is detected.
+- `status=ALERT` also if `clockConsistencyOk=false`.
 - 2 consecutive red runs create `BLOCKER_*` artifacts.
 
 ## Environment knobs

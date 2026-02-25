@@ -1158,6 +1158,7 @@ function writeExecSignoff(params: {
   metrics: WindowMetrics;
   reviewSummary: ReviewSummary;
   blockerActive: boolean;
+  clockConsistencyOk: boolean;
 }): ExecSignoff {
   const existing = readJsonIfExists<Partial<ExecSignoff>>(EXEC_SIGNOFF_PATH);
 
@@ -1171,6 +1172,7 @@ function writeExecSignoff(params: {
   if (params.reviewSummary.weekly.completed < params.reviewSummary.weekly.expected) reasons.push('weekly_review_incomplete');
   if (params.reviewSummary.criticalMismatches > 0) reasons.push('critical_manual_mismatches_present');
   if (params.blockerActive) reasons.push('blocked_after_two_consecutive_failed_runs');
+  if (!params.clockConsistencyOk) reasons.push('clock_consistency_violation');
 
   const decision: 'approved' | 'blocked' = reasons.length === 0 ? 'approved' : 'blocked';
 
@@ -1275,6 +1277,33 @@ function saveWindowState(state: AssuranceWindowState): void {
   writeJson(WINDOW_STATE_PATH, state);
 }
 
+function normalizeNowIso(periodStartIso: string, nowIso: string): {
+  effectiveNowIso: string;
+  clockConsistencyOk: boolean;
+} {
+  const periodStartMs = Date.parse(periodStartIso);
+  const nowMs = Date.parse(nowIso);
+
+  if (!Number.isFinite(periodStartMs) || !Number.isFinite(nowMs)) {
+    return {
+      effectiveNowIso: nowIso,
+      clockConsistencyOk: false
+    };
+  }
+
+  if (nowMs >= periodStartMs) {
+    return {
+      effectiveNowIso: nowIso,
+      clockConsistencyOk: true
+    };
+  }
+
+  return {
+    effectiveNowIso: periodStartIso,
+    clockConsistencyOk: false
+  };
+}
+
 function hasBlockerSince(periodStartIso: string): boolean {
   if (!fs.existsSync(INCIDENT_DIR)) return false;
   const periodStartMs = Date.parse(periodStartIso);
@@ -1297,7 +1326,6 @@ function hasBlockerSince(periodStartIso: string): boolean {
 async function main(): Promise<void> {
   ensureDirStructure();
 
-  const nowIso = new Date().toISOString();
   const runAcceptance = process.env.ASSURANCE_SKIP_ACCEPTANCE !== '1';
   if (runAcceptance) {
     await runCommand('npm', ['run', 'final-acceptance'], {
@@ -1330,15 +1358,19 @@ async function main(): Promise<void> {
   const history = parseHistory();
   const definitionFingerprint = computeDefinitionFingerprint();
   const daysTarget = Math.max(1, Number.parseInt(process.env.ASSURANCE_STABILITY_WINDOW_DAYS || '7', 10));
+  const nowIso = new Date().toISOString();
 
   const windowState = loadOrCreateWindowState(history, report, nowIso, daysTarget, definitionFingerprint);
+  const normalizedClock = normalizeNowIso(windowState.periodStart, nowIso);
+  const effectiveNowIso = normalizedClock.effectiveNowIso;
+  const clockConsistencyOk = normalizedClock.clockConsistencyOk;
 
   const dailyKpiPath = writeDailyKpi(report);
-  const samples = await writeSamplingArtifacts(nowIso);
-  const day = isoDate(nowIso);
-  const week = toIsoWeek(nowIso);
-  const dailyReviewPath = ensureDailyReviewTemplate(day, samples.dailySamplePath, nowIso);
-  const weeklyReviewPath = ensureWeeklyReviewTemplate(week, samples.weeklySamplePath, nowIso);
+  const samples = await writeSamplingArtifacts(effectiveNowIso);
+  const day = isoDate(effectiveNowIso);
+  const week = toIsoWeek(effectiveNowIso);
+  const dailyReviewPath = ensureDailyReviewTemplate(day, samples.dailySamplePath, effectiveNowIso);
+  const weeklyReviewPath = ensureWeeklyReviewTemplate(week, samples.weeklySamplePath, effectiveNowIso);
 
   let alertKinds = classifyAlerts(report);
   if (windowState.definitionChanged && !alertKinds.includes('schema')) {
@@ -1347,13 +1379,16 @@ async function main(): Promise<void> {
   if (windowState.scopeChanged && !alertKinds.includes('drive_drift')) {
     alertKinds = [...alertKinds, 'drive_drift'];
   }
+  if (!clockConsistencyOk && !alertKinds.includes('schema')) {
+    alertKinds = [...alertKinds, 'schema'];
+  }
 
   let incidentPath: string | null = null;
   let blockerPath: string | null = null;
   let incidentBranch: string | null = null;
 
   const currentEntry: AssuranceHistoryEntry = {
-    timestamp: nowIso,
+    timestamp: effectiveNowIso,
     reportTimestamp: report.timestamp,
     runId: report.runId,
     done: report.done,
@@ -1367,23 +1402,24 @@ async function main(): Promise<void> {
   };
 
   const historyWithCurrent = [...history, currentEntry].sort((a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp));
-  const metrics = computeWindowMetrics(windowState, historyWithCurrent, nowIso);
+  const metrics = computeWindowMetrics(windowState, historyWithCurrent, effectiveNowIso);
 
   const isOperationalRed =
     !report.done ||
     metrics.failedRuns > 0 ||
     windowState.definitionChanged ||
-    windowState.scopeChanged;
+    windowState.scopeChanged ||
+    !clockConsistencyOk;
 
-  if (metrics.failedRuns > 0 || windowState.definitionChanged || windowState.scopeChanged) {
+  if (metrics.failedRuns > 0 || windowState.definitionChanged || windowState.scopeChanged || !clockConsistencyOk) {
     windowState.status = 'broken';
   }
 
   if (metrics.passTechnicalWindow && windowState.status === 'active') {
     windowState.status = 'completed';
-    windowState.completedAt = nowIso;
+    windowState.completedAt = effectiveNowIso;
   }
-  windowState.updatedAt = nowIso;
+  windowState.updatedAt = effectiveNowIso;
   saveWindowState(windowState);
 
   if (isOperationalRed) {
@@ -1397,22 +1433,23 @@ async function main(): Promise<void> {
     blockerPath = blocker.jsonPath;
   }
 
-  const reviewSummary = summarizeReviews(windowState.periodStart, nowIso);
+  const reviewSummary = summarizeReviews(windowState.periodStart, effectiveNowIso);
 
   const blockerActiveInWindow = blockerPath !== null || hasBlockerSince(windowState.periodStart);
 
   const execSignoff = writeExecSignoff({
     state: windowState,
-    nowIso,
+    nowIso: effectiveNowIso,
     report,
     metrics,
     reviewSummary,
-    blockerActive: blockerActiveInWindow
+    blockerActive: blockerActiveInWindow,
+    clockConsistencyOk
   });
 
-  const weeklyTrend = buildWeeklyTrend(historyWithCurrent, nowIso);
+  const weeklyTrend = buildWeeklyTrend(historyWithCurrent, effectiveNowIso);
   const certification = writeFinalCertification({
-    nowIso,
+    nowIso: effectiveNowIso,
     state: windowState,
     report,
     metrics,
@@ -1422,9 +1459,10 @@ async function main(): Promise<void> {
   });
 
   const alertPayload = {
-    timestamp: nowIso,
+    timestamp: effectiveNowIso,
     runId: report.runId,
     status: isOperationalRed ? 'ALERT' : 'OK',
+    clockConsistencyOk,
     alertKinds,
     hardFailReasons: report.hardFailReasons,
     kpis: report.kpis,
@@ -1440,9 +1478,14 @@ async function main(): Promise<void> {
       fullWindowCovered: metrics.fullWindowCovered,
       definitionChanged: windowState.definitionChanged,
       scopeChanged: windowState.scopeChanged,
+      clockConsistencyOk,
       status: windowState.status,
       pass: windowState.status === 'completed',
-      passWithoutCoverage: metrics.failedRuns === 0 && !windowState.definitionChanged && !windowState.scopeChanged
+      passWithoutCoverage:
+        metrics.failedRuns === 0 &&
+        !windowState.definitionChanged &&
+        !windowState.scopeChanged &&
+        clockConsistencyOk
     },
     operationalClosure: {
       decision: execSignoff.decision,

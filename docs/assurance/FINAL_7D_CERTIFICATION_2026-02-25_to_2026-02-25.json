@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-02-25T04:58:07.886Z",
-  "period_start": "2026-02-25T05:08:34.240Z",
-  "period_end": "2026-02-25T04:58:07.886Z",
+  "generatedAt": "2026-02-25T05:34:51.900Z",
+  "period_start": "2026-02-25T05:34:51.827Z",
+  "period_end": "2026-02-25T05:34:51.900Z",
   "windowStatus": "active",
   "daysTarget": 7,
   "coverageHours": 0,
   "fullWindowCovered": false,
   "technicalGreenLatestRun": true,
-  "latestRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "latestRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
   "latestKpis": {
     "totalDriveOnly": 0,
     "totalSheetOnly": 0,
@@ -38,8 +38,8 @@
     "criticalMismatches": 0
   },
   "execSignoff": {
-    "period_start": "2026-02-25T05:08:34.240Z",
-    "period_end": "2026-02-25T04:58:07.886Z",
+    "period_start": "2026-02-25T05:34:51.827Z",
+    "period_end": "2026-02-25T05:34:51.900Z",
     "reviewer_primary": "UNASSIGNED_PRIMARY",
     "reviewer_secondary": "UNASSIGNED_SECONDARY",
     "daily_samples_reviewed": 0,
@@ -51,7 +51,7 @@
       "daily_review_incomplete",
       "weekly_review_incomplete"
     ],
-    "generated_at": "2026-02-25T04:58:07.886Z"
+    "generated_at": "2026-02-25T05:34:51.900Z"
   },
   "operationalClosureApproved": false
 }

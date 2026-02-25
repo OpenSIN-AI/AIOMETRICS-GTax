@@ -1,11 +1,11 @@
 # Weekly Trend 2026-W09
 
-- generatedAt: 2026-02-25T04:58:07.886Z
-- runsInWindow: 1
+- generatedAt: 2026-02-25T05:34:51.900Z
+- runsInWindow: 2
 - failRuns: 0
 - passRate: 100.00%
 - fromRunId: 8f7c541b-e92b-4b12-9736-8a9e35ebadcf
-- toRunId: 8f7c541b-e92b-4b12-9736-8a9e35ebadcf
+- toRunId: cc6fb510-bf58-4c88-983b-b40c5de1ea39
 
 ## KPI Delta
 

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-25T05:08:34.240Z",
-  "runId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "timestamp": "2026-02-25T05:34:51.827Z",
+  "runId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
   "scopeYears": [
     "2000",
     "2004",
@@ -25,58 +25,58 @@
     {
       "stage": "build",
       "ok": true,
-      "startedAt": "2026-02-25T04:59:06.663Z",
-      "finishedAt": "2026-02-25T05:01:00.283Z",
-      "durationMs": 113621
+      "startedAt": "2026-02-25T05:26:39.904Z",
+      "finishedAt": "2026-02-25T05:27:31.576Z",
+      "durationMs": 51672
     },
     {
       "stage": "start_sync#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:01:00.284Z",
-      "finishedAt": "2026-02-25T05:03:47.989Z",
-      "durationMs": 167705
+      "startedAt": "2026-02-25T05:27:31.576Z",
+      "finishedAt": "2026-02-25T05:30:00.411Z",
+      "durationMs": 148835
     },
     {
       "stage": "soft_audit#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:03:47.990Z",
-      "finishedAt": "2026-02-25T05:04:52.515Z",
-      "durationMs": 64525
+      "startedAt": "2026-02-25T05:30:00.411Z",
+      "finishedAt": "2026-02-25T05:31:11.050Z",
+      "durationMs": 70639
     },
     {
       "stage": "integrity_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:04:52.515Z",
-      "finishedAt": "2026-02-25T05:05:09.184Z",
-      "durationMs": 16669
+      "startedAt": "2026-02-25T05:31:11.050Z",
+      "finishedAt": "2026-02-25T05:31:30.317Z",
+      "durationMs": 19267
     },
     {
       "stage": "mismatch_resolve#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:05:09.184Z",
-      "finishedAt": "2026-02-25T05:06:13.679Z",
-      "durationMs": 64495
+      "startedAt": "2026-02-25T05:31:30.317Z",
+      "finishedAt": "2026-02-25T05:32:35.847Z",
+      "durationMs": 65530
     },
     {
       "stage": "quality_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:06:13.679Z",
-      "finishedAt": "2026-02-25T05:06:40.968Z",
-      "durationMs": 27289
+      "startedAt": "2026-02-25T05:32:35.847Z",
+      "finishedAt": "2026-02-25T05:33:02.599Z",
+      "durationMs": 26752
     },
     {
       "stage": "governance_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:06:40.968Z",
-      "finishedAt": "2026-02-25T05:06:44.827Z",
-      "durationMs": 3859
+      "startedAt": "2026-02-25T05:33:02.599Z",
+      "finishedAt": "2026-02-25T05:33:05.878Z",
+      "durationMs": 3279
     },
     {
       "stage": "idempotency_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:06:44.827Z",
-      "finishedAt": "2026-02-25T05:08:34.239Z",
-      "durationMs": 109413
+      "startedAt": "2026-02-25T05:33:05.878Z",
+      "finishedAt": "2026-02-25T05:34:51.826Z",
+      "durationMs": 105948
     }
   ],
   "baseline": {
@@ -798,7 +798,7 @@
   },
   "hardFailReasons": [],
   "integrity": {
-    "timestamp": "2026-02-25T05:06:32.051Z",
+    "timestamp": "2026-02-25T05:32:53.535Z",
     "years": [
       "2000",
       "2004",
@@ -1024,12 +1024,12 @@
     }
   },
   "idempotency": {
-    "firstRunId": "b9e3eaba-1580-4784-9d0f-2aa3d30374ed",
-    "secondRunId": "06b9cfa4-cbe1-45b7-9e51-5784ca1e106c",
+    "firstRunId": "169ac34a-b6a0-4963-9b01-d711f74335ca",
+    "secondRunId": "124a148c-c44e-4f15-a483-48b2929e0b6c",
     "secondRunMutations": 0,
     "pass": true
   },
-  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_8f7c541b-e92b-4b12-9736-8a9e35ebadcf.json",
+  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_cc6fb510-bf58-4c88-983b-b40c5de1ea39.json",
   "loopHistory": [
     {
       "iteration": 1,

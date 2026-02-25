@@ -1,6 +1,6 @@
 # Letzter Konsistenzcheck (Drive vs Sheets)
 
-- Zeitstempel: 2026-02-25T05:06:32.039Z
+- Zeitstempel: 2026-02-25T05:32:53.531Z
 - Spreadsheet: https://docs.google.com/spreadsheets/d/1z-13LMaXRsDbtJFkujGJIwxVHyUgsBwM9W-LNlGg9-o
 - Accounting Root: 1azt2ULJv8_iJGWdNbQfWv0Jd1AY7XR1p
 - Geprüfte Jahre: 2000, 2004, 2016, 2022, 2023, 2024, 2025, 2026

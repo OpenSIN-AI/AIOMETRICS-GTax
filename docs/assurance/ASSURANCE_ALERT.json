@@ -1,7 +1,8 @@
 {
-  "timestamp": "2026-02-25T04:58:07.886Z",
-  "runId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "timestamp": "2026-02-25T05:34:51.900Z",
+  "runId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
   "status": "OK",
+  "clockConsistencyOk": true,
   "alertKinds": [],
   "hardFailReasons": [],
   "kpis": {
@@ -17,9 +18,9 @@
   },
   "stabilityWindow": {
     "daysTarget": 7,
-    "periodStart": "2026-02-25T05:08:34.240Z",
-    "periodStartRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
-    "runs": 0,
+    "periodStart": "2026-02-25T05:34:51.827Z",
+    "periodStartRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+    "runs": 1,
     "failedRuns": 0,
     "consecutiveFailedRuns": 0,
     "consecutiveRedRuns": 0,
@@ -27,6 +28,7 @@
     "fullWindowCovered": false,
     "definitionChanged": false,
     "scopeChanged": false,
+    "clockConsistencyOk": true,
     "status": "active",
     "pass": false,
     "passWithoutCoverage": true

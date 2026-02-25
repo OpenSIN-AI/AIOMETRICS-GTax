@@ -1,8 +1,8 @@
 {
   "version": 1,
   "daysTarget": 7,
-  "periodStart": "2026-02-25T05:08:34.240Z",
-  "periodStartRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "periodStart": "2026-02-25T05:34:51.827Z",
+  "periodStartRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
   "scopeYears": [
     "2000",
     "2004",
@@ -13,7 +13,7 @@
     "2025",
     "2026"
   ],
-  "definitionFingerprint": "f2fd902c4257d29db0280f0fdba27cdbf4c1fd3c542f4a883365753ba2e92c33",
+  "definitionFingerprint": "f2fb9bd06bcb6bbce61a6d8e2e3a8062c86549393027c25f00623a8a715572c9",
   "definitionFiles": [
     "src/orchestrator/post_closure_assurance.ts",
     "src/orchestrator/final_acceptance_run.ts",
@@ -26,6 +26,6 @@
   "scopeChanged": false,
   "status": "active",
   "failRunIds": [],
-  "createdAt": "2026-02-25T04:58:07.886Z",
-  "updatedAt": "2026-02-25T04:58:07.886Z"
+  "createdAt": "2026-02-25T05:34:51.900Z",
+  "updatedAt": "2026-02-25T05:34:51.900Z"
 }

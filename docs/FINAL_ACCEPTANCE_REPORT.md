@@ -1,7 +1,7 @@
 # Final Acceptance Report
 
-- Timestamp: 2026-02-25T05:08:34.240Z
-- Run ID: 8f7c541b-e92b-4b12-9736-8a9e35ebadcf
+- Timestamp: 2026-02-25T05:34:51.827Z
+- Run ID: cc6fb510-bf58-4c88-983b-b40c5de1ea39
 - Scope years: 2000, 2004, 2016, 2022, 2023, 2024, 2025, 2026
 - Done (all gates green): YES
 
@@ -36,14 +36,14 @@
 
 ## Stage Results
 
-- build: OK (113621ms)
-- start_sync#1: OK (167705ms)
-- soft_audit#1: OK (64525ms)
-- integrity_check#1: OK (16669ms)
-- mismatch_resolve#1: OK (64495ms)
-- quality_check#1: OK (27289ms)
-- governance_check#1: OK (3859ms)
-- idempotency_check#1: OK (109413ms)
+- build: OK (51672ms)
+- start_sync#1: OK (148835ms)
+- soft_audit#1: OK (70639ms)
+- integrity_check#1: OK (19267ms)
+- mismatch_resolve#1: OK (65530ms)
+- quality_check#1: OK (26752ms)
+- governance_check#1: OK (3279ms)
+- idempotency_check#1: OK (105948ms)
 
 ## QA Issues (Top 50)
 
@@ -94,8 +94,8 @@
 
 ```json
 {
-  "timestamp": "2026-02-25T05:08:34.240Z",
-  "runId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "timestamp": "2026-02-25T05:34:51.827Z",
+  "runId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
   "scopeYears": [
     "2000",
     "2004",
@@ -120,58 +120,58 @@
     {
       "stage": "build",
       "ok": true,
-      "startedAt": "2026-02-25T04:59:06.663Z",
-      "finishedAt": "2026-02-25T05:01:00.283Z",
-      "durationMs": 113621
+      "startedAt": "2026-02-25T05:26:39.904Z",
+      "finishedAt": "2026-02-25T05:27:31.576Z",
+      "durationMs": 51672
     },
     {
       "stage": "start_sync#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:01:00.284Z",
-      "finishedAt": "2026-02-25T05:03:47.989Z",
-      "durationMs": 167705
+      "startedAt": "2026-02-25T05:27:31.576Z",
+      "finishedAt": "2026-02-25T05:30:00.411Z",
+      "durationMs": 148835
     },
     {
       "stage": "soft_audit#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:03:47.990Z",
-      "finishedAt": "2026-02-25T05:04:52.515Z",
-      "durationMs": 64525
+      "startedAt": "2026-02-25T05:30:00.411Z",
+      "finishedAt": "2026-02-25T05:31:11.050Z",
+      "durationMs": 70639
     },
     {
       "stage": "integrity_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:04:52.515Z",
-      "finishedAt": "2026-02-25T05:05:09.184Z",
-      "durationMs": 16669
+      "startedAt": "2026-02-25T05:31:11.050Z",
+      "finishedAt": "2026-02-25T05:31:30.317Z",
+      "durationMs": 19267
     },
     {
       "stage": "mismatch_resolve#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:05:09.184Z",
-      "finishedAt": "2026-02-25T05:06:13.679Z",
-      "durationMs": 64495
+      "startedAt": "2026-02-25T05:31:30.317Z",
+      "finishedAt": "2026-02-25T05:32:35.847Z",
+      "durationMs": 65530
     },
     {
       "stage": "quality_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:06:13.679Z",
-      "finishedAt": "2026-02-25T05:06:40.968Z",
-      "durationMs": 27289
+      "startedAt": "2026-02-25T05:32:35.847Z",
+      "finishedAt": "2026-02-25T05:33:02.599Z",
+      "durationMs": 26752
     },
     {
       "stage": "governance_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:06:40.968Z",
-      "finishedAt": "2026-02-25T05:06:44.827Z",
-      "durationMs": 3859
+      "startedAt": "2026-02-25T05:33:02.599Z",
+      "finishedAt": "2026-02-25T05:33:05.878Z",
+      "durationMs": 3279
     },
     {
       "stage": "idempotency_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:06:44.827Z",
-      "finishedAt": "2026-02-25T05:08:34.239Z",
-      "durationMs": 109413
+      "startedAt": "2026-02-25T05:33:05.878Z",
+      "finishedAt": "2026-02-25T05:34:51.826Z",
+      "durationMs": 105948
     }
   ],
   "baseline": {
@@ -893,7 +893,7 @@
   },
   "hardFailReasons": [],
   "integrity": {
-    "timestamp": "2026-02-25T05:06:32.051Z",
+    "timestamp": "2026-02-25T05:32:53.535Z",
     "years": [
       "2000",
       "2004",
@@ -1119,12 +1119,12 @@
     }
   },
   "idempotency": {
-    "firstRunId": "b9e3eaba-1580-4784-9d0f-2aa3d30374ed",
-    "secondRunId": "06b9cfa4-cbe1-45b7-9e51-5784ca1e106c",
+    "firstRunId": "169ac34a-b6a0-4963-9b01-d711f74335ca",
+    "secondRunId": "124a148c-c44e-4f15-a483-48b2929e0b6c",
     "secondRunMutations": 0,
     "pass": true
   },
-  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_8f7c541b-e92b-4b12-9736-8a9e35ebadcf.json",
+  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_cc6fb510-bf58-4c88-983b-b40c5de1ea39.json",
   "loopHistory": [
     {
       "iteration": 1,
