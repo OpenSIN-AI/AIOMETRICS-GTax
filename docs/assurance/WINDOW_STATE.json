@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "daysTarget": 7,
+  "periodStart": "2026-02-25T05:08:34.240Z",
+  "periodStartRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "scopeYears": [
+    "2000",
+    "2004",
+    "2016",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "definitionFingerprint": "f2fd902c4257d29db0280f0fdba27cdbf4c1fd3c542f4a883365753ba2e92c33",
+  "definitionFiles": [
+    "src/orchestrator/post_closure_assurance.ts",
+    "src/orchestrator/final_acceptance_run.ts",
+    "src/orchestrator/main.ts",
+    "src/orchestrator/check_2023_integrity.ts",
+    "src/db/googleSheetsService.ts",
+    "package.json"
+  ],
+  "definitionChanged": false,
+  "scopeChanged": false,
+  "status": "active",
+  "failRunIds": [],
+  "createdAt": "2026-02-25T04:58:07.886Z",
+  "updatedAt": "2026-02-25T04:58:07.886Z"
+}

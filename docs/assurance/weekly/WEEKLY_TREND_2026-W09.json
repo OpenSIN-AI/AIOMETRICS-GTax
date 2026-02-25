@@ -1,0 +1,65 @@
+{
+  "week": "2026-W09",
+  "generatedAt": "2026-02-25T04:58:07.886Z",
+  "runsInWindow": 1,
+  "failRuns": 0,
+  "passRate": 1,
+  "fromRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "toRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "fromReportTimestamp": "2026-02-25T05:08:34.240Z",
+  "toReportTimestamp": "2026-02-25T05:08:34.240Z",
+  "kpiDelta": {
+    "driveOnly": 0,
+    "sheetOnly": 0,
+    "duplicateIds": 0,
+    "forbiddenMarkerHits": 0,
+    "qaAccuracy": 0
+  },
+  "categoryDelta": {
+    "Rechnungen": 0,
+    "Sonstiges": 0,
+    "Vertraege": 0
+  },
+  "yearDelta": {
+    "2000": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2004": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2016": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2022": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2023": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2024": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2025": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    },
+    "2026": {
+      "driveOnly": 0,
+      "sheetOnly": 0,
+      "duplicateIds": 0
+    }
+  }
+}

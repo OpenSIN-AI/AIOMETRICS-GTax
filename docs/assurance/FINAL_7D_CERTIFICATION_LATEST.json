@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-02-25T04:58:07.886Z",
+  "period_start": "2026-02-25T05:08:34.240Z",
+  "period_end": "2026-02-25T04:58:07.886Z",
+  "windowStatus": "active",
+  "daysTarget": 7,
+  "coverageHours": 0,
+  "fullWindowCovered": false,
+  "technicalGreenLatestRun": true,
+  "latestRunId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "latestKpis": {
+    "totalDriveOnly": 0,
+    "totalSheetOnly": 0,
+    "totalDuplicateIds": 0,
+    "forbiddenMarkerHits": 0,
+    "qaSampleSize": 80,
+    "qaSampleCriticalPassed": 80,
+    "qaAccuracy": 1,
+    "criticalQaIssues": 0,
+    "idempotencyPass": true
+  },
+  "alertKinds": [],
+  "reviewSummary": {
+    "daily": {
+      "expected": 1,
+      "filesPresent": 1,
+      "completed": 0,
+      "samplesReviewed": 0,
+      "missingDates": []
+    },
+    "weekly": {
+      "expected": 1,
+      "filesPresent": 1,
+      "completed": 0,
+      "samplesReviewed": 0,
+      "missingWeeks": []
+    },
+    "criticalMismatches": 0
+  },
+  "execSignoff": {
+    "period_start": "2026-02-25T05:08:34.240Z",
+    "period_end": "2026-02-25T04:58:07.886Z",
+    "reviewer_primary": "UNASSIGNED_PRIMARY",
+    "reviewer_secondary": "UNASSIGNED_SECONDARY",
+    "daily_samples_reviewed": 0,
+    "weekly_samples_reviewed": 0,
+    "critical_mismatches": 0,
+    "decision": "blocked",
+    "decision_reasons": [
+      "window_not_fully_covered",
+      "daily_review_incomplete",
+      "weekly_review_incomplete"
+    ],
+    "generated_at": "2026-02-25T04:58:07.886Z"
+  },
+  "operationalClosureApproved": false
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-02-25",
+  "runId": "8f7c541b-e92b-4b12-9736-8a9e35ebadcf",
+  "done": true,
+  "scopeYears": [
+    "2000",
+    "2004",
+    "2016",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "records": 1829,
+  "categories": {
+    "Rechnungen": 184,
+    "Sonstiges": 1644,
+    "Vertraege": 1
+  },
+  "kpis": {
+    "totalDriveOnly": 0,
+    "totalSheetOnly": 0,
+    "totalDuplicateIds": 0,
+    "forbiddenMarkerHits": 0,
+    "qaSampleSize": 80,
+    "qaSampleCriticalPassed": 80,
+    "qaAccuracy": 1,
+    "criticalQaIssues": 0,
+    "idempotencyPass": true
+  },
+  "hardFailReasons": []
+}

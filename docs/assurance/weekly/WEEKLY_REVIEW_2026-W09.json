@@ -1,0 +1,914 @@
+{
+  "iso_week": "2026-W09",
+  "sample_file": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/samples/WEEKLY_SAMPLE_2026-W09.json",
+  "expected_sample_size": 100,
+  "reviewed_count": 0,
+  "reviewer_primary": "UNASSIGNED_PRIMARY",
+  "reviewer_secondary": "UNASSIGNED_SECONDARY",
+  "critical_mismatches": 0,
+  "decision": "pending",
+  "created_at": "2026-02-25T04:58:07.886Z",
+  "updated_at": "2026-02-25T04:58:07.886Z",
+  "rows": [
+    {
+      "drive_file_id": "1toCRELAsvvRLmjTwWqZHoALN9yQ7aEoK",
+      "original_name": "einphasiger-hybrid-wechselrichter-huawei-5-kva-sun2000-5ktl-l1.jpg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "126Gad57scS2tYKjtQs0HCIXHD68nKRUY",
+      "original_name": "invoice_2016-722291.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO",
+      "original_name": "2022 Einnahmen-Überschus_Einnahmen-Ueberschussrechnung_fuer__27b56b.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_oF8ieW6E8NNNoLGx_wvHWdmgp7mi_0c",
+      "original_name": "0000-00-00_Ausgabe_2023-61_Rechnung_für_ausgeführte_Arbeiten_a_6a1af8_432293d5-626e-4e18-9abe-7de0530a41d4_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_QKVS7gx72LCCLPU34CtannXneyQalEA",
+      "original_name": "XVW-0200-068027-06-2023-2_QUITTUNG.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10IcwWRacLm_2YB5fKgXahGQD9caFPU1A",
+      "original_name": "Beleg Ausgabe_92069546_30.04.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1fn7hr3lNXXP_dulTu7akES2J1iWFkP84",
+      "original_name": "194c04eca65c8437_Ihre Rechnung 7180305167 vom 01.02.2025.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1__eGtsFuHw5JdvVk2MgUIasXLZbyczM9",
+      "original_name": "WhatsApp Image 2025-08-17 at 17.21.50.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_IuAAMIj2-_memcvmyDS4YiCAneD9LNk",
+      "original_name": "5004055541_Rechnung_für_Elektroinstallationsma_16b372.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_38RD_UDeIg1l71LxDleNl6xdTTEd2l2",
+      "original_name": "0000-00-00_Ausgabe_209369_Kartenzahlung_kontaktlos_Mastercard_2476be_d62d382f-2e81-47db-b936-9cd9194681c8_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1Fy8iDcOH5w90NsZVA6WdrjW1OTZhh2Fy",
+      "original_name": "19436cbf11fc2692_Vertragszusammenfassung.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1bN7VuyQn1dfSNUIXHMt-2amFnqX98Uy8",
+      "original_name": "f2bc7480-214d-4fe5-ab79-a2042a213bb9.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1tuzaeaVSPnDwkeBmEeW5o_RJlwghSB-s",
+      "original_name": "f1b2048b-5165-4770-aae8-aaf1544a011d.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "132hEBs5lPYYGusJsUaBPv7_Rq4GDKRcx",
+      "original_name": "7c2067c4-540f-4d18-89f1-11bd69fa5f69.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1U15FZE5l57DCsml01YR3O5Dt18HTTiEv",
+      "original_name": "9b8279f4-2070-46c4-ad96-cda56e085d55.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1fwNDm-YAe62ysqfPN11xggPieQAf9qwA",
+      "original_name": "98a04601-2074-43a9-8afc-398ef98a6275.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "15BSViZclezoi3cCk-Gl68RzksApGst1o",
+      "original_name": "2084dc57-9336-4116-ba19-d8a34a4880a7.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_ye32yXjbMhlYf17hyGPd4CywtGTmruy",
+      "original_name": "2023_Ausgaben_RECLASS_Invoice_5e231a9d_7520_44b1_b217_bf4d980f57e3.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1--JpDWP2UPRVkLhKR7Qh5fco4sEkAiIl",
+      "original_name": "2023-12-12_Ausgabe_U-SCHEIBE_DIN_125_v2_3,4_-Nr._11.00EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10JO_PFPsKq9lqOxrhuyEbxaLdHTL0Rd8",
+      "original_name": "Einnahme_4816.1.1_08.01.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1vDG9ecAM_rzCHLER5Hyd-BwYx6WS0vOb",
+      "original_name": "19420a9ad4746dbc_Ihre Rechnung 7180304902 vom 01.01.2025.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_8-_coVwxJWvs5j8rA1KZ2z5Vr6W8rNi",
+      "original_name": "WhatsApp Image 2025-07-06 at 13.38.15.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_mcb2YePmbflfFV8w1R4OmhnUfxZ2Vvz",
+      "original_name": "4470.1.2_Schlussrechnung_|_Angebot:_4470.1_dd593c.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_5V2gKSDREZXBv9rIDRwpSdvqM6HvH8B",
+      "original_name": "6fa5894c-9858-4d96-af5f-2d38bb96a2c8.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10T4e6HQgfOtVhA_0aIqa7BP61hTp9yaO",
+      "original_name": "0000-00-00_Ausgabe_1759344448711-belege2023-4e056b8b-80e9-4392-91ea-3ae4da4b45b9_Invoice_1059.00EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-i6c6_wOjISe4Gfc_r9oxAa5LFO4eTUz",
+      "original_name": "DS-ASE-INV-DE-2023-268782_VORXEON_10PCS_PV_Modulklemmen_Solar.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12AKaN2pEQCAoDTHf2RgbvbyTBQFTAtif",
+      "original_name": "2024_Einnahme_ZOE_109_37100_WhatsApp_Image_2025_07_06_at_13_57_03.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_SzKH6kEUpRjT7firA634SzVU5MzvoIM",
+      "original_name": "WhatsApp Image 2025-07-06 at 13.49.28.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_RnsuNDfcKnSTXOT0AfahnnLCVPdepXp",
+      "original_name": "19c3c7031ed1ab93_Invoice - 333f7f9e-84ad-4ca5-a80b-a48eee60dfac.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_7TlHBkmq3W45ZScSfqfHfN96hJ3-cah",
+      "original_name": "SI10206_Grundschiene_45mmx40mm_Schwarz.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "16SIutfvhgcgMICdIQxRMwHUSMjKuSKTO",
+      "original_name": "Rechnung 2023-13060.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-lM5l0aYQ8-PeXEepzVDrII9dnjPruBl",
+      "original_name": "0000-00-00_Ausgabe_1759344447943-belege2023-2e8fd778-12e6-4504-89bb-e6405502f281_07cbc32d-d05e-4e4c-a685-ee9c298196cb_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "17rDY_0GvM0fghpm8_3l5P7dXyTznXLfH",
+      "original_name": "Beleg Ausgabe_92072145_21.06.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_wRXlnX5U1WhkWDmAQNJnauVPzOpg3FJ",
+      "original_name": "WhatsApp Image 2025-07-19 at 14.42.09.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-0GLqEj7dXa5v0coFmyj1TVKhURGaU-V",
+      "original_name": "4506.1.1_Abschlagsrechnung_|_Angebot:_4506.1.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_9_VOtC15DW6SPPew8optEUQGky3UksH",
+      "original_name": "953559_Super_bleifrei.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "17BB9JMJ6k-J3CvtjCVYPrm6En9nIXuX8",
+      "original_name": "2023-03-27_Einnahme_2016-722291_Rechnung_für_Bohrschraube_Sechskant_b70189_722291_1.00EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10b3SPyAvC6-a_LbYwBVVZ5yP6owtR3MX",
+      "original_name": "DS-ASE-INV-DE-2023-400008_DIHOOL_DC_überspannungsschutz_pv_so.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1HcDUe9Vbg7Zbq2ylUTDCfljTgW01zmRD",
+      "original_name": "2024_Einnahme_ZOE_ohne_belegnr_WhatsApp_Image_2025_07_06_at_13_56_40.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-a4Y6c0iDVwaHWXXlQ-oFdhsp5SgtmLc",
+      "original_name": "WhatsApp Image 2025-07-08 at 17.21.30.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-9ebrGL6XU9FMCdg1K_pqO6rpjOq0PMW",
+      "original_name": "4701.2.2_Schlussrechnung_|_Angebot:_4701.2.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_9bUO2BW7vPkwhDbxWOzFFxsMzaApF6J",
+      "original_name": "81ba5d24-3663-460a-aad3-881fb11a799f.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1A-iAIZ23b3ORJqdOlCWoU5q649YQ0W8J",
+      "original_name": "2023-11-07_Einnahme_230261_Weiterberechnung_Materialbeschaffun_98a527_230261_154.67EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10C0MMxvXJD9QrbGNpVbbURJBhebMqXrR",
+      "original_name": "DS-ASE-INV-DE-2023-106952_LUFEIS_Solarmodul_Klemme,_20_Stück_.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1ldHhWkxL0szrHlhxhnjfJC4rLpvikHOw",
+      "original_name": "Ausgabe_92069546_30.04.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-AVf3hIpSl1KX5HIHya0KDfI0koV7s_J",
+      "original_name": "WhatsApp Image 2025-07-09 at 19.52.33.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-wx-dq4XJ1iRM2tuBJXbSbUmT3dn_3RU",
+      "original_name": "Rechnung 150901953451.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_9iirDmM6IKj6PQlGhgF7fNARDk1kbKW",
+      "original_name": "IEN2023049507805_Adobe_Stock_-_40_Stockmedien_pro_Mo_05746d.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb",
+      "original_name": "0000-00-00_Einnahme_2023-38_Rechnung_für_Solarmodule_montieren_6f3445_01638727721_1.00EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10LDaKN--5J_kRPik1SFlZBbQtpMqVJAW",
+      "original_name": "2023-04-31_Ausgabe_UK_Eigenbeleg_Nr._6_Betrag_(Euro,_Cent)_764,00_€_Emfpänger_Umzug_Belegnummer_45230UK_Datum_Zeitraum_Datum_Zeit_45230UK_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1lzf1iwnjayz0Nni3b1w91xd9-DWJsY81",
+      "original_name": "2024_Einnahme_ZOE_109_37053_WhatsApp_Image_2025_07_06_at_13_57_11.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10I8s8haLN6sGOKn80YWEWyjvqkdazBiE",
+      "original_name": "WhatsApp Image 2025-06-18 at 18.44.10 (1).jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1-zumKDbaN_xuScjzHfGhqzo2bnFOXN_b",
+      "original_name": "4401.7.1_Abschlagsrechnung_|_Angebot:_4401.7.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_FdbBcDAgdqdDUFMntLoFSJUtSI2DsPP",
+      "original_name": "25cfc8f8-5f2f-4367-986e-3ade2de43665.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1Chlrls0ADa1UxTvCSDd8eZw7AXNadW8x",
+      "original_name": "GMI-2023-197684_GetMyInvoices_Lizenz_Standard_900875.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "11zg1eMRpUtuFm51nEWrqNpF0OqI0qzTt",
+      "original_name": "DS-ASE-INV-DE-2023-147688_dc_trennschalter_2_Strings_2x_in_ou.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1PY5UppiHXYeHbh4F250tXIiBpK4Om626",
+      "original_name": "Beleg Ausgabe_92071974_18.06.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10LGKtqxbmtx13OUwvqlsMLTV2eGXAbSe",
+      "original_name": "WhatsApp Image 2025-07-17 at 20.13.37.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10kRORx4sUv1Axfz6P6yZsOWEwjQseVRG",
+      "original_name": "SI10055_Rechnung.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_FjvtJOJWppbrY8IqXkcOOcCwhP0ApBO",
+      "original_name": "b85c9949-2d39-4ebf-9c65-5cf9fbfc94bf.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1CNdGV6vSjrJA9FaGDhfBZ6LqWAvsYUw0",
+      "original_name": "Invoice_4531.2.1_21-08-2023_10.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12_mN4ccLrL4Qt7TlJkbm0vJbXhTUxTrd",
+      "original_name": "2023-08-27_Ausgabe_pis)_WE_)_a_c5a12b2a-596a-49fd-8822-4840cd5beb67_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1saWCNlOAk8iDiuhikSiajaiV2Aym_iEN",
+      "original_name": "Beleg Ausgabe_92070877_28.05.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10TclbQwacXBZhCNzAqrR4M-yjHmqS6SJ",
+      "original_name": "WhatsApp Image 2025-08-07 at 07.26.45.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "11P3pXLlC28_5nUhqSgeB7c3xBsf9bzgG",
+      "original_name": "Rechnung 39648.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_g-j9po7p3yxTrUU9jsU1nUmXIlsjnOs",
+      "original_name": "886736f4-8a57-4fd5-979d-883ce53fae7b.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1EkN5H1qt3_M6mmp3XJBrRCp0tSPAmy7N",
+      "original_name": "Invoice_4448.4.1_16-08-2023_16.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12CAnn__DJdWXA4UPbZL8K0MSdyLth9zR",
+      "original_name": "2023-06-22_Ausgabe_Ess_719441_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1xeCiQFfCKOAO5X4rhCnhSAOE4uMQeZ6U",
+      "original_name": "Beleg Einnahme_5046.4.2_17.05.2024.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "10tSGJzWl8E8PMkH3rKFIgNA63DhtLq8P",
+      "original_name": "WhatsApp Image 2025-07-06 at 13.50.10.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5",
+      "original_name": "4353.2.2_Schlussrechnung.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_gykPCAl_A8V3hdHJi_3fbP9C_6KEi84",
+      "original_name": "be5d5dea-4abb-4b1d-b6c9-9d1f2bdbf5ec.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1g-xAdmyuZEqXNq7VX25adqL4VX1y7H-t",
+      "original_name": "2023-11-12_Einnahme_2023-11_rechnung_1und1_mahnung_Datum_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12MkMQ-ozkLi_rWualwUWVzkVIj5x4G_w",
+      "original_name": "DS-ASE-INV-DE-2023-147769_DC_Trennschalter_PV_Anlage,_AIFIZO_.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "11Bhorq5aAibt971MENGCapLPF6pW2Hyo",
+      "original_name": "WhatsApp Image 2025-06-25 at 13.07.58.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12Z2YhFssJhT4iE33didHIuiYXay65opa",
+      "original_name": "5004355444_Rechnung_f44777.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_q18M1glmpSLU2VQX3WzQ--IZKLdsVAI",
+      "original_name": "0000-00-00_Ausgabe_193567_Besteckkasten_7fach,_Treteimer_Paso_9a8f4dbc-dc55-4572-bc11-441143c3c02d_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1HIlpQ1uWv48yCxzHRCtn4aFqacyGtH9K",
+      "original_name": "2023_Ausgaben_RECLASS_Invoice_0effff71_693c_49f6_a218_58382a9046db.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "134Mnmo1acgzEE34kLZq0SInh2JuDzs1q",
+      "original_name": "2023-06-22_Ausgabe_Bauhaus_Gesellschaft_für_-Nr._3.00EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "11yKeHBkFGme_cHKRjbGPDdorloqwHfCh",
+      "original_name": "1945c3ca41b0905c_Kiez_Kiosk_&_Späti_Alt-Moabit_2025-01-12_20:36:42.735_678427dae826b0129fc63610.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12ZNQdLDP0SkRNpat1VSCpb5lWNO8IC7I",
+      "original_name": "5003935331_Rechnung_-_Barverkauf_12df2b.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_QqgJ15UDCv2Hf_Ci1PXUPzf_PT2Psg7",
+      "original_name": "b3ee7891-2c43-4f10-880e-04c20bd87d62.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1lHLHUzW-aqRZag2FzgDdGZQ5zwuRhxly",
+      "original_name": "2023_Ausgaben_RECLASS_Invoice_c683003b_9f9e_45a9_9161_74cd4af50efa.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "13tJq61evXPOok2t7bePpykTixgQCefCF",
+      "original_name": "INV-DE-2169469655-2023-21_Plombenzange_Set,_Dichtungszangen_K_32f3ef.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12HlTi9jt7dS5MD94GjyZUxJyOAvUlMFS",
+      "original_name": "WhatsApp Image 2025-07-06 at 13.53.38.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "139jRvMViJBaiALgsTUwk-EfAwtkprqrn",
+      "original_name": "4253.6.2_Abschlagsrechnung_|_Angebot:_4253.6_469a86.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_qs_rvnQvWXe9NUItzJdNHJBJtRqZSQa",
+      "original_name": "0000-00-00_Ausgabe_(EM_Lid_558447_BetragUnbekannt.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1Lp-NeLx6WSX17Ioo0clclomua9bp9GGZ",
+      "original_name": "Rechnung_RE231834_16.08.2023.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "16ab4SFD84S1fmAma_nWjWK4oBCkyb1-8",
+      "original_name": "2023-07-19_Ausgabe_OBI_GmbH_&_Co._Deutschland_KG_3039864_55.88EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "12KvNjEEoCxR31H6Nq_YF-L3LU2kMRKoM",
+      "original_name": "WhatsApp Image 2025-07-23 at 12.36.06.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "14H1ofFfnipGUVnW1Cd9kFsPk98jeqcAz",
+      "original_name": "5005321556_Rechnung.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_rtpntlzYuOM28mCpcoHdR1GmAuCXgBa",
+      "original_name": "ccdf89ee-7f54-469f-a408-dd8e23374004.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1LZj1Y6L2oUZlbAaOsN5ZT9id8UFXnFHZ",
+      "original_name": "Invoice_4571.2.3_17-08-2023.preview.png",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "16Au4Y9EMF_-D4Q9kBxrcOLrj1lW-M2DO",
+      "original_name": "DS-ASE-INV-DE-2023-204607_TEVILIK_Solarmodul_Halterung_Endkle.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "136Vtl9JGIThpRROB_bPTyST3P2Ht3s9P",
+      "original_name": "WhatsApp Image 2025-05-29 at 20.17.15.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "15bpkv6w6QLNv9V1VP8o031ZErCQf-ll8",
+      "original_name": "INVTDE16528_Balance_Forward_Invoice_#INVTDE1652_386208.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1_sJHZsEsKDuGVE4eCIsIWOyF3jjwPaVX",
+      "original_name": "487e1d21-15ff-4bb0-80fd-24d2dbe63d34.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "1MARSNq3wLirNdLrw9sbnnqAdhYFkdE-e",
+      "original_name": "2023_Ausgaben_RECLASS_Invoice_03ec8c3d_ffa7_4c7c_9822_19ddf94ae2d7.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "16I_mkNJHguQViMh_piNh7_D9JqLDZ7D_",
+      "original_name": "2023-09-22_Einnahme_Sun®yster_22103360_22103360.00EUR.pdf",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    },
+    {
+      "drive_file_id": "139TTQ854AkqScqxJztSWytgcIDRAVCPd",
+      "original_name": "WhatsApp Image 2025-08-24 at 10.11.12.jpeg",
+      "datum_ok": null,
+      "betrag_ok": null,
+      "category_ok": null,
+      "gegenpartei_ok": null,
+      "notes": ""
+    }
+  ]
+}
