@@ -1,8 +1,5 @@
 import requests
 import os
-import json
-import base64
-from datetime import datetime
 
 API_KEY = "ak_d7C_5oCKr5NS0gDyANN-"
 DRIVE_FOLDER_ID = "1xoOfpTUwxMa_pIHoP71aCDH0Eb03tzyf"
@@ -26,7 +23,7 @@ def get_connected_accounts():
 
 def execute_composio_action(action_name, params):
     resp = requests.post(
-        f"https://backend.composio.dev/api/v1/execute",
+        "https://backend.composio.dev/api/v1/execute",
         headers={"x-api-key": API_KEY, "Content-Type": "application/json"},
         json={"action": action_name, "parameters": params}
     )

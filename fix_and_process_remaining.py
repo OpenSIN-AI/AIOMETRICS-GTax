@@ -143,7 +143,10 @@ def process_file(file_path):
                 temperature=0.1,
             ),
         )
-        client.files.delete(name=uploaded_file.name)
+        try:
+            client.files.delete(name=uploaded_file.name)
+        except Exception:
+            pass
         data = json.loads(response.text)
 
         invoice_num = data.get("invoice_number", "UNBEKANNT") or "UNBEKANNT"

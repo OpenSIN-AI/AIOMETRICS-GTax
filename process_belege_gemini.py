@@ -9,7 +9,6 @@ import shutil
 import sqlite3
 import json
 import re
-import time
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -167,7 +166,10 @@ def process_single_file(file_path):
             )
         )
         
-        client.files.delete(name=uploaded_file.name)
+        try:
+            client.files.delete(name=uploaded_file.name)
+        except Exception:
+            pass
         
         data = json.loads(response.text)
         
@@ -264,7 +266,7 @@ def main():
                 try:
                     if file_path.exists():
                         shutil.move(str(file_path), str(ERROR_DIR / file_path.name))
-                except: pass
+                except Exception: pass
 
     print("\n" + "=" * 80)
     print("📊 ERGEBNIS KI-DURCHLAUF")

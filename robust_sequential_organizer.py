@@ -2,7 +2,6 @@ import os
 import shutil
 import json
 import re
-import sys
 import time
 from pathlib import Path
 
@@ -75,7 +74,7 @@ def process_sequentially():
         try:
             # Check file size - skip if 0
             if file_path.stat().st_size == 0:
-                print(f"  Empty file, moving to Leere_Dateien")
+                print("  Empty file, moving to Leere_Dateien")
                 target = DRIVE_BASE / "08_Sonstiges" / "Unbekannt" / "Leere_Dateien"
                 target.mkdir(parents=True, exist_ok=True)
                 shutil.move(str(file_path), str(target / file_path.name))
@@ -101,7 +100,7 @@ def process_sequentially():
             if uploaded_file.name:
                 try:
                     client.files.delete(name=uploaded_file.name)
-                except:
+                except Exception:
                     pass
 
             data = json.loads(response.text)
@@ -133,14 +132,14 @@ def process_sequentially():
             err_target.mkdir(parents=True, exist_ok=True)
             try:
                 shutil.move(str(file_path), str(err_target / file_path.name))
-            except:
+            except Exception:
                 pass
 
         finally:
             if temp_path and temp_path.exists():
                 try:
                     os.remove(temp_path)
-                except:
+                except Exception:
                     pass
 
         # Small sleep to be nice to the API

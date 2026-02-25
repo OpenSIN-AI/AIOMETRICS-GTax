@@ -45,7 +45,7 @@ for root in search_roots:
             total_moved += 1
             if total_moved % 100 == 0:
                 print(f"  Moved {total_moved} files...")
-        except Exception as e:
+        except Exception:
             # print(f"  Error moving {path}: {e}")
             pass
 

@@ -1,4 +1,12 @@
-import os, shutil, json, re, sys, time, base64, requests, fitz
+import os
+import shutil
+import json
+import re
+import sys
+import time
+import base64
+import requests
+import fitz
 from pathlib import Path
 
 # --- CONFIGURATION ---

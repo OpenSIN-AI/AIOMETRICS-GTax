@@ -1,10 +1,4 @@
 import requests
-import os
-import json
-import base64
-import time
-from googleapis.google_auth_library import JWT
-from google.drive import GoogleDriveService # Assuming this is available in the current project structure
 
 # Composio config
 COMPOSIO_API_KEY = "ak_d7C_5oCKr5NS0gDyANN-"

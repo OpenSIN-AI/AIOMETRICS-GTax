@@ -2,8 +2,6 @@ import os
 import shutil
 import json
 import re
-import sys
-import unicodedata
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -27,7 +25,6 @@ MAPPING = {
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
-from typing import List, Optional
 
 api_key = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key) if api_key else genai.Client()
