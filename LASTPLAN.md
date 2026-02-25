@@ -473,3 +473,43 @@ Ausgeführt parallel (core/ocr/qa) über `node dist-micro/orchestrator/micio_sch
 
 - Hinweis:
   - Dieser Block war bewusst in kurzen, getrennten Micro-Schritten (kein Monolith-Run).
+
+## 14) STOP-Status + Nächste Schritte (2026-02-25)
+
+Wichtig: **Nein, es ist noch nicht 100% fertig.**
+
+### Was aktuell sicher grün ist
+- `Einnahmen_2023`/`Ausgaben_2023` sind synchron zu Drive.
+- `AUDIT_YEAR=2023` strict ist grün (`criticalViolations=0`, `zeroErrorStrict=true`).
+- Keine harten 2023-Policy-Verstöße im Strict-Report (Privat/Archiv/VAT7/Flow/Year/Duplikatgruppen).
+
+### Was noch offen ist (nicht 100%)
+1. OCR-Vollabdeckung ist noch offen.
+   - Letzter gemessener Stand: `OCR Only=370`, `None=1398`, `Total=1829`.
+   - Damit sind nicht alle Belege vollinhaltlich extrahiert.
+2. Endgültige „Finanzamt-ready“-Aussage für **alle** Jahre ist noch nicht abgeschlossen,
+   solange OCR-Backlog + Einzelfallreports (Zoe/Tankstellen) nicht final durch sind.
+3. Dashboard/EÜR/Sheets-Benutzerführung muss final gegen Live-Daten gegengeprüft werden
+   (Formeln/Interaktionen/Exports) nachdem OCR-Backlog weiter reduziert wurde.
+
+### Bereits gelaufener letzter Micro-Block
+- OCR Mini-Serie mit `WORKER_BATCH_SIZE=1` wurde weitergeführt.
+- In dieser Serie wurden zusätzliche Einzelläufe erfolgreich abgeschlossen (je `success=1`).
+- Laufserie wurde anschließend gestoppt (kein weiterer Verarbeitungslauf aktiv).
+
+### Nächste Schritte (priorisiert, nur Micro)
+1. OCR weiter in Mini-Batches (`batch=1`) bis `None` signifikant fällt.
+2. Nach jeder 5er-Serie sofort messen:
+   - `npx tsx check_ocr_coverage.ts`
+   - `npx tsx check_queue_count.ts`
+3. Danach pro Serie sofort 2023-Sicherheitscheck:
+   - `AUDIT_YEAR=2023 npx tsx src/orchestrator/audit_2023_strict.ts`
+4. Bei jedem neuen Content-Fund gezielte Einzelfall-Worker:
+   - Zoe-Rechnungsplan-Gaps
+   - Tankstellen-Split (geschäftlich/privat)
+   - fehlende Rechnung -> Eigenbeleg-Pipeline
+5. Erst wenn OCR + Einzelfälle abgeschlossen sind: finale Aussage „100% fertig“.
+
+### Betriebsregel ab jetzt
+- Keine Monolith-Läufe.
+- Nur kurze Micro-Runs (1–5 min), jeweils mit sofortiger Nachmessung.
