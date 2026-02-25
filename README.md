@@ -1,0 +1,100 @@
+# AIOMETRIC-GoogleTAX - AI Beleganalyse System
+
+**Projekt:** Automatische Beleganalyse mit NVidia AI
+**Version:** 1.0.0
+**Erstellt:** 2026-02-23
+
+## Ziel
+
+Automatische Analyse von Belegen aus Google Drive:
+1. Dateien aus Drive-Ordner holen
+2. Mit NVidia NIM AI analysieren (OCR, Transkription, Bildanalyse)
+3. In korrekte Verzeichnisse verschieben
+4. Alle Metadaten in PostgreSQL DB speichern
+
+## Ordner-Struktur
+
+```
+AIOMETRIC-GoogleTAX/
+├── src/
+│   ├── drive/           # Google Drive Integration
+│   ├── ai/              # NVidia NIM AI Integration
+│   ├── db/              # PostgreSQL Database
+│   ├── routing/         # Intelligentes Datei-Routing
+│   └── orchestrator/    # Main Orchestrator
+├── docs/                # Dokumentation
+└── tests/               # Tests
+```
+
+## Quell-Drive
+
+- **Ordner ID:** 1rY8Zs1-eoCCtzruQDvicMihjH0AMR-gH
+- **Ziel-Drive:** 11OoJH5PObXP-ANnlEqsPmGBfiC7zPz7m
+
+## Technologie
+
+- **AI:** NVidia NIM (Qwen 3.5 397B)
+- **OCR:** NVidia AI Vision
+- **Database:** PostgreSQL (Supabase)
+- **Storage:** Google Drive API
+
+## Status
+
+- [x] Projekt initiiert
+- [x] Google Drive Integration
+- [x] NVidia AI Integration
+- [x] Routing System
+- [x] Database Schema
+- [x] Orchestrator
+- [x] Build erfolgreich
+
+## Setup
+
+```bash
+# Dependencies installieren
+npm install
+
+# .env Datei erstellen
+cp .env.example .env
+
+# .env bearbeiten mit:
+# - GOOGLE_CLIENT_ID
+# - GOOGLE_CLIENT_SECRET
+# - NVIDIA_API_KEY
+# - DATABASE_URL
+
+# Bauen
+npm run build
+
+# Starten
+npm start
+```
+
+## Sichere Pipeline-Ausfuehrung (Best Practice)
+
+- Alle Orchestrator-Skripte nutzen jetzt einen globalen Lock: `.pipeline.lock`.
+- Parallele Schreiblaeufe auf Drive/Sheets werden dadurch verhindert.
+- Laufprotokoll liegt in `logs/pipeline_events.jsonl`.
+
+```bash
+# Standard-Kette (Sync -> Accounting Enrichment)
+npm run sync-chain
+
+# Dauerlauf (stündlich/5-min etc. via SLEEP_SECONDS)
+./continuous_sync.sh
+```
+
+## Kategorien
+
+- Rechnungen
+- Quittungen
+- Vertraege
+- Angebote
+- Sonstiges
+- Fehler (falls Analyse fehlschlägt)
+
+## DB Schema
+
+- belege: Alle analysierten Belege
+- category_folders: Mapping Kategorie -> Drive Ordner
+- processing_log: Verarbeitungs-Log

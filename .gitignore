@@ -1,0 +1,7 @@
+node_modules/
+dist/
+logs/
+.pipeline.lock
+.continuous_sync.pid
+*.swp
+.DS_Store

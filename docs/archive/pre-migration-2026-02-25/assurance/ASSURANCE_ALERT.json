@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-02-25T04:24:35.189Z",
+  "runId": "0fed2fb2-522f-49c7-a7b6-e4d475892212",
+  "status": "OK",
+  "alertKinds": [],
+  "hardFailReasons": [],
+  "kpis": {
+    "totalDriveOnly": 0,
+    "totalSheetOnly": 0,
+    "totalDuplicateIds": 0,
+    "forbiddenMarkerHits": 0,
+    "qaSampleSize": 80,
+    "qaSampleCriticalPassed": 80,
+    "qaAccuracy": 1,
+    "criticalQaIssues": 0,
+    "idempotencyPass": true
+  },
+  "stabilityWindow": {
+    "daysTarget": 7,
+    "periodStart": "2026-02-25T04:32:35.807Z",
+    "periodStartRunId": "0fed2fb2-522f-49c7-a7b6-e4d475892212",
+    "runs": 0,
+    "failedRuns": 0,
+    "consecutiveFailedRuns": 0,
+    "consecutiveRedRuns": 0,
+    "coverageHours": 0,
+    "fullWindowCovered": false,
+    "definitionChanged": false,
+    "scopeChanged": false,
+    "status": "active",
+    "pass": false,
+    "passWithoutCoverage": true
+  },
+  "operationalClosure": {
+    "decision": "blocked",
+    "decisionReasons": [
+      "window_not_fully_covered",
+      "daily_review_incomplete",
+      "weekly_review_incomplete"
+    ],
+    "approved": false
+  },
+  "outputs": {
+    "finalReport": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/FINAL_ACCEPTANCE_REPORT.json",
+    "dailyKpi": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/daily/DAILY_KPI_2026-02-25.json",
+    "weeklyTrend": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/weekly/WEEKLY_TREND_2026-W09.json",
+    "dailySample": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/samples/DAILY_SAMPLE_2026-02-25.json",
+    "weeklySample": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/samples/WEEKLY_SAMPLE_2026-W09.json",
+    "dailyReview": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/daily/DAILY_REVIEW_2026-02-25.json",
+    "weeklyReview": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/weekly/WEEKLY_REVIEW_2026-W09.json",
+    "windowState": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/WINDOW_STATE.json",
+    "execSignoff": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/EXEC_SIGNOFF.json",
+    "certification": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.md",
+    "certificationJson": "/Users/jeremy/.codex/worktrees/406a/Neuer Ordner/server/data/jerry-belege/docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.json",
+    "incident": null,
+    "blocker": null
+  }
+}
