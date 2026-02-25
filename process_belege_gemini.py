@@ -14,7 +14,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # --- KONFIGURATION ---
-SOURCE_DIR = Path("/Users/jeremy/dev/Neuer Ordner/server/data/jerry-belege")
+SOURCE_DIR = Path("/Users/jeremy/dev/AIOMETRICS-GTax")
 EINNAHMEN_DIR_BASE = Path("/Users/jeremy/NotebookLM/JS - Belegdokumente 2023/Einnahmen")
 AUSGABEN_DIR_BASE = Path("/Users/jeremy/NotebookLM/JS - Belegdokumente 2023/Ausgaben")
 DB_PATH = Path("/tmp/belege.db")

@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist-micro"
+  },
+  "include": [
+    "src/orchestrator/micro_*.ts",
+    "src/orchestrator/zio_guard_worker.ts",
+    "src/orchestrator/micio_scheduler.ts",
+    "src/orchestrator/aiometrics_worker.ts",
+    "src/orchestrator/audit_2023_strict.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "dist-micro",
+    "tests"
+  ]
+}

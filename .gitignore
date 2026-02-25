@@ -1,7 +1,12 @@
 node_modules/
 dist/
+dist-micro/
 logs/
 .pipeline.lock
 .continuous_sync.pid
+*.pid
 *.swp
+*.swo
 .DS_Store
+__pycache__/
+.ruff_cache/

@@ -1,0 +1,260 @@
+{
+  "timestamp": "2026-02-25T00:53:53.008Z",
+  "counts": {
+    "repoFiles": 224,
+    "srcFiles": 100,
+    "orchestratorFiles": 37,
+    "legacyFiles": 59,
+    "docsFiles": 40,
+    "rootTsFiles": 23
+  },
+  "scripts": {
+    "total": 57,
+    "active": 48,
+    "legacy": 9
+  },
+  "topFiles": [
+    {
+      "path": "eng.traineddata",
+      "size": 5199098
+    },
+    {
+      "path": "deu.traineddata",
+      "size": 2070514
+    },
+    {
+      "path": "package-lock.json",
+      "size": 215345
+    },
+    {
+      "path": "logs/pipeline_events.jsonl",
+      "size": 127492
+    },
+    {
+      "path": "src/orchestrator/repair_2023.ts",
+      "size": 48935
+    },
+    {
+      "path": "src/legacy/monolith/accounting_enrichment.ts",
+      "size": 41380
+    },
+    {
+      "path": "src/db/googleSheetsService.ts",
+      "size": 34691
+    },
+    {
+      "path": "src/legacy/monolith/setup_finance_dashboard.ts",
+      "size": 33514
+    },
+    {
+      "path": "src/orchestrator/audit_2023_strict.ts",
+      "size": 23858
+    },
+    {
+      "path": "src/legacy/monolith/soft_audit.ts",
+      "size": 23316
+    },
+    {
+      "path": "src/legacy/monolith/yearly_reorganize.ts",
+      "size": 22712
+    },
+    {
+      "path": "docs/MICRO_PRIVATE_RECLASSIFY_REPORT.md",
+      "size": 21621
+    },
+    {
+      "path": "LASTPLAN.md",
+      "size": 19749
+    },
+    {
+      "path": "src/legacy/gemini/gemini_ocr_worker.ts",
+      "size": 17886
+    },
+    {
+      "path": "docs/MICRO_ZOE_MOVE_REPORT.md",
+      "size": 17690
+    },
+    {
+      "path": "docs/MICRO_CLEAN_PRIVATE_1NM.md",
+      "size": 17451
+    },
+    {
+      "path": "src/legacy/monolith/main.ts",
+      "size": 16832
+    },
+    {
+      "path": ".LASTPLAN.md.swp",
+      "size": 16384
+    },
+    {
+      "path": "logs/micio_core_node.log",
+      "size": 15961
+    },
+    {
+      "path": "src/orchestrator/check_2023_integrity.ts",
+      "size": 14767
+    },
+    {
+      "path": "docs/ZOE_SOLAR_RECHNUNGSPLAN_2023.md",
+      "size": 14225
+    },
+    {
+      "path": "src/orchestrator/micro_local_118_tesseract_filter.ts",
+      "size": 13915
+    },
+    {
+      "path": "src/orchestrator/check_all_years_integrity.ts",
+      "size": 13897
+    },
+    {
+      "path": "src/orchestrator/micro_enrich_buchhaltung_db.ts",
+      "size": 13884
+    },
+    {
+      "path": "src/orchestrator/micro_ocr_audit_1nm.ts",
+      "size": 13525
+    },
+    {
+      "path": "docs/TANKSTELLEN_SPLIT_2023.md",
+      "size": 12511
+    },
+    {
+      "path": "src/ai/nvidiaAIClient.ts",
+      "size": 11954
+    },
+    {
+      "path": "src/orchestrator/micro_sync_drive_changes.ts",
+      "size": 10584
+    },
+    {
+      "path": "process_belege_gemini.py",
+      "size": 10254
+    },
+    {
+      "path": "src/orchestrator/run_eigenbeleg_pipeline.ts",
+      "size": 10018
+    }
+  ],
+  "topTsByLines": [
+    {
+      "path": "src/orchestrator/repair_2023.ts",
+      "lines": 1465
+    },
+    {
+      "path": "src/legacy/monolith/accounting_enrichment.ts",
+      "lines": 1181
+    },
+    {
+      "path": "src/db/googleSheetsService.ts",
+      "lines": 1114
+    },
+    {
+      "path": "src/legacy/monolith/setup_finance_dashboard.ts",
+      "lines": 929
+    },
+    {
+      "path": "src/legacy/monolith/soft_audit.ts",
+      "lines": 748
+    },
+    {
+      "path": "src/legacy/monolith/yearly_reorganize.ts",
+      "lines": 734
+    },
+    {
+      "path": "src/orchestrator/audit_2023_strict.ts",
+      "lines": 705
+    },
+    {
+      "path": "src/legacy/gemini/gemini_ocr_worker.ts",
+      "lines": 500
+    },
+    {
+      "path": "src/legacy/monolith/main.ts",
+      "lines": 494
+    },
+    {
+      "path": "src/ai/nvidiaAIClient.ts",
+      "lines": 453
+    },
+    {
+      "path": "src/orchestrator/check_2023_integrity.ts",
+      "lines": 437
+    },
+    {
+      "path": "src/orchestrator/check_all_years_integrity.ts",
+      "lines": 409
+    },
+    {
+      "path": "src/orchestrator/micro_ocr_audit_1nm.ts",
+      "lines": 380
+    },
+    {
+      "path": "src/orchestrator/micro_local_118_tesseract_filter.ts",
+      "lines": 370
+    },
+    {
+      "path": "src/orchestrator/micro_enrich_buchhaltung_db.ts",
+      "lines": 318
+    },
+    {
+      "path": "src/orchestrator/micro_sync_drive_changes.ts",
+      "lines": 309
+    },
+    {
+      "path": "src/orchestrator/run_eigenbeleg_pipeline.ts",
+      "lines": 293
+    },
+    {
+      "path": "src/legacy/gemini/gemini_qa_global.ts",
+      "lines": 291
+    },
+    {
+      "path": "src/drive/googleDriveService.ts",
+      "lines": 282
+    },
+    {
+      "path": "src/orchestrator/report_zoe_invoice_gaps_2023.ts",
+      "lines": 281
+    },
+    {
+      "path": "src/orchestrator/pipeline_lock.ts",
+      "lines": 278
+    },
+    {
+      "path": "src/orchestrator/check_2023_policy.ts",
+      "lines": 269
+    },
+    {
+      "path": "src/orchestrator/micro_move_zoe_invoices.ts",
+      "lines": 268
+    },
+    {
+      "path": "src/orchestrator/micro_reclassify_private_business.ts",
+      "lines": 246
+    },
+    {
+      "path": "src/orchestrator/fix_invalid_future_dates.ts",
+      "lines": 245
+    },
+    {
+      "path": "src/orchestrator/micro_swarm_tick.ts",
+      "lines": 209
+    },
+    {
+      "path": "src/orchestrator/setup_eigenbeleg_workflow.ts",
+      "lines": 202
+    },
+    {
+      "path": "src/orchestrator/micro_reclassify_einnahmen_2023.ts",
+      "lines": 201
+    },
+    {
+      "path": "src/routing/fileRouter.ts",
+      "lines": 192
+    },
+    {
+      "path": "src/orchestrator/micro_konto_assign.ts",
+      "lines": 191
+    }
+  ]
+}

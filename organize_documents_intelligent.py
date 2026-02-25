@@ -8,7 +8,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # --- CONFIGURATION ---
-IMPORT_DIR = Path("/Users/jeremy/dev/Neuer Ordner/server/data/jerry-belege/import_queue")
+IMPORT_DIR = Path("/Users/jeremy/dev/AIOMETRICS-GTax/import_queue")
 DRIVE_BASE = Path("/Users/jeremy/Library/CloudStorage/GoogleDrive-info@zukunftsorientierte-energie.de/Meine Ablage/Ablage Jeremy Schulze")
 MAX_WORKERS = 8
 

@@ -38,7 +38,7 @@ Belege werden nach ihrer Klassifizierung (Einnahme oder Ausgabe) und dem Rechnun
 
 ### 3.2 Verschiebe-Regeln
 *   Nach erfolgreicher Analyse, Datenextraktion und Umbenennung wird die Originaldatei in das entsprechende Jahresverzeichnis innerhalb des `Einnahmen`- oder `Ausgaben`-Ordners verschoben.
-*   Die Datei wird aus dem Quellverzeichnis (`/Users/jeremy/dev/Neuer Ordner/server/data/jerry-belege/`) entfernt.
+*   Die Datei wird aus dem Quellverzeichnis (`/Users/jeremy/dev/AIOMETRICS-GTax/`) entfernt.
 *   Es wird vor dem Verschieben geprüft, ob das Zielverzeichnis (`[JAHR]`) existiert. Falls nicht, wird es automatisch erstellt.
 
 ## 4. Datenbankregeln (`belege.db`)

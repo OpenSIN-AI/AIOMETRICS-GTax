@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # --- CONFIGURATION ---
 BASE_DIR = Path("/Users/jeremy/NotebookLM/JS - Belegdokumente 2023")
 SOURCE_DIRS = [
-    Path("/Users/jeremy/dev/Neuer Ordner/server/data/jerry-belege"),
+    Path("/Users/jeremy/dev/AIOMETRICS-GTax"),
     BASE_DIR / "Einnahmen",
     BASE_DIR / "Ausgaben",
 ]
