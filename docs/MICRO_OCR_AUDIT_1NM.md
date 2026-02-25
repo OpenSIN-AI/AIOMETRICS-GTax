@@ -1,11 +1,11 @@
 # MICRO OCR Audit 1NM
 
-- Timestamp: 2026-02-25T00:44:24.046Z
+- Timestamp: 2026-02-25T19:08:23.345Z
 - Source Folder: 1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH
 - Batch Size: 2
-- Run budget ms: 170000
+- Run budget ms: 180000
 - Model timeout ms: 25000
-- Elapsed ms: 80930
+- Elapsed ms: 61683
 - Candidates (no text): 2
 - Skipped due budget: 0
 - OCR text updates in sheet: 0

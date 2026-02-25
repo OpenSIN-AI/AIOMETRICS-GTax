@@ -447,3 +447,29 @@ Ausgeführt parallel (core/ocr/qa) über `node dist-micro/orchestrator/micio_sch
    - Aktive Dateien enthalten keine harten Referenzen mehr auf den geloeschten Pfad
      `/Users/jeremy/dev/Neuer Ordner/server/data/jerry-belege`
      (ausgenommen explizit historische Archiv-Dokumente).
+
+## 13) Micro-Block nach Baseline-Commit (2026-02-25)
+
+- Baseline-Commit erstellt auf Main:
+  - Commit: `37e5517`
+  - Titel: `chore: baseline migrate to main and stabilize micro-worker stack`
+
+- Sofort-Microblock 2023:
+  1. `AUDIT_YEAR=2023 npx tsx src/orchestrator/audit_2023_strict.ts`
+     - Initial: `criticalViolations=876` (Sync-Abweichung)
+  2. Rebuild-only Repair:
+     - `REPAIR_STAGE_REBUILD=1`, alle Move-Stages aus, `REPAIR_STAGE_MAX_MOVES=20`
+     - Ergebnis Rebuild: `Einnahmen_2023=121`, `Ausgaben_2023=680`
+  3. Re-Audit strict:
+     - `criticalViolations=0`, `zeroErrorStrict=true`
+
+- OCR-Microblock:
+  1. `micro_ocr_audit_1nm` (Batch 2, 3-Min Budget): abgeschlossen, keine Text-Updates in diesem Lauf.
+  2. Globaler OCR-Worker im Micro-Modus (`WORKER_BATCH_SIZE=1`, kurze Timeout-Werte):
+     - Ergebnis: `success=1`, `failed=0`
+  3. Coverage nach Lauf:
+     - `OCR Only: 362` (vorher 361)
+     - `None: 1406` (vorher 1407)
+
+- Hinweis:
+  - Dieser Block war bewusst in kurzen, getrennten Micro-Schritten (kein Monolith-Run).
