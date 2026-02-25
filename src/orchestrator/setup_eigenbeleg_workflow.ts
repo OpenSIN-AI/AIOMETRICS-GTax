@@ -60,7 +60,7 @@ async function ensureSheet(title: string): Promise<number> {
     fields: 'sheets.properties(sheetId,title)'
   });
   const existing = (meta.data.sheets || []).find((s) => s.properties?.title === title);
-  if (existing?.properties?.sheetId !== undefined) return existing.properties.sheetId;
+  if (existing?.properties?.sheetId != null) return existing.properties.sheetId;
 
   const create = await sheets.spreadsheets.batchUpdate({
     spreadsheetId: SPREADSHEET_ID,

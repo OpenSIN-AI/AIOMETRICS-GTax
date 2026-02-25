@@ -17,6 +17,17 @@ const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const MAX_CHANGES = Number.parseInt(process.env.MICRO_SYNC_MAX_CHANGES || '40', 10);
 const STATE_PATH = process.env.MICRO_SYNC_STATE_PATH || path.join(process.cwd(), 'logs', 'micro_sync_drive_changes_state.json');
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_SYNC_DRIVE_CHANGES.md');
+const EVENTS_PATH = path.join(process.cwd(), 'logs', 'micro_sync_drive_changes_events.jsonl');
+
+function parsePositiveInt(raw: string | undefined, fallback: number): number {
+  const value = Number.parseInt(String(raw || ''), 10);
+  if (!Number.isFinite(value) || value <= 0) return fallback;
+  return value;
+}
+
+const REQUEST_TIMEOUT_MS = parsePositiveInt(process.env.MICRO_SYNC_REQUEST_TIMEOUT_MS, 30000);
+const API_MAX_RETRIES = parsePositiveInt(process.env.MICRO_SYNC_API_MAX_RETRIES, 4);
+const API_RETRY_BASE_MS = parsePositiveInt(process.env.MICRO_SYNC_API_RETRY_BASE_MS, 1500);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
@@ -35,6 +46,114 @@ interface BelegeIndex {
   headerMap: Map<string, number>;
   rows: string[][];
   rowByDriveId: Map<string, number>;
+}
+
+interface ApiErrorLike {
+  code?: string | number;
+  message?: string;
+  response?: {
+    status?: number;
+    data?: {
+      error?: {
+        message?: string;
+        errors?: Array<{ reason?: string }>;
+      };
+    };
+  };
+  errors?: Array<{ reason?: string }>;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function ensureEventDir(): void {
+  fs.mkdirSync(path.dirname(EVENTS_PATH), { recursive: true });
+}
+
+function eventLog(event: string, payload: Record<string, unknown> = {}): void {
+  try {
+    ensureEventDir();
+    fs.appendFileSync(
+      EVENTS_PATH,
+      JSON.stringify({
+        ts: new Date().toISOString(),
+        event,
+        ...payload
+      }) + '\n',
+      'utf8'
+    );
+  } catch {
+    // Telemetry must never break the worker.
+  }
+}
+
+function extractError(error: unknown): { status: number; code: string; reason: string; message: string } {
+  const err = (error || {}) as ApiErrorLike;
+  const status = Number(err.response?.status || err.code || 0);
+  const code = String(err.code || '');
+  const reason =
+    String(err.errors?.[0]?.reason || '') ||
+    String(err.response?.data?.error?.errors?.[0]?.reason || '');
+  const message = String(
+    err.response?.data?.error?.message ||
+    err.message ||
+    ''
+  );
+  return { status, code, reason, message };
+}
+
+function isRetryableApiError(error: unknown): boolean {
+  const { status, code, reason, message } = extractError(error);
+  if ([408, 409, 425, 429, 500, 502, 503, 504].includes(status)) {
+    return true;
+  }
+  if (['ECONNRESET', 'ETIMEDOUT', 'EAI_AGAIN', 'ENOTFOUND', 'ECONNREFUSED', 'ECONNABORTED', 'EPIPE'].includes(code)) {
+    return true;
+  }
+  if (['rateLimitExceeded', 'userRateLimitExceeded', 'quotaExceeded', 'backendError'].includes(reason)) {
+    return true;
+  }
+  const m = message.toLowerCase();
+  return m.includes('timeout') || m.includes('rate limit') || m.includes('quota') || m.includes('backend error');
+}
+
+async function apiCall<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+  const maxAttempts = Math.max(1, API_MAX_RETRIES);
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const started = Date.now();
+    try {
+      const result = await fn();
+      eventLog('api_ok', {
+        operation,
+        attempt,
+        durationMs: Date.now() - started
+      });
+      return result;
+    } catch (error) {
+      const meta = extractError(error);
+      const retryable = isRetryableApiError(error);
+      const isLast = attempt >= maxAttempts;
+      eventLog('api_error', {
+        operation,
+        attempt,
+        durationMs: Date.now() - started,
+        retryable,
+        status: meta.status,
+        code: meta.code,
+        reason: meta.reason,
+        message: meta.message
+      });
+      if (!retryable || isLast) {
+        throw error;
+      }
+      const jitter = Math.floor(Math.random() * 250);
+      const delayMs = Math.min(15000, API_RETRY_BASE_MS * attempt + jitter);
+      console.warn(`[micro_sync] ${operation} failed (attempt ${attempt}/${maxAttempts}), retry in ${delayMs}ms: ${meta.message || meta.reason || meta.code || meta.status}`);
+      await sleep(delayMs);
+    }
+  }
+  throw new Error(`${operation}: exhausted retries`);
 }
 
 function isValidFieldTuple(value: [number, string]): value is [number, string] {
@@ -66,21 +185,30 @@ function readState(): SyncState | null {
 
 function writeState(state: SyncState): void {
   fs.mkdirSync(path.dirname(STATE_PATH), { recursive: true });
-  fs.writeFileSync(STATE_PATH, JSON.stringify(state, null, 2), 'utf8');
+  const tmp = STATE_PATH + '.tmp.' + Date.now();
+  fs.writeFileSync(tmp, JSON.stringify(state, null, 2), 'utf8');
+  fs.renameSync(tmp, STATE_PATH);
 }
 
 async function listChildren(folderId: string): Promise<FileMeta[]> {
   const out: FileMeta[] = [];
   let pageToken: string | undefined;
+  let pages = 0;
   do {
-    const r = await drive.files.list({
-      q: `'${folderId}' in parents and trashed=false`,
-      fields: 'nextPageToken,files(id,name,mimeType,parents)',
-      pageSize: 1000,
-      pageToken,
-      includeItemsFromAllDrives: true,
-      supportsAllDrives: true
-    });
+    if (pages++ > 50) break; // Hard loop constraint
+    const r = await apiCall(
+      'drive.files.list.children',
+      () => drive.files.list({
+        q: `'${folderId}' in parents and trashed=false`,
+        fields: 'nextPageToken,files(id,name,mimeType,parents)',
+        pageSize: 1000,
+        pageToken,
+        includeItemsFromAllDrives: true,
+        supportsAllDrives: true
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
     out.push(...(r.data.files || []));
     pageToken = r.data.nextPageToken || undefined;
   } while (pageToken);
@@ -111,10 +239,15 @@ async function buildWatchedFolderSet(): Promise<Set<string>> {
 }
 
 async function getBelegeIndex(): Promise<BelegeIndex> {
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID,
-    range: 'belege!A1:AZ'
-  });
+  const res = await apiCall(
+    'sheets.values.get.belege',
+    () => sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'belege!A1:AZ'
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   const rows = (res.data.values || []) as string[][];
   const headers = rows[0] || [];
   const headerMap = new Map<string, number>();
@@ -163,16 +296,28 @@ function buildBelegeRowFromFile(file: FileMeta): string[] {
 async function ensureStateInitialized(): Promise<SyncState> {
   const existing = readState();
   if (existing?.pageToken) return existing;
-  const tokenResp = await drive.changes.getStartPageToken({ supportsAllDrives: true });
+  const tokenResp = await apiCall(
+    'drive.changes.getStartPageToken',
+    () => drive.changes.getStartPageToken({ supportsAllDrives: true }, { timeout: REQUEST_TIMEOUT_MS })
+  );
   const token = String(tokenResp.data.startPageToken || '').trim();
   if (!token) throw new Error('Failed to initialize startPageToken');
   const state: SyncState = { pageToken: token, updatedAt: new Date().toISOString() };
   writeState(state);
+  eventLog('state_initialized', { tokenLength: token.length });
   return state;
 }
 
 async function main(): Promise<void> {
   if (!SPREADSHEET_ID) throw new Error('Missing GOOGLE_SHEET_ID');
+  const runId = randomUUID();
+  const startedAt = Date.now();
+  eventLog('run_start', {
+    runId,
+    requestTimeoutMs: REQUEST_TIMEOUT_MS,
+    maxRetries: API_MAX_RETRIES,
+    maxChanges: MAX_CHANGES
+  });
   const state = await ensureStateInitialized();
   const watchedFolders = await buildWatchedFolderSet();
   const belege = await getBelegeIndex();
@@ -182,14 +327,19 @@ async function main(): Promise<void> {
   let nextToken = state.pageToken;
   let fetchedChanges = 0;
 
-  const changeResp = await drive.changes.list({
-    pageToken: state.pageToken,
-    pageSize: Math.max(1, MAX_CHANGES),
-    fields: 'nextPageToken,newStartPageToken,changes(fileId,removed,file(id,name,mimeType,parents,modifiedTime,createdTime,webViewLink,size,trashed))',
-    supportsAllDrives: true,
-    includeItemsFromAllDrives: true,
-    restrictToMyDrive: false
-  });
+  const changeResp = await apiCall(
+    'drive.changes.list',
+    () => drive.changes.list({
+      pageToken: state.pageToken,
+      pageSize: Math.max(1, MAX_CHANGES),
+      fields: 'nextPageToken,newStartPageToken,changes(fileId,removed,file(id,name,mimeType,parents,modifiedTime,createdTime,webViewLink,size,trashed))',
+      supportsAllDrives: true,
+      includeItemsFromAllDrives: true,
+      restrictToMyDrive: false
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
 
   const changes = changeResp.data.changes || [];
   fetchedChanges = changes.length;
@@ -210,6 +360,7 @@ async function main(): Promise<void> {
 
   nextToken = String(changeResp.data.nextPageToken || changeResp.data.newStartPageToken || state.pageToken);
   writeState({ pageToken: nextToken, updatedAt: new Date().toISOString() });
+  eventLog('state_updated', { runId, nextTokenLength: nextToken.length, fetchedChanges });
 
   const updates: Array<{ range: string; values: string[][] }> = [];
   const clears: string[] = [];
@@ -257,28 +408,43 @@ async function main(): Promise<void> {
   }
 
   if (clears.length > 0) {
-    await sheets.spreadsheets.values.batchClear({
-      spreadsheetId: SPREADSHEET_ID,
-      requestBody: { ranges: clears }
-    });
+    await apiCall(
+      'sheets.values.batchClear',
+      () => sheets.spreadsheets.values.batchClear({
+        spreadsheetId: SPREADSHEET_ID,
+        requestBody: { ranges: clears }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
   if (updates.length > 0) {
-    await sheets.spreadsheets.values.batchUpdate({
-      spreadsheetId: SPREADSHEET_ID,
-      requestBody: {
-        valueInputOption: 'USER_ENTERED',
-        data: updates
-      }
-    });
+    await apiCall(
+      'sheets.values.batchUpdate',
+      () => sheets.spreadsheets.values.batchUpdate({
+        spreadsheetId: SPREADSHEET_ID,
+        requestBody: {
+          valueInputOption: 'USER_ENTERED',
+          data: updates
+        }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
   if (appends.length > 0) {
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: SPREADSHEET_ID,
-      range: 'belege!A1',
-      valueInputOption: 'USER_ENTERED',
-      insertDataOption: 'INSERT_ROWS',
-      requestBody: { values: appends }
-    });
+    await apiCall(
+      'sheets.values.append',
+      () => sheets.spreadsheets.values.append({
+        spreadsheetId: SPREADSHEET_ID,
+        range: 'belege!A1',
+        valueInputOption: 'USER_ENTERED',
+        insertDataOption: 'INSERT_ROWS',
+        requestBody: { values: appends }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
 
   const lines: string[] = [];
@@ -294,15 +460,27 @@ async function main(): Promise<void> {
 
   console.log(JSON.stringify({
     status: 'ok',
+    runId,
     fetchedChanges,
     clearedRows: clears.length,
     updatedCells: updates.length,
     appendedRows: appends.length,
     reportPath: REPORT_PATH
   }, null, 2));
+  eventLog('run_success', {
+    runId,
+    elapsedMs: Date.now() - startedAt,
+    fetchedChanges,
+    clearedRows: clears.length,
+    updatedCells: updates.length,
+    appendedRows: appends.length
+  });
 }
 
 main().catch((e) => {
+  eventLog('run_error', {
+    error: e instanceof Error ? e.message : String(e)
+  });
   console.error(e);
   process.exit(1);
 });

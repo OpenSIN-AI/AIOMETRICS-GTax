@@ -1,7 +1,6 @@
 import { google, drive_v3 } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import * as fs from 'fs';
-import * as path from 'path';
 
 export interface DriveFile {
   id: string;
@@ -20,8 +19,36 @@ export interface DriveFolder {
   name: string;
 }
 
+interface ApiErrorLike {
+  code?: string | number;
+  message?: string;
+  response?: {
+    status?: number;
+    data?: {
+      error?: {
+        message?: string;
+        errors?: Array<{ reason?: string }>;
+      };
+    };
+  };
+  errors?: Array<{ reason?: string }>;
+}
+
+function parsePositiveInt(raw: string | undefined, fallback: number): number {
+  const value = Number.parseInt(String(raw || ''), 10);
+  if (!Number.isFinite(value) || value <= 0) return fallback;
+  return value;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export class GoogleDriveService {
   private drive: drive_v3.Drive;
+  private readonly requestTimeoutMs = parsePositiveInt(process.env.GDRIVE_REQUEST_TIMEOUT_MS, 30000);
+  private readonly maxRetries = parsePositiveInt(process.env.GDRIVE_MAX_RETRIES, 4);
+  private readonly retryBaseMs = parsePositiveInt(process.env.GDRIVE_RETRY_BASE_MS, 1500);
   
   constructor(private credentialsPath: string) {
     const auth = new JWT({
@@ -34,6 +61,53 @@ export class GoogleDriveService {
     
     this.drive = google.drive({ version: 'v3', auth });
   }
+
+  private extractError(error: unknown): { status: number; code: string; reason: string; message: string } {
+    const err = (error || {}) as ApiErrorLike;
+    const status = Number(err.response?.status || err.code || 0);
+    const code = String(err.code || '');
+    const reason =
+      String(err.errors?.[0]?.reason || '') ||
+      String(err.response?.data?.error?.errors?.[0]?.reason || '');
+    const message = String(err.response?.data?.error?.message || err.message || '');
+    return { status, code, reason, message };
+  }
+
+  private isRetryableError(error: unknown): boolean {
+    const { status, code, reason, message } = this.extractError(error);
+    if ([408, 409, 425, 429, 500, 502, 503, 504].includes(status)) {
+      return true;
+    }
+    if (['ECONNRESET', 'ETIMEDOUT', 'EAI_AGAIN', 'ENOTFOUND', 'ECONNREFUSED', 'ECONNABORTED', 'EPIPE'].includes(code)) {
+      return true;
+    }
+    if (['rateLimitExceeded', 'userRateLimitExceeded', 'quotaExceeded', 'backendError'].includes(reason)) {
+      return true;
+    }
+    const m = message.toLowerCase();
+    return m.includes('timeout') || m.includes('rate limit') || m.includes('quota') || m.includes('backend error');
+  }
+
+  private async runWithRetry<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+    const attempts = Math.max(1, this.maxRetries);
+    for (let attempt = 1; attempt <= attempts; attempt++) {
+      try {
+        return await fn();
+      } catch (error) {
+        const retryable = this.isRetryableError(error);
+        if (!retryable || attempt >= attempts) {
+          throw error;
+        }
+        const meta = this.extractError(error);
+        const delayMs = Math.min(15000, this.retryBaseMs * attempt + Math.floor(Math.random() * 250));
+        console.warn(
+          `[drive] ${operation} failed (attempt ${attempt}/${attempts}), retry in ${delayMs}ms: ${meta.message || meta.reason || meta.code || meta.status}`
+        );
+        await sleep(delayMs);
+      }
+    }
+    throw new Error(`${operation}: exhausted retries`);
+  }
   
   async listFiles(folderId: string): Promise<DriveFile[]> {
     try {
@@ -41,15 +115,20 @@ export class GoogleDriveService {
       let pageToken: string | undefined = undefined;
 
       do {
-        const response: any = await this.drive.files.list({
-          q: `'${folderId}' in parents and trashed = false`,
-          fields: 'nextPageToken,files(id, name, mimeType, size, createdTime, modifiedTime, parents, webViewLink)',
-          orderBy: 'modifiedTime desc',
-          pageSize: 1000,
-          pageToken,
-          supportsAllDrives: true,
-          includeItemsFromAllDrives: true
-        });
+        const response = await this.runWithRetry(
+          'drive.files.list',
+          () => this.drive.files.list({
+            q: `'${folderId}' in parents and trashed = false`,
+            fields: 'nextPageToken,files(id, name, mimeType, size, createdTime, modifiedTime, parents, webViewLink)',
+            orderBy: 'modifiedTime desc',
+            pageSize: 1000,
+            pageToken,
+            supportsAllDrives: true,
+            includeItemsFromAllDrives: true
+          }, {
+            timeout: this.requestTimeoutMs
+          })
+        );
 
         allFiles.push(...(response.data.files || []));
         pageToken = response.data.nextPageToken || undefined;
@@ -98,9 +177,12 @@ export class GoogleDriveService {
   
   async downloadFile(fileId: string, destPath: string): Promise<string> {
     try {
-      const response = await this.drive.files.get(
-        { fileId, alt: 'media', supportsAllDrives: true },
-        { responseType: 'stream' }
+      const response = await this.runWithRetry(
+        'drive.files.get.media',
+        () => this.drive.files.get(
+          { fileId, alt: 'media', supportsAllDrives: true },
+          { responseType: 'stream', timeout: this.requestTimeoutMs }
+        )
       );
       
       const writer = fs.createWriteStream(destPath);
@@ -125,21 +207,31 @@ export class GoogleDriveService {
   
   async moveFile(fileId: string, newParentId: string): Promise<DriveFile> {
     try {
-      const file = await this.drive.files.get({
-        fileId,
-        fields: 'parents',
-        supportsAllDrives: true
-      });
+      const file = await this.runWithRetry(
+        'drive.files.get.parents',
+        () => this.drive.files.get({
+          fileId,
+          fields: 'parents',
+          supportsAllDrives: true
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
       
       const previousParents = file.data.parents?.join(',') || '';
       
-      const response = await this.drive.files.update({
-        fileId,
-        addParents: newParentId,
-        removeParents: previousParents,
-        fields: 'id, name, mimeType, parents',
-        supportsAllDrives: true
-      });
+      const response = await this.runWithRetry(
+        'drive.files.update.move',
+        () => this.drive.files.update({
+          fileId,
+          addParents: newParentId,
+          removeParents: previousParents,
+          fields: 'id, name, mimeType, parents',
+          supportsAllDrives: true
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
       
       return {
         id: response.data.id || '',
@@ -161,11 +253,16 @@ export class GoogleDriveService {
         ...(parentId && { parents: [parentId] })
       };
       
-      const response = await this.drive.files.create({
-        requestBody: folderMetadata,
-        fields: 'id, name',
-        supportsAllDrives: true
-      });
+      const response = await this.runWithRetry(
+        'drive.files.create.folder',
+        () => this.drive.files.create({
+          requestBody: folderMetadata,
+          fields: 'id, name',
+          supportsAllDrives: true
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
       
       return {
         id: response.data.id || '',
@@ -184,13 +281,18 @@ export class GoogleDriveService {
         query += ` and '${parentId}' in parents`;
       }
       
-      const response = await this.drive.files.list({
-        q: query,
-        fields: 'files(id, name)',
-        spaces: 'drive',
-        supportsAllDrives: true,
-        includeItemsFromAllDrives: true
-      });
+      const response = await this.runWithRetry(
+        'drive.files.list.findFolder',
+        () => this.drive.files.list({
+          q: query,
+          fields: 'files(id, name)',
+          spaces: 'drive',
+          supportsAllDrives: true,
+          includeItemsFromAllDrives: true
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
       
       if (response.data.files && response.data.files.length > 0) {
         return {
@@ -208,13 +310,18 @@ export class GoogleDriveService {
   
   async fileExists(name: string, parentId: string): Promise<boolean> {
     try {
-      const response = await this.drive.files.list({
-        q: `name = '${name}' and '${parentId}' in parents and trashed = false`,
-        fields: 'files(id)',
-        spaces: 'drive',
-        supportsAllDrives: true,
-        includeItemsFromAllDrives: true
-      });
+      const response = await this.runWithRetry(
+        'drive.files.list.fileExists',
+        () => this.drive.files.list({
+          q: `name = '${name}' and '${parentId}' in parents and trashed = false`,
+          fields: 'files(id)',
+          spaces: 'drive',
+          supportsAllDrives: true,
+          includeItemsFromAllDrives: true
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
       
       return (response.data.files?.length || 0) > 0;
     } catch (error) {
@@ -225,7 +332,10 @@ export class GoogleDriveService {
   
   async deleteFile(fileId: string): Promise<void> {
     try {
-      await this.drive.files.delete({ fileId, supportsAllDrives: true });
+      await this.runWithRetry(
+        'drive.files.delete',
+        () => this.drive.files.delete({ fileId, supportsAllDrives: true }, { timeout: this.requestTimeoutMs })
+      );
       console.log(`Deleted file ${fileId}`);
     } catch (error) {
       console.error('Error deleting file:', error);
@@ -235,15 +345,20 @@ export class GoogleDriveService {
   
   async shareFileWithEmail(fileId: string, email: string, role: string = 'reader'): Promise<void> {
     try {
-      await this.drive.permissions.create({
-        fileId,
-        supportsAllDrives: true,
-        requestBody: {
-          type: 'user',
-          role,
-          emailAddress: email
-        }
-      });
+      await this.runWithRetry(
+        'drive.permissions.create',
+        () => this.drive.permissions.create({
+          fileId,
+          supportsAllDrives: true,
+          requestBody: {
+            type: 'user',
+            role,
+            emailAddress: email
+          }
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
       console.log(`Shared file ${fileId} with ${email}`);
     } catch (error) {
       console.error('Error sharing file:', error);
@@ -253,11 +368,16 @@ export class GoogleDriveService {
 
   async getFileById(fileId: string): Promise<DriveFile | null> {
     try {
-      const response = await this.drive.files.get({
-        fileId,
-        fields: 'id, name, mimeType, size, createdTime, modifiedTime, parents, webViewLink',
-        supportsAllDrives: true
-      });
+      const response = await this.runWithRetry(
+        'drive.files.get.byId',
+        () => this.drive.files.get({
+          fileId,
+          fields: 'id, name, mimeType, size, createdTime, modifiedTime, parents, webViewLink',
+          supportsAllDrives: true
+        }, {
+          timeout: this.requestTimeoutMs
+        })
+      );
 
       return {
         id: response.data.id || '',
@@ -270,7 +390,8 @@ export class GoogleDriveService {
         webViewLink: response.data.webViewLink ?? undefined
       };
     } catch (error: any) {
-      const status = error?.response?.status || error?.code;
+      const statusRaw = error?.response?.status || error?.code;
+      const status = typeof statusRaw === 'string' ? Number.parseInt(statusRaw, 10) : statusRaw;
       if (status === 404) {
         return null;
       }

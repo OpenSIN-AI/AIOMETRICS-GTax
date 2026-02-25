@@ -86,7 +86,9 @@ function writeCursor(nextCursor: number, total: number): void {
       totalLastSeen: total,
       updatedAt: new Date().toISOString()
     };
-    fs.writeFileSync(CURSOR_FILE, JSON.stringify(payload, null, 2), 'utf8');
+    const tmp = CURSOR_FILE + '.tmp.' + Date.now();
+    fs.writeFileSync(tmp, JSON.stringify(payload, null, 2), 'utf8');
+    fs.renameSync(tmp, CURSOR_FILE);
   } catch {
     // ignore cursor write errors
   }
@@ -321,6 +323,7 @@ async function main(): Promise<void> {
         decisions.push({ file: localPath, action: 'skip_unknown', reason: 'eligible_but_upload_disabled' });
       }
     } catch (e: any) {
+      console.error('Error in tesseract filter processing:', e);
       decisions.push({ file: localPath, action: 'skip_error', reason: String(e?.message || e).slice(0, 180) });
     }
   }
@@ -371,6 +374,7 @@ main().finally(async () => {
       // best effort worker shutdown
     }
   }
+  setTimeout(() => process.exit(0), 100);
 }).catch((e) => {
   console.error(e);
   process.exit(1);

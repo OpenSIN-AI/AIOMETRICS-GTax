@@ -28,7 +28,13 @@ function getEnv(name: string, fallback: string): string {
   return value && value.length > 0 ? value : fallback;
 }
 
-function runNodeScript(scriptPath: string, env: Record<string, string>): Promise<void> {
+function parsePositiveInt(raw: string | undefined, fallback: number): number {
+  const parsed = Number.parseInt(String(raw || ''), 10);
+  if (!Number.isFinite(parsed) || parsed <= 0) return fallback;
+  return parsed;
+}
+
+function runNodeScript(scriptPath: string, env: Record<string, string>, timeoutMs: number): Promise<void> {
   return new Promise((resolve, reject) => {
     const child = spawn(process.execPath, [scriptPath], {
       cwd: PROJECT_ROOT,
@@ -40,8 +46,24 @@ function runNodeScript(scriptPath: string, env: Record<string, string>): Promise
       stdio: 'inherit'
     });
 
-    child.on('error', reject);
+    let timedOut = false;
+    const timer = setTimeout(() => {
+      timedOut = true;
+      child.kill('SIGTERM');
+      setTimeout(() => child.kill('SIGKILL'), 4000).unref();
+    }, timeoutMs);
+    timer.unref();
+
+    child.on('error', (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
     child.on('exit', (code, signal) => {
+      clearTimeout(timer);
+      if (timedOut) {
+        reject(new Error(`Stage timed out (${path.basename(scriptPath)}): timeoutMs=${timeoutMs}`));
+        return;
+      }
       if (code === 0) {
         resolve();
         return;
@@ -61,6 +83,7 @@ async function main(): Promise<void> {
   const runYearlyReorganize = isTruthy(process.env.PIPELINE_RUN_YEARLY_REORGANIZE, false);
   const runSoftAudit = isTruthy(process.env.PIPELINE_RUN_SOFT_AUDIT, false);
   const runHardAudit = isTruthy(process.env.PIPELINE_RUN_HARD_AUDIT, false);
+  const stageTimeoutMs = parsePositiveInt(process.env.PIPELINE_STAGE_TIMEOUT_MS, 10 * 60 * 1000);
 
   const stages: Stage[] = [
     {
@@ -114,7 +137,7 @@ async function main(): Promise<void> {
       appendPipelineEvent('pipeline_sync', 'stage_start', pipelineRunId, { stage: stage.name });
       console.log(`[pipeline] Stage start: ${stage.name}`);
       try {
-        await runNodeScript(stage.scriptPath, stage.env || {});
+        await runNodeScript(stage.scriptPath, stage.env || {}, stageTimeoutMs);
         appendPipelineEvent('pipeline_sync', 'stage_success', pipelineRunId, {
           stage: stage.name,
           durationMs: Date.now() - started

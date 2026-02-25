@@ -88,7 +88,9 @@ const FUEL_MARKERS = [
 async function listChildren(folderId: string): Promise<FileMeta[]> {
   const out: FileMeta[] = [];
   let pageToken: string | undefined;
+  let pages = 0;
   do {
+    if (pages++ > 50) break;
     const r = await drive.files.list({
       q: `'${folderId}' in parents and trashed=false`,
       fields: 'nextPageToken,files(id,name,mimeType,parents,webViewLink)',

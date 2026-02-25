@@ -45,6 +45,7 @@ async function moveFileToArchive(fileId: string): Promise<{ ok: boolean; reason:
     });
     return { ok: true, reason: 'moved_to_archive' };
   } catch (e: any) {
+    console.error('Error during moveFileToArchive:', e);
     return { ok: false, reason: String(e?.message || e).slice(0, 160) };
   }
 }

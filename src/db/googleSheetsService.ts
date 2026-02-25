@@ -1,5 +1,17 @@
 import { google, sheets_v4 } from 'googleapis';
 import { JWT } from 'google-auth-library';
+import * as fs from 'fs';
+import * as path from 'path';
+
+function parsePositiveInt(raw: string | undefined, fallback: number): number {
+  const value = Number.parseInt(String(raw || ''), 10);
+  if (!Number.isFinite(value) || value <= 0) return fallback;
+  return value;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 export interface BelegRecord {
   id: string;
@@ -78,12 +90,31 @@ export interface YearlyTabRow {
   raw: string[];
 }
 
+interface ApiErrorLike {
+  code?: string | number;
+  message?: string;
+  response?: {
+    status?: number;
+    data?: {
+      error?: {
+        message?: string;
+        errors?: Array<{ reason?: string }>;
+      };
+    };
+  };
+  errors?: Array<{ reason?: string }>;
+}
+
 export class GoogleSheetsService {
   private sheets: sheets_v4.Sheets;
   private spreadsheetId: string;
   private processingLogHeadersEnsured = false;
   private categoryFolderHeadersEnsured = false;
   private auditHeadersEnsured = false;
+  private readonly sheetsRequestTimeoutMs = parsePositiveInt(process.env.GSHEETS_REQUEST_TIMEOUT_MS, 30000);
+  private readonly sheetsMaxRetries = parsePositiveInt(process.env.GSHEETS_MAX_RETRIES, 6);
+  private readonly sheetsRetryBaseMs = parsePositiveInt(process.env.GSHEETS_RETRY_BASE_MS, 2000);
+  private readonly sheetsEventsPath = process.env.GSHEETS_EVENTS_PATH || path.join(process.cwd(), 'logs', 'google_sheets_events.jsonl');
   private readonly belegeHeaders = [
     'id', 'drive_file_id', 'original_name', 'mime_type', 'file_size',
     'category', 'extracted_text', 'ocr_text', 'image_description',
@@ -160,34 +191,106 @@ export class GoogleSheetsService {
     this.spreadsheetId = spreadsheetId;
   }
 
+  private logApiEvent(event: string, payload: Record<string, unknown> = {}): void {
+    try {
+      fs.mkdirSync(path.dirname(this.sheetsEventsPath), { recursive: true });
+      fs.appendFileSync(
+        this.sheetsEventsPath,
+        JSON.stringify({
+          ts: new Date().toISOString(),
+          event,
+          spreadsheetId: this.spreadsheetId,
+          ...payload
+        }) + '\n',
+        'utf8'
+      );
+    } catch {
+      // Telemetry must never break production flows.
+    }
+  }
+
+  private extractApiError(error: unknown): { status: number; code: string; reason: string; message: string } {
+    const err = (error || {}) as ApiErrorLike;
+    const status = Number(err.response?.status || err.code || 0);
+    const code = String(err.code || '');
+    const reason =
+      String(err.errors?.[0]?.reason || '') ||
+      String(err.response?.data?.error?.errors?.[0]?.reason || '');
+    const message = String(
+      err.response?.data?.error?.message ||
+      err.message ||
+      ''
+    );
+    return { status, code, reason, message };
+  }
+
+  private isRetryableSheetsError(error: unknown): boolean {
+    const { status, code, reason, message } = this.extractApiError(error);
+    if ([408, 409, 425, 429, 500, 502, 503, 504].includes(status)) {
+      return true;
+    }
+    if (['ECONNRESET', 'ETIMEDOUT', 'EAI_AGAIN', 'ENOTFOUND', 'ECONNREFUSED', 'ECONNABORTED', 'EPIPE'].includes(code)) {
+      return true;
+    }
+    if (['rateLimitExceeded', 'userRateLimitExceeded', 'quotaExceeded', 'backendError', 'internalError'].includes(reason)) {
+      return true;
+    }
+    const msg = message.toLowerCase();
+    return msg.includes('timeout') || msg.includes('quota') || msg.includes('rate limit') || msg.includes('backend error');
+  }
+
+  private withTimeout<T>(promise: Promise<T>, operation: string): Promise<T> {
+    if (this.sheetsRequestTimeoutMs <= 0) {
+      return promise;
+    }
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        reject(new Error(`${operation}: timeout after ${this.sheetsRequestTimeoutMs}ms`));
+      }, this.sheetsRequestTimeoutMs);
+      timer.unref();
+      promise.then((value) => {
+        clearTimeout(timer);
+        resolve(value);
+      }).catch((error) => {
+        clearTimeout(timer);
+        reject(error);
+      });
+    });
+  }
+
   private async runWithRateLimitRetry<T>(fn: () => Promise<T>, operation: string): Promise<T> {
-    const maxAttempts = 6;
+    const maxAttempts = Math.max(1, this.sheetsMaxRetries);
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      const started = Date.now();
       try {
-        return await fn();
-      } catch (error: any) {
-        const status = error?.response?.status || error?.code;
-        const reason =
-          error?.errors?.[0]?.reason ||
-          error?.response?.data?.error?.errors?.[0]?.reason ||
-          '';
-        const message = String(
-          error?.response?.data?.error?.message ||
-          error?.message ||
-          ''
-        );
-        const rateLimited =
-          status === 429 ||
-          reason === 'rateLimitExceeded' ||
-          reason === 'userRateLimitExceeded' ||
-          reason === 'quotaExceeded' ||
-          message.includes('Quota exceeded');
-        if (!rateLimited || attempt === maxAttempts) {
+        const result = await this.withTimeout(fn(), operation);
+        this.logApiEvent('api_ok', {
+          operation,
+          attempt,
+          durationMs: Date.now() - started
+        });
+        return result;
+      } catch (error: unknown) {
+        const meta = this.extractApiError(error);
+        const retryable = this.isRetryableSheetsError(error);
+        const lastAttempt = attempt >= maxAttempts;
+        this.logApiEvent('api_error', {
+          operation,
+          attempt,
+          durationMs: Date.now() - started,
+          retryable,
+          status: meta.status,
+          code: meta.code,
+          reason: meta.reason,
+          message: meta.message
+        });
+        if (!retryable || lastAttempt) {
           throw error;
         }
-        const delayMs = attempt * 5000;
-        console.warn(`${operation}: rate limited, retry ${attempt}/${maxAttempts} in ${delayMs}ms`);
-        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        const jitterMs = Math.floor(Math.random() * 300);
+        const delayMs = Math.min(20000, this.sheetsRetryBaseMs * attempt + jitterMs);
+        console.warn(`${operation}: retry ${attempt}/${maxAttempts} in ${delayMs}ms (${meta.message || meta.reason || meta.code || meta.status})`);
+        await sleep(delayMs);
       }
     }
     throw new Error(`${operation}: exhausted retries`);

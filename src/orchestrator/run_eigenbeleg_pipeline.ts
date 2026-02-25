@@ -121,14 +121,7 @@ async function downloadSourceAsPdf(fileId: string, targetPath: string): Promise<
   }
 
   if (mime.startsWith('image/')) {
-    const media = await drive.files.get(
-      { fileId, alt: 'media', supportsAllDrives: true },
-      { responseType: 'arraybuffer' }
-    );
-    const imgBuf = Buffer.from(media.data as ArrayBuffer);
-    const pdfBuf = await sharp(imgBuf).pdf().toBuffer();
-    fs.writeFileSync(targetPath, pdfBuf);
-    return;
+    throw new Error(`Unsupported source mime type for merge (image to pdf not implemented): ${mime}`);
   }
 
   if (mime.startsWith('application/vnd.google-apps')) {
