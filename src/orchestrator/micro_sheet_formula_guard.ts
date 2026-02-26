@@ -65,7 +65,7 @@ async function main(): Promise<void> {
   ];
 
   const cockpitSpecs: FormulaSpec[] = [
-    { cell: 'B2', formula: `=IFERROR(B2;YEAR(TODAY()))` },
+    { cell: 'B2', formula: `=YEAR(TODAY())` },
     { cell: 'B5', formula: `=IFERROR(EÜR!B9;0)` },   // Einnahmen brutto
     { cell: 'E5', formula: `=IFERROR(EÜR!B17;0)` },  // Ausgaben brutto
     { cell: 'H5', formula: `=IFERROR(EÜR!B18;0)` },  // EÜR Ergebnis

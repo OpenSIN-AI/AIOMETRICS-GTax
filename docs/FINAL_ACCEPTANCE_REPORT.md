@@ -1,14 +1,14 @@
 # Final Acceptance Report
 
-- Timestamp: 2026-02-25T05:34:51.827Z
-- Run ID: cc6fb510-bf58-4c88-983b-b40c5de1ea39
+- Timestamp: 2026-02-26T01:58:02.256Z
+- Run ID: 51d1cdbb-f7d2-4c4e-b507-2e073ea45649
 - Scope years: 2000, 2004, 2016, 2022, 2023, 2024, 2025, 2026
 - Done (all gates green): YES
 
 ## KPI Summary
 
-- records_before: 1829
-- records_after: 1829
+- records_before: 1828
+- records_after: 1828
 - driveOnly_total: 0
 - sheetOnly_total: 0
 - duplicate_drive_file_id_total: 0
@@ -16,6 +16,12 @@
 - qa_accuracy_critical: 100.00% (80/80)
 - critical_qa_issues: 0
 - idempotency_pass: true
+- dashboard_formula_drift_count: 0
+- dashboard_value_drift_count: 0
+- bidirectional_drift_incidents: 0
+- contract_gate_A: true
+- contract_gate_B: true
+- contract_gate_C: true
 
 ## Hard Fail Reasons
 
@@ -36,14 +42,15 @@
 
 ## Stage Results
 
-- build: OK (51672ms)
-- start_sync#1: OK (148835ms)
-- soft_audit#1: OK (70639ms)
-- integrity_check#1: OK (19267ms)
-- mismatch_resolve#1: OK (65530ms)
-- quality_check#1: OK (26752ms)
-- governance_check#1: OK (3279ms)
-- idempotency_check#1: OK (105948ms)
+- build: OK (267651ms)
+- start_sync#1: OK (241121ms)
+- soft_audit#1: OK (148794ms)
+- integrity_check#1: OK (133092ms)
+- mismatch_resolve#1: OK (119594ms)
+- quality_check#1: OK (98512ms)
+- contract_sync_guard#1: OK (39013ms)
+- governance_check#1: OK (3582ms)
+- idempotency_check#1: OK (155915ms)
 
 ## QA Issues (Top 50)
 
@@ -94,8 +101,8 @@
 
 ```json
 {
-  "timestamp": "2026-02-25T05:34:51.827Z",
-  "runId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+  "timestamp": "2026-02-26T01:58:02.256Z",
+  "runId": "51d1cdbb-f7d2-4c4e-b507-2e073ea45649",
   "scopeYears": [
     "2000",
     "2004",
@@ -120,65 +127,72 @@
     {
       "stage": "build",
       "ok": true,
-      "startedAt": "2026-02-25T05:26:39.904Z",
-      "finishedAt": "2026-02-25T05:27:31.576Z",
-      "durationMs": 51672
+      "startedAt": "2026-02-26T01:37:54.978Z",
+      "finishedAt": "2026-02-26T01:42:22.629Z",
+      "durationMs": 267651
     },
     {
       "stage": "start_sync#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:27:31.576Z",
-      "finishedAt": "2026-02-25T05:30:00.411Z",
-      "durationMs": 148835
+      "startedAt": "2026-02-26T01:42:22.629Z",
+      "finishedAt": "2026-02-26T01:46:23.747Z",
+      "durationMs": 241121
     },
     {
       "stage": "soft_audit#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:30:00.411Z",
-      "finishedAt": "2026-02-25T05:31:11.050Z",
-      "durationMs": 70639
+      "startedAt": "2026-02-26T01:46:23.751Z",
+      "finishedAt": "2026-02-26T01:48:52.545Z",
+      "durationMs": 148794
     },
     {
       "stage": "integrity_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:31:11.050Z",
-      "finishedAt": "2026-02-25T05:31:30.317Z",
-      "durationMs": 19267
+      "startedAt": "2026-02-26T01:48:52.545Z",
+      "finishedAt": "2026-02-26T01:51:05.637Z",
+      "durationMs": 133092
     },
     {
       "stage": "mismatch_resolve#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:31:30.317Z",
-      "finishedAt": "2026-02-25T05:32:35.847Z",
-      "durationMs": 65530
+      "startedAt": "2026-02-26T01:51:05.637Z",
+      "finishedAt": "2026-02-26T01:53:05.231Z",
+      "durationMs": 119594
     },
     {
       "stage": "quality_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:32:35.847Z",
-      "finishedAt": "2026-02-25T05:33:02.599Z",
-      "durationMs": 26752
+      "startedAt": "2026-02-26T01:53:05.231Z",
+      "finishedAt": "2026-02-26T01:54:43.743Z",
+      "durationMs": 98512
+    },
+    {
+      "stage": "contract_sync_guard#1",
+      "ok": true,
+      "startedAt": "2026-02-26T01:54:43.743Z",
+      "finishedAt": "2026-02-26T01:55:22.756Z",
+      "durationMs": 39013
     },
     {
       "stage": "governance_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:33:02.599Z",
-      "finishedAt": "2026-02-25T05:33:05.878Z",
-      "durationMs": 3279
+      "startedAt": "2026-02-26T01:55:22.756Z",
+      "finishedAt": "2026-02-26T01:55:26.338Z",
+      "durationMs": 3582
     },
     {
       "stage": "idempotency_check#1",
       "ok": true,
-      "startedAt": "2026-02-25T05:33:05.878Z",
-      "finishedAt": "2026-02-25T05:34:51.826Z",
-      "durationMs": 105948
+      "startedAt": "2026-02-26T01:55:26.338Z",
+      "finishedAt": "2026-02-26T01:58:02.252Z",
+      "durationMs": 155915
     }
   ],
   "baseline": {
-    "records": 1829,
+    "records": 1828,
     "categories": {
-      "Sonstiges": 1644,
       "Rechnungen": 184,
+      "Sonstiges": 1643,
       "Vertraege": 1
     },
     "tabs": [
@@ -240,10 +254,10 @@
     "forbiddenMarkerHits": 0
   },
   "after": {
-    "records": 1829,
+    "records": 1828,
     "categories": {
       "Rechnungen": 184,
-      "Sonstiges": 1644,
+      "Sonstiges": 1643,
       "Vertraege": 1
     },
     "tabs": [
@@ -313,7 +327,10 @@
     "qaSampleCriticalPassed": 80,
     "qaAccuracy": 1,
     "criticalQaIssues": 0,
-    "idempotencyPass": true
+    "idempotencyPass": true,
+    "dashboardFormulaDriftCount": 0,
+    "dashboardValueDriftCount": 0,
+    "bidirectionalDriftIncidents": 0
   },
   "yearlyGateStatus": [
     {
@@ -374,6 +391,294 @@
     }
   ],
   "governanceFindings": [],
+  "contractSync": {
+    "version": "2026.1",
+    "timestamp": "2026-02-26T01:55:22.666Z",
+    "scopeYears": [
+      "2000",
+      "2004",
+      "2016",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "gates": {
+      "gateA": {
+        "pass": true,
+        "driveCount": 1828,
+        "sheetCount": 1828,
+        "driveOnly": 0,
+        "sheetOnly": 0,
+        "duplicateDriveIds": 0
+      },
+      "gateB": {
+        "pass": true,
+        "missingYears": [],
+        "perYear": [
+          {
+            "year": "2000",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2004",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2016",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2022",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2023",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2024",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2025",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          },
+          {
+            "year": "2026",
+            "driveOnly": 0,
+            "sheetOnly": 0,
+            "duplicateDriveIds": 0,
+            "pass": true
+          }
+        ],
+        "totalDriveOnly": 0,
+        "totalSheetOnly": 0,
+        "totalDuplicateDriveIds": 0
+      },
+      "gateC": {
+        "pass": true,
+        "formulaDriftCount": 0,
+        "valueDriftCount": 0,
+        "formulaChecks": [
+          {
+            "tab": "EÜR",
+            "cell": "B2",
+            "expectedFormula": "=IFERROR('Finanz-Cockpit'!B2;YEAR(TODAY()))",
+            "actualFormula": "=IFERROR('Finanz-Cockpit'!B2;YEAR(TODAY()))",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B5",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B6",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B7",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B8",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B9",
+            "expectedFormula": "=SUM(B5:B8)",
+            "actualFormula": "=SUM(B5:B8)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B12",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)material|pv\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)material|pv\")));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B13",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)kraftstoff|benzin|diesel\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)kraftstoff|benzin|diesel\")));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B14",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)telekommunikation|it|hosting|domain\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)telekommunikation|it|hosting|domain\")));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B15",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)versicherung\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)versicherung\")));0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B16",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B17",
+            "expectedFormula": "=SUM(B12:B16)",
+            "actualFormula": "=SUM(B12:B16)",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B18",
+            "expectedFormula": "=B9-B17",
+            "actualFormula": "=B9-B17",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B19",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "B2",
+            "expectedFormula": "=YEAR(TODAY())",
+            "actualFormula": "=YEAR(TODAY())",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "B5",
+            "expectedFormula": "=IFERROR(EÜR!B9;0)",
+            "actualFormula": "=IFERROR('EÜR'!B9;0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "E5",
+            "expectedFormula": "=IFERROR(EÜR!B17;0)",
+            "actualFormula": "=IFERROR('EÜR'!B17;0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "H5",
+            "expectedFormula": "=IFERROR(EÜR!B18;0)",
+            "actualFormula": "=IFERROR('EÜR'!B18;0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "K5",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "N5",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "Q5",
+            "expectedFormula": "=K5-N5",
+            "actualFormula": "=K5-N5",
+            "pass": true
+          }
+        ],
+        "valueChecks": [
+          {
+            "label": "YearLink",
+            "leftRef": "Finanz-Cockpit!B2",
+            "rightRef": "EÜR!B2",
+            "expected": "2026.00",
+            "actual": "2026.00",
+            "pass": true
+          },
+          {
+            "label": "IncomeKPI",
+            "leftRef": "Finanz-Cockpit!B5",
+            "rightRef": "EÜR!B9",
+            "expected": "0.00",
+            "actual": "0.00",
+            "pass": true
+          },
+          {
+            "label": "ExpenseKPI",
+            "leftRef": "Finanz-Cockpit!E5",
+            "rightRef": "EÜR!B17",
+            "expected": "0.00",
+            "actual": "0.00",
+            "pass": true
+          },
+          {
+            "label": "ResultKPI",
+            "leftRef": "Finanz-Cockpit!H5",
+            "rightRef": "EÜR!B18",
+            "expected": "0.00",
+            "actual": "0.00",
+            "pass": true
+          },
+          {
+            "label": "CockpitSaldoArithmetic",
+            "leftRef": "Finanz-Cockpit!Q5",
+            "rightRef": "Finanz-Cockpit!K5-N5",
+            "expected": "0.00",
+            "actual": "0.00",
+            "pass": true
+          }
+        ]
+      }
+    },
+    "violations": [],
+    "autofixActions": [],
+    "status": "green"
+  },
   "criticalQaIssues": 0,
   "qaIssues": [
     {
@@ -870,14 +1175,14 @@
     ]
   },
   "mismatchResolutionStats": {
-    "belegeBefore": 1829,
-    "belegeAfter": 1829,
+    "belegeBefore": 1828,
+    "belegeAfter": 1828,
     "yearlyTabsTouched": 16,
     "staleYearTabsDeleted": [],
-    "actionsTotal": 2743,
+    "actionsTotal": 2746,
     "actionsByType": {
-      "DELETE_YEARLY_ORPHAN": 1291,
-      "INSERT_YEARLY_MISSING": 745,
+      "DELETE_YEARLY_ORPHAN": 1293,
+      "INSERT_YEARLY_MISSING": 746,
       "UPDATE_YEAR": 707
     },
     "actionsByYear": {
@@ -887,13 +1192,13 @@
       "2022": 10,
       "2023": 1558,
       "2024": 20,
-      "2025": 90,
+      "2025": 93,
       "2026": 1058
     }
   },
   "hardFailReasons": [],
   "integrity": {
-    "timestamp": "2026-02-25T05:32:53.535Z",
+    "timestamp": "2026-02-26T01:54:20.360Z",
     "years": [
       "2000",
       "2004",
@@ -1044,8 +1349,8 @@
           "potentialDuplicateBusinessKeys": 1
         },
         "expense": {
-          "driveCount": 140,
-          "sheetCount": 140,
+          "driveCount": 139,
+          "sheetCount": 139,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
@@ -1119,12 +1424,12 @@
     }
   },
   "idempotency": {
-    "firstRunId": "169ac34a-b6a0-4963-9b01-d711f74335ca",
-    "secondRunId": "124a148c-c44e-4f15-a483-48b2929e0b6c",
+    "firstRunId": "3f4928bd-7441-4c40-8ce5-4cde3139ae42",
+    "secondRunId": "9f0161c8-1ea2-43b0-baa6-38e4cba017ff",
     "secondRunMutations": 0,
     "pass": true
   },
-  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_cc6fb510-bf58-4c88-983b-b40c5de1ea39.json",
+  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_51d1cdbb-f7d2-4c4e-b507-2e073ea45649.json",
   "loopHistory": [
     {
       "iteration": 1,

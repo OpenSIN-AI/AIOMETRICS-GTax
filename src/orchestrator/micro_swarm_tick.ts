@@ -2,6 +2,7 @@ import 'dotenv/config';
 import * as fs from 'fs';
 import * as path from 'path';
 import { spawn } from 'child_process';
+import { fileURLToPath } from 'url';
 
 interface TaskDef {
   name: string;
@@ -29,7 +30,16 @@ interface ContractSyncGuardReport {
 const BUDGET_MS = Number.parseInt(process.env.MICRO_SWARM_BUDGET_MS || '170000', 10);
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_SWARM_TICK.md');
 const CONTRACT_REPORT_PATH = path.join(process.cwd(), 'docs', 'CONTRACT_SYNC_GUARD.json');
-const RISK_STAGE_ENABLED = ['1', 'true', 'yes', 'on'].includes(String(process.env.MICRO_SWARM_ENABLE_RISK_STAGE || '1').toLowerCase());
+
+export function parseEnabledFlag(raw: string | undefined, defaultEnabled = true): boolean {
+  const normalized = String(raw ?? (defaultEnabled ? '1' : '0')).trim().toLowerCase();
+  if (normalized === '') return defaultEnabled;
+  if (['1', 'true', 'yes', 'on', 'enabled'].includes(normalized)) return true;
+  if (['0', 'false', 'no', 'off', 'disabled'].includes(normalized)) return false;
+  return defaultEnabled;
+}
+
+const RISK_STAGE_ENABLED = parseEnabledFlag(process.env.MICRO_SWARM_ENABLE_RISK_STAGE, true);
 
 function nowMs(): number {
   return Date.now();
@@ -266,7 +276,19 @@ async function main(): Promise<void> {
   }, null, 2));
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+const isDirectExecution = (() => {
+  try {
+    const argvPath = process.argv[1];
+    if (!argvPath) return false;
+    return path.resolve(argvPath) === path.resolve(fileURLToPath(import.meta.url));
+  } catch {
+    return true;
+  }
+})();
+
+if (isDirectExecution) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-02-25T05:26:38.452Z",
-  "runId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+  "timestamp": "2026-02-26T01:37:52.755Z",
+  "runId": "51d1cdbb-f7d2-4c4e-b507-2e073ea45649",
   "scopeYears": [
     "2000",
     "2004",
@@ -12,10 +12,10 @@
     "2026"
   ],
   "baseline": {
-    "records": 1829,
+    "records": 1828,
     "categories": {
-      "Sonstiges": 1644,
       "Rechnungen": 184,
+      "Sonstiges": 1643,
       "Vertraege": 1
     },
     "tabs": [

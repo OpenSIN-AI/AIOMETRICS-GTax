@@ -514,9 +514,16 @@ function entryOperationalRed(entry: AssuranceHistoryEntry): boolean {
 
 function extractYear(record: Partial<BelegRecord>): string {
   const source = `${record.original_name || ''} ${record.analyzed_at || ''}`;
-  const match = /(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/.exec(source);
-  if (!match) return 'unknown';
-  return match[1];
+  let bestYear = 'unknown';
+  const matches = source.matchAll(/(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/g);
+  for (const match of matches) {
+    const y = Number.parseInt(match[1], 10);
+    if (y >= 2000 && y <= new Date().getFullYear() + 1) {
+      bestYear = String(y);
+      break;
+    }
+  }
+  return bestYear;
 }
 
 function selectStratifiedSample(rows: Partial<BelegRecord>[], size: number): SampleRow[] {

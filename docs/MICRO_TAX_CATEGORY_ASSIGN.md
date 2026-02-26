@@ -1,6 +1,6 @@
 # MICRO Tax Category Assign
 
-- Timestamp: 2026-02-25T00:47:18.788Z
+- Timestamp: 2026-02-26T02:16:55.879Z
 - Processed: 40
 
 | row | drive_file_id | belegart | steuerkategorie |
@@ -33,7 +33,7 @@
 | 34 | 1_sJHZsEsKDuGVE4eCIsIWOyF3jjwPaVX | Ausgabe | Sonstige Ausgaben |
 | 35 | 1_SzKH6kEUpRjT7firA634SzVU5MzvoIM | Ausgabe | Sonstige Ausgaben |
 | 37 | 1_v-tmlFYDdY0m5PDkTWZ5Hj8drDQSyND | Ausgabe | Sonstige Ausgaben |
-| 38 | 1_wRXlnX5U1WhkWDmAQNJnauVPzOpg3FJ | Ausgabe | Sonstige Ausgaben |
+| 38 | 1_wRXlnX5U1WhkWDmAQNJnauVPzOpg3FJ | Ausgabe | Material/PV |
 | 39 | 1_xQkK57B51XnC3WStlPmCeShNRC1zVEz | Ausgabe | Sonstige Ausgaben |
 | 40 | 1_YBV0r6kRi3Ch9kwCG_De94ki7KNzRq0 | Ausgabe | Sonstige Ausgaben |
 | 41 | 1_ye32yXjbMhlYf17hyGPd4CywtGTmruy | Ausgabe | Sonstige Ausgaben |

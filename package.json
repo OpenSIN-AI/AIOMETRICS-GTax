@@ -22,6 +22,7 @@
     "micro-clean-private-1nm": "node dist-micro/orchestrator/micro_clean_private_1nm.js",
     "micro-local-118-filter": "node dist-micro/orchestrator/micro_local_118_tesseract_filter.js",
     "micro-swarm-tick": "node dist-micro/orchestrator/micro_swarm_tick.js",
+    "micro-workers-once": "node dist-micro/orchestrator/micro_swarm_tick.js",
     "audit-year-strict": "node dist-micro/orchestrator/audit_2023_strict.js",
     "check-2023": "node --import tsx src/orchestrator/check_2023_integrity.ts",
     "check-all-years": "node --import tsx src/orchestrator/check_all_years_integrity.ts",

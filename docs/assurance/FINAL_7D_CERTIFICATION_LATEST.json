@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-02-25T05:34:51.900Z",
+  "generatedAt": "2026-02-26T00:59:36.422Z",
   "period_start": "2026-02-25T05:34:51.827Z",
-  "period_end": "2026-02-25T05:34:51.900Z",
-  "windowStatus": "active",
+  "period_end": "2026-02-26T00:59:36.422Z",
+  "windowStatus": "broken",
   "daysTarget": 7,
-  "coverageHours": 0,
+  "coverageHours": 19.41,
   "fullWindowCovered": false,
-  "technicalGreenLatestRun": true,
-  "latestRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+  "technicalGreenLatestRun": false,
+  "latestRunId": "e9ca1ecb-585c-4015-9c5b-d6e3d87b2082",
   "latestKpis": {
     "totalDriveOnly": 0,
     "totalSheetOnly": 0,
@@ -17,13 +17,19 @@
     "qaSampleCriticalPassed": 80,
     "qaAccuracy": 1,
     "criticalQaIssues": 0,
-    "idempotencyPass": true
+    "idempotencyPass": false,
+    "dashboardFormulaDriftCount": 0,
+    "dashboardValueDriftCount": 0,
+    "bidirectionalDriftIncidents": 0
   },
-  "alertKinds": [],
+  "alertKinds": [
+    "unknown",
+    "schema"
+  ],
   "reviewSummary": {
     "daily": {
-      "expected": 1,
-      "filesPresent": 1,
+      "expected": 2,
+      "filesPresent": 2,
       "completed": 0,
       "samplesReviewed": 0,
       "missingDates": []
@@ -39,7 +45,7 @@
   },
   "execSignoff": {
     "period_start": "2026-02-25T05:34:51.827Z",
-    "period_end": "2026-02-25T05:34:51.900Z",
+    "period_end": "2026-02-26T00:59:36.422Z",
     "reviewer_primary": "UNASSIGNED_PRIMARY",
     "reviewer_secondary": "UNASSIGNED_SECONDARY",
     "daily_samples_reviewed": 0,
@@ -47,11 +53,14 @@
     "critical_mismatches": 0,
     "decision": "blocked",
     "decision_reasons": [
+      "latest_run_not_green",
+      "failed_runs_within_window",
       "window_not_fully_covered",
+      "definition_changed_during_window",
       "daily_review_incomplete",
       "weekly_review_incomplete"
     ],
-    "generated_at": "2026-02-25T05:34:51.900Z"
+    "generated_at": "2026-02-26T00:59:36.422Z"
   },
   "operationalClosureApproved": false
 }

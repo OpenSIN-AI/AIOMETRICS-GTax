@@ -198,9 +198,9 @@ async function runCommand(command: string, args: string[], extraEnv: Record<stri
 }
 
 function resolveOrchestratorScriptPath(scriptName: string): string[] {
-  const distPath = path.join(process.cwd(), 'dist', 'orchestrator', `${scriptName}.js`);
-  if (fs.existsSync(distPath)) {
-    return [distPath];
+  const distMicroPath = path.join(process.cwd(), 'dist-micro', 'orchestrator', `${scriptName}.js`);
+  if (fs.existsSync(distMicroPath)) {
+    return [distMicroPath];
   }
   return ['--import', 'tsx', `src/orchestrator/${scriptName}.ts`];
 }
@@ -1230,8 +1230,14 @@ async function main() {
       const auditAfter = await sheetsService.getAuditMutationCount();
       idempotency.secondRunMutations = Math.max(0, auditAfter - auditBefore);
       if (idempotency.secondRunId && idempotency.firstRunId && idempotency.secondRunId !== idempotency.firstRunId) {
-        const byRun = await sheetsService.getAuditMutationsByRunId(idempotency.secondRunId);
-        if (byRun.length > 0) idempotency.secondRunMutations = byRun.length;
+        try {
+          const byRun = await sheetsService.getAuditMutationsByRunId(idempotency.secondRunId);
+          if (byRun.length > 0) idempotency.secondRunMutations = byRun.length;
+        } catch (error) {
+          const fallback = idempotency.secondRunMutations;
+          const message = error instanceof Error ? error.message : String(error);
+          console.warn(`idempotency_check: getAuditMutationsByRunId failed, fallback to audit delta=${fallback}: ${message}`);
+        }
       }
       idempotency.pass = idempotency.secondRunMutations === 0;
     }, canRun);

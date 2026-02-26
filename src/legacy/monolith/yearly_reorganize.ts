@@ -227,21 +227,29 @@ function uniqueNumbers(values: number[]): number[] {
   return out;
 }
 
+function isValidYear(y: number): boolean {
+  const currentYear = new Date().getFullYear();
+  return y >= 2000 && y <= currentYear + 1;
+}
+
 function extractCandidateYears(text: string): number[] {
   const out: number[] = [];
   const dmyMatches = text.matchAll(/\b[0-3]?\d[.\-/][01]?\d[.\-/](20\d{2})\b/g);
   for (const match of dmyMatches) {
-    out.push(Number.parseInt(match[1], 10));
+    const y = Number.parseInt(match[1], 10);
+    if (isValidYear(y)) out.push(y);
   }
 
   const ymdMatches = text.matchAll(/\b(20\d{2})[.\-/][01]?\d[.\-/][0-3]?\d\b/g);
   for (const match of ymdMatches) {
-    out.push(Number.parseInt(match[1], 10));
+    const y = Number.parseInt(match[1], 10);
+    if (isValidYear(y)) out.push(y);
   }
 
   const genericMatches = text.matchAll(/(?:^|[^0-9])(20\d{2})(?:[^0-9]|$)/g);
   for (const match of genericMatches) {
-    out.push(Number.parseInt(match[1], 10));
+    const y = Number.parseInt(match[1], 10);
+    if (isValidYear(y)) out.push(y);
   }
   return out;
 }

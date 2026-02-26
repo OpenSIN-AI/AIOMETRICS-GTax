@@ -22,10 +22,12 @@
     "src/db/googleSheetsService.ts",
     "package.json"
   ],
-  "definitionChanged": false,
+  "definitionChanged": true,
   "scopeChanged": false,
-  "status": "active",
-  "failRunIds": [],
+  "status": "broken",
+  "failRunIds": [
+    "e9ca1ecb-585c-4015-9c5b-d6e3d87b2082"
+  ],
   "createdAt": "2026-02-25T05:34:51.900Z",
-  "updatedAt": "2026-02-25T05:34:51.900Z"
+  "updatedAt": "2026-02-26T00:59:36.422Z"
 }

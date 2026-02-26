@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-25T05:32:53.535Z",
+  "timestamp": "2026-02-26T01:54:20.360Z",
   "years": [
     "2000",
     "2004",
@@ -150,8 +150,8 @@
         "potentialDuplicateBusinessKeys": 1
       },
       "expense": {
-        "driveCount": 140,
-        "sheetCount": 140,
+        "driveCount": 139,
+        "sheetCount": 139,
         "driveOnly": 0,
         "sheetOnly": 0,
         "duplicateDriveIdsInSheet": 0,

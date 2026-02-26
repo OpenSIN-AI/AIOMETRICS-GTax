@@ -1,11 +1,11 @@
-# Final 7-Day Certification (2026-02-25 -> 2026-02-25)
+# Final 7-Day Certification (2026-02-25 -> 2026-02-26)
 
-- generatedAt: 2026-02-25T05:34:51.900Z
-- latestRunId: cc6fb510-bf58-4c88-983b-b40c5de1ea39
-- technicalGreenLatestRun: true
-- windowStatus: active
+- generatedAt: 2026-02-26T00:59:36.422Z
+- latestRunId: e9ca1ecb-585c-4015-9c5b-d6e3d87b2082
+- technicalGreenLatestRun: false
+- windowStatus: broken
 - daysTarget: 7
-- coverageHours: 0.00
+- coverageHours: 19.41
 - fullWindowCovered: false
 - execDecision: blocked
 
@@ -17,11 +17,14 @@
 - forbiddenMarkerHits: 0
 - qaAccuracy: 100.00%
 - criticalQaIssues: 0
-- idempotencyPass: true
+- idempotencyPass: false
+- dashboardFormulaDriftCount: 0
+- dashboardValueDriftCount: 0
+- bidirectionalDriftIncidents: 0
 
 ## Manual QA Coverage
 
-- daily_expected: 1
+- daily_expected: 2
 - daily_completed: 0
 - weekly_expected: 1
 - weekly_completed: 0
@@ -29,6 +32,9 @@
 
 ## Exec Decision Reasons
 
+- latest_run_not_green
+- failed_runs_within_window
 - window_not_fully_covered
+- definition_changed_during_window
 - daily_review_incomplete
 - weekly_review_incomplete

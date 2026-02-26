@@ -101,6 +101,9 @@ interface ApiErrorLike {
 }
 
 const ACCOUNTING_ROOT_FOLDER_ID = process.env.ACCOUNTING_ROOT_FOLDER_ID || '1azt2ULJv8_iJGWdNbQfWv0Jd1AY7XR1p';
+const SOURCE_DRIVE_FOLDER_ID = process.env.SOURCE_DRIVE_FOLDER_ID || '1rY8Zs1-eoCCtzruQDvicMihjH0AMR-gH';
+const TARGET_DRIVE_FOLDER_ID = process.env.TARGET_DRIVE_FOLDER_ID || '11OoJH5PObXP-ANnlEqsPmGBfiC7zPz7m';
+const GATE_A_FULL_ROOT = ['1', 'true', 'yes', 'on'].includes(String(process.env.CONTRACT_GATE_A_FULL_ROOT || '0').toLowerCase());
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const REQUEST_TIMEOUT_MS = Number.parseInt(process.env.CONTRACT_GUARD_REQUEST_TIMEOUT_MS || '30000', 10);
 const MAX_RETRIES = Number.parseInt(process.env.CONTRACT_GUARD_MAX_RETRIES || '5', 10);
@@ -109,6 +112,7 @@ const REPORT_JSON_PATH = path.join(process.cwd(), 'docs', 'CONTRACT_SYNC_GUARD.j
 const REPORT_MD_PATH = path.join(process.cwd(), 'docs', 'CONTRACT_SYNC_GUARD.md');
 const INTEGRITY_JSON_PATH = path.join(process.cwd(), 'docs', 'CHECK_DRIVE_SHEETS_SYNC.json');
 const RUN_INTEGRITY_CHECK = !['0', 'false', 'no', 'off'].includes(String(process.env.CONTRACT_SKIP_INTEGRITY_CHECK || '0').toLowerCase());
+const ADDITIONAL_CONTRACT_ROOT_FOLDERS = new Set(['Sonstige_Belege', 'Neue Belege', 'Neue Belege ']);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
@@ -140,7 +144,7 @@ const EUR_FORMULAS: FormulaSpec[] = [
 ];
 
 const COCKPIT_FORMULAS: FormulaSpec[] = [
-  { tab: 'Finanz-Cockpit', cell: 'B2', formula: `=IFERROR(B2;YEAR(TODAY()))` },
+  { tab: 'Finanz-Cockpit', cell: 'B2', formula: `=YEAR(TODAY())` },
   { tab: 'Finanz-Cockpit', cell: 'B5', formula: `=IFERROR(EÜR!B9;0)` },
   { tab: 'Finanz-Cockpit', cell: 'E5', formula: `=IFERROR(EÜR!B17;0)` },
   { tab: 'Finanz-Cockpit', cell: 'H5', formula: `=IFERROR(EÜR!B18;0)` },
@@ -162,7 +166,10 @@ function parseScopeYears(): string[] {
 }
 
 function normalizeFormula(formula: string): string {
-  return String(formula || '').replace(/\s+/g, '').trim();
+  return String(formula || '')
+    .replace(/\s+/g, '')
+    .replace(/'([^']+)'!/g, '$1!')
+    .trim();
 }
 
 export function normalizeComparableValue(value: unknown): string {
@@ -269,6 +276,57 @@ async function listDriveIdsRecursive(rootFolderId: string): Promise<Set<string>>
   return ids;
 }
 
+function normalizeSheetName(raw: string): string {
+  const trimmed = String(raw || '').trim();
+  if (trimmed.startsWith("'") && trimmed.endsWith("'")) {
+    return trimmed.slice(1, -1).replace(/''/g, "'");
+  }
+  return trimmed;
+}
+
+function isYearFolderName(name: string): boolean {
+  return /^20\d{2}$/.test(String(name || '').trim());
+}
+
+async function buildGateARootFolders(): Promise<string[]> {
+  const roots = new Set<string>([SOURCE_DRIVE_FOLDER_ID, TARGET_DRIVE_FOLDER_ID]);
+  const topLevel = await listChildren(ACCOUNTING_ROOT_FOLDER_ID);
+  for (const folder of topLevel) {
+    const id = String(folder.id || '').trim();
+    if (!id) continue;
+    if (folder.mimeType !== 'application/vnd.google-apps.folder') continue;
+    const name = String(folder.name || '').trim();
+    if (isYearFolderName(name) || ADDITIONAL_CONTRACT_ROOT_FOLDERS.has(name)) {
+      roots.add(id);
+    }
+  }
+  return Array.from(roots);
+}
+
+async function listDriveIdsFromRoots(rootFolderIds: string[]): Promise<Set<string>> {
+  const ids = new Set<string>();
+  const queue = [...rootFolderIds];
+  const visited = new Set<string>();
+
+  while (queue.length > 0) {
+    const folderId = queue.shift();
+    if (!folderId || visited.has(folderId)) continue;
+    visited.add(folderId);
+    const children = await listChildren(folderId);
+    for (const child of children) {
+      const id = String(child.id || '').trim();
+      if (!id) continue;
+      if (child.mimeType === 'application/vnd.google-apps.folder') {
+        queue.push(id);
+      } else {
+        ids.add(id);
+      }
+    }
+  }
+
+  return ids;
+}
+
 async function readBelegeDriveIds(): Promise<{ ids: Set<string>; duplicateDriveIds: number }> {
   const response = await withRetry(
     'sheets.values.get.belege',
@@ -341,8 +399,11 @@ async function readRangeMap(ranges: string[], valueRenderOption: sheets_v4.Param
   );
   const map = new Map<string, unknown>();
   for (const entry of response.data.valueRanges || []) {
-    const range = String(entry.range || '').split('!')[1]?.split(':')[0] || '';
-    const tab = String(entry.range || '').split('!')[0] || '';
+    const rangeA1 = String(entry.range || '');
+    const splitAt = rangeA1.indexOf('!');
+    if (splitAt < 0) continue;
+    const tab = normalizeSheetName(rangeA1.slice(0, splitAt));
+    const range = rangeA1.slice(splitAt + 1).split(':')[0].replace(/\$/g, '').trim();
     const key = `${tab}!${range}`;
     map.set(key, entry.values?.[0]?.[0] ?? '');
   }
@@ -496,7 +557,9 @@ async function main(): Promise<void> {
   const integrity = readIntegritySummary();
   const yearlyMap = new Map((integrity.summaries || []).map((row) => [row.year, row]));
 
-  const driveIds = await listDriveIdsRecursive(ACCOUNTING_ROOT_FOLDER_ID);
+  const driveIds = GATE_A_FULL_ROOT
+    ? await listDriveIdsRecursive(ACCOUNTING_ROOT_FOLDER_ID)
+    : await listDriveIdsFromRoots(await buildGateARootFolders());
   const belege = await readBelegeDriveIds();
 
   const gateADriveOnly = Array.from(driveIds).filter((id) => !belege.ids.has(id)).length;
