@@ -120,6 +120,7 @@ export class GoogleSheetsService {
   private readonly sheetsMaxRetries = parsePositiveInt(process.env.GSHEETS_MAX_RETRIES, 6);
   private readonly sheetsRetryBaseMs = parsePositiveInt(process.env.GSHEETS_RETRY_BASE_MS, 2000);
   private readonly sheetsEventsPath = process.env.GSHEETS_EVENTS_PATH || path.join(process.cwd(), 'logs', 'google_sheets_events.jsonl');
+  private readonly syncYearlyFromBuchhaltungDb = ['1', 'true', 'yes', 'on'].includes(String(process.env.SYNC_YEARLY_FROM_BUCHHALTUNG_DB || '0').toLowerCase());
   private readonly belegeHeaders = [
     'id', 'drive_file_id', 'original_name', 'mime_type', 'file_size',
     'category', 'extracted_text', 'ocr_text', 'image_description',
@@ -1062,6 +1063,11 @@ export class GoogleSheetsService {
   }
 
   async syncYearlySheets(records: Partial<BelegRecord>[]): Promise<void> {
+    if (!this.syncYearlyFromBuchhaltungDb) {
+      await this.syncYearlySheetsLegacy(records);
+      return;
+    }
+
     const buchhaltungRows = await this.getBuchhaltungDbRows();
     if (buchhaltungRows.length === 0) {
       await this.syncYearlySheetsLegacy(records);

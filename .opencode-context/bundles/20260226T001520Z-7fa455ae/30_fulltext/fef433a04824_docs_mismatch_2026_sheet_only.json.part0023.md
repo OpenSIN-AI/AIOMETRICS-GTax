@@ -1,0 +1,427 @@
+# Context Fulltext
+
+- source_path: docs/mismatch/2026_sheet_only.json
+- source_sha256: 04aa0bfa50222ed02947102a4700ac6479aad60b0af21bb06b11682e6433697a
+- chunk: 23/28
+
+```text
+74-de67-42a2-97f3-e8799f134818.preview.png",
+      "rowNumber": 1506
+    },
+    {
+      "driveFileId": "1tzW2kiNLOIAXVOYk5jzxXcNm1ipOHGIM",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "DE23-137298_7_Kontakte.pdf",
+      "rowNumber": 1508
+    },
+    {
+      "driveFileId": "1TZw6FGaoCEjkaJ0huh7SoZbqHnJyUc8B",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "5780_Super_bleifret.pdf",
+      "rowNumber": 1509
+    },
+    {
+      "driveFileId": "1U_5JYc5hwYvYInaZqAFHcy7mbNP50n0Z",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "3026887286_Ferienwohnung_Lychen_UCK_981.pdf",
+      "rowNumber": 1510
+    },
+    {
+      "driveFileId": "1U5XT-poYS4FUlWT4BRjYk3mta7EUxwnx",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2502801_Super_bleifrei_53dedd68.pdf",
+      "rowNumber": 1517
+    },
+    {
+      "driveFileId": "1u60XRrBT8EUtkhL_1Y3SDCY36jM5Vx5Y",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "1759341875378-fcpr-6acb3d68-c17e-47ff-bf5c-c071152d8944 Kopie.preview.png",
+      "rowNumber": 1518
+    },
+    {
+      "driveFileId": "1u7ccnahvu0zX-JZ0kHliI5gHZrXo9si2",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "f4f4a9bf-8675-4e70-bef8-1ae54bf23a9d.preview.png",
+      "rowNumber": 1519
+    },
+    {
+      "driveFileId": "1ub9KLKqtHEbCGzkUuttiuz9Bl0tfRfWE",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "6736_3_ST_8c3e4b.pdf",
+      "rowNumber": 1522
+    },
+    {
+      "driveFileId": "1uBD7BviwGZP8naXZ_Z7MIpOkfknU2QwE",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "359_Pasta_Arrabiata.pdf",
+      "rowNumber": 1523
+    },
+    {
+      "driveFileId": "1UBKnbWOKActzB0Nwo93qQ1YfFlIggJJc",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4830.1.1_Abschlagszahlung_nach_Vertragsabsch.pdf",
+      "rowNumber": 1524
+    },
+    {
+      "driveFileId": "1UBQRDOO4cZhGWV4pZ4R3PusDWc7S3FD_",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "90235319_Contribution_statement_for_August_2.pdf",
+      "rowNumber": 1525
+    },
+    {
+      "driveFileId": "1UDnCZFosZtie9b3_9OKQQ2hyQ_mt2S49",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2042360_Order_confirmation_for_Spelsberg_ZK_e35aa3.pdf",
+      "rowNumber": 1528
+    },
+    {
+      "driveFileId": "1uFhPYpZj-eTYkLGp1woZYedsLRqGhRA_",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "813_008_00001_Super_FuelSale_95_d6e454.pdf",
+      "rowNumber": 1530
+    },
+    {
+      "driveFileId": "1uFwUnXxVMYY1K_jpB17pEtc3VgEmNvz8",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "TA-Nr 491931_Kartenzahlun_Kartenzahlung_Mastercard_4ad1d8.pdf",
+      "rowNumber": 1531
+    },
+    {
+      "driveFileId": "1ugA72Kf_IV2-dCuNQ6_428i1ZIdtmGHj",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "D170131432_Letzte_Mahnung.pdf",
+      "rowNumber": 1533
+    },
+    {
+      "driveFileId": "1uH0FG3kUepm7ft5xKY7RmMEA7GC-zUez",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "Ix2023080002016_lexoffice_XL.pdf",
+      "rowNumber": 1535
+    },
+    {
+      "driveFileId": "1uHOuwrPO2r6c8Gr9F8tni5fBxrK-g8sV",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4716.2.1_Abschlagszahlung_nach_Vertragsabsch_290623.pdf",
+      "rowNumber": 1536
+    },
+    {
+      "driveFileId": "1uIB_3IHfZQ-hkGzgXmSaU2E_k3nZ4FNi",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "DE23-169253_Kontaktdatenübermittlung_(21.08.202.pdf",
+      "rowNumber": 1537
+    },
+    {
+      "driveFileId": "1UII_OOJYEUHjbgirITFIJGUDrtImkloa",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "ZoPV03108_Solis_Datenlogger-Stick_-_WiFi_W3.pdf",
+      "rowNumber": 1538
+    },
+    {
+      "driveFileId": "1ujn9b33sL4BbKmOD6_mdglXzXa-LRM7m",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "6203_Kundenbeleg.pdf",
+      "rowNumber": 1543
+    },
+    {
+      "driveFileId": "1ukc163MyvBKityALtBH2nt8KozmuAEtF",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "fffeaa80-3e70-484f-a5b2-5a80764ccd11.preview.png",
+      "rowNumber": 1544
+    },
+    {
+      "driveFileId": "1UKgV6MtW0UkFji3kvsItzuvT3jcHLZ8e",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4457.5.1_Abschlagsrechnung_|_Angebot:_4457.5.pdf",
+      "rowNumber": 1545
+    },
+    {
+      "driveFileId": "1Ulrww8BtvNroqWLkYzVAccAlRyWfmi6d",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "1601d166-fd0c-4097-bde4-fdc1756fe83b.pdf",
+      "rowNumber": 1547
+    },
+    {
+      "driveFileId": "1umo-zVmySYsJrF-U182TLdO1pQhPZBN6",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "2782805_Super_Bleifrei_8193a2.pdf",
+      "rowNumber": 1548
+    },
+    {
+      "driveFileId": "1UmQHOBtye9bGunxZUNlRXQ424lpHx86T",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "4768.1.1_Abschlagsrechnung_|_Angebot:_4768.1.pdf",
+      "rowNumber": 1549
+    },
+    {
+      "driveFileId": "1UNvv0iMcA4NU6ZhA8YVHC3qKFKYGVKsx",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "4500.6.2_Teilrechnung_|_Angebot:_4500.6_0669af.pdf",
+      "rowNumber": 1551
+    },
+    {
+      "driveFileId": "1upLYTtIpMnJkhptgjFlIS8To--lYxfXf",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "RechnungNr.72 ZOE Solar Schulz Rechnung.preview.png",
+      "rowNumber": 1552
+    },
+    {
+      "driveFileId": "1UpQkH4uf2kcEDzc0bz7MK8SX_eWDlMP-",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "fd049c58-43e5-4366-b359-91eb5899381d.preview.png",
+      "rowNumber": 1553
+    },
+    {
+      "driveFileId": "1upVUIckLCsok5Va72h44arK_ILMnYcv8",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "9693_025_00001_Super_FuelSave_95,_Ber_Kind1Jub10,5_2d4905.pdf",
+      "rowNumber": 1554
+    },
+    {
+      "driveFileId": "1UqxSwmbRTdqqY-LcamcqsTWM3r4Dikde",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4831.1.1_Abschlagszahlung_nach_Vertragsabsch.pdf",
+      "rowNumber": 1556
+    },
+    {
+      "driveFileId": "1UrcWyEVjsGQGzsf0D3EBLrj6mGczW7-b",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4621.3.1_Abschlagszahlung_nach_Vertragsabsch.pdf",
+      "rowNumber": 1557
+    },
+    {
+      "driveFileId": "1uRHk4ZIiE-YALYfXYRO8buYJs-fqahnm",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "198f486e36a17236_Rechnung MyPlace Selfstorage.pdf",
+      "rowNumber": 1558
+    },
+    {
+      "driveFileId": "1Ut2TkZ6kSKtwHO5269dtOteEYjdiIKR6",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "1983c69b2d491b15_Zahlungserinnerung Myplace Selfstorage.pdf",
+      "rowNumber": 1559
+    },
+    {
+      "driveFileId": "1uUTag7PGwmmojdYQKFjHDoxTNzLzmu35",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "7871_Kleiner_Kaffee_Masch._TA,_Spreequel_3a8fc2.pdf",
+      "rowNumber": 1562
+    },
+    {
+      "driveFileId": "1UV-rHdDPX12s4LRv7QuggJ5zlQ-HiJSY",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4494.2.1_Abschlagsrechnung_|_Angebot:_4494.2_f4f507.pdf",
+      "rowNumber": 1563
+    },
+    {
+      "driveFileId": "1UWe99o_2vGqDJUVgHN4mHBRCoyzj_BBy",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "5004770575_Rechnung_fuer_Elektroartikel_74e8af.pdf",
+      "rowNumber": 1566
+    },
+    {
+      "driveFileId": "1uXHQjH3N_xqeuD8y853U1ejiKhFd8x42",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "1618_Kaffee.pdf",
+      "rowNumber": 1567
+    },
+    {
+      "driveFileId": "1uYCikYhsIFA_ASWG34Mj9tV_XFRYiOKI",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4401.7.3_Abschlagsrechnung_|_Angebot:_4401.7.pdf",
+      "rowNumber": 1570
+    },
+    {
+      "driveFileId": "1UYtW1CcnfN91wCOqTUZjgELcedOiGNx5",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "GPA.3311-0786-2859-73054._AI_Chat_Premium_Weekly_(AI_Chat_-_A_4337dbc8.pdf",
+```

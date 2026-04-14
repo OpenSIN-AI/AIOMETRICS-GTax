@@ -40,6 +40,14 @@ export function parseEnabledFlag(raw: string | undefined, defaultEnabled = true)
 }
 
 const RISK_STAGE_ENABLED = parseEnabledFlag(process.env.MICRO_SWARM_ENABLE_RISK_STAGE, true);
+const OCR_STAGE_ENABLED = parseEnabledFlag(process.env.MICRO_SWARM_ENABLE_OCR_STAGE, true);
+const LOCAL_STAGE_ENABLED = parseEnabledFlag(process.env.MICRO_SWARM_ENABLE_LOCAL_STAGE, true);
+
+function envTimeout(name: string, fallback: number): number {
+  const raw = Number.parseInt(String(process.env[name] || ''), 10);
+  if (!Number.isFinite(raw) || raw <= 0) return fallback;
+  return raw;
+}
 
 function nowMs(): number {
   return Date.now();
@@ -127,29 +135,38 @@ async function main(): Promise<void> {
     {
       name: 'micro_sync_drive_changes',
       cmd: ['npm', 'run', '-s', 'micro-sync-drive-changes'],
-      timeoutMs: 45000
+      timeoutMs: envTimeout('MICRO_SYNC_TIMEOUT_MS', 45000)
     },
     {
       name: 'micro_sheet_delete_archive_sync',
       cmd: ['npm', 'run', '-s', 'micro-sheet-delete-archive-sync'],
-      timeoutMs: 45000,
+      timeoutMs: envTimeout('MICRO_SHEET_DELETE_TIMEOUT_MS', 45000),
       env: { MICRO_SHEET_DELETE_MAX_MOVES: process.env.MICRO_SHEET_DELETE_MAX_MOVES || '20' }
     },
     {
       name: 'micro_enrich_buchhaltung_db',
       cmd: ['npm', 'run', '-s', 'micro-enrich-buchhaltung-db'],
-      timeoutMs: 90000,
+      timeoutMs: envTimeout('MICRO_ENRICH_TIMEOUT_MS', 90000),
       env: { MICRO_ENRICH_BATCH: process.env.MICRO_ENRICH_BATCH || '20' }
+    },
+    {
+      name: 'micro_resolve_unclear',
+      cmd: ['npm', 'run', '-s', 'micro-resolve-unclear'],
+      timeoutMs: envTimeout('MICRO_UNCLEAR_TIMEOUT_MS', 90000),
+      env: {
+        MICRO_UNCLEAR_BATCH: process.env.MICRO_UNCLEAR_BATCH || '300',
+        MICRO_UNCLEAR_MIN_CONFIDENCE: process.env.MICRO_UNCLEAR_MIN_CONFIDENCE || '0.56'
+      }
     },
     {
       name: 'micro_tax_category_assign',
       cmd: ['npm', 'run', '-s', 'micro-tax-category-assign'],
-      timeoutMs: 45000
+      timeoutMs: envTimeout('MICRO_TAX_TIMEOUT_MS', 45000)
     },
     {
       name: 'micro_konto_assign',
       cmd: ['npm', 'run', '-s', 'micro-konto-assign'],
-      timeoutMs: 45000
+      timeoutMs: envTimeout('MICRO_KONTO_TIMEOUT_MS', 45000)
     }
   ];
 
@@ -157,41 +174,48 @@ async function main(): Promise<void> {
     {
       name: 'micro_plausibility_duplicate',
       cmd: ['npm', 'run', '-s', 'micro-plausibility-duplicate'],
-      timeoutMs: 45000
+      timeoutMs: envTimeout('MICRO_DUPLICATE_TIMEOUT_MS', 45000)
     },
     {
       name: 'micro_sheet_formula_guard',
       cmd: ['npm', 'run', '-s', 'micro-sheet-formula-guard'],
-      timeoutMs: 30000
+      timeoutMs: envTimeout('MICRO_FORMULA_TIMEOUT_MS', 30000)
     },
     {
-      name: 'micro_ocr_audit_1nm',
-      cmd: ['npm', 'run', '-s', 'micro-ocr-audit-1nm'],
-      timeoutMs: 100000,
-      env: {
-        MICRO_1NM_OCR_BATCH: process.env.MICRO_1NM_OCR_BATCH || '2',
-        OCR_EMERGENCY_TESSERACT: process.env.OCR_EMERGENCY_TESSERACT || '0'
-      }
-    },
-    {
-      name: 'micro_local_118_filter',
-      cmd: ['npm', 'run', '-s', 'micro-local-118-filter'],
-      timeoutMs: 100000,
-      env: {
-        LOCAL_118_BATCH: process.env.LOCAL_118_BATCH || '5',
-        LOCAL_118_UPLOAD: process.env.LOCAL_118_UPLOAD || '0',
-        LOCAL_118_OCR_TIMEOUT_MS: process.env.LOCAL_118_OCR_TIMEOUT_MS || '12000',
-        LOCAL_118_MAX_FILE_MB: process.env.LOCAL_118_MAX_FILE_MB || '8',
-        LOCAL_118_DELETE_DUPLICATES: process.env.LOCAL_118_DELETE_DUPLICATES || '1'
-      }
+      name: 'micro_prune_sheet_only_drive',
+      cmd: ['npm', 'run', '-s', 'micro-prune-sheet-only-drive'],
+      timeoutMs: envTimeout('MICRO_PRUNE_TIMEOUT_MS', 45000)
     },
     {
       name: 'contract_sync_guard',
       cmd: ['npm', 'run', '-s', 'contract-sync-guard'],
-      timeoutMs: 90000,
+      timeoutMs: envTimeout('MICRO_CONTRACT_TIMEOUT_MS', 90000),
       env: { CONTRACT_SCOPE_YEARS: process.env.CONTRACT_SCOPE_YEARS || '2022,2023,2024,2025,2026' }
     }
   ];
+
+  const stageOcr: TaskDef = {
+    name: 'micro_ocr_audit_1nm',
+    cmd: ['npm', 'run', '-s', 'micro-ocr-audit-1nm'],
+    timeoutMs: envTimeout('MICRO_OCR_AUDIT_TIMEOUT_MS', 100000),
+    env: {
+      MICRO_1NM_OCR_BATCH: process.env.MICRO_1NM_OCR_BATCH || '2',
+      OCR_EMERGENCY_TESSERACT: process.env.OCR_EMERGENCY_TESSERACT || '0'
+    }
+  };
+
+  const stageLocal: TaskDef = {
+    name: 'micro_local_118_filter',
+    cmd: ['npm', 'run', '-s', 'micro-local-118-filter'],
+    timeoutMs: envTimeout('MICRO_LOCAL_TIMEOUT_MS', 100000),
+    env: {
+      LOCAL_118_BATCH: process.env.LOCAL_118_BATCH || '5',
+      LOCAL_118_UPLOAD: process.env.LOCAL_118_UPLOAD || '0',
+      LOCAL_118_OCR_TIMEOUT_MS: process.env.LOCAL_118_OCR_TIMEOUT_MS || '12000',
+      LOCAL_118_MAX_FILE_MB: process.env.LOCAL_118_MAX_FILE_MB || '8',
+      LOCAL_118_DELETE_DUPLICATES: process.env.LOCAL_118_DELETE_DUPLICATES || '1'
+    }
+  };
 
   const stageS3Risk: TaskDef = {
     name: 'micro_repair_2023_policy_flow',
@@ -201,7 +225,7 @@ async function main(): Promise<void> {
       'tsx',
       'src/orchestrator/repair_2023.ts'
     ],
-    timeoutMs: 120000,
+    timeoutMs: envTimeout('MICRO_REPAIR_TIMEOUT_MS', 120000),
     env: {
       REPAIR_YEAR: '2023',
       REPAIR_STAGE_MAX_MOVES: process.env.REPAIR_STAGE_MAX_MOVES || '20',
@@ -225,7 +249,30 @@ async function main(): Promise<void> {
     await runWithBudget(task, tickStarted, results);
   }
 
-  const contract = loadContractReport();
+  if (OCR_STAGE_ENABLED) {
+    await runWithBudget(stageOcr, tickStarted, results);
+  } else {
+    results.push({
+      name: stageOcr.name,
+      status: 'skipped_precondition',
+      durationMs: 0,
+      error: 'ocr_stage_disabled'
+    });
+  }
+
+  if (LOCAL_STAGE_ENABLED) {
+    await runWithBudget(stageLocal, tickStarted, results);
+  } else {
+    results.push({
+      name: stageLocal.name,
+      status: 'skipped_precondition',
+      durationMs: 0,
+      error: 'local_stage_disabled'
+    });
+  }
+
+  const contractTask = results.find((result) => result.name === 'contract_sync_guard');
+  const contract = contractTask?.status === 'ok' ? loadContractReport() : null;
   const contractABOk = gateABPass(contract);
   if (!RISK_STAGE_ENABLED) {
     results.push({
@@ -255,6 +302,8 @@ async function main(): Promise<void> {
   lines.push(`- Budget ms: ${BUDGET_MS}`);
   lines.push(`- Elapsed ms: ${elapsedTotal}`);
   lines.push(`- Risk stage enabled: ${RISK_STAGE_ENABLED}`);
+  lines.push(`- OCR stage enabled: ${OCR_STAGE_ENABLED}`);
+  lines.push(`- Local stage enabled: ${LOCAL_STAGE_ENABLED}`);
   lines.push(`- Contract Gate A+B pass: ${contractABOk}`);
   lines.push(`- ok: ${count('ok')}, timeout: ${count('timeout')}, error: ${count('error')}, skipped_budget: ${count('skipped_budget')}, skipped_precondition: ${count('skipped_precondition')}`);
   lines.push('');

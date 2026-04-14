@@ -16,15 +16,18 @@ case "${PROFILE}" in
   core)
     required_files+=(
       "dist-micro/orchestrator/micro_sync_drive_changes.js"
+      "dist-micro/orchestrator/micro_sheet_delete_archive_sync.js"
       "dist-micro/orchestrator/micro_enrich_buchhaltung_db.js"
       "dist-micro/orchestrator/micro_tax_category_assign.js"
       "dist-micro/orchestrator/micro_konto_assign.js"
+      "dist-micro/orchestrator/micro_plausibility_duplicate.js"
       "dist-micro/orchestrator/micro_sheet_formula_guard.js"
     )
     ;;
   ocr)
     required_files+=(
       "dist-micro/orchestrator/micro_ocr_audit_1nm.js"
+      "dist-micro/orchestrator/micro_clean_private_1nm.js"
       "dist-micro/orchestrator/micro_local_118_tesseract_filter.js"
     )
     ;;

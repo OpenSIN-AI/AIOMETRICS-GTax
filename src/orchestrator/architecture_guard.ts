@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { ACTIVE_WORKERS, LEGACY_WORKERS, MICIO_PROFILE_WORKERS, MicioProfile, WORKER_MANIFEST } from './worker_manifest.js';
+import { ACTIVE_WORKERS, getDefaultEnabledActiveWorkers, LEGACY_WORKERS, MICIO_PROFILE_WORKERS, MicioProfile, WORKER_MANIFEST } from './worker_manifest.js';
 
 type Severity = 'error' | 'warn';
 
@@ -184,6 +184,7 @@ function checkWorkerManifest(findings: Finding[]): void {
 function checkMicioProfiles(findings: Finding[]): void {
   const activeIds = new Set(ACTIVE_WORKERS.map((w) => w.id));
   const profiles: MicioProfile[] = ['core', 'ocr', 'qa'];
+  const profileByWorker = new Map<string, MicioProfile[]>();
 
   for (const profile of profiles) {
     const ids = MICIO_PROFILE_WORKERS[profile] || [];
@@ -197,7 +198,21 @@ function checkMicioProfiles(findings: Finding[]): void {
       continue;
     }
 
+    const unique = new Set(ids);
+    if (unique.size !== ids.length) {
+      pushFinding(findings, {
+        severity: 'error',
+        code: 'MICIO_PROFILE_DUPLICATE_WORKER',
+        message: `MICIO profile contains duplicate worker ids: ${profile}`,
+        file: 'src/orchestrator/worker_manifest.ts'
+      });
+    }
+
     for (const id of ids) {
+      const owners = profileByWorker.get(id) || [];
+      owners.push(profile);
+      profileByWorker.set(id, owners);
+
       const worker = WORKER_MANIFEST.find((entry) => entry.id === id);
       if (!worker) {
         pushFinding(findings, {
@@ -224,6 +239,52 @@ function checkMicioProfiles(findings: Finding[]): void {
           file: worker.sourcePath
         });
       }
+
+      if (!worker.micioProfiles || !worker.micioProfiles.includes(profile)) {
+        pushFinding(findings, {
+          severity: 'error',
+          code: 'MICIO_PROFILE_MANIFEST_MISMATCH',
+          message: `Worker manifest micioProfiles missing profile mapping: ${profile} -> ${id}`,
+          file: worker.sourcePath
+        });
+      }
+    }
+  }
+
+  for (const worker of getDefaultEnabledActiveWorkers()) {
+    const owners = profileByWorker.get(worker.id) || [];
+    if (owners.length === 0) {
+      pushFinding(findings, {
+        severity: 'error',
+        code: 'ACTIVE_DEFAULT_WORKER_NOT_SCHEDULED',
+        message: `Default-enabled active worker missing in scheduler profiles: ${worker.id}`,
+        file: worker.sourcePath
+      });
+    }
+    if (owners.length > 1) {
+      pushFinding(findings, {
+        severity: 'error',
+        code: 'ACTIVE_DEFAULT_WORKER_MULTI_PROFILE',
+        message: `Default-enabled worker must be assigned to exactly one scheduler profile: ${worker.id} -> ${owners.join(',')}`,
+        file: worker.sourcePath
+      });
+    }
+    if (!worker.distEntry) {
+      pushFinding(findings, {
+        severity: 'error',
+        code: 'ACTIVE_DEFAULT_WORKER_NO_DIST',
+        message: `Default-enabled active worker missing dist entry: ${worker.id}`,
+        file: worker.sourcePath
+      });
+    }
+    const expectedProfile = worker.scheduleClass;
+    if (expectedProfile && expectedProfile !== 'manual' && owners.length > 0 && owners[0] !== expectedProfile) {
+      pushFinding(findings, {
+        severity: 'error',
+        code: 'ACTIVE_DEFAULT_WORKER_PROFILE_MISMATCH',
+        message: `Default-enabled worker scheduleClass/profile mismatch: ${worker.id} expected=${expectedProfile} actual=${owners[0]}`,
+        file: worker.sourcePath
+      });
     }
   }
 }

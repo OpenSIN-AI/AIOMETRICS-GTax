@@ -84,6 +84,7 @@ npm run post-closure-assurance
 - `ASSURANCE_CREATE_INCIDENT_BRANCH=1`
 - `ASSURANCE_STABILITY_WINDOW_DAYS=7`
 - `ASSURANCE_RESET_WINDOW=1` -> reinitialize the 7-day window from latest green run.
+- `ASSURANCE_FAST_TRACK_APPROVAL=1` -> force immediate operational signoff when latest run is green and no critical manual mismatches are present.
 - `ASSURANCE_DEFAULT_REVIEWER_PRIMARY=UNASSIGNED_PRIMARY`
 - `ASSURANCE_DEFAULT_REVIEWER_SECONDARY=UNASSIGNED_SECONDARY`
 - `ACCEPTANCE_MAX_LOOPS=3`

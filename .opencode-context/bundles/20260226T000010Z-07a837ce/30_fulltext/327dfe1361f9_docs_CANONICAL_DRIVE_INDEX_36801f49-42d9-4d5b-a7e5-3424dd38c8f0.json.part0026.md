@@ -1,0 +1,303 @@
+# Context Fulltext
+
+- source_path: docs/CANONICAL_DRIVE_INDEX_36801f49-42d9-4d5b-a7e5-3424dd38c8f0.json
+- source_sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2
+- chunk: 26/73
+
+```text
+wz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Qc-d6kDPjz4SrBq9u7cXF7grENB8vH49",
+    "original_name": "DE23-231870_Kontaktdatenübermittlung_(13.11.202_7a514f.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 95423,
+    "file_url": "https://drive.google.com/file/d/1Qc-d6kDPjz4SrBq9u7cXF7grENB8vH49/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Y8Ot_5kP-Zg0xo8cq6mS5r4wDP6FhHjv",
+    "original_name": "DE23-234731_Kontaktdatenübermittlung_(20.11.202_ac9429.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 95540,
+    "file_url": "https://drive.google.com/file/d/1Y8Ot_5kP-Zg0xo8cq6mS5r4wDP6FhHjv/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "10bEy5BtI_RgedCXTcpzkCNqGSPy2awn9",
+    "original_name": "DE23-247539_Kontaktdatenübermittlung_(27.11.202.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 94856,
+    "file_url": "https://drive.google.com/file/d/10bEy5BtI_RgedCXTcpzkCNqGSPy2awn9/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "16h8-7dAmRRblN6unwXYbuxFqoiINfGxE",
+    "original_name": "DE23-250116_Kontaktdatenübermittlung_(04.12.202_3019d8.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 95280,
+    "file_url": "https://drive.google.com/file/d/16h8-7dAmRRblN6unwXYbuxFqoiINfGxE/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1XfH1TMiMQY1SsVzdDZ2FZTJMQO-pfgmh",
+    "original_name": "DE23-252792_Kontaktdatenübermittlung_(11.12.202_49c626.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 95010,
+    "file_url": "https://drive.google.com/file/d/1XfH1TMiMQY1SsVzdDZ2FZTJMQO-pfgmh/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1OPYwMZBg0TqA5pgNTtBCxgSB2CcWFNQ9",
+    "original_name": "DE23-255322_Kontaktdatenübermittlung_(18.12.202.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 95090,
+    "file_url": "https://drive.google.com/file/d/1OPYwMZBg0TqA5pgNTtBCxgSB2CcWFNQ9/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "17XCgkAxTSKP4dqHxceIyASgExBREdNcM",
+    "original_name": "DE31D15N0AEUI_Knipex_PreciStrip16_Automatische_Ab_01be08.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 129802,
+    "file_url": "https://drive.google.com/file/d/17XCgkAxTSKP4dqHxceIyASgExBREdNcM/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1g5L_JQynE5vHIm8QFoG2M3vBnjzAE6GW",
+    "original_name": "DE325CB7TAEUI_Brother_PTH100R_P-touch,_PTH100RZG1_6b493a.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 103955,
+    "file_url": "https://drive.google.com/file/d/1g5L_JQynE5vHIm8QFoG2M3vBnjzAE6GW/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1lWVhIoxy2h0GJ335atHJHTNB_WT7T5KC",
+    "original_name": "DE325QZLDAEUI_Makita_DHP482RFX9_Akku-Schlagbohrsc.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104526,
+    "file_url": "https://drive.google.com/file/d/1lWVhIoxy2h0GJ335atHJHTNB_WT7T5KC/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1JZmY6RSdsNtcylx9oGW453qRnGg8fRxn",
+    "original_name": "DE32ARMSLAEUI_BENNING_DUSPOL_digital_Digitaler_Tr_9e484520.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104109,
+    "file_url": "https://drive.google.com/file/d/1JZmY6RSdsNtcylx9oGW453qRnGg8fRxn/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1L7TP5IvZkxMH_p7oDpZWE6xLIxCSDZ_7",
+    "original_name": "DE32UFWDDAEUI_WAGO_Klemme,_5-Leiter,_4_mm²,_Verbi.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104255,
+    "file_url": "https://drive.google.com/file/d/1L7TP5IvZkxMH_p7oDpZWE6xLIxCSDZ_7/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Sbz-59bpBjGafNHBQvRgE5e_knMkbWYD",
+    "original_name": "DE32UNN7QAEUI_WAGO®_Klemme,_3-Leiter,_4_mm²,_Verb.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104538,
+    "file_url": "https://drive.google.com/file/d/1Sbz-59bpBjGafNHBQvRgE5e_knMkbWYD/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1xb7b-x4vyV0dYlvY6pwACLblT-oW82aF",
+    "original_name": "DE36188HIAEUI_Shelly_Pro_3EM_(120A)_|_WLan_&_Blue.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104297,
+    "file_url": "https://drive.google.com/file/d/1xb7b-x4vyV0dYlvY6pwACLblT-oW82aF/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1hADnZo5CmR0gGaUF0Ho4hl-Jlwzc7DFX",
+    "original_name": "DE3GFMC4AEUC_Shelly_Pro_3EM_(120A)_|_WLan_&_Blue_2b1233.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 52292,
+    "file_url": "https://drive.google.com/file/d/1hADnZo5CmR0gGaUF0Ho4hl-Jlwzc7DFX/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1CClEwJDWn1dWR2AbPa1wFyH3KCD-pHrK",
+    "original_name": "DS-ASE-CN-DE-2023-3825609_DIHOOL_DC_überspannungsschutz_pv_so.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 8706,
+    "file_url": "https://drive.google.com/file/d/1CClEwJDWn1dWR2AbPa1wFyH3KCD-pHrK/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1pwVraVQ1Xa-Agi5qzjJwFxggYqnUDS5j",
+    "original_name": "DS-ASE-CN-DE-2023-3870616_EYPINS_Ueberspannungsschutz_PV_DC500_1c8354.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 8811,
+    "file_url": "https://drive.google.com/file/d/1pwVraVQ1Xa-Agi5qzjJwFxggYqnUDS5j/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "10C0MMxvXJD9QrbGNpVbbURJBhebMqXrR",
+    "original_name": "DS-ASE-INV-DE-2023-106952_LUFEIS_Solarmodul_Klemme,_20_Stück_.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 85137,
+    "file_url": "https://drive.google.com/file/d/10C0MMxvXJD9QrbGNpVbbURJBhebMqXrR/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1vVBTEWr3YOP8pOJkOWGlzHJ0JH6Ud5Ys",
+    "original_name": "DS-ASE-INV-DE-2023-109599_PEALOV_Solar-endklemme,_12_Stück_Al_026c68.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 85733,
+    "file_url": "https://drive.google.com/file/d/1vVBTEWr3YOP8pOJkOWGlzHJ0JH6Ud5Ys/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "18YA7wJl-ufW7xi7BFLHA1VjT-xmHK4HF",
+    "original_name": "DS-ASE-INV-DE-2023-138425_EYPINS_Solar_Abisolierzange_Crimpza_da295f.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 85661,
+    "file_url": "https://drive.google.com/file/d/18YA7wJl-ufW7xi7BFLHA1VjT-xmHK4HF/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1vZFMTk7p9InH_MHocCttmr0O_A3PFaG4",
+    "original_name": "DS-ASE-INV-DE-2023-139197_6X_AKEN_kompatibel_Brother_P-touch__6cab82.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 169373,
+    "file_url": "https://drive.google.com/file/d/1vZFMTk7p9InH_MHocCttmr0O_A3PFaG4/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1qtBw9SaFMVR6JNI-Rih8xMMe1IpLoN9t",
+    "original_name": "DS-ASE-INV-DE-2023-139197_6X_AKEN_kompatibel_Brother_P-touch__de98c9.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 170389,
+    "file_url": "https://drive.google.com/file/d/1qtBw9SaFMVR6JNI-Rih8xMMe1IpLoN9t/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "11zg1eMRpUtuFm51nEWrqNpF0OqI0qzTt",
+    "original_name": "DS-ASE-INV-DE-2023-147688_dc_trennschalter_2_Strings_2x_in_ou.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 85147,
+    "file_url": "https://drive.google.com/file/d/11zg1eMRpUtuFm51nEWrqNpF0OqI0qzTt/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "12MkMQ-ozkLi_rWualwUWVzkVIj5x4G_w",
+    "original_name": "DS-ASE-INV-DE-2023-147769_DC_Trennschalter_PV_Anlage,_AIFIZO_.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104262,
+    "file_url": "https://drive.google.com/file/d/12MkMQ-ozkLi_rWualwUWVzkVIj5x4G_w/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "16Au4Y9EMF_-D4Q9kBxrcOLrj1lW-M2DO",
+    "original_name": "DS-ASE-INV-DE-2023-204607_TEVILIK_Solarmodul_Halterung_Endkle.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 85496,
+    "file_url": "https://drive.google.com/file/d/16Au4Y9EMF_-D4Q9kBxrcOLrj1lW-M2DO/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Accok
+```

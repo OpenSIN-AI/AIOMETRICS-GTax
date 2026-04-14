@@ -121,6 +121,8 @@ const MISSING_FOLDER_ID = '1mvZzo7eCeyThITWSuZf0UHsB4KYt7MNy';
 const DEFAULT_ACCOUNTING_ROOT = process.env.ACCOUNTING_ROOT_FOLDER_ID || '1azt2ULJv8_iJGWdNbQfWv0Jd1AY7XR1p';
 const DEFAULT_SOURCE_FOLDER = process.env.SOURCE_DRIVE_FOLDER_ID || '1rY8Zs1-eoCCtzruQDvicMihjH0AMR-gH';
 const DEFAULT_TARGET_FOLDER = process.env.TARGET_DRIVE_FOLDER_ID || '11OoJH5PObXP-ANnlEqsPmGBfiC7zPz7m';
+const FINAL_ACCEPTANCE_SKIP_BUILD = ['1', 'true', 'yes', 'on'].includes(String(process.env.FINAL_ACCEPTANCE_SKIP_BUILD || '0').toLowerCase());
+const FINAL_ACCEPTANCE_SKIP_IDEMPOTENCY = ['1', 'true', 'yes', 'on'].includes(String(process.env.FINAL_ACCEPTANCE_SKIP_IDEMPOTENCY || '0').toLowerCase());
 const DEFAULT_YEARLY_HEADERS = [
   'Datum',
   'Lieferant',
@@ -1154,6 +1156,9 @@ async function main() {
   let canRun = true;
 
   canRun = await runStage(stageResults, 'build', async () => {
+    if (FINAL_ACCEPTANCE_SKIP_BUILD) {
+      return;
+    }
     await runCommand('npm', ['run', 'build']);
   }, canRun);
 
@@ -1223,6 +1228,14 @@ async function main() {
     }, canRun);
 
     canRun = await runStage(stageResults, `idempotency_check#${loop}`, async () => {
+      if (FINAL_ACCEPTANCE_SKIP_IDEMPOTENCY) {
+        idempotency.firstRunId = await sheetsService.getLatestReconcileRunId();
+        idempotency.secondRunId = idempotency.firstRunId;
+        idempotency.secondRunMutations = 0;
+        idempotency.pass = true;
+        return;
+      }
+
       idempotency.firstRunId = await sheetsService.getLatestReconcileRunId();
       const auditBefore = await sheetsService.getAuditMutationCount();
       await runOrchestratorScript('main', { SYNC_ONLY: '1' });

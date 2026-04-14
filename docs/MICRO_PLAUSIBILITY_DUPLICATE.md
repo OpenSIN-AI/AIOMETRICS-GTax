@@ -1,14 +1,15 @@
 # MICRO Plausibility & Duplicate
 
-- Timestamp: 2026-02-25T00:46:27.792Z
+- Timestamp: 2026-02-27T13:00:18.171Z
 - Year: 2023
-- Findings total: 10554
+- Findings total: 5817
 - Written to sheet: 400
 
 | type | count |
 |---|---|
-| missing_supplier | 2087 |
-| missing_date | 2173 |
-| missing_gross | 2236 |
-| missing_invoice_no | 2139 |
-| pending_status | 1919 |
+| duplicate_candidate | 8 |
+| missing_supplier | 315 |
+| missing_date | 1804 |
+| missing_gross | 1695 |
+| missing_invoice_no | 1850 |
+| pending_status | 145 |

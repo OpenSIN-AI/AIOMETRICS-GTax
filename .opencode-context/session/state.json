@@ -1,0 +1,13 @@
+{
+  "project_dir": "/Users/jeremy/dev/AIOMETRICS-GTax",
+  "state_path": "/Users/jeremy/dev/AIOMETRICS-GTax/.opencode-context/session/state.json",
+  "updated_at": "2026-02-26T00:31:41.366565+00:00",
+  "session_id": "ses_368c41566ffev5oHDNxt003DSY",
+  "bundle_id": "20260226T001520Z-7fa455ae",
+  "bundle_dir": "/Users/jeremy/dev/AIOMETRICS-GTax/.opencode-context/bundles/20260226T001520Z-7fa455ae",
+  "manifest_path": "/Users/jeremy/dev/AIOMETRICS-GTax/.opencode-context/bundles/20260226T001520Z-7fa455ae/00_manifest.json",
+  "proactive_mode": "maximal",
+  "context_ready": true,
+  "last_message_at": "2026-02-26T00:31:40Z",
+  "last_delta_dir": "/Users/jeremy/dev/AIOMETRICS-GTax/.opencode-context/delta/20260226T002911Z"
+}

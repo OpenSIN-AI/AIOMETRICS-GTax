@@ -1,6 +1,6 @@
 # MICRO Sheet Formula Guard
 
-- Timestamp: 2026-02-25T22:31:05.390Z
-- Force mode: true
-- EÜR formulas written: 14
-- Finanz-Cockpit formulas written: 7
+- Timestamp: 2026-02-27T13:00:20.080Z
+- Force mode: false
+- EÜR formulas written: 0
+- Finanz-Cockpit formulas written: 0

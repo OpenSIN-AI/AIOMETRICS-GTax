@@ -1,9 +1,8 @@
 {
-  "timestamp": "2026-02-26T01:37:52.755Z",
-  "runId": "51d1cdbb-f7d2-4c4e-b507-2e073ea45649",
+  "timestamp": "2026-02-27T12:44:07.247Z",
+  "runId": "c86a305a-1c1e-43d2-b035-e70fbd0c28ca",
   "scopeYears": [
     "2000",
-    "2004",
     "2016",
     "2022",
     "2023",
@@ -12,18 +11,20 @@
     "2026"
   ],
   "baseline": {
-    "records": 1828,
+    "records": 1822,
     "categories": {
-      "Rechnungen": 184,
-      "Sonstiges": 1643,
-      "Vertraege": 1
+      "Rechnungen": 176,
+      "Sonstiges": 1640,
+      "Vertraege": 1,
+      "Unkategorisiert": 5
     },
     "tabs": [
       "Archiv",
       "Audit_Tabellen",
       "Audit_Tabellen_Legacy_20260225024542",
+      "Audit_Tabellen_Legacy_20260227040425",
+      "Audit_Tabellen_Legacy_20260227124256",
       "Ausgaben_2000",
-      "Ausgaben_2004",
       "Ausgaben_2016",
       "Ausgaben_2022",
       "Ausgaben_2023",
@@ -35,7 +36,6 @@
       "Eigenbeleg",
       "Eigenbelege",
       "Einnahmen_2000",
-      "Einnahmen_2004",
       "Einnahmen_2016",
       "Einnahmen_2022",
       "Einnahmen_2023",
@@ -46,6 +46,7 @@
       "Fehlende Belege",
       "Finanz-Cockpit",
       "Harte Duplikatpruefung",
+      "OCR_HARD_FAILS",
       "Ordner_2022",
       "Ordner_2023",
       "Ordner_2024",

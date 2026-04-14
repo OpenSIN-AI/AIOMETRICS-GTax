@@ -1,14 +1,14 @@
 # AUDIT 2025 STRICT
 
-- Zeitstempel: 2026-02-24T22:26:13.669Z
+- Zeitstempel: 2026-02-27T02:06:16.594Z
 - Spreadsheet: https://docs.google.com/spreadsheets/d/1z-13LMaXRsDbtJFkujGJIwxVHyUgsBwM9W-LNlGg9-o
 - Einnahmen Folder: 1u7nyn5BuMxhBMqCF6QbP2uvrZ4rpHVHY
 - Ausgaben Folder: 1oiRydpQe3SHLiE96Mua1YcrIjsABxRyu
 
 ## Sync
 
-- Einnahmen Drive: 18 | Sheet: 18 | DriveOnly: 0 | SheetOnly: 0
-- Ausgaben Drive: 164 | Sheet: 164 | DriveOnly: 0 | SheetOnly: 0
+- Einnahmen Drive: 14 | Sheet: 14 | DriveOnly: 0 | SheetOnly: 0
+- Ausgaben Drive: 138 | Sheet: 138 | DriveOnly: 0 | SheetOnly: 0
 
 ## Ausgaben Verstöße (Drive-basiert)
 

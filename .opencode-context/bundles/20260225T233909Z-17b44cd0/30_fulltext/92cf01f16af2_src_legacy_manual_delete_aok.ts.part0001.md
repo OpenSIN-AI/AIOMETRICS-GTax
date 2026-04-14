@@ -1,0 +1,52 @@
+# Context Fulltext
+
+- source_path: src/legacy/manual/delete_aok.ts
+- source_sha256: 7287440c4d2ac201e2424fdb4becf86cb91e6dec7aae70359214310445f8e533
+- chunk: 1/1
+
+```text
+import * as fs from 'fs';
+import * as path from 'path';
+
+const FOLDER = "/Users/jeremy/Library/CloudStorage/GoogleDrive-info@zukunftsorientierte-energie.de/Geteilte Ablagen/Belege/DAPNC Cloud";
+
+const KEYWORDS = ['aok', 'aok.de', 'aok brandenburg', 'aok nordost'];
+
+function getLocalFiles(dirPath: string): string[] {
+    let allFiles: string[] = [];
+    try {
+        if (!fs.existsSync(dirPath)) return [];
+        const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+        for (const entry of entries) {
+            const fullPath = path.join(dirPath, entry.name);
+            if (entry.isDirectory()) {
+                allFiles = allFiles.concat(getLocalFiles(fullPath));
+            } else {
+                allFiles.push(fullPath);
+            }
+        }
+    } catch (e) { /* ignore */ }
+    return allFiles;
+}
+
+async function main() {
+    console.log('[AOK] Starting scan...');
+    const files = getLocalFiles(FOLDER);
+    let deleted = 0;
+    
+    for (const f of files) {
+        const bn = path.basename(f).toLowerCase();
+        if (KEYWORDS.some(k => bn.includes(k))) {
+            try {
+                fs.unlinkSync(f);
+                console.log(`[AOK] DELETED: ${path.basename(f)}`);
+                deleted++;
+            } catch (e) { console.error(`[AOK] Failed: ${f}`); }
+        }
+    }
+    console.log(`[AOK] Done. Deleted: ${deleted}`);
+}
+
+main();
+
+```

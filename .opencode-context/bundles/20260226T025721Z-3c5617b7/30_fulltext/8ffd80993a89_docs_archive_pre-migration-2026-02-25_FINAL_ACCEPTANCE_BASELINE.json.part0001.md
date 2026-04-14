@@ -1,0 +1,87 @@
+# Context Fulltext
+
+- source_path: docs/archive/pre-migration-2026-02-25/FINAL_ACCEPTANCE_BASELINE.json
+- source_sha256: d4b17963bbd407e5210b30c0582b275373e8c8f52fde59872e5a235deee2943d
+- chunk: 1/1
+
+```text
+{
+  "timestamp": "2026-02-25T04:32:55.090Z",
+  "runId": "192742d3-6381-4da1-ab1e-1abe4e1eeaa8",
+  "scopeYears": [
+    "2000",
+    "2004",
+    "2016",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "baseline": {
+    "records": 1829,
+    "categories": {
+      "Sonstiges": 1644,
+      "Rechnungen": 184,
+      "Vertraege": 1
+    },
+    "tabs": [
+      "Archiv",
+      "Audit_Tabellen",
+      "Audit_Tabellen_Legacy_20260225024542",
+      "Ausgaben_2000",
+      "Ausgaben_2004",
+      "Ausgaben_2016",
+      "Ausgaben_2022",
+      "Ausgaben_2023",
+      "Ausgaben_2024",
+      "Ausgaben_2025",
+      "Ausgaben_2026",
+      "Buchhaltung_DB",
+      "Dashboard_Daten",
+      "Eigenbeleg",
+      "Eigenbelege",
+      "Einnahmen_2000",
+      "Einnahmen_2004",
+      "Einnahmen_2016",
+      "Einnahmen_2022",
+      "Einnahmen_2023",
+      "Einnahmen_2024",
+      "Einnahmen_2025",
+      "Einnahmen_2026",
+      "EÜR",
+      "Fehlende Belege",
+      "Finanz-Cockpit",
+      "Harte Duplikatpruefung",
+      "Ordner_2022",
+      "Ordner_2023",
+      "Ordner_2024",
+      "Ordner_2025",
+      "Ordner_2026",
+      "Ordner_Archiviert",
+      "Ordner_Duplikate",
+      "Ordner_Fehlende Rechnungen",
+      "Ordner_Fehler",
+      "Ordner_Neue Belege ",
+      "Ordner_Privat Belege",
+      "Ordner_Sonstige_Belege",
+      "Plausibilitaet",
+      "Plausibilitaet_Micro",
+      "QA_2023_Corrections",
+      "QA_2023_Manual",
+      "QA_2023_Queue",
+      "QA_CRITICAL_OPEN",
+      "QA_Corrections_Global",
+      "QA_Manual_Review",
+      "QA_Queue_Global",
+      "Steuerreport",
+      "Weiche Duplikatpruefung",
+      "belege",
+      "category_folders",
+      "processing_log",
+      "sync_state"
+    ],
+    "forbiddenMarkerHits": 0
+  }
+}
+```

@@ -1,0 +1,422 @@
+# Context Fulltext
+
+- source_path: docs/mismatch/2026_sheet_only.json
+- source_sha256: 04aa0bfa50222ed02947102a4700ac6479aad60b0af21bb06b11682e6433697a
+- chunk: 3/28
+
+```text
+"12in4fDAJ0q6LeIlq81vWSbUZh26rq1am",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "2589708_Super_bleifrei_5fa06c32.pdf",
+      "rowNumber": 126
+    },
+    {
+      "driveFileId": "12jYbLNc4IpZK8T9N3P6kuwRCwva9Ss6X",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "118554_1x_Schulli_0,3.pdf",
+      "rowNumber": 128
+    },
+    {
+      "driveFileId": "12NrfTx7JX3wMbYU_7DphzS24-3NrRYkN",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "5692_Mastercard_62aa36c0.pdf",
+      "rowNumber": 130
+    },
+    {
+      "driveFileId": "12NtIaEfT_N0svnJw_MEoWVdFg0ktxrxd",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "4740.3.1_Abschlagszahlung_nach_Vertragsabsch.pdf",
+      "rowNumber": 132
+    },
+    {
+      "driveFileId": "12YfP7PQPcKJfchkGmXzyFTq8TRLIjplF",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "5761_003_00001_Super_E5.pdf",
+      "rowNumber": 137
+    },
+    {
+      "driveFileId": "12Z2YhFssJhT4iE33didHIuiYXay65opa",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "konto_assigned",
+      "dateiname": "5004355444_Rechnung_f44777.pdf",
+      "rowNumber": 139
+    },
+    {
+      "driveFileId": "12ZNQdLDP0SkRNpat1VSCpb5lWNO8IC7I",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "konto_assigned",
+      "dateiname": "5003935331_Rechnung_-_Barverkauf_12df2b.pdf",
+      "rowNumber": 140
+    },
+    {
+      "driveFileId": "132bCF9MNLta2c3Ikr4Apu8NHMVPBYR6s",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "2624_016_00003_Super_FuelSave_95.pdf",
+      "rowNumber": 143
+    },
+    {
+      "driveFileId": "134Mnmo1acgzEE34kLZq0SInh2JuDzs1q",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "119278_PANZERROHR_EN25_3_ST_x_2,95_EUR_a9e69c27.pdf",
+      "rowNumber": 146
+    },
+    {
+      "driveFileId": "138i3x0AGeDP_D5pBdfoAk7al4CFw6Haz",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "ZoPV03002_12_X_405W_Mono_PERC_Halbzellen_MBB_.pdf",
+      "rowNumber": 147
+    },
+    {
+      "driveFileId": "139jRvMViJBaiALgsTUwk-EfAwtkprqrn",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "konto_assigned",
+      "dateiname": "4253.6.2_Abschlagsrechnung_|_Angebot:_4253.6_469a86.pdf",
+      "rowNumber": 148
+    },
+    {
+      "driveFileId": "13AYav62xeWq6f20Ex4PQJPugyLUa2Oio",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "RE1100_Hybrid_Wechselrichter_DEYE_3_Phase__4d2c44.pdf",
+      "rowNumber": 150
+    },
+    {
+      "driveFileId": "13eTa9-ufcr-OjQsRZc36Mgm1H9BiT0MQ",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "brief 2.pdf",
+      "rowNumber": 153
+    },
+    {
+      "driveFileId": "13I2bSekSGLie2OLNIaf6KXdJJlCqQ1PW",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "908354_Super_bleifrei,_Bockwurst_mit_Broet_45883b.pdf",
+      "rowNumber": 154
+    },
+    {
+      "driveFileId": "13khYxh-t8bSvrnBbuRFnJBSbBxGKqDaI",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "b-hsd_12_gemischter_Salat,_Caesar_Dressing,__7bc3f3.pdf",
+      "rowNumber": 155
+    },
+    {
+      "driveFileId": "13KKTLXpO7hzNNokhwRNI-PPMCR-Bls1-",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "19000000016629283_-_ZDR_2_schuldet_der_AOK_Nordost_-_Die_Gesu.pdf",
+      "rowNumber": 156
+    },
+    {
+      "driveFileId": "13LnKNh1W1pPpVHVqkmX39dKvtuA2PinM",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "71030211_PC-RUANA_126b42.pdf",
+      "rowNumber": 157
+    },
+    {
+      "driveFileId": "13mQ8FaDtjxEDa6zf6Ff09BWy20E_7YAB",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "MT8WB0SJ9K_iCloud+_mit_200_GB_Speicherplatz_Mo.pdf",
+      "rowNumber": 159
+    },
+    {
+      "driveFileId": "13pi-veRRO5ipFHm3jJeB85UMIoIMp7en",
+      "lieferant": "Bauhaus Gesell:",
+      "rechnungsnr": "401390211",
+      "datum": "",
+      "betragBrutto": "9.00",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "konto_assigned",
+      "dateiname": "0010643220823048000007_NYM-J_5G6_3_m_x.pdf",
+      "rowNumber": 161
+    },
+    {
+      "driveFileId": "13rz8RGjakp3yyM54gKwKstfZiTrYO7JM",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "f9cf6e21-0e88-442f-913e-2fcfe3139554.preview.png",
+      "rowNumber": 163
+    },
+    {
+      "driveFileId": "13xC0yocFab2_Oe5JYIFNPP2XWhIOchHz",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "2736966_Diesel_220799.pdf",
+      "rowNumber": 166
+    },
+    {
+      "driveFileId": "13Ym9umEdQUbL-ktH2SgsLTCljMLHlBvx",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "6241_WINSTON_K_MILKY_CUPS,_ALOUETTE_RECY.pdf",
+      "rowNumber": 167
+    },
+    {
+      "driveFileId": "13yX2VM2MRhxtPH3bKTb0FOOaB67vXXjn",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "2646991_Super_bleifrei,_Cappuccino_4b0b90.pdf",
+      "rowNumber": 169
+    },
+    {
+      "driveFileId": "13ZraTrPZGKlh32FStqy0KeyUyD0PmNZz",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "93325_Super_15,47_Liter_59eb34.pdf",
+      "rowNumber": 171
+    },
+    {
+      "driveFileId": "14-1UuHwj8k4J1ona7evAZXjWQoHjMCyd",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "3930_28,42_Liter_Super.pdf",
+      "rowNumber": 172
+    },
+    {
+      "driveFileId": "141MnRR9qv0TmOib2rh-kMNu7v_yBP7Hg",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "DE23-163855_Kontaktdatenübermittlung_(07.08.202_006e7c6d.pdf",
+      "rowNumber": 173
+    },
+    {
+      "driveFileId": "14aHJpEi7EiT1pwU6xdZAS9CPqyLs4IlF",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "2532518_Super_bleifrei.pdf",
+      "rowNumber": 175
+    },
+    {
+      "driveFileId": "14Ehg2QoMjmbMYkoMV6HVJFaQCSFk7t35",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "542951_Super_11,24_Liter_b12685.pdf",
+      "rowNumber": 178
+    },
+    {
+      "driveFileId": "14H1ofFfnipGUVnW1Cd9kFsPk98jeqcAz",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "konto_assigned",
+      "dateiname": "5005321556_Rechnung.pdf",
+      "rowNumber": 180
+    },
+    {
+      "driveFileId": "14HRPW3uzRL77hT5qL7vyf2jBZZxwcWy_",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "konto_assigned",
+      "dateiname": "C98B67CA-0002_OpenAI_API_usage_credit_9891c7.pdf",
+      "rowNumber": 181
+    },
+    {
+      "driveFileId": "14iEdJ1W7dF7gKF6bI5LaY8PCeHeZIc_X",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "bolt 123.preview.png",
+      "rowNumber": 182
+    },
+    {
+      "driveFileId": "14iv3AzzbsBKAKC_tS3GdZeCbxJarq78V",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "fcb1d51f-2970-4356-a1c7-1ca136ac15eb.preview.png",
+      "rowNumber": 183
+    },
+    {
+      "driveFileId": "14JuATs11FxIfZzB0IOCKEhwbdya8FkHJ",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "6764_027_00002_LS_AUTHENTIC_RED.pdf",
+      "rowNumber": 185
+    },
+    {
+      "driveFileId": "14MsMd4wbZEJMBTJLbxrav76KlIdCLdw6",
+      "lieferant": "LS ZU",
+      "rechnungsnr": "400079737041",
+      "datum": "",
+      "betragBrutto": "11.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "0000-00-00_Ausgabe_LS_ZU_400079737041_11.00EUR.pdf",
+      "rowNumber": 186
+    },
+    {
+      "driveFileId": "14Qsyg0T8la9T7b2finznWQHG4EWKDlLH",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "RE-13120314_Power_Boost_3-Phasig_bis_65A.pdf",
+      "rowNumber": 188
+    },
+    {
+      "driveFileId": "14u2cIG1i8Rmjij7eWcxJQzGjcAqaeHdy",
+      "lieferant": "Bauhaus Gesellschaft für",
+      "rechnungsnr": "4008153214936",
+      "datum": "",
+      "betragBrutto": "2.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "0010623140323043000013_Aderendhülsen_b820d9.pdf",
+      "rowNumber": 190
+    },
+    {
+      "driveFileId": "14VFTIIrYmTvZPrO28agz5D9dBg3OCdAA",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "konto_assigned",
+      "dateiname": "5004114845_BND.pdf",
+      "rowNumber": 191
+    },
+    {
+      "driveFileId": "14wHTbd4D5oee8sKeIkqq1n026iMHP0j-",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+    
+```

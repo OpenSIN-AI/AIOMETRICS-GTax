@@ -74,6 +74,9 @@ function buildEnvForWorker(worker: WorkerDefinition): Record<string, string> {
   if (worker.id === 'micro_ocr_audit_1nm') {
     return { MICRO_1NM_OCR_BATCH: '2', OCR_EMERGENCY_TESSERACT: '0' };
   }
+  if (worker.id === 'micro_clean_private_1nm') {
+    return { MICRO_CLEAN_PRIVATE_API_MAX_RETRIES: process.env.MICRO_CLEAN_PRIVATE_API_MAX_RETRIES || '4' };
+  }
   if (worker.id === 'micro_local_118_tesseract_filter') {
     return {
       LOCAL_118_BATCH: '5',
@@ -85,11 +88,23 @@ function buildEnvForWorker(worker: WorkerDefinition): Record<string, string> {
   if (worker.id === 'micro_enrich_buchhaltung_db') {
     return { MICRO_ENRICH_BATCH: '20' };
   }
+  if (worker.id === 'micro_resolve_unclear') {
+    return {
+      MICRO_UNCLEAR_BATCH: process.env.MICRO_UNCLEAR_BATCH || '300',
+      MICRO_UNCLEAR_MIN_CONFIDENCE: process.env.MICRO_UNCLEAR_MIN_CONFIDENCE || '0.56'
+    };
+  }
   if (worker.id === 'micro_tax_category_assign') {
     return { MICRO_TAX_BATCH: '40' };
   }
   if (worker.id === 'micro_konto_assign') {
     return { MICRO_KONTO_BATCH: '50' };
+  }
+  if (worker.id === 'micro_sheet_delete_archive_sync') {
+    return { MICRO_SHEET_DELETE_MAX_MOVES: process.env.MICRO_SHEET_DELETE_MAX_MOVES || '20' };
+  }
+  if (worker.id === 'micro_plausibility_duplicate') {
+    return { AUDIT_YEAR: process.env.AUDIT_YEAR || '2023' };
   }
   if (worker.id === 'audit_2023_strict') {
     return { AUDIT_YEAR: '2023' };

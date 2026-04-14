@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-02-26T18:39:16.056Z",
+  "runId": "08c9ebe7-ce72-46f3-aa37-1690f9ad49de",
+  "incidentBranch": "incident/2026-02-26_08c9ebe7-ce72-46f3-aa37-1690f9ad49de",
+  "incidentBranchStatus": "created",
+  "alertKinds": [
+    "schema"
+  ],
+  "hardFailReasons": [],
+  "stageFailures": [],
+  "unresolvedTop": [],
+  "actionPlan": [
+    "Ursache klassifizieren (quota/schema/drive drift/parser drift)",
+    "Reconcile erneut laufen lassen",
+    "Wenn nach 2 Läufen nicht grün: blocker dokumentieren und Top-IDs priorisieren"
+  ]
+}

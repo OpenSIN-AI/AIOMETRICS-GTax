@@ -70,6 +70,21 @@ npm run build
 npm start
 ```
 
+## Enterprise Free Baseline (26.02.2026)
+
+- CI Security Gates: `.github/workflows/enterprise-ci.yml`
+- Nightly Security: `.github/workflows/nightly-security.yml`
+- Build Provenance: `.github/workflows/provenance-attestation.yml`
+- Workflow Integrity: `.github/workflows/workflow-integrity.yml`
+- Security Policy: `SECURITY.md`
+- Runbook: `docs/ENTERPRISE_FREE_BASELINE_2026-02-26.md`
+
+Lokale Vollpruefung:
+
+```bash
+npm run enterprise-guard
+```
+
 ## Sichere Pipeline-Ausfuehrung (Best Practice)
 
 - Alle Orchestrator-Skripte nutzen jetzt einen globalen Lock: `.pipeline.lock`.

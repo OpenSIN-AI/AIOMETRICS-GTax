@@ -1,0 +1,422 @@
+# Delta Fulltext
+
+- source_path: docs/mismatch/2026_sheet_only.json
+- source_sha256: 04aa0bfa50222ed02947102a4700ac6479aad60b0af21bb06b11682e6433697a
+- chunk: 25/28
+
+```text
+g3",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "A112216714_Order_overview_for_ZOE_Solar.pdf",
+      "rowNumber": 1641
+    },
+    {
+      "driveFileId": "1w23VJ7KJgSOl-dUo7s7z14nSk-wGY6Qu",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "e711d612-0e8b-489c-9c3d-af61876ad705.preview.png",
+      "rowNumber": 1642
+    },
+    {
+      "driveFileId": "1w3yKIei5XrIkEpp_AivoaufP_d4_epyw",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "17686_Rental_of_TP_68_(Category_5)_Iveco__e2f391.pdf",
+      "rowNumber": 1643
+    },
+    {
+      "driveFileId": "1W6Rd9jTIXurdIhPFpaKHczomtaY9hag8",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "Rechnung 150879067126.preview.png",
+      "rowNumber": 1644
+    },
+    {
+      "driveFileId": "1w97sXQXEeY3IttugKvATma_GTs_0Ntqv",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "5004921928_Rechnung_-_Barverkauf_77a68f.pdf",
+      "rowNumber": 1646
+    },
+    {
+      "driveFileId": "1wAVbrqVXF-J-N1Eqwbzi_FXarmgptfrp",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "INV00610191_rankingCoach_Produkt:_Ads_Budget_Cr.pdf",
+      "rowNumber": 1648
+    },
+    {
+      "driveFileId": "1WbCGUEKQ8ZK-yzDuFaAU9USp3cGPa3oh",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "DE23-125363_6_Kontakte.pdf",
+      "rowNumber": 1649
+    },
+    {
+      "driveFileId": "1We0RdLO1EvQWWCg3VTaPiBJ-NwkFbHq6",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "DE23-148946_Kontaktdatenübermittlung_(24.07.202_f1df05.pdf",
+      "rowNumber": 1652
+    },
+    {
+      "driveFileId": "1Weaznc-2nxpFZGb1fvc7ZPGmY0lPLRhC",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "86849911_Contribution_statement_BKK_VBU.pdf",
+      "rowNumber": 1654
+    },
+    {
+      "driveFileId": "1wewFM9HYpyJSmkYrXPPojZg4aY3uCz-D",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "8868_009_00002_Superbenzin_590cbb.pdf",
+      "rowNumber": 1656
+    },
+    {
+      "driveFileId": "1WFsUb-M7h-xaipH6E0QCiqyuWqPtzocf",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "Rechnung 150937734073.preview.png",
+      "rowNumber": 1657
+    },
+    {
+      "driveFileId": "1WgSH_TaYbjY54Th0Wnnk0L2IdCkwCXkm",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "17686_Rental_of_a_Iveco_Daily_TP_68_(Cate_ee7322.pdf",
+      "rowNumber": 1661
+    },
+    {
+      "driveFileId": "1WiTbB9-8DhoXZtxTfgPzulxFFtJxNkaf",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4388.1.2_Schlussrechnung_067c79.pdf",
+      "rowNumber": 1664
+    },
+    {
+      "driveFileId": "1wJlj_6txkOfHgyO3Jupi1BJErA1KPiLX",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "5626_016_00001_Castrol_EDGE_5W-3,_CAFFE_CREME_S_(0_024b57a2.pdf",
+      "rowNumber": 1666
+    },
+    {
+      "driveFileId": "1wkb6WzQ20_k3bqq9V88BmHeeL_cWC1pP",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "5813_MN_WHEY_VANILLE_420,_RUBIN_MICRO_AA_0f1c76.pdf",
+      "rowNumber": 1667
+    },
+    {
+      "driveFileId": "1WkyyPs2vByDNXmx9DzlWVwULtG0w1uiL",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2464748_Super_bleifrei,_Cappuccino,_Lucky_R_68ca27.pdf",
+      "rowNumber": 1668
+    },
+    {
+      "driveFileId": "1WL4QI-NxVFlIdHiZglMJ9ZYyb8ZLuIp6",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "6419_Dia._Quality_U2_115,_Betonschalstei_6886b2.pdf",
+      "rowNumber": 1669
+    },
+    {
+      "driveFileId": "1WLKl4zdvn0IJ5q5ckm_q1WPpgYFm295N",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "4531.2.3_Schlussrechnung_531d63.pdf",
+      "rowNumber": 1670
+    },
+    {
+      "driveFileId": "1wLvZSaAjFih_4EV4XcxOAXCkbDBTGZv4",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "5004283314_Mastercard_3d0cf5f9.pdf",
+      "rowNumber": 1672
+    },
+    {
+      "driveFileId": "1wMrLNyMb6K6EAWrIgLPzjNm8cJ73OCMz",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "DE23-187306_Rechnung_für_Kontaktdatenübermittlu_738b09.pdf",
+      "rowNumber": 1673
+    },
+    {
+      "driveFileId": "1wMrnitMNB7qMv7DmZoUoULbubi4_BINM",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "VK565218_EVBox_Elvi_11_kW_Wi-Fi_Smart_Chargi.pdf",
+      "rowNumber": 1674
+    },
+    {
+      "driveFileId": "1wMzDYPWha6Wn38cGJ5VEIqBbA-hvllG3",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "4674.1.2_AC_Installation_und_Inbetriebnahme_566210.pdf",
+      "rowNumber": 1675
+    },
+    {
+      "driveFileId": "1WoVDeI154g_-4O02QEyRNsw66HpsO76X",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "483982_Gewiss_Flexrohr_EN25.pdf",
+      "rowNumber": 1676
+    },
+    {
+      "driveFileId": "1WQ-hY7_HtwZkmG4fKeEjlJ6EAuZdpMKL",
+      "lieferant": "Gina Schulze <gina.schulze@zukunftsorientierte-energie.de>  Ihre Amazon.de Bestellung von 3 x \"NAKA Solar Anschlusskaste",
+      "rechnungsnr": "4682212",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Material/Waren",
+      "status": "ok",
+      "dateiname": "04413ac1-0bf2-4440-9c27-b4762a1a9d75.pdf",
+      "rowNumber": 1679
+    },
+    {
+      "driveFileId": "1WrpMg-O9Zt-SzUQhZ4S7JC2gpF4xhthH",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "199c328d73561361_Zahlungserinnerung Myplace Selfstorage.pdf",
+      "rowNumber": 1681
+    },
+    {
+      "driveFileId": "1wsmU-yd1t3YlYJbvS_USYl2cHDL_h0cl",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "K725772736_Mahnung_K725772736_94c6e3.pdf",
+      "rowNumber": 1682
+    },
+    {
+      "driveFileId": "1wty1Z2bSJ1cZcNYOnakdcUoXNGevQD4U",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2550238_Super_bleifrei_6171f4dd.pdf",
+      "rowNumber": 1685
+    },
+    {
+      "driveFileId": "1wVhmqd4X9pwUign20erPWgij1SPwrEhn",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "6241_[{'item_name':_'WINSTON_K_MILKY_CUP_8a0499.pdf",
+      "rowNumber": 1687
+    },
+    {
+      "driveFileId": "1WvvJhglVnpLfjbI1UH4jED-SEI6SWhcI",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "5004355444_Rechnung.pdf",
+      "rowNumber": 1688
+    },
+    {
+      "driveFileId": "1wWDzSY8iWRhs9QVTMCY7WW4WU2xXJgL4",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "168708048695_Pocket_Al_-_Chatbot-Assistent_Pocke_14ed65.pdf",
+      "rowNumber": 1690
+    },
+    {
+      "driveFileId": "1wWzQ6SJE-4Sy0yuZEzwg5j8lEv3I08A0",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "9249_00001_011_Supreme+_SuperPlus,_LuckyS.AutReOP,_5d1a22.pdf",
+      "rowNumber": 1691
+    },
+    {
+      "driveFileId": "1WxboaopvvR-RyFxB32wHxpz6shbI_4y4",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "DE23-226503_Kontaktdatenübermittlung_(30.10.202_424d8a.pdf",
+      "rowNumber": 1692
+    },
+    {
+      "driveFileId": "1x18HTkIETDVJhDdJ0GcSzk6gYaq7oChm",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "RG_100125587229.preview.png",
+      "rowNumber": 1698
+    },
+    {
+      "driveFileId": "1x2DR-EAeUqF77XuaayyfR4P-B1i0tNj9",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "2646147_Super_bleifrei.pdf",
+      "rowNumber": 1699
+    },
+    {
+      "driveFileId": "1x5ncLYAS01n6YVby4cJGZmlgQcmPxWBi",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "f7553866-dfe0-44e6-a7fc-b1c8ed418633.preview.png",
+      "rowNumber": 1701
+    },
+    {
+      "driveFileId": "1x8Pq_oxHCe7Vcwl5XhfK4H-_QALqx1m8",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "eeeb088c-0205-44d3-a549-e00efe906b7a.preview.png",
+      "rowNumber": 1703
+    },
+    {
+      "driveFileId": "1xb7b-x4vyV0dYlvY6pwACLblT-oW82aF",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "DE36188HIAEUI_Shelly_Pro_3EM_(120A)_|_WLan_&_Blue.pdf",
+      "rowNumber": 1705
+    },
+    {
+      "driveFileId": "1xcmzZDGEe2MrukQjRgv9NDWffJS4_hvo",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status"
+```

@@ -140,6 +140,17 @@ async function getYearList(sheets: sheets_v4.Sheets, spreadsheetId: string): Pro
   const years = new Set<number>();
   const minYear = 2000;
   const maxYear = new Date().getFullYear() + 1;
+
+  const yearFromSerial = (raw: string): number | null => {
+    const serial = Number.parseFloat(raw);
+    if (!Number.isFinite(serial) || serial < 20000 || serial > 80000) return null;
+    const ms = Date.UTC(1899, 11, 30) + Math.round(serial) * 24 * 60 * 60 * 1000;
+    const year = new Date(ms).getUTCFullYear();
+    if (!Number.isFinite(year)) return null;
+    if (year < minYear || year > maxYear) return null;
+    return year;
+  };
+
   for (const row of values) {
     const value = String(row[0] || '').trim();
     const candidates = value.match(/\b20\d{2}\b/g) || [];
@@ -149,6 +160,10 @@ async function getYearList(sheets: sheets_v4.Sheets, spreadsheetId: string): Pro
         years.add(year);
       }
     }
+    if (candidates.length === 0) {
+      const fromSerial = yearFromSerial(value);
+      if (fromSerial) years.add(fromSerial);
+    }
   }
   if (years.size === 0) {
     years.add(new Date().getFullYear());
@@ -157,24 +172,32 @@ async function getYearList(sheets: sheets_v4.Sheets, spreadsheetId: string): Pro
 }
 
 function buildDashboardBlock(defaultYear: number): (string | number)[][] {
-  const fRevenue = '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))';
-  const fExpense = '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))';
-  const fOutputVat = '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!M2:M))+SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!N2:N))';
-  const fInputVat = '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!R2:R))';
-  const fPrivateShare = '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!U2:U))';
+  const yearExpr = 'IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;"(20\\\\d{2})"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;"(20\\\\d{2})"));0))))';
+  const flowUnclearExpr = 'N(Buchhaltung_DB!E2:E<>"Einnahme")*N(Buchhaltung_DB!E2:E<>"Ausgabe")';
+  const flowNonTransactionExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C&" "&Buchhaltung_DB!L2:L);"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b"))';
+  const flowIncomeHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"einnahmen|photovoltaik|\\\\bpv\\\\b"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b"))';
+  const flowExpenseHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b"))';
+  const flowIncomeExpr = '(N(Buchhaltung_DB!E2:E="Einnahme")+N(' + flowUnclearExpr + '>0)*N(' + flowNonTransactionExpr + '=0)*N(' + flowIncomeHintExpr + '>0)*N(' + flowExpenseHintExpr + '=0))>0';
+  const flowExpenseExpr = '(N(Buchhaltung_DB!E2:E="Ausgabe")+N(' + flowUnclearExpr + '>0)*N(' + flowNonTransactionExpr + '=0)*N(' + flowExpenseHintExpr + '>0)*N(' + flowIncomeHintExpr + '=0))>0';
+  const yearMatchExpr = '((N($B$2)=0)+N(' + yearExpr + '=$B$2))>0';
+  const fRevenue = '=IFERROR(EÜR!B9;0)';
+  const fExpense = '=IFERROR(EÜR!B20;0)';
+  const fOutputVat = '=IFERROR(Steuerreport!B10;0)';
+  const fInputVat = '=IFERROR(Steuerreport!B11;0)';
+  const fPrivateShare = '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!U2:U))';
   return [
     ['FINANZ-COCKPIT 2026 (Dynamisch)', '', '', '', '', '', '', '', '', '', '', ''],
-    ['Jahr auswählen', defaultYear, '', 'Letzte Aktualisierung', '=NOW()', 'Alle Kennzahlen sind dynamisch je Jahr.', '', '', '', '', '', ''],
+    ['Jahr auswählen (0 = alle Jahre)', defaultYear, '', 'Letzte Aktualisierung', '=NOW()', 'Alle Kennzahlen sind dynamisch je Jahr.', '', '', '', '', '', ''],
     ['', '', '', '', '', '', '', '', '', '', '', ''],
     ['Einnahmen brutto', '', 'Ausgaben brutto', '', 'EÜR Ergebnis', '', 'Ausgangssteuer', '', 'Vorsteuer', '', 'USt-Zahllast', ''],
     ['', fRevenue, '', fExpense, '', '=B5-D5', '', fOutputVat, '', fInputVat, '', '=H5-J5'],
     ['', '', '', '', '', '', '', '', '', '', '', ''],
     ['Plausibilitätschecks', '', '', '', 'Steuerreport', '', '', '', '', '', '', ''],
-    ['Ausgabenquote (Ausgaben/Umsatz)', '=IF(B5=0;0;D5/B5)', '<= 1,20', '=IF(B8<=1,2;"OK";"WARNUNG")', 'USt 19% aus Einnahmen', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!M2:M))', '', '', '', '', '', ''],
-    ['Differenz Einnahmen KPI vs Monatsmatrix', '=B5-SUM(Dashboard_Daten!E2:E13)', '0,50 EUR', '=IF(ABS(B9)<=0,5;"OK";"ABWEICHUNG")', 'USt 7% aus Einnahmen', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!N2:N))', '', '', '', '', '', ''],
+    ['Ausgabenquote (Ausgaben/Umsatz)', '=IF(B5=0;0;D5/B5)', '<= 1,20', '=IF(B8<=1,2;"OK";"WARNUNG")', 'USt 19% aus Einnahmen', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!M2:M))', '', '', '', '', '', ''],
+    ['Differenz Einnahmen KPI vs Monatsmatrix', '=B5-SUM(Dashboard_Daten!E2:E13)', '0,50 EUR', '=IF(ABS(B9)<=0,5;"OK";"ABWEICHUNG")', 'USt 7% aus Einnahmen', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!N2:N))', '', '', '', '', '', ''],
     ['Differenz Ausgaben KPI vs Monatsmatrix', '=D5-SUM(Dashboard_Daten!F2:F13)', '0,50 EUR', '=IF(ABS(B10)<=0,5;"OK";"ABWEICHUNG")', 'Vorsteuer (geschäftlich)', '=J5', '', '', '', '', '', ''],
-    ['Duplikat-Kandidaten im Jahr', '=SUMPRODUCT((LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*(Buchhaltung_DB!AC2:AC="duplicate_candidate"))', '0', '=IF(B11=0;"OK";"PRÜFEN")', 'USt-Zahllast / Erstattung (-)', '=L5', '', '', '', '', '', ''],
-    ['Belege ohne Betrag (im Jahr)', '=SUMPRODUCT((LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*(N(Buchhaltung_DB!Q2:Q)=0))', '0', '=IF(B12=0;"OK";"PRÜFEN")', 'Private Anteile Ausgaben', fPrivateShare, '', '', '', '', '', ''],
+    ['Duplikat-Kandidaten im Jahr', '=SUMPRODUCT(N(' + yearMatchExpr + ')*N(Buchhaltung_DB!AC2:AC="duplicate_candidate"))', '0', '=IF(B11=0;"OK";"PRÜFEN")', 'USt-Zahllast / Erstattung (-)', '=L5', '', '', '', '', '', ''],
+    ['Belege ohne Betrag (im Jahr)', '=SUMPRODUCT(N(' + yearMatchExpr + ')*N(N(Buchhaltung_DB!Q2:Q)=0))', '0', '=IF(B12=0;"OK";"PRÜFEN")', 'Private Anteile Ausgaben', fPrivateShare, '', '', '', '', '', ''],
     ['Belege ohne Datum (global)', '=COUNTIFS(Buchhaltung_DB!E2:E;"<>";Buchhaltung_DB!J2:J;"")', '0', '=IF(B13=0;"OK";"PRÜFEN")', 'Vorläufig steuerlicher Gewinn', '=F5+F12', '', '', '', '', '', ''],
     ['', '', '', '', '', '', '', '', '', '', '', ''],
     ['Monat', 'Einnahmen', 'Ausgaben', 'Saldo', '', '', '', '', '', '', '', ''],
@@ -183,10 +206,19 @@ function buildDashboardBlock(defaultYear: number): (string | number)[][] {
 }
 
 function buildDataSheet(years: number[]): (string | number)[][] {
+  const yearExpr = 'IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;"(20\\\\d{2})"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;"(20\\\\d{2})"));0))))';
+  const monthExpr = 'IFERROR(MONTH(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(MONTH(Buchhaltung_DB!J2:J);0))';
+  const flowUnclearExpr = 'N(Buchhaltung_DB!E2:E<>"Einnahme")*N(Buchhaltung_DB!E2:E<>"Ausgabe")';
+  const flowIncomeHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"einnahmen|photovoltaik|\\\\bpv\\\\b"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b"))';
+  const flowExpenseHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b"))';
+  const flowIncomeExpr = '(N(Buchhaltung_DB!E2:E="Einnahme")+N(' + flowUnclearExpr + '>0)*N(' + flowIncomeHintExpr + '>0)*N(' + flowExpenseHintExpr + '=0))>0';
+  const flowExpenseExpr = '(N(Buchhaltung_DB!E2:E="Ausgabe")+N(' + flowUnclearExpr + '>0)*N(' + flowExpenseHintExpr + '>0)*N(' + flowIncomeHintExpr + '=0))>0';
+  const yearMatchExpr = '((N($B$2)=0)+N(' + yearExpr + '=$B$2))>0';
   const rows: (string | number)[][] = [];
   rows.push(['Jahr-Liste', 'Jahr ausgewählt', 'MonatNr', 'Monat', 'Einnahmen', 'Ausgaben', 'Saldo', '', 'Ausgaben nach Steuerkategorie', 'Betrag', '', 'USt-Metrik', 'Wert']);
-  for (let i = 0; i < Math.max(years.length, 20); i++) {
-    const yearValue = years[i] ?? '';
+  const selectableYears = [0, ...years.filter((year) => year !== 0)];
+  for (let i = 0; i < Math.max(selectableYears.length, 20); i++) {
+    const yearValue = selectableYears[i] ?? '';
     const month = i < 12 ? i + 1 : '';
     const row = i + 2;
     rows.push([
@@ -194,8 +226,8 @@ function buildDataSheet(years: number[]): (string | number)[][] {
       i === 0 ? '=\'' + DASHBOARD_SHEET + '\'!$B$2' : '',
       month,
       month ? `=TEXT(DATE($B$2;C${row};1);"MMM")` : '',
-      month ? `=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*(VALUE(MID(Buchhaltung_DB!J2:J;6;2))=C${row})*N(Buchhaltung_DB!Q2:Q))` : '',
-      month ? `=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*(VALUE(MID(Buchhaltung_DB!J2:J;6;2))=C${row})*N(Buchhaltung_DB!Q2:Q))` : '',
+      month ? `=SUMPRODUCT(N(${flowIncomeExpr})*N(${yearMatchExpr})*N(${monthExpr}=C${row})*N(Buchhaltung_DB!Q2:Q))` : '',
+      month ? `=SUMPRODUCT(N(${flowExpenseExpr})*N(${yearMatchExpr})*N(${monthExpr}=C${row})*N(Buchhaltung_DB!Q2:Q))` : '',
       month ? `=E${row}-F${row}` : '',
       '',
       '',
@@ -219,10 +251,24 @@ function buildDataSheet(years: number[]): (string | number)[][] {
     const row = i + 2;
     const c = categories[i];
     rows[row - 1][8] = c;
-    rows[row - 1][9] = `=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="${c}")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))`;
+    if (c === 'Kraftstoff/Benzin') {
+      rows[row - 1][9] = `=SUMPRODUCT(N(${flowExpenseExpr})*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"kraftstoff|benzin|diesel|tank"))*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))`;
+    } else if (c === 'Bewirtung') {
+      rows[row - 1][9] = `=SUMPRODUCT(N(${flowExpenseExpr})*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"bewirt|restaurant|cafe|imbiss|wolt|lieferando"))*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))`;
+    } else if (c === 'IT/Hosting') {
+      rows[row - 1][9] = `=SUMPRODUCT(N(${flowExpenseExpr})*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"telekommunikation|it|hosting|domain|software|cloud"))*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))`;
+    } else if (c === 'Strom/Energie') {
+      rows[row - 1][9] = `=SUMPRODUCT(N(${flowExpenseExpr})*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"strom|energie"))*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))`;
+    } else if (c === 'Miete') {
+      rows[row - 1][9] = `=SUMPRODUCT(N(${flowExpenseExpr})*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"miete|pacht"))*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))`;
+    } else if (c === 'Versicherung') {
+      rows[row - 1][9] = `=SUMPRODUCT(N(${flowExpenseExpr})*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"versicherung"))*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))`;
+    } else {
+      rows[row - 1][9] = `=MAX(0;SUMPRODUCT(N(${flowExpenseExpr})*N(${yearMatchExpr})*N(Buchhaltung_DB!Q2:Q))-SUM(J2:J7))`;
+    }
   }
   rows[8][8] = 'Gesamt';
-  rows[8][9] = '=SUM(J2:J8)';
+  rows[8][9] = '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))';
   rows[10][11] = 'Ausgangssteuer';
   rows[10][12] = '=\'' + DASHBOARD_SHEET + '\'!H5';
   rows[11][11] = 'Vorsteuer';
@@ -236,40 +282,54 @@ function buildDataSheet(years: number[]): (string | number)[][] {
 }
 
 function buildEuerBlock(): (string | number)[][] {
+  const yearExpr = 'IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;"(20\\\\d{2})"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;"(20\\\\d{2})"));0))))';
+  const flowUnclearExpr = 'N(Buchhaltung_DB!E2:E<>"Einnahme")*N(Buchhaltung_DB!E2:E<>"Ausgabe")';
+  const flowIncomeHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"einnahmen|photovoltaik|\\\\bpv\\\\b"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b"))';
+  const flowExpenseHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b"))';
+  const flowIncomeExpr = '(N(Buchhaltung_DB!E2:E="Einnahme")+N(' + flowUnclearExpr + '>0)*N(' + flowIncomeHintExpr + '>0)*N(' + flowExpenseHintExpr + '=0))>0';
+  const flowExpenseExpr = '(N(Buchhaltung_DB!E2:E="Ausgabe")+N(' + flowUnclearExpr + '>0)*N(' + flowExpenseHintExpr + '>0)*N(' + flowIncomeHintExpr + '=0))>0';
+  const yearMatchExpr = '((N($B$2)=0)+N(' + yearExpr + '=$B$2))>0';
   return [
     ['EÜR (dynamisch, Jahr über Finanz-Cockpit)'],
     ['Jahr', '=\'' + DASHBOARD_SHEET + '\'!$B$2'],
     [],
     ['Betriebseinnahmen', 'Betrag (EUR)'],
-    ['Umsätze 19% (brutto)', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*(N(Buchhaltung_DB!M2:M)>0)*N(Buchhaltung_DB!Q2:Q))'],
-    ['Umsätze 7% (brutto)', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*(N(Buchhaltung_DB!N2:N)>0)*N(Buchhaltung_DB!Q2:Q))'],
-    ['Umsätze 0% (brutto)', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*((N(Buchhaltung_DB!M2:M)+N(Buchhaltung_DB!N2:N))=0)*N(Buchhaltung_DB!Q2:Q))'],
-    ['Sonstige Einnahmen', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))-SUM(B5:B7)'],
+    ['Umsätze 19% (brutto)', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!M2:M>0)*N(Buchhaltung_DB!Q2:Q))'],
+    ['Umsätze 7% (brutto)', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!N2:N>0)*N(Buchhaltung_DB!Q2:Q))'],
+    ['Umsätze 0% (brutto)', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!O2:O>0)*N(Buchhaltung_DB!Q2:Q))'],
+    ['Sonstige Einnahmen', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))-SUM(B5:B7)'],
     ['Summe Betriebseinnahmen', '=SUM(B5:B8)'],
     [],
     ['Betriebsausgaben', 'Betrag (EUR)'],
-    ['Material/Waren (Sonstiges)', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="Sonstiges")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['Kraftstoff/Benzin', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="Kraftstoff/Benzin")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['Bewirtung', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="Bewirtung")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['IT/Hosting', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="IT/Hosting")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['Strom/Energie', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="Strom/Energie")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['Miete', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="Miete")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['Versicherung', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(Buchhaltung_DB!L2:L="Versicherung")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
-    ['Sonstige Ausgaben', '=B20-SUM(B12:B18)'],
-    ['Summe Betriebsausgaben', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!Q2:Q))'],
+    ['Material/Waren (Sonstiges)', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"material|waren|pv|photovoltaik"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['Kraftstoff/Benzin', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"kraftstoff|benzin|diesel|tank"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['Bewirtung', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"bewirt|restaurant|cafe|imbiss|wolt|lieferando"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['IT/Hosting', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"telekommunikation|it|hosting|domain|software|cloud"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['Strom/Energie', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"strom|energie"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['Miete', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"miete|pacht"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['Versicherung', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"versicherung"))*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
+    ['Sonstige Ausgaben', '=MAX(0;B20-SUM(B12:B18))'],
+    ['Summe Betriebsausgaben', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!Q2:Q))'],
     [],
     ['EÜR Ergebnis (Gewinn/Verlust)', '=B9-B20'],
-    ['Nicht abzugsfähige private Anteile', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Ausgabe")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!U2:U))'],
+    ['Nicht abzugsfähige private Anteile', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!U2:U))'],
     ['Vorläufig steuerlicher Gewinn', '=B22+B23'],
     ['Hinweis', 'Vorläufige technische Vorschau. Für Abgabe bitte Steuerberatung/ELSTER final prüfen.'],
     [],
     ['Detailansicht Belege (dynamisch)'],
     ['Datum', 'Belegart', 'Lieferant', 'Belegnr', 'Steuerkategorie', 'Brutto', 'geschäftl. MwSt', 'privater Anteil', 'Sollkonto', 'Habenkonto', 'Hinweis', 'Datei-URL'],
-    ['=IFERROR(SORT(FILTER({Buchhaltung_DB!J2:J\\Buchhaltung_DB!E2:E\\Buchhaltung_DB!F2:F\\Buchhaltung_DB!H2:H\\Buchhaltung_DB!L2:L\\Buchhaltung_DB!Q2:Q\\Buchhaltung_DB!R2:R\\Buchhaltung_DB!U2:U\\Buchhaltung_DB!V2:V\\Buchhaltung_DB!W2:W\\Buchhaltung_DB!AA2:AA\\Buchhaltung_DB!B2:B};LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"));1;TRUE);"Keine Datensätze im gewählten Jahr")']
+    ['=IFERROR(SORT(FILTER({Buchhaltung_DB!J2:J\\Buchhaltung_DB!E2:E\\Buchhaltung_DB!F2:F\\Buchhaltung_DB!H2:H\\Buchhaltung_DB!L2:L\\Buchhaltung_DB!Q2:Q\\Buchhaltung_DB!R2:R\\Buchhaltung_DB!U2:U\\Buchhaltung_DB!V2:V\\Buchhaltung_DB!W2:W\\Buchhaltung_DB!AA2:AA\\Buchhaltung_DB!B2:B};' + yearMatchExpr + ');1;TRUE);"Keine Datensätze im gewählten Jahr")']
   ];
 }
 
 function buildTaxBlock(): (string | number)[][] {
+  const yearExpr = 'IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;"(20\\\\d{2})"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;"(20\\\\d{2})"));0))))';
+  const flowUnclearExpr = 'N(Buchhaltung_DB!E2:E<>"Einnahme")*N(Buchhaltung_DB!E2:E<>"Ausgabe")';
+  const flowIncomeHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"einnahmen|photovoltaik|\\\\bpv\\\\b"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b"))';
+  const flowExpenseHintExpr = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b"))';
+  const flowIncomeExpr = '(N(Buchhaltung_DB!E2:E="Einnahme")+N(' + flowUnclearExpr + '>0)*N(' + flowIncomeHintExpr + '>0)*N(' + flowExpenseHintExpr + '=0))>0';
+  const flowExpenseExpr = '(N(Buchhaltung_DB!E2:E="Ausgabe")+N(' + flowUnclearExpr + '>0)*N(' + flowExpenseHintExpr + '>0)*N(' + flowIncomeHintExpr + '=0))>0';
+  const yearMatchExpr = '((N($B$2)=0)+N(' + yearExpr + '=$B$2))>0';
   return [
     ['Steuerreport (USt + ESt Vorschau)'],
     ['Jahr', '=\'' + DASHBOARD_SHEET + '\'!$B$2'],
@@ -278,10 +338,10 @@ function buildTaxBlock(): (string | number)[][] {
     ['Umsätze 19% (brutto)', '=\'' + EUR_SHEET + '\'!B5'],
     ['Umsätze 7% (brutto)', '=\'' + EUR_SHEET + '\'!B6'],
     ['Umsätze 0% (brutto)', '=\'' + EUR_SHEET + '\'!B7'],
-    ['Ausgangssteuer 19%', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!M2:M))'],
-    ['Ausgangssteuer 7%', '=SUMPRODUCT((Buchhaltung_DB!E2:E="Einnahme")*(LEFT(Buchhaltung_DB!J2:J;4)=TEXT($B$2;"0"))*N(Buchhaltung_DB!N2:N))'],
+    ['Ausgangssteuer 19%', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!M2:M))'],
+    ['Ausgangssteuer 7%', '=SUMPRODUCT(N(' + flowIncomeExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!N2:N))'],
     ['Ausgangssteuer gesamt', '=B8+B9'],
-    ['Vorsteuer abzugsfähig', '=\'' + DASHBOARD_SHEET + '\'!J5'],
+    ['Vorsteuer abzugsfähig', '=SUMPRODUCT(N(' + flowExpenseExpr + ')*N(' + yearMatchExpr + ')*N(Buchhaltung_DB!R2:R))'],
     ['USt-Zahllast / Erstattung (-)', '=B10-B11'],
     [],
     ['Einkommensteuer-Basis (vereinfacht)', 'Wert'],
@@ -849,7 +909,7 @@ async function main(): Promise<void> {
 
   console.log('Batch 1: Read years + ensure target sheets...');
   const years = await getYearList(sheets, spreadsheetId);
-  const defaultYear = years[years.length - 1];
+  const defaultYear = 0;
 
   const dashboardId = await ensureSheet(sheets, spreadsheetId, DASHBOARD_SHEET, 1200, 30);
   const dataId = await ensureSheet(sheets, spreadsheetId, DATA_SHEET, 1200, 30);

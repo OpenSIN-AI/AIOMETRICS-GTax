@@ -1,0 +1,13 @@
+# Context Fulltext
+
+- source_path: docs/archive/pre-migration-2026-02-25/mismatch/2024_drive_only.json
+- source_sha256: 27de5352471a15c7964adc4609149a5985a62e8d2e6e53cc82423cc5daa9cbfb
+- chunk: 1/1
+
+```text
+{
+  "year": "2024",
+  "income": [],
+  "expense": []
+}
+```

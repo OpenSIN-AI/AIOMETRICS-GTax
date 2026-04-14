@@ -1,0 +1,290 @@
+# Context Fulltext
+
+- source_path: docs/archive/pre-migration-2026-02-25/assurance/samples/DAILY_SAMPLE_2026-02-25.json
+- source_sha256: 47d1eea8c08c3346dcb9b07a309460bc2f373de17d0540dee6b6c81e5e15fc18
+- chunk: 1/2
+
+```text
+{
+  "generatedAt": "2026-02-25T04:24:35.189Z",
+  "sampleType": "daily",
+  "sampleSize": 25,
+  "sourceRows": 1829,
+  "rows": [
+    {
+      "drive_file_id": "1toCRELAsvvRLmjTwWqZHoALN9yQ7aEoK",
+      "original_name": "einphasiger-hybrid-wechselrichter-huawei-5-kva-sun2000-5ktl-l1.jpg",
+      "year": "2000",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1toCRELAsvvRLmjTwWqZHoALN9yQ7aEoK/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "126Gad57scS2tYKjtQs0HCIXHD68nKRUY",
+      "original_name": "invoice_2016-722291.preview.png",
+      "year": "2016",
+      "category": "Rechnungen",
+      "file_url": "https://drive.google.com/file/d/126Gad57scS2tYKjtQs0HCIXHD68nKRUY/view?usp=drivesdk",
+      "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO",
+      "original_name": "2022 Einnahmen-Überschus_Einnahmen-Ueberschussrechnung_fuer__27b56b.pdf",
+      "year": "2022",
+      "category": "Rechnungen",
+      "file_url": "https://drive.google.com/file/d/1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO/view?usp=drivesdk",
+      "target_folder_id": "1Lf2D7xUyUl1OAPVy1rA1GhJu_k6ZZKe4",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1_oF8ieW6E8NNNoLGx_wvHWdmgp7mi_0c",
+      "original_name": "0000-00-00_Ausgabe_2023-61_Rechnung_für_ausgeführte_Arbeiten_a_6a1af8_432293d5-626e-4e18-9abe-7de0530a41d4_BetragUnbekannt.pdf",
+      "year": "2023",
+      "category": "Rechnungen",
+      "file_url": "https://drive.google.com/file/d/1_oF8ieW6E8NNNoLGx_wvHWdmgp7mi_0c/view?usp=drivesdk",
+      "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1_QKVS7gx72LCCLPU34CtannXneyQalEA",
+      "original_name": "XVW-0200-068027-06-2023-2_QUITTUNG.pdf",
+      "year": "2023",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1_QKVS7gx72LCCLPU34CtannXneyQalEA/view?usp=drivesdk",
+      "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "10IcwWRacLm_2YB5fKgXahGQD9caFPU1A",
+      "original_name": "Beleg Ausgabe_92069546_30.04.2024.pdf",
+      "year": "2024",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/10IcwWRacLm_2YB5fKgXahGQD9caFPU1A/view?usp=drivesdk",
+      "target_folder_id": "1TNp-_3jws5GvhnIT2rzDe2M-tNyT065g",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1fn7hr3lNXXP_dulTu7akES2J1iWFkP84",
+      "original_name": "194c04eca65c8437_Ihre Rechnung 7180305167 vom 01.02.2025.pdf",
+      "year": "2025",
+      "category": "Rechnungen",
+      "file_url": "https://drive.google.com/file/d/1fn7hr3lNXXP_dulTu7akES2J1iWFkP84/view?usp=drivesdk",
+      "target_folder_id": "1oiRydpQe3SHLiE96Mua1YcrIjsABxRyu",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1__eGtsFuHw5JdvVk2MgUIasXLZbyczM9",
+      "original_name": "WhatsApp Image 2025-08-17 at 17.21.50.jpeg",
+      "year": "2025",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1__eGtsFuHw5JdvVk2MgUIasXLZbyczM9/view?usp=drivesdk",
+      "target_folder_id": "1oiRydpQe3SHLiE96Mua1YcrIjsABxRyu",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1_IuAAMIj2-_memcvmyDS4YiCAneD9LNk",
+      "original_name": "5004055541_Rechnung_für_Elektroinstallationsma_16b372.pdf",
+      "year": "2026",
+      "category": "Rechnungen",
+      "file_url": "https://drive.google.com/file/d/1_IuAAMIj2-_memcvmyDS4YiCAneD9LNk/view?usp=drivesdk",
+      "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1_38RD_UDeIg1l71LxDleNl6xdTTEd2l2",
+      "original_name": "0000-00-00_Ausgabe_209369_Kartenzahlung_kontaktlos_Mastercard_2476be_d62d382f-2e81-47db-b936-9cd9194681c8_BetragUnbekannt.pdf",
+      "year": "2026",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1_38RD_UDeIg1l71LxDleNl6xdTTEd2l2/view?usp=drivesdk",
+      "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1Fy8iDcOH5w90NsZVA6WdrjW1OTZhh2Fy",
+      "original_name": "19436cbf11fc2692_Vertragszusammenfassung.pdf",
+      "year": "2026",
+      "category": "Vertraege",
+      "file_url": "https://drive.google.com/file/d/1Fy8iDcOH5w90NsZVA6WdrjW1OTZhh2Fy/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1bN7VuyQn1dfSNUIXHMt-2amFnqX98Uy8",
+      "original_name": "f2bc7480-214d-4fe5-ab79-a2042a213bb9.pdf",
+      "year": "2042",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1bN7VuyQn1dfSNUIXHMt-2amFnqX98Uy8/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1tuzaeaVSPnDwkeBmEeW5o_RJlwghSB-s",
+      "original_name": "f1b2048b-5165-4770-aae8-aaf1544a011d.pdf",
+      "year": "2048",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1tuzaeaVSPnDwkeBmEeW5o_RJlwghSB-s/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "132hEBs5lPYYGusJsUaBPv7_Rq4GDKRcx",
+      "original_name": "7c2067c4-540f-4d18-89f1-11bd69fa5f69.pdf",
+      "year": "2067",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/132hEBs5lPYYGusJsUaBPv7_Rq4GDKRcx/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1U15FZE5l57DCsml01YR3O5Dt18HTTiEv",
+      "original_name": "9b8279f4-2070-46c4-ad96-cda56e085d55.pdf",
+      "year": "2070",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1U15FZE5l57DCsml01YR3O5Dt18HTTiEv/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1fwNDm-YAe62ysqfPN11xggPieQAf9qwA",
+      "original_name": "98a04601-2074-43a9-8afc-398ef98a6275.pdf",
+      "year": "2074",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1fwNDm-YAe62ysqfPN11xggPieQAf9qwA/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "15BSViZclezoi3cCk-Gl68RzksApGst1o",
+      "original_name": "2084dc57-9336-4116-ba19-d8a34a4880a7.pdf",
+      "year": "2084",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/15BSViZclezoi3cCk-Gl68RzksApGst1o/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1_ye32yXjbMhlYf17hyGPd4CywtGTmruy",
+      "original_name": "2023_Ausgaben_RECLASS_Invoice_5e231a9d_7520_44b1_b217_bf4d980f57e3.pdf",
+      "year": "2023",
+      "category": "Rechnungen",
+      "file_url": "https://drive.google.com/file/d/1_ye32yXjbMhlYf17hyGPd4CywtGTmruy/view?usp=drivesdk",
+      "target_folder_id": "16yJA_LfniTTduGfcG8MggNkj9MJCUmSA",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "1--JpDWP2UPRVkLhKR7Qh5fco4sEkAiIl",
+      "original_name": "2023-12-12_Ausgabe_U-SCHEIBE_DIN_125_v2_3,4_-Nr._11.00EUR.pdf",
+      "year": "2023",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/1--JpDWP2UPRVkLhKR7Qh5fco4sEkAiIl/view?usp=drivesdk",
+      "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+        "Betrag gegen Dokument verifizieren",
+        "Kategorie gegen Ordner/Beleginhalt verifizieren",
+        "Gegenpartei korrekt erfasst?"
+      ]
+    },
+    {
+      "drive_file_id": "10JO_PFPsKq9lqOxrhuyEbxaLdHTL0Rd8",
+      "original_name": "Einnahme_4816.1.1_08.01.2024.pdf",
+      "year": "2024",
+      "category": "Sonstiges",
+      "file_url": "https://drive.google.com/file/d/10JO_PFPsKq9lqOxrhuyEbxaLdHTL0Rd8/view?usp=drivesdk",
+      "target_folder_id": "1TNp-_3jws5GvhnIT2rzDe2M-tNyT065g",
+      "review_checklist": [
+        "Datum gegen Dokument verifizieren",
+      
+```

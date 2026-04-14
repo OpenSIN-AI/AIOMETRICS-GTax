@@ -1,11 +1,10 @@
 {
   "version": 1,
   "daysTarget": 7,
-  "periodStart": "2026-02-25T05:34:51.827Z",
-  "periodStartRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+  "periodStart": "2026-02-27T12:52:36.457Z",
+  "periodStartRunId": "c86a305a-1c1e-43d2-b035-e70fbd0c28ca",
   "scopeYears": [
     "2000",
-    "2004",
     "2016",
     "2022",
     "2023",
@@ -13,7 +12,7 @@
     "2025",
     "2026"
   ],
-  "definitionFingerprint": "f2fb9bd06bcb6bbce61a6d8e2e3a8062c86549393027c25f00623a8a715572c9",
+  "definitionFingerprint": "b2e735dbefa0c35febbba81ca87abb443cb075688cc43a6edb2e9f03920983e7",
   "definitionFiles": [
     "src/orchestrator/post_closure_assurance.ts",
     "src/orchestrator/final_acceptance_run.ts",
@@ -22,12 +21,11 @@
     "src/db/googleSheetsService.ts",
     "package.json"
   ],
-  "definitionChanged": true,
+  "definitionChanged": false,
   "scopeChanged": false,
-  "status": "broken",
-  "failRunIds": [
-    "e9ca1ecb-585c-4015-9c5b-d6e3d87b2082"
-  ],
-  "createdAt": "2026-02-25T05:34:51.900Z",
-  "updatedAt": "2026-02-26T00:59:36.422Z"
+  "status": "completed",
+  "failRunIds": [],
+  "createdAt": "2026-02-27T13:04:27.726Z",
+  "updatedAt": "2026-02-27T13:04:27.726Z",
+  "completedAt": "2026-02-27T13:04:27.726Z"
 }

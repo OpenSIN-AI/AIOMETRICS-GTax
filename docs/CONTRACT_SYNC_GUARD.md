@@ -1,6 +1,6 @@
 # Contract Sync Guard
 
-- Timestamp: 2026-02-26T02:14:15.002Z
+- Timestamp: 2026-02-27T13:01:03.478Z
 - Scope years: 2022, 2023, 2024, 2025, 2026
 - Status: green
 - Gate A pass: true
@@ -9,8 +9,8 @@
 
 ## Gate A
 
-- driveCount: 1828
-- sheetCount: 1828
+- driveCount: 1811
+- sheetCount: 1811
 - driveOnly: 0
 - sheetOnly: 0
 - duplicateDriveIds: 0

@@ -1,6 +1,6 @@
 {
   "version": "2026.1",
-  "timestamp": "2026-02-26T02:14:15.002Z",
+  "timestamp": "2026-02-27T13:01:03.478Z",
   "scopeYears": [
     "2022",
     "2023",
@@ -11,8 +11,8 @@
   "gates": {
     "gateA": {
       "pass": true,
-      "driveCount": 1828,
-      "sheetCount": 1828,
+      "driveCount": 1811,
+      "sheetCount": 1811,
       "driveOnly": 0,
       "sheetOnly": 0,
       "duplicateDriveIds": 0
@@ -76,29 +76,29 @@
         {
           "tab": "EÜR",
           "cell": "B5",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!M2:M>0));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!M2:M>0));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B6",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!N2:N>0));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!N2:N>0));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B7",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!O2:O>0));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!O2:O>0));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B8",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0))-SUM(B5:B7);0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0))-SUM(B5:B7);0)",
           "pass": true
         },
         {
@@ -111,64 +111,85 @@
         {
           "tab": "EÜR",
           "cell": "B12",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)material|pv\")));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)material|pv\")));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"material|waren|pv|photovoltaik\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"material|waren|pv|photovoltaik\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B13",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)kraftstoff|benzin|diesel\")));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)kraftstoff|benzin|diesel\")));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"kraftstoff|benzin|diesel|tank\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"kraftstoff|benzin|diesel|tank\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B14",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)telekommunikation|it|hosting|domain\")));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)telekommunikation|it|hosting|domain\")));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"bewirt|restaurant|cafe|imbiss|wolt|lieferando\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"bewirt|restaurant|cafe|imbiss|wolt|lieferando\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B15",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)versicherung\")));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)versicherung\")));0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"telekommunikation|it|hosting|domain|software|cloud\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"telekommunikation|it|hosting|domain|software|cloud\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B16",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"strom|energie\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"strom|energie\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B17",
-          "expectedFormula": "=SUM(B12:B16)",
-          "actualFormula": "=SUM(B12:B16)",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"miete|pacht\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"miete|pacht\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B18",
-          "expectedFormula": "=B9-B17",
-          "actualFormula": "=B9-B17",
+          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"versicherung\")));0)",
+          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"versicherung\")));0)",
           "pass": true
         },
         {
           "tab": "EÜR",
           "cell": "B19",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)",
+          "expectedFormula": "=MAX(0;B20-SUM(B12:B18))",
+          "actualFormula": "=MAX(0;B20-SUM(B12:B18))",
           "pass": true
         },
         {
-          "tab": "Finanz-Cockpit",
-          "cell": "B2",
-          "expectedFormula": "=YEAR(TODAY())",
-          "actualFormula": "=YEAR(TODAY())",
+          "tab": "EÜR",
+          "cell": "B20",
+          "expectedFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!Q2:Q))",
+          "actualFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!Q2:Q))",
+          "pass": true
+        },
+        {
+          "tab": "EÜR",
+          "cell": "B22",
+          "expectedFormula": "=B9-B20",
+          "actualFormula": "=B9-B20",
+          "pass": true
+        },
+        {
+          "tab": "EÜR",
+          "cell": "B23",
+          "expectedFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!U2:U))",
+          "actualFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!U2:U))",
+          "pass": true
+        },
+        {
+          "tab": "EÜR",
+          "cell": "B24",
+          "expectedFormula": "=B22+B23",
+          "actualFormula": "=B22+B23",
           "pass": true
         },
         {
@@ -180,37 +201,37 @@
         },
         {
           "tab": "Finanz-Cockpit",
-          "cell": "E5",
-          "expectedFormula": "=IFERROR(EÜR!B17;0)",
-          "actualFormula": "=IFERROR('EÜR'!B17;0)",
+          "cell": "D5",
+          "expectedFormula": "=IFERROR(EÜR!B20;0)",
+          "actualFormula": "=IFERROR('EÜR'!B20;0)",
+          "pass": true
+        },
+        {
+          "tab": "Finanz-Cockpit",
+          "cell": "F5",
+          "expectedFormula": "=B5-D5",
+          "actualFormula": "=B5-D5",
           "pass": true
         },
         {
           "tab": "Finanz-Cockpit",
           "cell": "H5",
-          "expectedFormula": "=IFERROR(EÜR!B18;0)",
-          "actualFormula": "=IFERROR('EÜR'!B18;0)",
+          "expectedFormula": "=IFERROR(Steuerreport!B10;0)",
+          "actualFormula": "=IFERROR(Steuerreport!B10;0)",
           "pass": true
         },
         {
           "tab": "Finanz-Cockpit",
-          "cell": "K5",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
+          "cell": "J5",
+          "expectedFormula": "=IFERROR(Steuerreport!B11;0)",
+          "actualFormula": "=IFERROR(Steuerreport!B11;0)",
           "pass": true
         },
         {
           "tab": "Finanz-Cockpit",
-          "cell": "N5",
-          "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
-          "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
-          "pass": true
-        },
-        {
-          "tab": "Finanz-Cockpit",
-          "cell": "Q5",
-          "expectedFormula": "=K5-N5",
-          "actualFormula": "=K5-N5",
+          "cell": "L5",
+          "expectedFormula": "=H5-J5",
+          "actualFormula": "=H5-J5",
           "pass": true
         }
       ],
@@ -219,40 +240,64 @@
           "label": "YearLink",
           "leftRef": "Finanz-Cockpit!B2",
           "rightRef": "EÜR!B2",
-          "expected": "2026.00",
-          "actual": "2026.00",
+          "expected": "0.00",
+          "actual": "0.00",
           "pass": true
         },
         {
           "label": "IncomeKPI",
           "leftRef": "Finanz-Cockpit!B5",
           "rightRef": "EÜR!B9",
-          "expected": "0.00",
-          "actual": "0.00",
+          "expected": "387495.83",
+          "actual": "387495.83",
           "pass": true
         },
         {
           "label": "ExpenseKPI",
-          "leftRef": "Finanz-Cockpit!E5",
-          "rightRef": "EÜR!B17",
-          "expected": "0.00",
-          "actual": "0.00",
+          "leftRef": "Finanz-Cockpit!D5",
+          "rightRef": "EÜR!B20",
+          "expected": "222938.67",
+          "actual": "222938.67",
           "pass": true
         },
         {
           "label": "ResultKPI",
-          "leftRef": "Finanz-Cockpit!H5",
-          "rightRef": "EÜR!B18",
-          "expected": "0.00",
-          "actual": "0.00",
+          "leftRef": "Finanz-Cockpit!F5",
+          "rightRef": "EÜR!B22",
+          "expected": "164557.16",
+          "actual": "164557.16",
           "pass": true
         },
         {
-          "label": "CockpitSaldoArithmetic",
-          "leftRef": "Finanz-Cockpit!Q5",
-          "rightRef": "Finanz-Cockpit!K5-N5",
-          "expected": "0.00",
-          "actual": "0.00",
+          "label": "OutputTaxKPI",
+          "leftRef": "Finanz-Cockpit!H5",
+          "rightRef": "Steuerreport!B10",
+          "expected": "59518.58",
+          "actual": "59518.58",
+          "pass": true
+        },
+        {
+          "label": "InputTaxKPI",
+          "leftRef": "Finanz-Cockpit!J5",
+          "rightRef": "Steuerreport!B11",
+          "expected": "34039.29",
+          "actual": "34039.29",
+          "pass": true
+        },
+        {
+          "label": "TaxSaldoKPI",
+          "leftRef": "Finanz-Cockpit!L5",
+          "rightRef": "Steuerreport!B12",
+          "expected": "25479.29",
+          "actual": "25479.29",
+          "pass": true
+        },
+        {
+          "label": "CockpitTaxSaldoArithmetic",
+          "leftRef": "Finanz-Cockpit!L5",
+          "rightRef": "Finanz-Cockpit!H5-J5",
+          "expected": "25479.29",
+          "actual": "25479.29",
           "pass": true
         }
       ]

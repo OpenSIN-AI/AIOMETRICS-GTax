@@ -1,0 +1,390 @@
+# Context Fulltext
+
+- source_path: docs/mismatch/2023_sheet_only.json
+- source_sha256: 3222a1df7de1a14178238967c6dffac6d8c9dcb9e762e10cbb52024ff0773b5d
+- chunk: 5/6
+
+```text
+rJA9FaGDhfBZ6LqWAvsYUw0",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "Invoice_4531.2.1_21-08-2023_10.preview.png",
+      "rowNumber": 41
+    },
+    {
+      "driveFileId": "1d1y9GKCaMzDFt6tSjYXHdaY2DWl6PkWd",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2023-06-06 - Zoe Solar - 00034621 - V1.pdf",
+      "rowNumber": 42
+    },
+    {
+      "driveFileId": "1DhfWsTgAyUmkfqWSu8B-HINYt_LujSf-",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "Einnahme_4357.7.3_28.02.2023.pdf",
+      "rowNumber": 43
+    },
+    {
+      "driveFileId": "1DWAct17Oft0cDRuPu-xrmx5_cUdyvtSb",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "DE-RI-2023-8-2080147_DEINE_FAHRT_MIT_TIER_SEHR_SCHÖN!_DU.pdf",
+      "rowNumber": 46
+    },
+    {
+      "driveFileId": "1EkN5H1qt3_M6mmp3XJBrRCp0tSPAmy7N",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "Invoice_4448.4.1_16-08-2023_16.preview.png",
+      "rowNumber": 50
+    },
+    {
+      "driveFileId": "1Falap0v0TUBGPT8nKXBvnCLMNQDpWaff",
+      "lieferant": "KTIV WERBUNG FREIBERG 1",
+      "rechnungsnr": "-Nr.",
+      "datum": "2023-08-09",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "0436df75-8bf2-4e21-a5b1-a1590c76b65d.pdf",
+      "rowNumber": 55
+    },
+    {
+      "driveFileId": "1gEiwrV0wTguh2riwDtR3Utt3ey5FTK1u",
+      "lieferant": "KTG Baumaschinen GmbH",
+      "rechnungsnr": "",
+      "datum": "2023-06-08",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "pending",
+      "dateiname": "20231496_Leichtmet.-Roligerüst_H:6.35_m(grün.pdf",
+      "rowNumber": 65
+    },
+    {
+      "driveFileId": "1GvIXFPsCS5ZYMzXtRUnwh3f3lRE4bGA7",
+      "lieferant": "| #4 SIE an ®",
+      "rechnungsnr": "-Nr.",
+      "datum": "2023-01-12",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "2023-01-12_Ausgabe_#4_SIE_an_®_-Nr._BetragUnbekannt.pdf",
+      "rowNumber": 67
+    },
+    {
+      "driveFileId": "1gWPGX2bWCYfepGuCSk2yR8UiIOs5ssLC",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2023-91_Solarmodule_setzen_inkl._Schienensy.pdf",
+      "rowNumber": 68
+    },
+    {
+      "driveFileId": "1HeVX33DQsB92Tv_yV_we8nHwUzfAPfw6",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "20231496_Leichtmet.-Rollgerüst_H:6.35_m(grün_b3f1a8.pdf",
+      "rowNumber": 70
+    },
+    {
+      "driveFileId": "1Hi_8BcL5qP12L0E7thOIvG_PlVJehGex",
+      "lieferant": "121718288198_Pocket_AI_-_Chatbot-Assistent_Pocke",
+      "rechnungsnr": "8198117804",
+      "datum": "2023-10-18",
+      "betragBrutto": "0.41",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "2023-10-18_Ausgabe_121718288198_Pocket_AI_-_Chatbot-Assistent_Pocke_8198117804_0.41EUR.pdf",
+      "rowNumber": 71
+    },
+    {
+      "driveFileId": "1IEWD3xQh7wLSVL1BJA0twRwrFGu8X0fE",
+      "lieferant": "135705712684_Pocket_Al_-_Chatbot-Assistent_Pocke_4f97e2",
+      "rechnungsnr": "8043554187",
+      "datum": "2023-09-13",
+      "betragBrutto": "0.41",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "2023-09-13_Ausgabe_135705712684_Pocket_Al_-_Chatbot-Assistent_Pocke_4f97e2_8043554187_0.41EUR.pdf",
+      "rowNumber": 73
+    },
+    {
+      "driveFileId": "1IoLN60YxyrXsWPYCn_PtlkUNUI1wZuf8",
+      "lieferant": "BAUHAUS",
+      "rechnungsnr": "",
+      "datum": "2023-06-29",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "pending",
+      "dateiname": "21178_SCHNEIDER_LS_SCHALTE.pdf",
+      "rowNumber": 76
+    },
+    {
+      "driveFileId": "1jRSBG0w9-TSF-9yJOYoQHsny6Zpf6x6E",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "Lohnschein, Benjamin Zanolla_2023_02.preview.png",
+      "rowNumber": 80
+    },
+    {
+      "driveFileId": "1K0Ifh5qX52KshyoM1DRux5kzBD9oXjww",
+      "lieferant": "2 VATTENFALL &",
+      "rechnungsnr": "101762712579",
+      "datum": "2023-07-31",
+      "betragBrutto": "144.25",
+      "kategorie": "Strom/Energie",
+      "status": "ok",
+      "dateiname": "2023-07-31_Ausgabe_2_VATTENFALL_&_101762712579_144.25EUR.pdf",
+      "rowNumber": 81
+    },
+    {
+      "driveFileId": "1kBi5p5-58L64rLu6d5inCCYvQH7t9zIb",
+      "lieferant": "Stadt Ketzin/Havel",
+      "rechnungsnr": "2004285",
+      "datum": "2023-07-10",
+      "betragBrutto": "600.00",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "2023-07-10_Ausgabe_Stadt_Ketzin_Havel_2004285_600.00EUR.pdf",
+      "rowNumber": 82
+    },
+    {
+      "driveFileId": "1KEO5R8KpOn93W4ZwqLX6gID4nVGKvd31",
+      "lieferant": "120715964526_Pocket_Al_-_Chatbot-Assistent_Pocke",
+      "rechnungsnr": "8165634417",
+      "datum": "2023-10-10",
+      "betragBrutto": "0.41",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "2023-10-10_Ausgabe_120715964526_Pocket_Al_-_Chatbot-Assistent_Pocke_8165634417_0.41EUR.pdf",
+      "rowNumber": 83
+    },
+    {
+      "driveFileId": "1msIRc9eSKfZy41UjZB6eAX6lzfi3NVcx",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "86849911_Contribution_statement_for_May_2023.pdf",
+      "rowNumber": 89
+    },
+    {
+      "driveFileId": "1N_Gh_pmc3NCRfdEGlOF862GmzEGIlw2V",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "Einnahme_4594.3.1_22.12.2023.pdf",
+      "rowNumber": 90
+    },
+    {
+      "driveFileId": "1N19VlrDLXpn1ztx9mmfHttqPR59A-PbH",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "19bbef41d50cc349_Einspruch_Begruendung_Steuerpruefung_2023.pdf",
+      "rowNumber": 91
+    },
+    {
+      "driveFileId": "1nbgcXQU1JN640MShEuSkNQg7Bw3j4JFp",
+      "lieferant": "Referenz-Nr.: ZoPV03023  Bestellung  Kunden-Nr.   ZOEZSG001  Unternehmen   ZoE - Zukunftsorientierte Energie  Adresse   ",
+      "rechnungsnr": "",
+      "datum": "2023-03-02",
+      "betragBrutto": "2.00",
+      "kategorie": "Kraftstoff/Benzin",
+      "status": "ok",
+      "dateiname": "078d258e-318a-40d9-9a9d-0fe478d3798b.pdf",
+      "rowNumber": 93
+    },
+    {
+      "driveFileId": "1NgHH_gC_Q_pz_FVcPC8sOvnLmUKmbTFz",
+      "lieferant": "TFT |",
+      "rechnungsnr": "3004866",
+      "datum": "2023-09-29",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "ok",
+      "dateiname": "0d657387-13b6-4e7b-b937-3d1e6fa6b1ce.pdf",
+      "rowNumber": 94
+    },
+    {
+      "driveFileId": "1nTCcXoyjUparwOd2rW_m-5ZDbbmwmw2h",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "2023-03-1037_Guthaben_f95a21.pdf",
+      "rowNumber": 95
+    },
+    {
+      "driveFileId": "1NY_GZeT9JG0aluDKdn99cmRDmjDbmA6R",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "20230512-093846_197908_284_MyPlace Rechnung.pdf",
+      "rowNumber": 97
+    },
+    {
+      "driveFileId": "1o5wMpOWfA30IBSb1NcvDjldtyGlaeBLj",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2023031003_PV-Aufkleber_\"PV_&_Battery\"_5er_Pac.pdf",
+      "rowNumber": 99
+    },
+    {
+      "driveFileId": "1o9IIW5JXZa1_9A9LdCb-tDexNtZOVFo0",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "2023-72_Rechnung_für_Solarmodule_montieren__e9af81.pdf",
+      "rowNumber": 100
+    },
+    {
+      "driveFileId": "1oaNd388Tg17PAQHmVEYfx7DxoTxEs5iz",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "Invoice_4592.2.1_30-08-2023_09.preview.png",
+      "rowNumber": 101
+    },
+    {
+      "driveFileId": "1oBtNVrTZQn4cPM4UBHWCyfUxXpQdiAuQ",
+      "lieferant": "131718512248_iCloud+_mit_200_GB_Speicherplatz",
+      "rechnungsnr": "8202668864",
+      "datum": "2023-10-19",
+      "betragBrutto": "2.51",
+      "kategorie": "Sonstige Ausgaben",
+      "status": "ok",
+      "dateiname": "2023-10-19_Ausgabe_131718512248_iCloud+_mit_200_GB_Speicherplatz_8202668864_2.51EUR.pdf",
+      "rowNumber": 102
+    },
+    {
+      "driveFileId": "1OP28zIWCIZ8OEDc7Nh09YFo0_ij5uDYL",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "2023-90_Solarmodule_demontieren.pdf",
+      "rowNumber": 104
+    },
+    {
+      "driveFileId": "1OwvNgrkTnJSw4vGbvhLjst7KgZqUS-AV",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Rechnungen",
+      "status": "pending",
+      "dateiname": "Sage Software Rechnung 2023-1177182.preview.png",
+      "rowNumber": 107
+    },
+    {
+      "driveFileId": "1p8o4Cs8NbmhWZ1Ohk5OTS373RleIAjxQ",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "Sonstiges",
+      "status": "pending",
+      "dateiname": "2023-04-1007_DAA_Leistungen.pdf",
+      "rowNumber": 109
+    },
+    {
+      "driveFileId": "1PAy616Imq3TZcxAwZTGJjQ4yV72un54A",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "de-ber-2xjf-0eg6_Bestellung_vom_20_September_2023_1ebd88.pdf",
+      "rowNumber": 110
+    },
+    {
+      "driveFileId": "1pfh42-jKgciUoeAMdSJ3hvsxFvCnssP3",
+      "lieferant": "FAG « Bicrgarlen * Fvenllocation",
+      "rechnungsnr": "138325",
+      "datum": "2023-07-15",
+      "betragBrutto": "1940.00",
+      "kategorie": "Sonstiges",
+      "status": "ok",
+      "dateiname": "2023-07-15_Ausgabe_FAG_«_Bicrgarlen_Fvenllocation_138325_1940.00EUR.pdf",
+      "rowNumber": 111
+    },
+    {
+      "driveFileId": "1PlzI8STbK2LALvkJiO6Q4j55BvqYGHBC",
+      "lieferant": "",
+      "rechnungsnr": "",
+      "datum": "",
+      "betragBrutto": "0.00",
+      "kategorie": "",
+      "status": "pending",
+      "dateiname": "20230609-110919_66798_284_MyPlace Rechnung.pdf",
+      "rowNumber": 112
+    },
+    {
+      "driveFileId": "1QECYleRgABOqXKTDJgqDDVlsbUn7IDEM",
+      "lieferant": "Referenz-Nr.: ZoPV02991  Bestellung  Kunden-Nr.   ZOEZSG001  Unternehmen   ZoE - Zukunftsorientierte Energie  Adresse   ",
+      "rechnungsnr": "",
+      "datum": "2023-02-13",
+      "betragBrutto": "1.00",
+      "kategorie": "Kraftstoff/Benzin",
+      "status": "ok",
+      "dateiname": "2023-02-13_Ausgabe_Referenz-Nr._ZoPV02991_Be
+```

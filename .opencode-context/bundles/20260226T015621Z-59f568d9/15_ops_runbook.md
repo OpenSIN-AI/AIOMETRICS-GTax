@@ -1,0 +1,85 @@
+# Ops Runbook Index
+
+- matched_files: 79
+
+References:
+- path: .playwright-cli/page-2026-02-25T22-55-38-103Z.yml | sha256: 23d35fec26b47452e88455422c7ae8aa4b663137890e9d4add9c4834056b2d9a | priority: 40 | context: Operational/deployment related source.
+- path: .playwright-cli/page-2026-02-25T22-56-50-454Z.yml | sha256: 69f693fa07ff781d41219782dfc52a9bf206d9514fac23f4bd76718c7811dcf3 | priority: 40 | context: Operational/deployment related source.
+- path: DB.md | sha256: 23d842336e93675a6e160970df3fa583bc42b29104a9064a4a00811de50c3081 | priority: 45 | context: Operational/deployment related source.
+- path: GEMINI-OCR.md | sha256: 4a2ccb0c3ecadc8877b1d0a292e364732c9ba591929ebe1b88504f896cd5a37c | priority: 45 | context: Operational/deployment related source.
+- path: GOOGLE_DIENSTKONTO.md | sha256: 0dbef5593a243ef86f91623502a1205175d03c6ed737385bd0f8d28454f104ec | priority: 45 | context: Operational/deployment related source.
+- path: LASTPLAN.md | sha256: 621cda9840f36debc340c1819baa23730307a99e32df50d873110540dd400cd6 | priority: 45 | context: Operational/deployment related source.
+- path: PLAN.md | sha256: 3b699fa4425314e1c2d20cd68718fd3252b845529ff6f7eb9c569743133a7135 | priority: 45 | context: Operational/deployment related source.
+- path: README.md | sha256: 5ba23043abd3406af4b04f8fdeccacdee033eae81c0229343199fee662add5ee | priority: 95 | context: Operational/deployment related source.
+- path: README_GEMINI_QA.md | sha256: 28e897d185b9045cd8d240a8e920cee80e7b5e251417e7e27dbae8747d5052d7 | priority: 65 | context: Operational/deployment related source.
+- path: STEUER-RULES.md | sha256: 6d98ffff42546c96d143fcb34a8ccd1ca021c64cfa5a68a625ee128c28cd1fbf | priority: 45 | context: Operational/deployment related source.
+- path: WORKER.md | sha256: 780aa587ffff749522940a36bc306347f91453cdf19f390d84c637adc3ec89f6 | priority: 45 | context: Operational/deployment related source.
+- path: continuous_sync.sh | sha256: f8d8931722bb10c6646720d092cb9629d0594228efda7e7a420dd174e31bf9a0 | priority: 40 | context: Operational/deployment related source.
+- path: docs/ABSCHLUSS_DOKU_2026-02-24.md | sha256: 0dc4b6db0321cef9ef965d1d6f964b2026f4425cf226db1fb90d44736ac4c2b5 | priority: 60 | context: Operational/deployment related source.
+- path: docs/AIOMETRICS_STATUS.md | sha256: ac5e0d40d06d3a8b6e7ebbd9a1b5c76c627a54cc60baf9e53361e38f702408ec | priority: 60 | context: Operational/deployment related source.
+- path: docs/ARCH_GUARD_REPORT.md | sha256: da3504400c1b4ec8d2cd91441c9db9409eb214b7870637b096ba0882fee89d59 | priority: 60 | context: Operational/deployment related source.
+- path: docs/AUDIT_2022_STRICT.md | sha256: ad348fcab58c7ce83ecd3b5593b6f0563887add77a5e39fdc2f05c71920fabdd | priority: 60 | context: Operational/deployment related source.
+- path: docs/AUDIT_2023_STRICT.md | sha256: 30ed3360f135c3a665d841e78edae283719bb78e4398a4b0959adad5ce7cafd4 | priority: 60 | context: Operational/deployment related source.
+- path: docs/AUDIT_2024_STRICT.md | sha256: 7385df7d9036518e791baa602aad3b493c492c502b5ab0b82ef3be35e9deabc8 | priority: 60 | context: Operational/deployment related source.
+- path: docs/AUDIT_2025_STRICT.md | sha256: e4a8bac97e07c279a58846363196dbf02378c0083c7421d92b648783dea4cede | priority: 60 | context: Operational/deployment related source.
+- path: docs/AUDIT_2026_STRICT.md | sha256: 44c4ddcdc0a1f65e492d557d18c596e17e655c7eb28b04204ded6ac691a9676e | priority: 60 | context: Operational/deployment related source.
+- path: docs/CHECK_2023_DRIVE_SHEETS_SYNC.md | sha256: ef65655e695acb9132d8e569cb949882f362c664553c08835e70518618de39e2 | priority: 60 | context: Operational/deployment related source.
+- path: docs/CHECK_2023_POLICY.md | sha256: f81e124b838190a06b2e33637fe3f937a6923cb91f7f7a29f59b490b80b3304f | priority: 60 | context: Operational/deployment related source.
+- path: docs/CHECK_ALL_YEARS_DRIVE_SHEETS_SYNC.md | sha256: 7e7d52acd448b92da3374a0d6ba0f5fdeb8df550358db3b6399e4326d6d27aec | priority: 60 | context: Operational/deployment related source.
+- path: docs/CHECK_DRIVE_SHEETS_SYNC.md | sha256: 6166b1c2a8774531698497dd43831a735cdf143d8171580ce87d0d13d7e82485 | priority: 60 | context: Operational/deployment related source.
+- path: docs/CONTRACT_SYNC_GUARD.md | sha256: cccbc6721347696c8664563593e1c445f9c33a28390aa5305a503c0c2ede1092 | priority: 60 | context: Operational/deployment related source.
+- path: docs/FINAL_ACCEPTANCE_REPORT.md | sha256: 6ecc3f761773c440209ca932b6eec52cd0952c6d832a1d716b12526dec2da2ab | priority: 60 | context: Operational/deployment related source.
+- path: docs/FINAL_CHECK_2026-02-24_letzter_sicherheitscheck.md | sha256: 21bb770d077eaef48202ed2c4e3e4f54ea86b47b6edaf1538f57cbec99efe4a2 | priority: 60 | context: Operational/deployment related source.
+- path: docs/FINANZAMT_READINESS_2026-02-24_1556.md | sha256: 50c1bede658e94e1639c2652a5f1347651630edc0930e02e057b8f765a04cc7a | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICIO_SCHEDULER.md | sha256: d33b3d5ee1cc6769dca9dea76780ed1d4df9f882c85afd53059d7f0d7956bfd4 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_CLEAN_PRIVATE_1NM.md | sha256: aca252c1345d4632c50899a95d847cb8b0f27d3eb44fe92dc0e8d9277fe83ccd | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_ENRICH_BUCHHALTUNG_DB.md | sha256: 6bd912ebded67dcab8730270d3d56e39b8b77d2688c7107d9182cf0a02ffe180 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_KONTO_ASSIGN.md | sha256: bc2173b762517737338a04f406de33113b78706e8a38dfb464f77813db3601ad | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_LOCAL_118_TESSERACT_FILTER.md | sha256: a6c4baf34fa8a1387dfc87324bebd3c4be96adb92bae84eef912f99424c98d9f | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_OCR_AUDIT_1NM.md | sha256: 112924c63e6be137c11bc42792f09e7c783f14003743dea4c15b4c89b01b9340 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_PLAUSIBILITY_DUPLICATE.md | sha256: 11d2d8171b7ebb52ccf9734df69431d1a46547acbd197627dd9450cd18176fb2 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_PRIVATE_RECLASSIFY_REPORT.md | sha256: b55724ab97199818c088a80b09917637378da3308f963a31fbfdd45e21c3bf79 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_SHEET_DELETE_ARCHIVE_SYNC.md | sha256: 2439d24fcf6a663e30520eae49ff2de4262e1e0830b8be9303ae534cfbe93dd1 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_SHEET_FORMULA_GUARD.md | sha256: 42c56d672d25295555f153606b0d49cbfe55d7ac068606816783c3305c616dcc | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_SWARM_TICK.md | sha256: 35c074ed1206ecd3712c5ff080e829c27fbf5c920f00e9538bf5f1030ff7a0bd | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_SYNC_DRIVE_CHANGES.md | sha256: dc1fc006f31ae230af278c18c98f7719295bfb65c4f17234bf3a4ea4b8e3c06b | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_TAX_CATEGORY_ASSIGN.md | sha256: f914150bc16130ed450264e3b795d98f3e7f350e4a805535ad73781db53d6b90 | priority: 60 | context: Operational/deployment related source.
+- path: docs/MICRO_ZOE_MOVE_REPORT.md | sha256: 983e351ea4dc135d371415e9b835799d0fe2663703c77bce0dcacb018fe332d4 | priority: 60 | context: Operational/deployment related source.
+- path: docs/NULL_FEHLER_REPORT_2023_2026-02-24.md | sha256: 1a37d94942edd53bcb60848973a0f0d2e97ca60ceb48469fad63aa76cf74838d | priority: 60 | context: Operational/deployment related source.
+- path: docs/NULL_FEHLER_REPORT_2023_2026-02-24_1503.md | sha256: 10e145a30056da3925f0fa5735cf95fc1db2c794994eba6208f48147348088ba | priority: 60 | context: Operational/deployment related source.
+- path: docs/NVIDIA_QWEN_FALLBACK.md | sha256: 63f55aea4c921e6090e3260fbb7e40701f797fb4fd64e3b7d24c1eb15935e312 | priority: 60 | context: Operational/deployment related source.
+- path: docs/POST_CLOSURE_ASSURANCE_RUNBOOK.md | sha256: 8bed04d2a1628c5d02ee760225fa9dfd048c939a3f00167a43b054b9739b4a9a | priority: 60 | context: Operational runbook or operator procedure.
+- path: docs/REPO_BASELINE_METRICS.json | sha256: 97b16d88e9e577646917a3fd756b7248807101c7670c26fce462e352c804d58b | priority: 55 | context: Operational/deployment related source.
+- path: docs/REPO_INVENTORY.md | sha256: 25bea0135b5490ec826d1d77b43625e17ecdf75145ca1806c11fbc7cbc13bf14 | priority: 60 | context: Operational/deployment related source.
+- path: docs/REPO_INVENTORY_2026-02-25.md | sha256: 2e71215c22477da2c8e58790b0940ff7495c2a60c97c77241ba1a0b7992cead1 | priority: 60 | context: Operational/deployment related source.
+- path: docs/SESSION_AUDIT_2026-02-24.md | sha256: b2dc34e42d929cc062101d111f4e9dce5be1d072cc73497e6f0f84d61c31b5dc | priority: 60 | context: Operational/deployment related source.
+- path: docs/SHEETS_BEST_PRACTICES_2026.md | sha256: e531396b5a4ea48a322762a9d377ab0262038d48173c07c17d63114a05a2c764 | priority: 60 | context: Operational/deployment related source.
+- path: docs/TANKSTELLEN_SPLIT_2023.md | sha256: 71f8ccd8338bdc85945d110c491c724ee8874dcc565774147963e64718c26c6d | priority: 60 | context: Operational/deployment related source.
+- path: docs/UMBAUPLAN_REBOOT_2026-02-25.md | sha256: 6aaf48a5a027c0aad9bdc537f976fbd12c8ef14b454abae40aae148fc2343a04 | priority: 60 | context: Operational/deployment related source.
+- path: docs/ZIO_GUARD_STATUS.md | sha256: 7c5da89ec7e6a13a8eeba044579b31a99751d692ee95d7a84ff283f41bf1b725 | priority: 60 | context: Operational/deployment related source.
+- path: docs/ZOE_SOLAR_RECHNUNGSPLAN_2023.md | sha256: 82d9effe8e7011cb15fb53cda59f1f394e6edefa283d9f4bbd2cbd878f5fcf23 | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/CHECK_2023_DRIVE_SHEETS_SYNC.md | sha256: d7c7674b512626e259f2cd60ad40579f7b077f68911bbb25293e7e8910d97611 | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/CHECK_DRIVE_SHEETS_SYNC.md | sha256: 1f71629208026c80dd2e2563dc64fec1619dc9318abc66639c14b0048c92e99f | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/FINAL_ACCEPTANCE_REPORT.md | sha256: db228d4d3173ce387ebe8f386214323df54ab57a685698d162e7b8d1d4a85f6a | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.md | sha256: a2b4459ac606562505d2994b36aba056d9a8697eb4bb5c7b0f45ec6fb6db97e4 | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/FINAL_7D_CERTIFICATION_LATEST.md | sha256: a2b4459ac606562505d2994b36aba056d9a8697eb4bb5c7b0f45ec6fb6db97e4 | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/daily/DAILY_KPI_2026-02-25.md | sha256: cd0333d649f4a9a8cafb9592678be35f798ec66301a53e3e522d10867a51103e | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/incidents/INCIDENT_2026-02-25_419e4c88-f312-435d-aa90-24554f2327d5.md | sha256: 5bddb764f0a61b3f5c96b553f7f5a809b43388bbf0a710e71af7f6d4e8014534 | priority: 60 | context: Operational/deployment related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/weekly/WEEKLY_TREND_2026-W09.md | sha256: ae4069430dc7e48c713f04cab89198fdee1242ccb5dff2e9f05976c723801ca9 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.md | sha256: 1ae1e4fa3cf7ee67d0bba0c507843e252591194264080d3890af45abd8129eb9 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-26.md | sha256: aec428c3a7c63dc711bd6228e88d8ccfd1bfdc5ff8786fba7eec7fcd3f535f19 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/FINAL_7D_CERTIFICATION_LATEST.md | sha256: aec428c3a7c63dc711bd6228e88d8ccfd1bfdc5ff8786fba7eec7fcd3f535f19 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/daily/DAILY_KPI_2026-02-25.md | sha256: b21eb24f39ab565588346d5329283fc888dc8cc85ef74ea66b5a3f7ebf590e9d | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/daily/DAILY_KPI_2026-02-26.md | sha256: 1cc6c4dcb7969a2d3e94a448ac7502a7bba7b4bb7967eaa9809cccf6b2b5d222 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/incidents/INCIDENT_2026-02-25_0fed2fb2-522f-49c7-a7b6-e4d475892212.md | sha256: b4c62f8d061a727cf1d8133f0d0f412ff32556cd82832341d93432f82002fd05 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/incidents/INCIDENT_2026-02-25_419e4c88-f312-435d-aa90-24554f2327d5.md | sha256: 5bddb764f0a61b3f5c96b553f7f5a809b43388bbf0a710e71af7f6d4e8014534 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/incidents/INCIDENT_2026-02-25_6a41d1b7-0915-4472-a33d-04a2de69bb34.md | sha256: a5f601251d8d58aa1f7f04919ffb7a6e4de6ba5a960ab1fe201c47418e31d063 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/incidents/INCIDENT_2026-02-25_d4390fb1-ec42-4a89-9123-3705c07c80ba.md | sha256: bd6e2742f313fc709755274c7b27cc6ab142c8787fba97624a93337110bb7f39 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/incidents/INCIDENT_2026-02-26_e9ca1ecb-585c-4015-9c5b-d6e3d87b2082.md | sha256: 098513a3ccd3f75843985afa331354f9855de21d47be70b3bf446e10af2d2389 | priority: 60 | context: Operational/deployment related source.
+- path: docs/assurance/weekly/WEEKLY_TREND_2026-W09.md | sha256: bc949f1ae46b71923d9a0964673382cd1fee24ec444a19aae462dc81e1e8b654 | priority: 60 | context: Operational/deployment related source.
+- path: repair_all_years.sh | sha256: 5e2169068aeff5ca1cb77b18354bb86c954faae8fd125b65e2b631e9d6165591 | priority: 40 | context: Operational/deployment related source.
+- path: src/orchestrator/aiometrics_worker.ts | sha256: 0ee9887d5e1848f56dbdd04ce9c9fb440a07a9494ad4e4fd0d1ce75a28389c00 | priority: 40 | context: Operational/deployment related source.
+- path: start_micio_loop.sh | sha256: af26e89f7528419842b30ccc825c5ee74ec4c5a279735dba05467a7d1399e0a4 | priority: 40 | context: Operational/deployment related source.
+- path: start_micro_lane_swarm.sh | sha256: 4e286139d32581b8666fd24e154e31d77f61c1c2b2e08dec44b244a22f909d12 | priority: 40 | context: Operational/deployment related source.
+- path: start_ocr_swarm.sh | sha256: 085f4465da820079a1db1196e9cf971960297e09779f08f2577e79abd5181ed5 | priority: 40 | context: Operational/deployment related source.
+

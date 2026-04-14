@@ -1,0 +1,14 @@
+{
+  "name": "gtax-vercel-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vercel dashboard for Google Drive and Sheets via service account",
+  "type": "commonjs",
+  "scripts": {
+    "preview-local": "vercel dev",
+    "deploy:preview": "vercel deploy -y"
+  },
+  "dependencies": {
+    "googleapis": "^131.0.0"
+  }
+}

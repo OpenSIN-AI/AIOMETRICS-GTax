@@ -1,0 +1,8 @@
+# Keep this file strict. Adjust owners if the org/repo owner changes.
+* @Delqhi
+
+# Critical surfaces
+/.github/ @Delqhi
+/src/orchestrator/ @Delqhi
+/docs/assurance/ @Delqhi
+/scripts/ @Delqhi

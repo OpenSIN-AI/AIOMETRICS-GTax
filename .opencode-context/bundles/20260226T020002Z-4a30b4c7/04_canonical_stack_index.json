@@ -1,0 +1,79 @@
+{
+  "profile": "generic",
+  "generated_at": "2026-02-26T02:00:31.315722+00:00",
+  "project_dir": "/Users/jeremy/dev/AIOMETRICS-GTax",
+  "canonical_stack": [
+    {
+      "path": "AGENTS.md",
+      "priority": 100,
+      "short_context": "Project-level agent rules and collaboration guidance.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "README.md",
+      "priority": 95,
+      "short_context": "Project overview, runtime and operator entrypoints.",
+      "required": false,
+      "exists": true,
+      "sha256": "5ba23043abd3406af4b04f8fdeccacdee033eae81c0229343199fee662add5ee"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "priority": 90,
+      "short_context": "System architecture decisions and boundaries.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "OPENCODE.md",
+      "priority": 88,
+      "short_context": "OpenCode/project integration guidance.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "docs/OPENCODE.md",
+      "priority": 86,
+      "short_context": "Extended OpenCode integration details.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "docs/guides/MIGRATION_V3.md",
+      "priority": 84,
+      "short_context": "Migration guide and compatibility notes.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "docs/guides/OPERATOR_RUNBOOK_V3.md",
+      "priority": 83,
+      "short_context": "Operational runbook and emergency controls.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "docs/specs/index.json",
+      "priority": 82,
+      "short_context": "Contract index and API inventory.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    },
+    {
+      "path": "docs/api/openapi-v3-controlplane.yaml",
+      "priority": 81,
+      "short_context": "OpenAPI service contract.",
+      "required": false,
+      "exists": false,
+      "sha256": ""
+    }
+  ]
+}

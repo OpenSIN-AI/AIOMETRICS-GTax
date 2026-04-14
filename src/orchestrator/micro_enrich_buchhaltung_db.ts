@@ -5,18 +5,43 @@ import { randomUUID } from 'crypto';
 import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { withPipelineLock } from './pipeline_lock.js';
+import { parsePositiveInt, withGoogleApiRetry } from './shared/google_api_retry.js';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const BATCH_SIZE = Number.parseInt(process.env.MICRO_ENRICH_BATCH || '25', 10);
 const RUN_BUDGET_MS = Number.parseInt(process.env.MICRO_ENRICH_RUN_BUDGET_MS || '170000', 10);
 const OVERWRITE_FILLED = ['1', 'true', 'yes', 'on'].includes(String(process.env.MICRO_ENRICH_OVERWRITE || '0').toLowerCase());
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_ENRICH_BUCHHALTUNG_DB.md');
+const REQUEST_TIMEOUT_MS = parsePositiveInt(process.env.MICRO_ENRICH_REQUEST_TIMEOUT_MS, 30000);
+const API_MAX_RETRIES = parsePositiveInt(process.env.MICRO_ENRICH_API_MAX_RETRIES, 4);
+const API_RETRY_BASE_MS = parsePositiveInt(process.env.MICRO_ENRICH_API_RETRY_BASE_MS, 1500);
+const API_RETRY_MAX_MS = parsePositiveInt(process.env.MICRO_ENRICH_API_RETRY_MAX_MS, 15000);
+const MONEY_FIELDS = new Set([
+  'mwst_19_betrag',
+  'mwst_7_betrag',
+  'mwst_0_betrag',
+  'netto_gesamt',
+  'brutto_gesamt',
+  'geschaeftliche_mwst',
+  'private_mwst',
+  'geschaeftlicher_anteil_brutto',
+  'privater_anteil_brutto'
+]);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
   scopes: ['https://www.googleapis.com/auth/spreadsheets']
 });
 const sheets = google.sheets({ version: 'v4', auth });
+
+async function withApiRetry<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+  return withGoogleApiRetry(operation, fn, {
+    maxAttempts: API_MAX_RETRIES,
+    baseDelayMs: API_RETRY_BASE_MS,
+    maxDelayMs: API_RETRY_MAX_MS,
+    loggerPrefix: 'micro_enrich_buchhaltung_db'
+  });
+}
 
 type RowObj = Record<string, string>;
 
@@ -50,14 +75,45 @@ function parseInvoiceNo(text: string): string {
   return m2?.[0] || '';
 }
 
+function parseAmount(raw: string): number {
+  const cleaned = String(raw || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/[^\d,.\-]/g, '')
+    .trim();
+  if (!cleaned) return 0;
+
+  const sign = cleaned.startsWith('-') ? -1 : 1;
+  const unsigned = cleaned.replace(/-/g, '');
+  if (!unsigned) return 0;
+
+  const hasComma = unsigned.includes(',');
+  const hasDot = unsigned.includes('.');
+  let normalized = unsigned;
+  if (hasComma && hasDot) {
+    normalized = unsigned.lastIndexOf(',') > unsigned.lastIndexOf('.')
+      ? unsigned.replace(/\./g, '').replace(/,/g, '.')
+      : unsigned.replace(/,/g, '');
+  } else if (hasComma) {
+    const lastComma = unsigned.lastIndexOf(',');
+    const frac = unsigned.slice(lastComma + 1);
+    if (frac.length === 2) normalized = `${unsigned.slice(0, lastComma).replace(/[.,]/g, '')}.${frac}`;
+    else if (unsigned.split(',').length === 2 && frac.length === 3) normalized = unsigned.replace(/,/g, '');
+    else normalized = unsigned.replace(/,/g, '.');
+  } else if (hasDot) {
+    const lastDot = unsigned.lastIndexOf('.');
+    const frac = unsigned.slice(lastDot + 1);
+    if (frac.length === 2) normalized = `${unsigned.slice(0, lastDot).replace(/\./g, '')}.${frac}`;
+    else if (unsigned.split('.').length === 2 && frac.length === 3) normalized = unsigned.replace(/\./g, '');
+  }
+  const n = Number.parseFloat(normalized);
+  return Number.isFinite(n) ? sign * n : 0;
+}
+
 function parseAmounts(text: string): number[] {
-  const matches = [...text.matchAll(/\b(\d{1,6}(?:[.,]\d{3})*[.,]\d{2})\b/g)].map((m) => m[1]);
+  const matches = [...text.matchAll(/\b(\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2}))\b/g)].map((m) => m[1]);
   const values: number[] = [];
   for (const raw of matches) {
-    const sanitized = raw.includes(',') && raw.includes('.')
-      ? raw.replace(/\./g, '').replace(',', '.')
-      : raw.replace(',', '.');
-    const n = Number.parseFloat(sanitized);
+    const n = parseAmount(raw);
     if (Number.isFinite(n)) values.push(n);
   }
   return values;
@@ -65,6 +121,23 @@ function parseAmounts(text: string): number[] {
 
 function round2(n: number): number {
   return Math.round(n * 100) / 100;
+}
+
+function detectPrimaryGross(text: string, amounts: number[]): number {
+  const patterns = [
+    /(?:gesamt(?:betrag)?|summe|zahlbetrag|brutto)[^\d\-]{0,20}([\-]?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2}))/i,
+    /(?:total)[^\d\-]{0,20}([\-]?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2}))/i
+  ];
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match?.[1]) {
+      const value = parseAmount(match[1]);
+      if (Number.isFinite(value) && value > 0) return round2(value);
+    }
+  }
+  const positives = amounts.filter((n) => Number.isFinite(n) && n > 0 && n < 100000);
+  if (positives.length === 0) return 0;
+  return round2(Math.max(...positives));
 }
 
 function inferSupplier(text: string, originalName: string): string {
@@ -105,19 +178,52 @@ function inferBelegartAndTaxCategory(text: string): { belegart: string; steuerka
   return { belegart: 'Ausgabe', steuerkategorie: 'Sonstige Ausgaben' };
 }
 
-function setField(row: RowObj, key: string, value: string): void {
-  if (!(key in row)) return;
-  const current = String(row[key] || '');
-  if (OVERWRITE_FILLED || !current) row[key] = value;
+function hasAnyValue(value: unknown): boolean {
+  return value !== null && value !== undefined && String(value).trim() !== '';
 }
 
-async function readSheet(tab: string): Promise<{ headers: string[]; rows: string[][] }> {
-  const r = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID,
-    range: `${tab}!A1:AZ`
-  });
-  const values = (r.data.values || []) as string[][];
-  return { headers: values[0] || [], rows: values.slice(1) };
+function setField(row: RowObj, key: string, value: string): void {
+  if (!(key in row)) return;
+  const current = row[key];
+  if (OVERWRITE_FILLED || !hasAnyValue(current)) row[key] = value;
+}
+
+function parseMoneyCell(value: unknown): number | null {
+  if (typeof value === 'number' && Number.isFinite(value)) return round2(value);
+  const text = String(value || '').trim();
+  if (!text) return null;
+  const parsed = parseAmount(text);
+  if (!Number.isFinite(parsed)) return null;
+  return round2(parsed);
+}
+
+function setMoneyField(row: RowObj, key: string, computedValue: number): void {
+  if (!(key in row)) return;
+  const currentRaw = row[key];
+  const currentParsed = parseMoneyCell(currentRaw);
+  const currentFilled = hasAnyValue(currentRaw);
+  const next = round2(computedValue);
+  if (!OVERWRITE_FILLED && currentFilled) {
+    row[key] = String(currentParsed ?? next);
+    return;
+  }
+  row[key] = String(next);
+}
+
+async function readSheet(tab: string): Promise<{ headers: string[]; rows: Array<Array<string | number>> }> {
+  const r = await withApiRetry(
+    `sheets.values.get.${tab}`,
+    () => sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `${tab}!A1:AZ`,
+      valueRenderOption: 'UNFORMATTED_VALUE'
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
+  const values = (r.data.values || []) as Array<Array<string | number>>;
+  const headers = (values[0] || []).map((v) => String(v || '').trim());
+  return { headers, rows: values.slice(1) };
 }
 
 async function ensureBuchhaltungDbHeaders(): Promise<string[]> {
@@ -132,12 +238,17 @@ async function ensureBuchhaltungDbHeaders(): Promise<string[]> {
     'iban', 'bic', 'bankleitzahl', 'hinweis', 'duplikat_gruppe', 'status', 'line_items_json',
     'source_folder_id', 'target_folder_id', 'analyzed_at'
   ];
-  await sheets.spreadsheets.values.update({
-    spreadsheetId: SPREADSHEET_ID,
-    range: 'Buchhaltung_DB!A1',
-    valueInputOption: 'USER_ENTERED',
-    requestBody: { values: [defaultHeaders] }
-  });
+  await withApiRetry(
+    'sheets.values.update.buchhaltung_db_header',
+    () => sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Buchhaltung_DB!A1',
+      valueInputOption: 'USER_ENTERED',
+      requestBody: { values: [defaultHeaders] }
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   return defaultHeaders;
 }
 
@@ -186,13 +297,17 @@ async function main(): Promise<void> {
       if (!hasText) return false;
       if (!db) return true;
       const status = normalize(db.status || '');
+      const taxCategory = normalize(db.steuerkategorie || '');
+      // Keep manually resolved rows stable and avoid re-injecting archive/non-transaction docs.
+      if (status === 'non_transaction_doc' || status === 'resolved_unclear' || status === 'manual_lock') return false;
+      if (taxCategory.includes('nicht eur-relevant')) return false;
       const hasCore = !!(db.belegart && db.steuerkategorie && db.brutto_gesamt && db.lieferant);
       return !hasCore || status === 'pending';
     })
     .slice(0, Math.max(1, BATCH_SIZE));
 
-  const updates: Array<{ range: string; values: string[][] }> = [];
-  const appends: string[][] = [];
+  const updates: Array<{ range: string; values: Array<Array<string | number>> }> = [];
+  const appends: Array<Array<string | number>> = [];
   const processed: Array<{ drive_file_id: string; action: string; belegart: string; steuerkategorie: string }> = [];
   let skippedBudget = 0;
 
@@ -201,12 +316,12 @@ async function main(): Promise<void> {
       skippedBudget += 1;
       continue;
     }
-    const text = `${b.extracted_text || ''}\n${b.ocr_text || ''}`.trim();
+    const text = `${String(b.extracted_text || '')}\n${String(b.ocr_text || '')}`.trim();
     const norm = normalize(`${b.original_name || ''}\n${text}`);
     const invoiceNo = parseInvoiceNo(text);
     const belegdatum = parseDateIso(text) || parseDateIso(b.original_name || '');
     const amounts = parseAmounts(text);
-    const brutto = amounts.length ? Math.max(...amounts) : 0;
+    const brutto = detectPrimaryGross(text, amounts);
 
     const tax = inferBelegartAndTaxCategory(norm);
     const has19 = /19\s?%/.test(norm);
@@ -238,22 +353,30 @@ async function main(): Promise<void> {
     setField(rowObj, 'belegdatum', belegdatum);
     setField(rowObj, 'leistungsdatum', rowObj.leistungsdatum || belegdatum);
     setField(rowObj, 'steuerkategorie', tax.steuerkategorie);
-    setField(rowObj, 'mwst_19_betrag', mwst19 ? mwst19.toFixed(2) : rowObj.mwst_19_betrag || '0.00');
-    setField(rowObj, 'mwst_7_betrag', mwst7 ? mwst7.toFixed(2) : rowObj.mwst_7_betrag || '0.00');
-    setField(rowObj, 'mwst_0_betrag', mwst0 ? mwst0.toFixed(2) : rowObj.mwst_0_betrag || '0.00');
-    setField(rowObj, 'netto_gesamt', netto ? netto.toFixed(2) : rowObj.netto_gesamt || '0.00');
-    setField(rowObj, 'brutto_gesamt', brutto ? brutto.toFixed(2) : rowObj.brutto_gesamt || '0.00');
-    setField(rowObj, 'geschaeftliche_mwst', (mwst19 + mwst7).toFixed(2));
-    setField(rowObj, 'private_mwst', rowObj.private_mwst || '0.00');
-    setField(rowObj, 'geschaeftlicher_anteil_brutto', brutto ? brutto.toFixed(2) : rowObj.geschaeftlicher_anteil_brutto || '0.00');
-    setField(rowObj, 'privater_anteil_brutto', rowObj.privater_anteil_brutto || '0.00');
+    setMoneyField(rowObj, 'mwst_19_betrag', mwst19);
+    setMoneyField(rowObj, 'mwst_7_betrag', mwst7);
+    setMoneyField(rowObj, 'mwst_0_betrag', mwst0);
+    setMoneyField(rowObj, 'netto_gesamt', netto);
+    setMoneyField(rowObj, 'brutto_gesamt', brutto);
+    setMoneyField(rowObj, 'geschaeftliche_mwst', mwst19 + mwst7);
+    setMoneyField(rowObj, 'private_mwst', 0);
+    setMoneyField(rowObj, 'geschaeftlicher_anteil_brutto', brutto);
+    setMoneyField(rowObj, 'privater_anteil_brutto', 0);
     setField(rowObj, 'status', 'pending_review');
     setField(rowObj, 'line_items_json', rowObj.line_items_json || '[]');
     setField(rowObj, 'source_folder_id', b.source_folder_id || '');
     setField(rowObj, 'target_folder_id', b.target_folder_id || '');
     setField(rowObj, 'analyzed_at', nowIso);
 
-    const rowValues = buchHeaders.map((h) => String(rowObj[h] || ''));
+    const rowValues = buchHeaders.map((h) => {
+      const raw = rowObj[h];
+      if (raw === null || raw === undefined) return '';
+      const maybeMoney = parseMoneyCell(raw);
+      if (maybeMoney !== null && MONEY_FIELDS.has(h)) {
+        return maybeMoney;
+      }
+      return typeof raw === 'number' ? raw : String(raw);
+    });
     if (existing?.rowNumber) {
       const endCol = colLetter(buchHeaders.length - 1);
       updates.push({ range: `Buchhaltung_DB!A${existing.rowNumber}:${endCol}${existing.rowNumber}`, values: [rowValues] });
@@ -265,19 +388,29 @@ async function main(): Promise<void> {
   }
 
   if (updates.length > 0) {
-    await sheets.spreadsheets.values.batchUpdate({
-      spreadsheetId: SPREADSHEET_ID,
-      requestBody: { valueInputOption: 'USER_ENTERED', data: updates }
-    });
+    await withApiRetry(
+      'sheets.values.batchUpdate.buchhaltung_db',
+      () => sheets.spreadsheets.values.batchUpdate({
+        spreadsheetId: SPREADSHEET_ID,
+        requestBody: { valueInputOption: 'RAW', data: updates }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
   if (appends.length > 0) {
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: SPREADSHEET_ID,
-      range: 'Buchhaltung_DB!A1',
-      valueInputOption: 'USER_ENTERED',
-      insertDataOption: 'INSERT_ROWS',
-      requestBody: { values: appends }
-    });
+    await withApiRetry(
+      'sheets.values.append.buchhaltung_db',
+      () => sheets.spreadsheets.values.append({
+        spreadsheetId: SPREADSHEET_ID,
+        range: 'Buchhaltung_DB!A1',
+        valueInputOption: 'RAW',
+        insertDataOption: 'INSERT_ROWS',
+        requestBody: { values: appends }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
 
   const lines: string[] = [];

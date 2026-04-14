@@ -1,0 +1,302 @@
+# Context Fulltext
+
+- source_path: docs/CANONICAL_DRIVE_INDEX_d1bd1a49-d29c-4754-a86d-c8b708c316a5.json
+- source_sha256: f696464549c69c6aba05618eb49328cff0c5f4f043fde6a7a4205dafc1898059
+- chunk: 9/73
+
+```text
+cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1eH5_1-dAfbvFZgnz8Hivuf75RLt4JtFn",
+    "original_name": "0000-00-00_Ausgabe_aD_Jat_k_1a4e990e-bf98-405e-bc1d-efd65462e3d8_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 693970,
+    "file_url": "https://drive.google.com/file/d/1eH5_1-dAfbvFZgnz8Hivuf75RLt4JtFn/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "19AKDka9m_qm0PYTFltWeaZw7O1sDplZW",
+    "original_name": "0000-00-00_Ausgabe_Ara_I8l_1_1022057_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 699786,
+    "file_url": "https://drive.google.com/file/d/19AKDka9m_qm0PYTFltWeaZw7O1sDplZW/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1xDCgffivFwmRrvoYIH1uMhy76nJwwWaB",
+    "original_name": "0000-00-00_Ausgabe_Ba_Gesellschaft_für_=_GKR-020_3.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 682868,
+    "file_url": "https://drive.google.com/file/d/1xDCgffivFwmRrvoYIH1uMhy76nJwwWaB/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1L1vLLIMGMRkjkNff7Otrr0zql8auXRCg",
+    "original_name": "0000-00-00_Ausgabe_Bais_Gabel_koche!_!_tu_AD_1841154_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 121974,
+    "file_url": "https://drive.google.com/file/d/1L1vLLIMGMRkjkNff7Otrr0zql8auXRCg/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "13pi-veRRO5ipFHm3jJeB85UMIoIMp7en",
+    "original_name": "0000-00-00_Ausgabe_Bauhaus_Gesell_401390211_9.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 651481,
+    "file_url": "https://drive.google.com/file/d/13pi-veRRO5ipFHm3jJeB85UMIoIMp7en/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1PJmxeHjhOBoUXzOoeZLt_D5l1kQ4HqFk",
+    "original_name": "0000-00-00_Ausgabe_Bauhaus_Gesellschaft_für_2022844938989_9.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 638440,
+    "file_url": "https://drive.google.com/file/d/1PJmxeHjhOBoUXzOoeZLt_D5l1kQ4HqFk/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "14u2cIG1i8Rmjij7eWcxJQzGjcAqaeHdy",
+    "original_name": "0000-00-00_Ausgabe_Bauhaus_Gesellschaft_für_4008153214936_2.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 734386,
+    "file_url": "https://drive.google.com/file/d/14u2cIG1i8Rmjij7eWcxJQzGjcAqaeHdy/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1vkAyqJUMo_y7cCUkK6CIaFLdeNod5Uw1",
+    "original_name": "0000-00-00_Ausgabe_Bauhaus_Gesellschaft_für_8904680_2.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 788080,
+    "file_url": "https://drive.google.com/file/d/1vkAyqJUMo_y7cCUkK6CIaFLdeNod5Uw1/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1hijkwNG33_7FoNjSk319cry0ghB4Pw-j",
+    "original_name": "0000-00-00_Ausgabe_Bauhaus_Gesellschaft_für_GKR-020_1.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 704282,
+    "file_url": "https://drive.google.com/file/d/1hijkwNG33_7FoNjSk319cry0ghB4Pw-j/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1DBEUWM5fys7UYxLtTCJ4liu6W4CUqNf0",
+    "original_name": "0000-00-00_Ausgabe_BD_AM_35134616_1.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 666408,
+    "file_url": "https://drive.google.com/file/d/1DBEUWM5fys7UYxLtTCJ4liu6W4CUqNf0/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1sD9HuieayBcs-x8a6cR97AYt7aQUD66G",
+    "original_name": "0000-00-00_Ausgabe_BJAJUIH[AUIS_GKR-020_7.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 641229,
+    "file_url": "https://drive.google.com/file/d/1sD9HuieayBcs-x8a6cR97AYt7aQUD66G/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1zEpeyknaxMa6qiX1QfshFPjfTreHe_vm",
+    "original_name": "0000-00-00_Ausgabe_BS_EET_ET_TE_0000008001_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 594357,
+    "file_url": "https://drive.google.com/file/d/1zEpeyknaxMa6qiX1QfshFPjfTreHe_vm/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1tpVqbDYGrT7R2b4FSbfs0XZpJ_hKEssv",
+    "original_name": "0000-00-00_Ausgabe_EC_ZY_1de50b23-2c54-428a-9df2-9207e3d3e64f_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 791642,
+    "file_url": "https://drive.google.com/file/d/1tpVqbDYGrT7R2b4FSbfs0XZpJ_hKEssv/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1SukzASKjuxB3DuqMzECj6Gz_PIYZ6zDu",
+    "original_name": "0000-00-00_Ausgabe_Ess_719441_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 630560,
+    "file_url": "https://drive.google.com/file/d/1SukzASKjuxB3DuqMzECj6Gz_PIYZ6zDu/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "179xoQu83Ak3gX2bMEJOmtkUQmoX5j64N",
+    "original_name": "0000-00-00_Ausgabe_FI_FT_._2403590_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 526129,
+    "file_url": "https://drive.google.com/file/d/179xoQu83Ak3gX2bMEJOmtkUQmoX5j64N/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Z7Zp6khZedBYVHb-q5e9htrAu6v_6pfs",
+    "original_name": "0000-00-00_Ausgabe_FI_FT_._2403590_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 526129,
+    "file_url": "https://drive.google.com/file/d/1Z7Zp6khZedBYVHb-q5e9htrAu6v_6pfs/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1bP4W_lNOPZb-qifNCeiCa-GDaUkw5YKt",
+    "original_name": "0000-00-00_Ausgabe_HORNBACH_Bauman_2643010_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 583813,
+    "file_url": "https://drive.google.com/file/d/1bP4W_lNOPZb-qifNCeiCa-GDaUkw5YKt/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "197OouClLGhHZKtNRUbPyy3YiX1GuJff_",
+    "original_name": "0000-00-00_Ausgabe_i_Ae_Grins._0006008001_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 637809,
+    "file_url": "https://drive.google.com/file/d/197OouClLGhHZKtNRUbPyy3YiX1GuJff_/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1d5MCyWVHEp04AvJTmZdgd1GCZrVkMyoi",
+    "original_name": "0000-00-00_Ausgabe_jee_A_EE_Oy_230145342_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 1237060,
+    "file_url": "https://drive.google.com/file/d/1d5MCyWVHEp04AvJTmZdgd1GCZrVkMyoi/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "14MsMd4wbZEJMBTJLbxrav76KlIdCLdw6",
+    "original_name": "0000-00-00_Ausgabe_LS_ZU_400079737041_11.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 118665,
+    "file_url": "https://drive.google.com/file/d/14MsMd4wbZEJMBTJLbxrav76KlIdCLdw6/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1e9gbafBBL4x8i_Q2m_SwoPZw4su38Df5",
+    "original_name": "0000-00-00_Ausgabe_S_MWST_HAHREN_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 724456,
+    "file_url": "https://drive.google.com/file/d/1e9gbafBBL4x8i_Q2m_SwoPZw4su38Df5/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1BUdphdGm3sGS3RJwlr1bUU4JOHTQmLre",
+    "original_name": "0000-00-00_Ausgabe_SEE_000000250_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 594274,
+    "file_url": "https://drive.google.com/file/d/1BUdphdGm3sGS3RJwlr1bUU4JOHTQmLre/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "12jYbLNc4IpZK8T9N3P6kuwRCwva9Ss6X",
+    "original_name": "0000-00-00_Ausgabe_si_rds_fy._118354_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 727234,
+    "file_url": "https://drive.google.com/file/d/12jYbLNc4IpZK8T9N3P6kuwRCwva9Ss6X/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1NnwpMy-RiuhQF2RYbbFDqOgv9HDz5jsC",
+    "original_name": "0000-00-00_Ausgabe_TE_rar_-_7_148028_29.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 605187,
+    "file_url": "https://drive.google.com/file/d/1NnwpMy-RiuhQF2RYbbFDqOgv9HDz5jsC/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1xEuYVGWKU-JeMd7sLJf9PKQNKr_AfEGk",
+    "original_name": "0000-00-00_Aus
+```

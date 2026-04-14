@@ -1,6 +1,6 @@
 # MICRO Tax Category Assign
 
-- Timestamp: 2026-02-26T02:16:55.879Z
+- Timestamp: 2026-02-27T13:00:10.004Z
 - Processed: 40
 
 | row | drive_file_id | belegart | steuerkategorie |
@@ -22,7 +22,6 @@
 | 21 | 1_IuAAMIj2-_memcvmyDS4YiCAneD9LNk | Ausgabe | Sonstige Ausgaben |
 | 22 | 1_KN839--5LcXJXvG_lN8Up0BBsWqe0Jm | Ausgabe | Sonstige Ausgaben |
 | 23 | 1_Ks_8Vr0wNGkIpDthJ6IBG8vA7bB3maO | Ausgabe | Sonstige Ausgaben |
-| 24 | 1_mcb2YePmbflfFV8w1R4OmhnUfxZ2Vvz | Ausgabe | Sonstige Ausgaben |
 | 26 | 1_q18M1glmpSLU2VQX3WzQ--IZKLdsVAI | Ausgabe | Sonstige Ausgaben |
 | 27 | 1_q8UQrjMRAwhAWqogO-dh_hIfTn8URhS | Ausgabe | Sonstige Ausgaben |
 | 28 | 1_QKVS7gx72LCCLPU34CtannXneyQalEA | Ausgabe | Sonstige Ausgaben |
@@ -33,15 +32,16 @@
 | 34 | 1_sJHZsEsKDuGVE4eCIsIWOyF3jjwPaVX | Ausgabe | Sonstige Ausgaben |
 | 35 | 1_SzKH6kEUpRjT7firA634SzVU5MzvoIM | Ausgabe | Sonstige Ausgaben |
 | 37 | 1_v-tmlFYDdY0m5PDkTWZ5Hj8drDQSyND | Ausgabe | Sonstige Ausgaben |
-| 38 | 1_wRXlnX5U1WhkWDmAQNJnauVPzOpg3FJ | Ausgabe | Material/PV |
 | 39 | 1_xQkK57B51XnC3WStlPmCeShNRC1zVEz | Ausgabe | Sonstige Ausgaben |
 | 40 | 1_YBV0r6kRi3Ch9kwCG_De94ki7KNzRq0 | Ausgabe | Sonstige Ausgaben |
 | 41 | 1_ye32yXjbMhlYf17hyGPd4CywtGTmruy | Ausgabe | Sonstige Ausgaben |
 | 42 | 1_zwhG1qkDeVRiIuElKYLPm8v9VGlID4I | Ausgabe | Sonstige Ausgaben |
 | 43 | 1--JpDWP2UPRVkLhKR7Qh5fco4sEkAiIl | Ausgabe | Sonstige Ausgaben |
 | 44 | 1-0EiQFLA3z07eAiyIAG6iWyCWklUaH1B | Ausgabe | Sonstige Ausgaben |
-| 45 | 1-0GLqEj7dXa5v0coFmyj1TVKhURGaU-V | Ausgabe | Sonstige Ausgaben |
 | 46 | 1-1qBGDdz8A9NCJ5zMScko-6g5SxboHwf | Ausgabe | Sonstige Ausgaben |
 | 47 | 1-1zBruA2kVsE5SZrxikPaAkP_KqhC1Hj | Ausgabe | Sonstige Ausgaben |
 | 48 | 1-3plCsPN5oI-tKocLbXyx18cgmYuwLm3 | Ausgabe | Sonstige Ausgaben |
 | 49 | 1-41LDPUmxCWNaPwv_3rfSv63_6LAUGYc | Ausgabe | Sonstige Ausgaben |
+| 50 | 1-45-tlUMhY1cvGT6pGSXIgzJC8dKo46n | Ausgabe | Sonstige Ausgaben |
+| 52 | 1-8xEsPpBa5fIVWz5VmroN63HnONIubAA | Ausgabe | Sonstige Ausgaben |
+| 54 | 1-a4Y6c0iDVwaHWXXlQ-oFdhsp5SgtmLc | Ausgabe | Sonstige Ausgaben |

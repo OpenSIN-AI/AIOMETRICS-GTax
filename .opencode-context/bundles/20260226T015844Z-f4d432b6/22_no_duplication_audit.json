@@ -1,0 +1,20 @@
+{
+  "rule": "no copied canonical text blocks longer than 3 lines in synthesis artifacts",
+  "max_allowed_run": 3,
+  "checked_at": "2026-02-26T01:59:14.316800+00:00",
+  "synthesis_files": [
+    "03_project_summary.md",
+    "10_backend_map.md",
+    "11_frontend_map.md",
+    "12_db_map.md",
+    "13_llm_ai_map.md",
+    "14_tests_map.md",
+    "15_ops_runbook.md",
+    "20_rules_constraints.md"
+  ],
+  "canonical_files": [
+    "README.md"
+  ],
+  "violations": [],
+  "status": "ok"
+}

@@ -1,0 +1,293 @@
+# Context Fulltext
+
+- source_path: docs/CANONICAL_DRIVE_INDEX_03f80931-94b7-41ce-a438-e3fce34b6806.json
+- source_sha256: f696464549c69c6aba05618eb49328cff0c5f4f043fde6a7a4205dafc1898059
+- chunk: 1/73
+
+```text
+[
+  {
+    "drive_file_id": "1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO",
+    "original_name": "2022 Einnahmen-Überschus_Einnahmen-Ueberschussrechnung_fuer__27b56b.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 104437,
+    "file_url": "https://drive.google.com/file/d/1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO/view?usp=drivesdk",
+    "folder_path": "2022/Ausgaben_2022",
+    "target_folder_id": "1Lf2D7xUyUl1OAPVy1rA1GhJu_k6ZZKe4",
+    "year": "2022",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1iAj8M6cPF-VHJs-Po9h0y252VpjvFxA5",
+    "original_name": "Rechnung 150857250511.preview.png",
+    "mime_type": "image/png",
+    "file_size": 214121,
+    "file_url": "https://drive.google.com/file/d/1iAj8M6cPF-VHJs-Po9h0y252VpjvFxA5/view?usp=drivesdk",
+    "folder_path": "2022/Einnahmen_2022",
+    "target_folder_id": "1heeyEdcPB858Y6wKCiMSRrs1UAj0hpdK",
+    "year": "2022",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1R5f486zLySTgNQw8Z0J9bNntNxL89uuM",
+    "original_name": "Rechnung 25432.preview.png",
+    "mime_type": "image/png",
+    "file_size": 221732,
+    "file_url": "https://drive.google.com/file/d/1R5f486zLySTgNQw8Z0J9bNntNxL89uuM/view?usp=drivesdk",
+    "folder_path": "2022/Einnahmen_2022",
+    "target_folder_id": "1heeyEdcPB858Y6wKCiMSRrs1UAj0hpdK",
+    "year": "2022",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1k-eEfIZFZMXRV9gxrv5Ur26cue7Okwd3",
+    "original_name": "0000-00-00_Ausgabe_Sun®yster_N_8087673_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 1006925,
+    "file_url": "https://drive.google.com/file/d/1k-eEfIZFZMXRV9gxrv5Ur26cue7Okwd3/view?usp=drivesdk",
+    "folder_path": "2022/Ausgaben_2022",
+    "target_folder_id": "1Lf2D7xUyUl1OAPVy1rA1GhJu_k6ZZKe4",
+    "year": "2022",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1MNtKSCprPXT8ip2-L3pdyRDpayg-uAyL",
+    "original_name": "0000-00-00_Ausgabe_X_4_-Nr._BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 1003573,
+    "file_url": "https://drive.google.com/file/d/1MNtKSCprPXT8ip2-L3pdyRDpayg-uAyL/view?usp=drivesdk",
+    "folder_path": "2022/Ausgaben_2022",
+    "target_folder_id": "1Lf2D7xUyUl1OAPVy1rA1GhJu_k6ZZKe4",
+    "year": "2022",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "14iv3AzzbsBKAKC_tS3GdZeCbxJarq78V",
+    "original_name": "fcb1d51f-2970-4356-a1c7-1ca136ac15eb.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1702047,
+    "file_url": "https://drive.google.com/file/d/14iv3AzzbsBKAKC_tS3GdZeCbxJarq78V/view?usp=drivesdk",
+    "folder_path": "2022/Ausgaben_2022",
+    "target_folder_id": "1Lf2D7xUyUl1OAPVy1rA1GhJu_k6ZZKe4",
+    "year": "2022",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "10T4e6HQgfOtVhA_0aIqa7BP61hTp9yaO",
+    "original_name": "0000-00-00_Ausgabe_1759344448711-belege2023-4e056b8b-80e9-4392-91ea-3ae4da4b45b9_Invoice_1059.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 55237,
+    "file_url": "https://drive.google.com/file/d/10T4e6HQgfOtVhA_0aIqa7BP61hTp9yaO/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1RnHMjvwu6cQ4kRktP4ljHAoyXDZVLc3s",
+    "original_name": "0000-00-00_Ausgabe_1999990000469922968_Rechnung_von_HELLWEG_Die_Profi-Baum_ee0eec_f3f9f203-21d1-4200-b0af-0d2122d4f7ef_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 546856,
+    "file_url": "https://drive.google.com/file/d/1RnHMjvwu6cQ4kRktP4ljHAoyXDZVLc3s/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1_oF8ieW6E8NNNoLGx_wvHWdmgp7mi_0c",
+    "original_name": "0000-00-00_Ausgabe_2023-61_Rechnung_für_ausgeführte_Arbeiten_a_6a1af8_432293d5-626e-4e18-9abe-7de0530a41d4_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 1488301,
+    "file_url": "https://drive.google.com/file/d/1_oF8ieW6E8NNNoLGx_wvHWdmgp7mi_0c/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1wf9AKbaOzUt3WzpLiQoLYaPhsTzLQbxx",
+    "original_name": "0000-00-00_Einnahme_2023-37_Rechnung_für_ausgeführte_Arbeiten_688495_01638727721_1.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 155341,
+    "file_url": "https://drive.google.com/file/d/1wf9AKbaOzUt3WzpLiQoLYaPhsTzLQbxx/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb",
+    "original_name": "0000-00-00_Einnahme_2023-38_Rechnung_für_Solarmodule_montieren_6f3445_01638727721_1.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 147516,
+    "file_url": "https://drive.google.com/file/d/1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1ouVvcVLnpIh17juYaH6_KBLdvnRm5r1m",
+    "original_name": "0609_Rechnung_für_Provisionen_basierend__c20326.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 1085692,
+    "file_url": "https://drive.google.com/file/d/1ouVvcVLnpIh17juYaH6_KBLdvnRm5r1m/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1dwDol4Z16X2qHGbzJBosZIAC2LZUIyg5",
+    "original_name": "0609_Rechnung_für_Provisionen_im_Rahmen__4c7b41.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 71451,
+    "file_url": "https://drive.google.com/file/d/1dwDol4Z16X2qHGbzJBosZIAC2LZUIyg5/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "17BB9JMJ6k-J3CvtjCVYPrm6En9nIXuX8",
+    "original_name": "2023-03-27_Einnahme_2016-722291_Rechnung_für_Bohrschraube_Sechskant_b70189_722291_1.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 44388,
+    "file_url": "https://drive.google.com/file/d/17BB9JMJ6k-J3CvtjCVYPrm6En9nIXuX8/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1qhucpdmhIO7FVmG9EZqRjcx3UFNDOmDz",
+    "original_name": "2023-05-12_Einnahme_0010190532_Rechnung_für_gebuchtes_11880.com_Po_0010190532_2988.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 38411,
+    "file_url": "https://drive.google.com/file/d/1qhucpdmhIO7FVmG9EZqRjcx3UFNDOmDz/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1o9IIW5JXZa1_9A9LdCb-tDexNtZOVFo0",
+    "original_name": "2023-08-16_Einnahme_2023-72_Rechnung_für_Solarmodule_montieren_e9af81_01638727721_1.00EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 158752,
+    "file_url": "https://drive.google.com/file/d/1o9IIW5JXZa1_9A9LdCb-tDexNtZOVFo0/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1A-iAIZ23b3ORJqdOlCWoU5q649YQ0W8J",
+    "original_name": "2023-11-07_Einnahme_230261_Weiterberechnung_Materialbeschaffun_98a527_230261_154.67EUR.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 559563,
+    "file_url": "https://drive.google.com/file/d/1A-iAIZ23b3ORJqdOlCWoU5q649YQ0W8J/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1g-xAdmyuZEqXNq7VX25adqL4VX1y7H-t",
+    "original_name": "2023-11-12_Einnahme_2023-11_rechnung_1und1_mahnung_Datum_BetragUnbekannt.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 71348,
+    "file_url": "https://drive.google.com/file/d/1g-xAdmyuZEqXNq7VX25adqL4VX1y7H-t/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "19cNIuJ02kWp1L7uDgKmBSHPUMeAFfSAu",
+    "original_name": "35707_invoicefetcher®_STANDARD_5401ff.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 20507,
+    "file_url": "https://drive.google.com/file/d/19cNIuJ02kWp1L7uDgKmBSHPUMeAFfSAu/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1j7ztz3ZKYn16z4o8IUwuVouqzUP4JaCE",
+    "original_name": "4090.4.1_Abschlagsrechnung_|_Angebot:_4090.4.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 42231,
+    "file_url": "https://drive.google.com/file/d/1j7ztz3ZKYn16z4o8IUwuVouqzUP4JaCE/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1hF20dThc3a8KlvjenQL4rDEn1Iaoz_yE",
+    "original_name": "4121.9.2_Schlussrechnung_|_Angebot:_4121.9_5b91e4.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 43364,
+    "file_url": "https://drive.google.com/file/d/1hF20dThc3a8KlvjenQL4rDEn1Iaoz_yE/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "139jRvMViJBaiALgsTUwk-EfAwtkprqrn",
+    "original_name": "4253.6.2_Abschlagsrechnung_|_Angebot:_4253.6_469a86.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 43031,
+    "file_url": "https://drive.google.com/file/d/139jRvMViJBaiALgsTUwk-EfAwtkprqrn/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5",
+    "original_name": "4353.2.2_Schlussrechnung.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 54843,
+    "file_url": "https://drive.google.com/file/d/12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Rechnungen"
+  },
+  {
+    "drive_file_id": "1MDP334pHdfoOvhChrb2aSsTZt5XhedXh",
+    "original_name": "4357.7.4_Schlussrechnung_e5b185.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 43494,
+    "file_url": "https://drive.google.com/file/d/1MDP334pHdfoOvhChrb2aSsTZt5XhedXh/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMu
+```

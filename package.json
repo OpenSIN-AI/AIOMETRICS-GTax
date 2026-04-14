@@ -14,6 +14,7 @@
     "micro-sync-drive-changes": "node dist-micro/orchestrator/micro_sync_drive_changes.js",
     "micro-sheet-delete-archive-sync": "node dist-micro/orchestrator/micro_sheet_delete_archive_sync.js",
     "micro-enrich-buchhaltung-db": "node dist-micro/orchestrator/micro_enrich_buchhaltung_db.js",
+    "micro-resolve-unclear": "node dist-micro/orchestrator/micro_resolve_unclear.js",
     "micro-tax-category-assign": "node dist-micro/orchestrator/micro_tax_category_assign.js",
     "micro-konto-assign": "node dist-micro/orchestrator/micro_konto_assign.js",
     "micro-plausibility-duplicate": "node dist-micro/orchestrator/micro_plausibility_duplicate.js",
@@ -39,9 +40,15 @@
     "legacy-micro-reclassify-private-business": "node --import tsx src/orchestrator/micro_reclassify_private_business.ts",
     "legacy-micro-reclassify-einnahmen-2023": "node --import tsx src/orchestrator/micro_reclassify_einnahmen_2023.ts",
     "legacy-micro-move-zoe-invoices": "node --import tsx src/orchestrator/micro_move_zoe_invoices.ts",
+    "free-ocr-backfill": "node --import tsx src/orchestrator/free_ocr_backfill.ts",
+    "export-ocr-hard-fails": "node --import tsx src/orchestrator/export_ocr_hard_fails.ts",
+    "fix-buchhaltung-money-locale": "node --import tsx src/orchestrator/fix_buchhaltung_money_locale.ts",
+    "micro-prune-sheet-only-drive": "node --import tsx src/orchestrator/micro_prune_sheet_only_drive.ts",
+    "micro-repair-quality-year": "node --import tsx src/orchestrator/micro_repair_quality_year.ts",
     "dev": "tsx watch src/orchestrator/micio_scheduler.ts",
-    "test": "vitest run --passWithNoTests",
-    "lint": "eslint src --ext .ts"
+    "test": "node ./node_modules/vitest/vitest.mjs run --passWithNoTests",
+    "lint": "eslint src --ext .ts",
+    "enterprise-guard": "./scripts/enterprise_guard.sh"
   },
   "keywords": [
     "ai",
@@ -73,6 +80,6 @@
     "eslint": "^8.56.0",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
-    "vitest": "^1.3.0"
+    "vitest": "^4.0.18"
   }
 }

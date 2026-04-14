@@ -4,11 +4,16 @@ import * as path from 'path';
 import { google, drive_v3 } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { withPipelineLock } from './pipeline_lock.js';
+import { parsePositiveInt, withGoogleApiRetry } from './shared/google_api_retry.js';
 
 const SOURCE_FOLDER_ID = '1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH'; // Ausgaben_2023
 const PRIVATE_FOLDER_ID = '1Mt2Ojg_pgxwVh8jRJfhVE389KFTjEJqe'; // Private Belege
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_CLEAN_PRIVATE_1NM.md');
+const REQUEST_TIMEOUT_MS = parsePositiveInt(process.env.MICRO_CLEAN_PRIVATE_REQUEST_TIMEOUT_MS, 30000);
+const API_MAX_RETRIES = parsePositiveInt(process.env.MICRO_CLEAN_PRIVATE_API_MAX_RETRIES, 4);
+const API_RETRY_BASE_MS = parsePositiveInt(process.env.MICRO_CLEAN_PRIVATE_API_RETRY_BASE_MS, 1500);
+const API_RETRY_MAX_MS = parsePositiveInt(process.env.MICRO_CLEAN_PRIVATE_API_RETRY_MAX_MS, 15000);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
@@ -19,6 +24,15 @@ const auth = new JWT({
 });
 const drive = google.drive({ version: 'v3', auth });
 const sheets = google.sheets({ version: 'v4', auth });
+
+async function withApiRetry<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+  return withGoogleApiRetry(operation, fn, {
+    maxAttempts: API_MAX_RETRIES,
+    baseDelayMs: API_RETRY_BASE_MS,
+    maxDelayMs: API_RETRY_MAX_MS,
+    loggerPrefix: 'micro_clean_private_1nm'
+  });
+}
 
 type FileMeta = drive_v3.Schema$File;
 
@@ -47,14 +61,19 @@ async function listChildren(folderId: string): Promise<FileMeta[]> {
   const out: FileMeta[] = [];
   let pageToken: string | undefined;
   do {
-    const r = await drive.files.list({
-      q: `'${folderId}' in parents and trashed=false`,
-      fields: 'nextPageToken,files(id,name,mimeType,parents,webViewLink,createdTime,modifiedTime)',
-      pageSize: 1000,
-      pageToken,
-      supportsAllDrives: true,
-      includeItemsFromAllDrives: true
-    });
+    const r = await withApiRetry(
+      `drive.files.list.${folderId}`,
+      () => drive.files.list({
+        q: `'${folderId}' in parents and trashed=false`,
+        fields: 'nextPageToken,files(id,name,mimeType,parents,webViewLink,createdTime,modifiedTime)',
+        pageSize: 1000,
+        pageToken,
+        supportsAllDrives: true,
+        includeItemsFromAllDrives: true
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
     out.push(...(r.data.files || []));
     pageToken = r.data.nextPageToken || undefined;
   } while (pageToken);
@@ -64,10 +83,15 @@ async function listChildren(folderId: string): Promise<FileMeta[]> {
 async function readBelegeMap(): Promise<Map<string, BelegeInfo>> {
   const out = new Map<string, BelegeInfo>();
   if (!SPREADSHEET_ID) return out;
-  const r = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID,
-    range: 'belege!A1:AZ'
-  });
+  const r = await withApiRetry(
+    'sheets.values.get.belege',
+    () => sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'belege!A1:AZ'
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   const rows = (r.data.values || []) as string[][];
   if (rows.length <= 1) return out;
   const h = rows[0];
@@ -89,14 +113,19 @@ async function readBelegeMap(): Promise<Map<string, BelegeInfo>> {
 }
 
 async function moveToPrivate(file: FileMeta): Promise<void> {
-  await drive.files.update({
-    fileId: file.id as string,
-    addParents: PRIVATE_FOLDER_ID,
-    removeParents: SOURCE_FOLDER_ID,
-    requestBody: {},
-    fields: 'id',
-    supportsAllDrives: true
-  });
+  await withApiRetry(
+    `drive.files.update.move_private.${file.id}`,
+    () => drive.files.update({
+      fileId: file.id as string,
+      addParents: PRIVATE_FOLDER_ID,
+      removeParents: SOURCE_FOLDER_ID,
+      requestBody: {},
+      fields: 'id',
+      supportsAllDrives: true
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
 }
 
 function containsAny(text: string, words: string[]): boolean {

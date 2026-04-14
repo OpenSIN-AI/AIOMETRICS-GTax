@@ -1,0 +1,68 @@
+# Context Fulltext
+
+- source_path: docs/assurance/ASSURANCE_ALERT.json
+- source_sha256: b9f58f2bb71889dc3656e39185c9f1b95c1c5e7a2969c0d6b78c821c9ba30634
+- chunk: 1/1
+
+```text
+{
+  "timestamp": "2026-02-25T05:34:51.900Z",
+  "runId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+  "status": "OK",
+  "clockConsistencyOk": true,
+  "alertKinds": [],
+  "hardFailReasons": [],
+  "kpis": {
+    "totalDriveOnly": 0,
+    "totalSheetOnly": 0,
+    "totalDuplicateIds": 0,
+    "forbiddenMarkerHits": 0,
+    "qaSampleSize": 80,
+    "qaSampleCriticalPassed": 80,
+    "qaAccuracy": 1,
+    "criticalQaIssues": 0,
+    "idempotencyPass": true
+  },
+  "stabilityWindow": {
+    "daysTarget": 7,
+    "periodStart": "2026-02-25T05:34:51.827Z",
+    "periodStartRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+    "runs": 1,
+    "failedRuns": 0,
+    "consecutiveFailedRuns": 0,
+    "consecutiveRedRuns": 0,
+    "coverageHours": 0,
+    "fullWindowCovered": false,
+    "definitionChanged": false,
+    "scopeChanged": false,
+    "clockConsistencyOk": true,
+    "status": "active",
+    "pass": false,
+    "passWithoutCoverage": true
+  },
+  "operationalClosure": {
+    "decision": "blocked",
+    "decisionReasons": [
+      "window_not_fully_covered",
+      "daily_review_incomplete",
+      "weekly_review_incomplete"
+    ],
+    "approved": false
+  },
+  "outputs": {
+    "finalReport": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/FINAL_ACCEPTANCE_REPORT.json",
+    "dailyKpi": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/daily/DAILY_KPI_2026-02-25.json",
+    "weeklyTrend": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/weekly/WEEKLY_TREND_2026-W09.json",
+    "dailySample": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/samples/DAILY_SAMPLE_2026-02-25.json",
+    "weeklySample": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/samples/WEEKLY_SAMPLE_2026-W09.json",
+    "dailyReview": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/daily/DAILY_REVIEW_2026-02-25.json",
+    "weeklyReview": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/weekly/WEEKLY_REVIEW_2026-W09.json",
+    "windowState": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/WINDOW_STATE.json",
+    "execSignoff": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/EXEC_SIGNOFF.json",
+    "certification": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.md",
+    "certificationJson": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.json",
+    "incident": null,
+    "blocker": null
+  }
+}
+```

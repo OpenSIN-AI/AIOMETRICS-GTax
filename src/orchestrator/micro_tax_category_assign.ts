@@ -4,16 +4,30 @@ import * as path from 'path';
 import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { withPipelineLock } from './pipeline_lock.js';
+import { parsePositiveInt, withGoogleApiRetry } from './shared/google_api_retry.js';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const BATCH_SIZE = Number.parseInt(process.env.MICRO_TAX_BATCH || '40', 10);
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_TAX_CATEGORY_ASSIGN.md');
+const REQUEST_TIMEOUT_MS = parsePositiveInt(process.env.MICRO_TAX_REQUEST_TIMEOUT_MS, 30000);
+const API_MAX_RETRIES = parsePositiveInt(process.env.MICRO_TAX_API_MAX_RETRIES, 4);
+const API_RETRY_BASE_MS = parsePositiveInt(process.env.MICRO_TAX_API_RETRY_BASE_MS, 1500);
+const API_RETRY_MAX_MS = parsePositiveInt(process.env.MICRO_TAX_API_RETRY_MAX_MS, 15000);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
   scopes: ['https://www.googleapis.com/auth/spreadsheets']
 });
 const sheets = google.sheets({ version: 'v4', auth });
+
+async function withApiRetry<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+  return withGoogleApiRetry(operation, fn, {
+    maxAttempts: API_MAX_RETRIES,
+    baseDelayMs: API_RETRY_BASE_MS,
+    maxDelayMs: API_RETRY_MAX_MS,
+    loggerPrefix: 'micro_tax_category_assign'
+  });
+}
 
 function normalize(s: string): string {
   return (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -59,10 +73,15 @@ function colLetter(colIndex0: number): string {
 }
 
 async function readSheet(tab: string): Promise<string[][]> {
-  const r = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID,
-    range: `${tab}!A1:AZ`
-  });
+  const r = await withApiRetry(
+    `sheets.values.get.${tab}`,
+    () => sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `${tab}!A1:AZ`
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   return (r.data.values || []) as string[][];
 }
 
@@ -91,6 +110,7 @@ async function main(): Promise<void> {
   const idxBelegart = dIdx('belegart');
   const idxTax = dIdx('steuerkategorie');
   const idxStatus = dIdx('status');
+  const idxHint = dIdx('hinweis');
   if (idxDrive < 0 || idxTax < 0 || idxBelegart < 0) throw new Error('Buchhaltung_DB headers missing');
 
   const updates: Array<{ range: string; values: string[][] }> = [];
@@ -103,6 +123,12 @@ async function main(): Promise<void> {
     if (!driveId) continue;
     const existingTax = String(row[idxTax] || '').trim();
     const existingType = String(row[idxBelegart] || '').trim();
+    const status = normalize(String(row[idxStatus] || ''));
+    const hint = normalize(String(row[idxHint] || ''));
+    const taxNorm = normalize(existingTax);
+    if (status === 'non_transaction_doc' || status === 'resolved_unclear' || status === 'manual_lock') continue;
+    if (taxNorm.includes('nicht eur-relevant')) continue;
+    if (hint.includes('manual_lock')) continue;
     const needs = !existingTax || existingTax === 'Unklar' || existingTax === 'Sonstige Ausgaben' || !existingType || existingType === 'Unklar';
     if (!needs) continue;
 
@@ -122,10 +148,15 @@ async function main(): Promise<void> {
   }
 
   if (updates.length > 0) {
-    await sheets.spreadsheets.values.batchUpdate({
-      spreadsheetId: SPREADSHEET_ID,
-      requestBody: { valueInputOption: 'USER_ENTERED', data: updates }
-    });
+    await withApiRetry(
+      'sheets.values.batchUpdate.buchhaltung_db',
+      () => sheets.spreadsheets.values.batchUpdate({
+        spreadsheetId: SPREADSHEET_ID,
+        requestBody: { valueInputOption: 'USER_ENTERED', data: updates }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
 
   const lines: string[] = [];

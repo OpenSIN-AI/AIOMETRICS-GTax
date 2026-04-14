@@ -9,6 +9,7 @@ import { JWT } from 'google-auth-library';
 import { createWorker, Worker } from 'tesseract.js';
 import { RUNTIME_POLICY, envInt } from './shared/runtime_policy.js';
 import { withPipelineLock } from './pipeline_lock.js';
+import { parsePositiveInt, withGoogleApiRetry } from './shared/google_api_retry.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -24,6 +25,10 @@ const RUN_BUDGET_MS = envInt('MICRO_1NM_RUN_BUDGET_MS', RUNTIME_POLICY.defaultRu
 const MODEL_TIMEOUT_MS = envInt('MICRO_1NM_MODEL_TIMEOUT_MS', RUNTIME_POLICY.defaultModelTimeoutMs);
 const USE_TESSERACT_EMERGENCY = ['1', 'true', 'yes', 'on'].includes(String(process.env.OCR_EMERGENCY_TESSERACT || '').toLowerCase());
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_OCR_AUDIT_1NM.md');
+const REQUEST_TIMEOUT_MS = parsePositiveInt(process.env.MICRO_1NM_REQUEST_TIMEOUT_MS, 30000);
+const API_MAX_RETRIES = parsePositiveInt(process.env.MICRO_1NM_API_MAX_RETRIES, 4);
+const API_RETRY_BASE_MS = parsePositiveInt(process.env.MICRO_1NM_API_RETRY_BASE_MS, 1500);
+const API_RETRY_MAX_MS = parsePositiveInt(process.env.MICRO_1NM_API_RETRY_MAX_MS, 15000);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
@@ -34,6 +39,15 @@ const auth = new JWT({
 });
 const drive = google.drive({ version: 'v3', auth });
 const sheets = google.sheets({ version: 'v4', auth });
+
+async function withApiRetry<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+  return withGoogleApiRetry(operation, fn, {
+    maxAttempts: API_MAX_RETRIES,
+    baseDelayMs: API_RETRY_BASE_MS,
+    maxDelayMs: API_RETRY_MAX_MS,
+    loggerPrefix: 'micro_ocr_audit_1nm'
+  });
+}
 
 type FileMeta = drive_v3.Schema$File;
 
@@ -92,14 +106,19 @@ async function listChildren(folderId: string): Promise<FileMeta[]> {
   let pages = 0;
   do {
     if (pages++ > 50) break;
-    const r = await drive.files.list({
-      q: `'${folderId}' in parents and trashed=false`,
-      fields: 'nextPageToken,files(id,name,mimeType,parents,webViewLink)',
-      pageSize: 1000,
-      pageToken,
-      supportsAllDrives: true,
-      includeItemsFromAllDrives: true
-    });
+    const r = await withApiRetry(
+      `drive.files.list.${folderId}`,
+      () => drive.files.list({
+        q: `'${folderId}' in parents and trashed=false`,
+        fields: 'nextPageToken,files(id,name,mimeType,parents,webViewLink)',
+        pageSize: 1000,
+        pageToken,
+        supportsAllDrives: true,
+        includeItemsFromAllDrives: true
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
     out.push(...(r.data.files || []));
     pageToken = r.data.nextPageToken || undefined;
   } while (pageToken);
@@ -107,10 +126,15 @@ async function listChildren(folderId: string): Promise<FileMeta[]> {
 }
 
 async function readBelegeRows(): Promise<{ map: Map<string, BelegeRow>; ocrCol: number }> {
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID,
-    range: 'belege!A1:AZ'
-  });
+  const res = await withApiRetry(
+    'sheets.values.get.belege',
+    () => sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'belege!A1:AZ'
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   const rows = (res.data.values || []) as string[][];
   const header = rows[0] || [];
   const idxId = header.indexOf('drive_file_id');
@@ -147,9 +171,12 @@ function colLetter(colIndex0: number): string {
 }
 
 async function downloadToFile(fileId: string, targetPath: string): Promise<void> {
-  const r = await drive.files.get(
-    { fileId, alt: 'media', supportsAllDrives: true },
-    { responseType: 'arraybuffer' }
+  const r = await withApiRetry(
+    `drive.files.get.media.${fileId}`,
+    () => drive.files.get(
+      { fileId, alt: 'media', supportsAllDrives: true },
+      { responseType: 'arraybuffer', timeout: REQUEST_TIMEOUT_MS }
+    )
   );
   fs.writeFileSync(targetPath, Buffer.from(r.data as ArrayBuffer));
 }
@@ -241,14 +268,19 @@ async function analyzeWithTesseract(imagePath: string): Promise<string> {
 }
 
 async function moveToPrivate(file: FileMeta): Promise<void> {
-  await drive.files.update({
-    fileId: file.id as string,
-    addParents: PRIVATE_FOLDER_ID,
-    removeParents: SOURCE_FOLDER_ID,
-    requestBody: {},
-    fields: 'id',
-    supportsAllDrives: true
-  });
+  await withApiRetry(
+    `drive.files.update.move_private.${file.id}`,
+    () => drive.files.update({
+      fileId: file.id as string,
+      addParents: PRIVATE_FOLDER_ID,
+      removeParents: SOURCE_FOLDER_ID,
+      requestBody: {},
+      fields: 'id',
+      supportsAllDrives: true
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
 }
 
 async function processCandidate(c: Candidate): Promise<{ id: string; name: string; textLen: number; moved: boolean; reason: string; text?: string }> {
@@ -327,10 +359,15 @@ async function main(): Promise<void> {
   }
 
   if (updates.length > 0) {
-    await sheets.spreadsheets.values.batchUpdate({
-      spreadsheetId: SPREADSHEET_ID,
-      requestBody: { valueInputOption: 'RAW', data: updates }
-    });
+    await withApiRetry(
+      'sheets.values.batchUpdate.belege_ocr',
+      () => sheets.spreadsheets.values.batchUpdate({
+        spreadsheetId: SPREADSHEET_ID,
+        requestBody: { valueInputOption: 'RAW', data: updates }
+      }, {
+        timeout: REQUEST_TIMEOUT_MS
+      })
+    );
   }
 
   const lines: string[] = [];

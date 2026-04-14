@@ -1,0 +1,80 @@
+# Context Fulltext
+
+- source_path: docs/assurance/ASSURANCE_ALERT.json
+- source_sha256: 46d9bde789cff6275c9a498162f9f8ea4ebad1ebd8695bb8c10ee56cd71bd5a7
+- chunk: 1/1
+
+```text
+{
+  "timestamp": "2026-02-26T00:59:36.422Z",
+  "runId": "e9ca1ecb-585c-4015-9c5b-d6e3d87b2082",
+  "status": "ALERT",
+  "clockConsistencyOk": true,
+  "alertKinds": [
+    "unknown",
+    "schema"
+  ],
+  "hardFailReasons": [
+    "STAGE_FAILED:idempotency_check#1",
+    "IDEMPOTENCY_FAILED"
+  ],
+  "kpis": {
+    "totalDriveOnly": 0,
+    "totalSheetOnly": 0,
+    "totalDuplicateIds": 0,
+    "forbiddenMarkerHits": 0,
+    "qaSampleSize": 80,
+    "qaSampleCriticalPassed": 80,
+    "qaAccuracy": 1,
+    "criticalQaIssues": 0,
+    "idempotencyPass": false,
+    "dashboardFormulaDriftCount": 0,
+    "dashboardValueDriftCount": 0,
+    "bidirectionalDriftIncidents": 0
+  },
+  "stabilityWindow": {
+    "daysTarget": 7,
+    "periodStart": "2026-02-25T05:34:51.827Z",
+    "periodStartRunId": "cc6fb510-bf58-4c88-983b-b40c5de1ea39",
+    "runs": 2,
+    "failedRuns": 1,
+    "consecutiveFailedRuns": 1,
+    "consecutiveRedRuns": 1,
+    "coverageHours": 19.41,
+    "fullWindowCovered": false,
+    "definitionChanged": true,
+    "scopeChanged": false,
+    "clockConsistencyOk": true,
+    "status": "broken",
+    "pass": false,
+    "passWithoutCoverage": false
+  },
+  "operationalClosure": {
+    "decision": "blocked",
+    "decisionReasons": [
+      "latest_run_not_green",
+      "failed_runs_within_window",
+      "window_not_fully_covered",
+      "definition_changed_during_window",
+      "daily_review_incomplete",
+      "weekly_review_incomplete"
+    ],
+    "approved": false
+  },
+  "outputs": {
+    "finalReport": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/FINAL_ACCEPTANCE_REPORT.json",
+    "dailyKpi": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/daily/DAILY_KPI_2026-02-26.json",
+    "weeklyTrend": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/weekly/WEEKLY_TREND_2026-W09.json",
+    "dailySample": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/samples/DAILY_SAMPLE_2026-02-26.json",
+    "weeklySample": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/samples/WEEKLY_SAMPLE_2026-W09.json",
+    "dailyReview": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/daily/DAILY_REVIEW_2026-02-26.json",
+    "weeklyReview": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/weekly/WEEKLY_REVIEW_2026-W09.json",
+    "windowState": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/WINDOW_STATE.json",
+    "execSignoff": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/EXEC_SIGNOFF.json",
+    "certification": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-26.md",
+    "certificationJson": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-26.json",
+    "incident": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/assurance/incidents/INCIDENT_2026-02-26_e9ca1ecb-585c-4015-9c5b-d6e3d87b2082.json",
+    "blocker": null
+  }
+}
+```

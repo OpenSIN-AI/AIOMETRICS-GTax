@@ -125,32 +125,43 @@ const drive = google.drive({ version: 'v3', auth });
 const sheets = google.sheets({ version: 'v4', auth });
 
 type FormulaSpec = { tab: string; cell: string; formula: string };
+const YEAR_EXPR = 'IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;"(20\\\\d{2})"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;"(20\\\\d{2})"));0))))';
+const FLOW_UNCLEAR_EXPR = 'N(Buchhaltung_DB!E2:E<>"Einnahme")*N(Buchhaltung_DB!E2:E<>"Ausgabe")';
+const FLOW_NON_TRANSACTION_EXPR = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C&" "&Buchhaltung_DB!L2:L);"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b"))';
+const FLOW_INCOME_HINT_EXPR = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"einnahmen|photovoltaik|\\\\bpv\\\\b"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b"))';
+const FLOW_EXPENSE_HINT_EXPR = 'N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&" "&Buchhaltung_DB!C2:C);"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b"))';
+const FLOW_INCOME_EXPR = '(N(Buchhaltung_DB!E2:E="Einnahme")+N(' + FLOW_UNCLEAR_EXPR + '>0)*N(' + FLOW_NON_TRANSACTION_EXPR + '=0)*N(' + FLOW_INCOME_HINT_EXPR + '>0)*N(' + FLOW_EXPENSE_HINT_EXPR + '=0))>0';
+const FLOW_EXPENSE_EXPR = '(N(Buchhaltung_DB!E2:E="Ausgabe")+N(' + FLOW_UNCLEAR_EXPR + '>0)*N(' + FLOW_NON_TRANSACTION_EXPR + '=0)*N(' + FLOW_EXPENSE_HINT_EXPR + '>0)*N(' + FLOW_INCOME_HINT_EXPR + '=0))>0';
+const YEAR_MATCH_EXPR = '((N($B$2)=0)+N(' + YEAR_EXPR + '=$B$2))>0';
 
 const EUR_FORMULAS: FormulaSpec[] = [
   { tab: 'EÜR', cell: 'B2', formula: `=IFERROR('Finanz-Cockpit'!B2;YEAR(TODAY()))` },
-  { tab: 'EÜR', cell: 'B5', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)` },
-  { tab: 'EÜR', cell: 'B6', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)` },
-  { tab: 'EÜR', cell: 'B7', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)` },
-  { tab: 'EÜR', cell: 'B8', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)` },
+  { tab: 'EÜR', cell: 'B5', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_INCOME_EXPR}; ${YEAR_MATCH_EXPR}; Buchhaltung_DB!M2:M>0));0)` },
+  { tab: 'EÜR', cell: 'B6', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_INCOME_EXPR}; ${YEAR_MATCH_EXPR}; Buchhaltung_DB!N2:N>0));0)` },
+  { tab: 'EÜR', cell: 'B7', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_INCOME_EXPR}; ${YEAR_MATCH_EXPR}; Buchhaltung_DB!O2:O>0));0)` },
+  { tab: 'EÜR', cell: 'B8', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_INCOME_EXPR}; ${YEAR_MATCH_EXPR}))-SUM(B5:B7);0)` },
   { tab: 'EÜR', cell: 'B9', formula: `=SUM(B5:B8)` },
-  { tab: 'EÜR', cell: 'B12', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;"(?i)material|pv")));0)` },
-  { tab: 'EÜR', cell: 'B13', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;"(?i)kraftstoff|benzin|diesel")));0)` },
-  { tab: 'EÜR', cell: 'B14', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;"(?i)telekommunikation|it|hosting|domain")));0)` },
-  { tab: 'EÜR', cell: 'B15', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;"(?i)versicherung")));0)` },
-  { tab: 'EÜR', cell: 'B16', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)` },
-  { tab: 'EÜR', cell: 'B17', formula: `=SUM(B12:B16)` },
-  { tab: 'EÜR', cell: 'B18', formula: `=B9-B17` },
-  { tab: 'EÜR', cell: 'B19', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)` }
+  { tab: 'EÜR', cell: 'B12', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"material|waren|pv|photovoltaik")));0)` },
+  { tab: 'EÜR', cell: 'B13', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"kraftstoff|benzin|diesel|tank")));0)` },
+  { tab: 'EÜR', cell: 'B14', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"bewirt|restaurant|cafe|imbiss|wolt|lieferando")));0)` },
+  { tab: 'EÜR', cell: 'B15', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"telekommunikation|it|hosting|domain|software|cloud")));0)` },
+  { tab: 'EÜR', cell: 'B16', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"strom|energie")));0)` },
+  { tab: 'EÜR', cell: 'B17', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"miete|pacht")));0)` },
+  { tab: 'EÜR', cell: 'B18', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; ${FLOW_EXPENSE_EXPR}; ${YEAR_MATCH_EXPR}; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);"versicherung")));0)` },
+  { tab: 'EÜR', cell: 'B19', formula: `=MAX(0;B20-SUM(B12:B18))` },
+  { tab: 'EÜR', cell: 'B20', formula: `=SUMPRODUCT(N(${FLOW_EXPENSE_EXPR})*N(${YEAR_MATCH_EXPR})*N(Buchhaltung_DB!Q2:Q))` },
+  { tab: 'EÜR', cell: 'B22', formula: `=B9-B20` },
+  { tab: 'EÜR', cell: 'B23', formula: `=SUMPRODUCT(N(${FLOW_EXPENSE_EXPR})*N(${YEAR_MATCH_EXPR})*N(Buchhaltung_DB!U2:U))` },
+  { tab: 'EÜR', cell: 'B24', formula: `=B22+B23` }
 ];
 
 const COCKPIT_FORMULAS: FormulaSpec[] = [
-  { tab: 'Finanz-Cockpit', cell: 'B2', formula: `=YEAR(TODAY())` },
   { tab: 'Finanz-Cockpit', cell: 'B5', formula: `=IFERROR(EÜR!B9;0)` },
-  { tab: 'Finanz-Cockpit', cell: 'E5', formula: `=IFERROR(EÜR!B17;0)` },
-  { tab: 'Finanz-Cockpit', cell: 'H5', formula: `=IFERROR(EÜR!B18;0)` },
-  { tab: 'Finanz-Cockpit', cell: 'K5', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E="Einnahme"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)` },
-  { tab: 'Finanz-Cockpit', cell: 'N5', formula: `=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E="Ausgabe"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)` },
-  { tab: 'Finanz-Cockpit', cell: 'Q5', formula: `=K5-N5` }
+  { tab: 'Finanz-Cockpit', cell: 'D5', formula: `=IFERROR(EÜR!B20;0)` },
+  { tab: 'Finanz-Cockpit', cell: 'F5', formula: `=B5-D5` },
+  { tab: 'Finanz-Cockpit', cell: 'H5', formula: `=IFERROR(Steuerreport!B10;0)` },
+  { tab: 'Finanz-Cockpit', cell: 'J5', formula: `=IFERROR(Steuerreport!B11;0)` },
+  { tab: 'Finanz-Cockpit', cell: 'L5', formula: `=H5-J5` }
 ];
 
 function sleep(ms: number): Promise<void> {
@@ -419,7 +430,13 @@ function toNum(value: unknown): number {
 
 async function evaluateDashboardGate(): Promise<DashboardGateResult> {
   const specs = [...EUR_FORMULAS, ...COCKPIT_FORMULAS];
-  const ranges = specs.map((spec) => `${spec.tab}!${spec.cell}`);
+  const ranges = [
+    ...specs.map((spec) => `${spec.tab}!${spec.cell}`),
+    'Finanz-Cockpit!B2',
+    'Steuerreport!B10',
+    'Steuerreport!B11',
+    'Steuerreport!B12'
+  ];
   const formulaMap = await readRangeMap(ranges, 'FORMULA');
   const valueMap = await readRangeMap(ranges, 'UNFORMATTED_VALUE');
 
@@ -452,19 +469,22 @@ async function evaluateDashboardGate(): Promise<DashboardGateResult> {
 
   addPairCheck('YearLink', 'Finanz-Cockpit!B2', 'EÜR!B2');
   addPairCheck('IncomeKPI', 'Finanz-Cockpit!B5', 'EÜR!B9');
-  addPairCheck('ExpenseKPI', 'Finanz-Cockpit!E5', 'EÜR!B17');
-  addPairCheck('ResultKPI', 'Finanz-Cockpit!H5', 'EÜR!B18');
+  addPairCheck('ExpenseKPI', 'Finanz-Cockpit!D5', 'EÜR!B20');
+  addPairCheck('ResultKPI', 'Finanz-Cockpit!F5', 'EÜR!B22');
+  addPairCheck('OutputTaxKPI', 'Finanz-Cockpit!H5', 'Steuerreport!B10');
+  addPairCheck('InputTaxKPI', 'Finanz-Cockpit!J5', 'Steuerreport!B11');
+  addPairCheck('TaxSaldoKPI', 'Finanz-Cockpit!L5', 'Steuerreport!B12');
 
-  const q5 = toNum(valueMap.get('Finanz-Cockpit!Q5'));
-  const k5 = toNum(valueMap.get('Finanz-Cockpit!K5'));
-  const n5 = toNum(valueMap.get('Finanz-Cockpit!N5'));
+  const l5 = toNum(valueMap.get('Finanz-Cockpit!L5'));
+  const h5 = toNum(valueMap.get('Finanz-Cockpit!H5'));
+  const j5 = toNum(valueMap.get('Finanz-Cockpit!J5'));
   valueChecks.push({
-    label: 'CockpitSaldoArithmetic',
-    leftRef: 'Finanz-Cockpit!Q5',
-    rightRef: 'Finanz-Cockpit!K5-N5',
-    expected: (k5 - n5).toFixed(2),
-    actual: q5.toFixed(2),
-    pass: q5.toFixed(2) === (k5 - n5).toFixed(2)
+    label: 'CockpitTaxSaldoArithmetic',
+    leftRef: 'Finanz-Cockpit!L5',
+    rightRef: 'Finanz-Cockpit!H5-J5',
+    expected: (h5 - j5).toFixed(2),
+    actual: l5.toFixed(2),
+    pass: l5.toFixed(2) === (h5 - j5).toFixed(2)
   });
 
   const formulaDriftCount = formulaChecks.filter((check) => !check.pass).length;

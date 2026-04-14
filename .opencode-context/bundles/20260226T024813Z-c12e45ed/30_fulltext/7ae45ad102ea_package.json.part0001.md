@@ -1,0 +1,87 @@
+# Context Fulltext
+
+- source_path: package.json
+- source_sha256: 21664e7ca6a92f36d66a7e2e08a35dad2d94100cca7905b61c32bd9e991c0d76
+- chunk: 1/1
+
+```text
+{
+  "name": "aiometric-googletax",
+  "version": "1.0.0",
+  "description": "AI Beleganalyse System mit NVidia NIM",
+  "main": "dist/orchestrator/main.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.micro.json",
+    "build-all": "tsc",
+    "start": "npm run -s build && npm run -s micio-scheduler",
+    "micio-scheduler": "node dist-micro/orchestrator/micio_scheduler.js",
+    "zio-guard": "node dist-micro/orchestrator/zio_guard_worker.js",
+    "aiometrics": "node dist-micro/orchestrator/aiometrics_worker.js",
+    "micro-sync-drive-changes": "node dist-micro/orchestrator/micro_sync_drive_changes.js",
+    "micro-sheet-delete-archive-sync": "node dist-micro/orchestrator/micro_sheet_delete_archive_sync.js",
+    "micro-enrich-buchhaltung-db": "node dist-micro/orchestrator/micro_enrich_buchhaltung_db.js",
+    "micro-tax-category-assign": "node dist-micro/orchestrator/micro_tax_category_assign.js",
+    "micro-konto-assign": "node dist-micro/orchestrator/micro_konto_assign.js",
+    "micro-plausibility-duplicate": "node dist-micro/orchestrator/micro_plausibility_duplicate.js",
+    "micro-sheet-formula-guard": "node dist-micro/orchestrator/micro_sheet_formula_guard.js",
+    "micro-ocr-audit-1nm": "node dist-micro/orchestrator/micro_ocr_audit_1nm.js",
+    "micro-clean-private-1nm": "node dist-micro/orchestrator/micro_clean_private_1nm.js",
+    "micro-local-118-filter": "node dist-micro/orchestrator/micro_local_118_tesseract_filter.js",
+    "micro-swarm-tick": "node dist-micro/orchestrator/micro_swarm_tick.js",
+    "micro-workers-once": "node dist-micro/orchestrator/micro_swarm_tick.js",
+    "audit-year-strict": "node dist-micro/orchestrator/audit_2023_strict.js",
+    "check-2023": "node --import tsx src/orchestrator/check_2023_integrity.ts",
+    "check-all-years": "node --import tsx src/orchestrator/check_all_years_integrity.ts",
+    "contract-sync-guard": "node --import tsx src/orchestrator/contract_sync_guard.ts",
+    "final-acceptance": "node --import tsx src/orchestrator/final_acceptance_run.ts",
+    "post-closure-assurance": "node --import tsx src/orchestrator/post_closure_assurance.ts",
+    "architecture-guard": "node --import tsx src/orchestrator/architecture_guard.ts",
+    "micro-lane-swarm": "./start_micro_lane_swarm.sh",
+    "legacy-main": "node --import tsx src/orchestrator/main.ts",
+    "legacy-pipeline-sync": "node --import tsx src/orchestrator/pipeline_sync.ts",
+    "legacy-soft-audit": "node --import tsx src/orchestrator/soft_audit.ts",
+    "legacy-yearly-reorganize": "node --import tsx src/orchestrator/yearly_reorganize.ts",
+    "legacy-accounting-enrichment": "node --import tsx src/orchestrator/accounting_enrichment.ts",
+    "legacy-micro-reclassify-private-business": "node --import tsx src/orchestrator/micro_reclassify_private_business.ts",
+    "legacy-micro-reclassify-einnahmen-2023": "node --import tsx src/orchestrator/micro_reclassify_einnahmen_2023.ts",
+    "legacy-micro-move-zoe-invoices": "node --import tsx src/orchestrator/micro_move_zoe_invoices.ts",
+    "dev": "tsx watch src/orchestrator/micio_scheduler.ts",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint src --ext .ts"
+  },
+  "keywords": [
+    "ai",
+    "beleg",
+    "nvidia",
+    "ocr",
+    "drive"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.4.5",
+    "googleapis": "^131.0.0",
+    "pdfjs-dist": "^4.0.379",
+    "sharp": "^0.33.2",
+    "tesseract.js": "^5.0.5",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@types/pg": "^8.10.9",
+    "@types/uuid": "^9.0.8",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "eslint": "^8.56.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.3.0"
+  }
+}
+
+```

@@ -1,0 +1,71 @@
+# Context Fulltext
+
+- source_path: docs/MICRO_KONTO_ASSIGN.md
+- source_sha256: bc2173b762517737338a04f406de33113b78706e8a38dfb464f77813db3601ad
+- chunk: 1/1
+
+```text
+# MICRO Konto Assign
+
+- Timestamp: 2026-02-25T00:47:36.496Z
+- Batch size: 50
+- Run budget ms: 170000
+- Elapsed ms: 5305
+- Processed: 50
+- Skipped due budget: 0
+- Updates: 184
+
+| row | drive_file_id | sollkonto | habenkonto | istkonto |
+|---|---|---|---|---|
+| 217 | 13mQ8FaDtjxEDa6zf6Ff09BWy20E_7YAB | 4950 | 1200 | 1200 |
+| 218 | 13NNzKHA0nVKi2HiTlSyFNHBO1SNg6WVS | 4950 | 1200 | 1200 |
+| 219 | 13OIfb01j5CfzdUBrO4pJOg_1skAHKTFF | 4950 | 1200 | 1200 |
+| 220 | 13olSAYVKY9gYV6pwErvxCjays3NFCL6W | 4950 | 1200 | 1200 |
+| 221 | 13pi-veRRO5ipFHm3jJeB85UMIoIMp7en | 4950 | 1200 | 1200 |
+| 222 | 13Qsb95FOaGE72SotFBqScMuhS_iiOL27 | 4950 | 1200 | 1200 |
+| 223 | 13rz8RGjakp3yyM54gKwKstfZiTrYO7JM | 4950 | 1200 | 1200 |
+| 224 | 13sd3u1YYjX0snPOoUuS6t3ZHK3NJsGbr | 4950 | 1200 | 1200 |
+| 225 | 13tJq61evXPOok2t7bePpykTixgQCefCF | 4950 | 1200 | 1200 |
+| 226 | 13wovDb7Ll4dwPhmsYHBG3HWhoUzikeNk | 4950 | 1200 | 1200 |
+| 227 | 13xC0yocFab2_Oe5JYIFNPP2XWhIOchHz | 4950 | 1200 | 1200 |
+| 228 | 13Ym9umEdQUbL-ktH2SgsLTCljMLHlBvx | 4950 | 1200 | 1200 |
+| 229 | 13YSGkbWkT0IW423SvEaa5h6H7y-67Rzf | 4950 | 1200 | 1200 |
+| 230 | 13yX2VM2MRhxtPH3bKTb0FOOaB67vXXjn | 4950 | 1200 | 1200 |
+| 231 | 13Z-2KV_NVlDJ9x90QI3XC6b0uwgk7bnK | 4950 | 1200 | 1200 |
+| 232 | 13ZraTrPZGKlh32FStqy0KeyUyD0PmNZz | 4950 | 1200 | 1200 |
+| 233 | 13ZWQQHrzrkrXWdxjLqbO49wkt3B1vreo | 4950 | 1200 | 1200 |
+| 234 | 14-1UuHwj8k4J1ona7evAZXjWQoHjMCyd | 4950 | 1200 | 1200 |
+| 235 | 141MnRR9qv0TmOib2rh-kMNu7v_yBP7Hg | 4950 | 1200 | 1200 |
+| 236 | 144zxffqSMdnHRhYaxD4l7Z8b1idbAyHT | 4950 | 1200 | 1200 |
+| 237 | 14aHJpEi7EiT1pwU6xdZAS9CPqyLs4IlF | 4950 | 1200 | 1200 |
+| 238 | 14BEJxA8ojwo8ODpBHuKRARNMnA8X8nEc | 4950 | 1200 | 1200 |
+| 239 | 14DcEGgnphecvW9U7B3xne0VXlctd-qs8 | 4950 | 1200 | 1200 |
+| 240 | 14DTfrmEZAMtklVxnvc_ORuU0PUCcsroP | 4950 | 1200 | 1200 |
+| 241 | 14Ehg2QoMjmbMYkoMV6HVJFaQCSFk7t35 | 4950 | 1200 | 1200 |
+| 242 | 14fH8wTtYr3bevxCZE0cmxTp3Xazv795H | 1200 | 8336 | 1200 |
+| 243 | 14g61H174Tw4b_lITBLWe7v_44VeQ7EAL | 4950 | 1200 | 1200 |
+| 244 | 14H1ofFfnipGUVnW1Cd9kFsPk98jeqcAz | 4950 | 1200 | 1200 |
+| 245 | 14h8YsJ6TiBPoWqGqmQMMWpzi1BCKPLwC | 1200 | 8336 | 1200 |
+| 246 | 14HRPW3uzRL77hT5qL7vyf2jBZZxwcWy_ | 4950 | 1200 | 1200 |
+| 247 | 14iEdJ1W7dF7gKF6bI5LaY8PCeHeZIc_X | 4950 | 1200 | 1200 |
+| 248 | 14iv3AzzbsBKAKC_tS3GdZeCbxJarq78V | 4950 | 1200 | 1200 |
+| 249 | 14ivWcjyn-KZNJ9Yr86CCSxeNBhrxRCMb | 4950 | 1200 | 1200 |
+| 250 | 14JuATs11FxIfZzB0IOCKEhwbdya8FkHJ | 4950 | 1200 | 1200 |
+| 251 | 14MsMd4wbZEJMBTJLbxrav76KlIdCLdw6 | 4950 | 1200 | 1200 |
+| 252 | 14ohUQ8uMjss6--4JmXLbwXC1h4IaRYOx | 4950 | 1200 | 1200 |
+| 253 | 14Qsyg0T8la9T7b2finznWQHG4EWKDlLH | 4950 | 1200 | 1200 |
+| 254 | 14qxL2qtAG7hKavCJUTx-zgzUcasdXXNO | 4950 | 1200 | 1200 |
+| 255 | 14ThcqRtazOsaDPiLrkZKOlo-PHzEfUFM | 4950 | 1200 | 1200 |
+| 256 | 14u2cIG1i8Rmjij7eWcxJQzGjcAqaeHdy | 4950 | 1200 | 1200 |
+| 257 | 14VFTIIrYmTvZPrO28agz5D9dBg3OCdAA | 4950 | 1200 | 1200 |
+| 258 | 14WCPoUtCgl0TjJ5AqYMWmpOXEwvrwATn | 1200 | 8336 | 1200 |
+| 259 | 14wEW-SXwE_tA93hK8Fx-1968_-minJnJ | 4950 | 1200 | 1200 |
+| 260 | 14wHTbd4D5oee8sKeIkqq1n026iMHP0j- | 4950 | 1200 | 1200 |
+| 261 | 14x67m1SEd6dxzu73FO5RpPDCC2i9jpN5 | 4950 | 1200 | 1200 |
+| 262 | 14xbTImSCi3Pa_a5KAfYIQ4ZBt1sSChYQ | 4950 | 1200 | 1200 |
+| 263 | 14Yt7ENiD9ha47NqQC0Vy0OuivscyReqj | 4950 | 1200 | 1200 |
+| 264 | 14Yw685mAH4_ACxbCC6R-ucKrVKr-E8SK | 4950 | 1200 | 1200 |
+| 265 | 14z_UrqgXAP_zNBxF-yL3lfYRriaobDid | 4950 | 1200 | 1200 |
+| 266 | 15_t3aZAg45vMsnczEXIzxsgWVj2YmE1w | 1200 | 8336 | 1200 |
+
+```

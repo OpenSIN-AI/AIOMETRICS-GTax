@@ -1,0 +1,24 @@
+# Context Fulltext
+
+- source_path: docs/assurance/EXEC_SIGNOFF.json
+- source_sha256: 8269004d23b317fc12a8b1e754f250b4c63a6a6dd706fc6c715249125a1a5d48
+- chunk: 1/1
+
+```text
+{
+  "period_start": "2026-02-25T05:34:51.827Z",
+  "period_end": "2026-02-25T05:34:51.900Z",
+  "reviewer_primary": "UNASSIGNED_PRIMARY",
+  "reviewer_secondary": "UNASSIGNED_SECONDARY",
+  "daily_samples_reviewed": 0,
+  "weekly_samples_reviewed": 0,
+  "critical_mismatches": 0,
+  "decision": "blocked",
+  "decision_reasons": [
+    "window_not_fully_covered",
+    "daily_review_incomplete",
+    "weekly_review_incomplete"
+  ],
+  "generated_at": "2026-02-25T05:34:51.900Z"
+}
+```

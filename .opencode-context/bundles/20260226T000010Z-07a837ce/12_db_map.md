@@ -1,0 +1,70 @@
+# DB Map
+
+- matched_files: 64
+
+References:
+- path: DB.md | sha256: 23d842336e93675a6e160970df3fa583bc42b29104a9064a4a00811de50c3081 | priority: 45 | context: Database/store related source.
+- path: docs/CANONICAL_DRIVE_INDEX_56cb11db-b0f9-4403-ade2-319c8ff66597.json | sha256: f696464549c69c6aba05618eb49328cff0c5f4f043fde6a7a4205dafc1898059 | priority: 55 | context: Database/store related source.
+- path: docs/CANONICAL_DRIVE_INDEX_986d9539-d5db-42ff-ad4c-58faf0daa3aa.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/MICRO_ENRICH_BUCHHALTUNG_DB.md | sha256: 6bd912ebded67dcab8730270d3d56e39b8b77d2688c7107d9182cf0a02ffe180 | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/ASSURANCE_HISTORY.jsonl | sha256: 2c452bdfe362beb5c9b6f57f8093eafaeaa9333de7478bf1da54d33b52c6a73e | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_0fed2fb2-522f-49c7-a7b6-e4d475892212.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_101f4260-5070-4dc0-9b7d-6b1bc6d5d58f.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_192742d3-6381-4da1-ab1e-1abe4e1eeaa8.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_36801f49-42d9-4d5b-a7e5-3424dd38c8f0.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_419e4c88-f312-435d-aa90-24554f2327d5.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_5b04c0dd-027a-4ba1-9514-5e7b25cc6ab7.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_728dac30-02ae-441e-9921-035fa594a5e3.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_986d9539-d5db-42ff-ad4c-58faf0daa3aa.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CANONICAL_DRIVE_INDEX_b3c2a41c-9dab-4cf9-8d85-6fcad2596a65.json | sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CHECK_2023_DRIVE_SHEETS_SYNC.md | sha256: d7c7674b512626e259f2cd60ad40579f7b077f68911bbb25293e7e8910d97611 | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CHECK_DRIVE_SHEETS_SYNC.json | sha256: ad6951d8957734c22705a2940de7db729d81a186df0ad3e894290ce24a81201f | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/CHECK_DRIVE_SHEETS_SYNC.md | sha256: 1f71629208026c80dd2e2563dc64fec1619dc9318abc66639c14b0048c92e99f | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/FINAL_ACCEPTANCE_BASELINE.json | sha256: d4b17963bbd407e5210b30c0582b275373e8c8f52fde59872e5a235deee2943d | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/FINAL_ACCEPTANCE_REPORT.json | sha256: 919042c09990e3233e8e7d28391cb5db322d7a03a13a2c213894d8261f6e079c | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/FINAL_ACCEPTANCE_REPORT.md | sha256: db228d4d3173ce387ebe8f386214323df54ab57a685698d162e7b8d1d4a85f6a | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/ASSURANCE_ALERT.json | sha256: 1f6293e3e120ff0ada9ff38ccce29939ede6fb3736b67cdcd8f40cd0d6361f48 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/EXEC_SIGNOFF.json | sha256: 9288687090c8b535edd77a3fd4e2015645ee3cca39be520578bff6bda147a498 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.json | sha256: f63b0563be5a1faea36358200c618b06219bb4de962bee1bb9fdb04f3fd17431 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/FINAL_7D_CERTIFICATION_2026-02-25_to_2026-02-25.md | sha256: a2b4459ac606562505d2994b36aba056d9a8697eb4bb5c7b0f45ec6fb6db97e4 | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/FINAL_7D_CERTIFICATION_LATEST.json | sha256: f63b0563be5a1faea36358200c618b06219bb4de962bee1bb9fdb04f3fd17431 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/FINAL_7D_CERTIFICATION_LATEST.md | sha256: a2b4459ac606562505d2994b36aba056d9a8697eb4bb5c7b0f45ec6fb6db97e4 | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/WINDOW_STATE.json | sha256: 3311b0e649e60a7f414ee907a1f900124d87c4d5a58f3b8d67fa79a9625c971d | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/daily/DAILY_KPI_2026-02-25.json | sha256: 552474be315a258641cfa8885a785916ed0ce4014c23d6bca43eee5de641d2a5 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/daily/DAILY_KPI_2026-02-25.md | sha256: cd0333d649f4a9a8cafb9592678be35f798ec66301a53e3e522d10867a51103e | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/daily/DAILY_REVIEW_2026-02-25.json | sha256: 117488ebf8d80aec5eb336f171d3ab806763ebaa1a841e8de1faca4ac4693368 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/incidents/INCIDENT_2026-02-25_419e4c88-f312-435d-aa90-24554f2327d5.json | sha256: 9aabd2f98bb417116ca837d7d7bad735c9e7587b3ed25edbf0e1e0647d7115bb | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/incidents/INCIDENT_2026-02-25_419e4c88-f312-435d-aa90-24554f2327d5.md | sha256: 5bddb764f0a61b3f5c96b553f7f5a809b43388bbf0a710e71af7f6d4e8014534 | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/samples/DAILY_SAMPLE_2026-02-25.json | sha256: 47d1eea8c08c3346dcb9b07a309460bc2f373de17d0540dee6b6c81e5e15fc18 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/samples/WEEKLY_SAMPLE_2026-W09.json | sha256: 77ee82b052fb3668934ac9bb6f178dc6c159afdbffa0b66eac5c631bc709798a | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/weekly/WEEKLY_REVIEW_2026-W09.json | sha256: b8eb4ae92977e3982b07130309493eaee5eb22a93a5fc5656600e993688cfa9a | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/weekly/WEEKLY_TREND_2026-W09.json | sha256: 43c50ef72104a809058567bfe9f3b3935ad177f3a6827318b664b860f6eed27a | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/assurance/weekly/WEEKLY_TREND_2026-W09.md | sha256: ae4069430dc7e48c713f04cab89198fdee1242ccb5dff2e9f05976c723801ca9 | priority: 60 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2000_drive_only.json | sha256: 756b41e5fedcaa3a51069986259ddf872e33233f0c23115c05f0b294ab0bb0f6 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2000_duplicate_drive_ids.json | sha256: 756b41e5fedcaa3a51069986259ddf872e33233f0c23115c05f0b294ab0bb0f6 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2000_sheet_only.json | sha256: 756b41e5fedcaa3a51069986259ddf872e33233f0c23115c05f0b294ab0bb0f6 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2004_drive_only.json | sha256: f88bb1dc0d432dd748f0f662a28f38c24700e1a8ca0b4e65662b27102c1dd9ba | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2004_duplicate_drive_ids.json | sha256: f88bb1dc0d432dd748f0f662a28f38c24700e1a8ca0b4e65662b27102c1dd9ba | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2004_sheet_only.json | sha256: f88bb1dc0d432dd748f0f662a28f38c24700e1a8ca0b4e65662b27102c1dd9ba | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2016_drive_only.json | sha256: 84e22571180bfad1e2a4d321db3e22fc3d8bde183db8aa365e8be1d22f17ab36 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2016_duplicate_drive_ids.json | sha256: 84e22571180bfad1e2a4d321db3e22fc3d8bde183db8aa365e8be1d22f17ab36 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2016_sheet_only.json | sha256: 84e22571180bfad1e2a4d321db3e22fc3d8bde183db8aa365e8be1d22f17ab36 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2022_drive_only.json | sha256: babcc4a4b85fc8ad7250c4ff4ae78411879f788bcddec29f1c6ac7cc8a030489 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2022_duplicate_drive_ids.json | sha256: babcc4a4b85fc8ad7250c4ff4ae78411879f788bcddec29f1c6ac7cc8a030489 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2022_sheet_only.json | sha256: babcc4a4b85fc8ad7250c4ff4ae78411879f788bcddec29f1c6ac7cc8a030489 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2023_drive_only.json | sha256: 198bf5acf58cfd3005063387aa50eeb1ea90ae39abc90f52c6f1bb68382884e9 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2023_duplicate_drive_ids.json | sha256: 198bf5acf58cfd3005063387aa50eeb1ea90ae39abc90f52c6f1bb68382884e9 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2023_sheet_only.json | sha256: 198bf5acf58cfd3005063387aa50eeb1ea90ae39abc90f52c6f1bb68382884e9 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2024_drive_only.json | sha256: 27de5352471a15c7964adc4609149a5985a62e8d2e6e53cc82423cc5daa9cbfb | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2024_duplicate_drive_ids.json | sha256: 27de5352471a15c7964adc4609149a5985a62e8d2e6e53cc82423cc5daa9cbfb | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2024_sheet_only.json | sha256: 27de5352471a15c7964adc4609149a5985a62e8d2e6e53cc82423cc5daa9cbfb | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2025_drive_only.json | sha256: 4e04172fe08d62002683e530ea32eca9530dbceb43dc8a78e9000a616c742465 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2025_duplicate_drive_ids.json | sha256: 4e04172fe08d62002683e530ea32eca9530dbceb43dc8a78e9000a616c742465 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2025_sheet_only.json | sha256: 4e04172fe08d62002683e530ea32eca9530dbceb43dc8a78e9000a616c742465 | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2026_drive_only.json | sha256: 9aacc54f81d9e5b3e17400d18b46043b397b4e2892fb893ca6a4cc945f724dac | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2026_duplicate_drive_ids.json | sha256: 9aacc54f81d9e5b3e17400d18b46043b397b4e2892fb893ca6a4cc945f724dac | priority: 55 | context: Database/store related source.
+- path: docs/archive/pre-migration-2026-02-25/mismatch/2026_sheet_only.json | sha256: 9aacc54f81d9e5b3e17400d18b46043b397b4e2892fb893ca6a4cc945f724dac | priority: 55 | context: Database/store related source.
+- path: src/db/googleSheetsService.ts | sha256: f0dfc991aec284a86c0f43b83444bd33e3e58c3a987b0c97f35020c3071aa3fc | priority: 40 | context: Database/store related source.
+- path: src/orchestrator/micro_enrich_buchhaltung_db.ts | sha256: c1cc29afe07d0f7071c3794aee35019617d92d4e51c1f975b0bfd5f34c4c1495 | priority: 40 | context: Database/store related source.
+- path: test_db.ts | sha256: f19e7de3506c554df98af93648c0ca28224911c56a98807b01c94190340d9ca2 | priority: 40 | context: Database/store related source.
+

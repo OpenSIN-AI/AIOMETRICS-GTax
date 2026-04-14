@@ -1,0 +1,313 @@
+# Context Fulltext
+
+- source_path: docs/CANONICAL_DRIVE_INDEX_d4390fb1-ec42-4a89-9123-3705c07c80ba.json
+- source_sha256: cafdbbe0ba68f64af8ef59a17671d858342e49bd04cd2095cbff4afd1bcb2ce2
+- chunk: 29/73
+
+```text
+",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Y4RQNw-qWNPMNzMxMgLesPdwUkg6Y2iw",
+    "original_name": "f6a13bd8-ae17-4f2d-9bcf-356973706e76.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1713299,
+    "file_url": "https://drive.google.com/file/d/1Y4RQNw-qWNPMNzMxMgLesPdwUkg6Y2iw/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "11br8NtJ2PteWb-EiwlW-dXX3rKTV3fwM",
+    "original_name": "f6fc0c45-f53a-4779-b6b7-42633ee32407.preview.png",
+    "mime_type": "image/png",
+    "file_size": 200497,
+    "file_url": "https://drive.google.com/file/d/11br8NtJ2PteWb-EiwlW-dXX3rKTV3fwM/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1x5ncLYAS01n6YVby4cJGZmlgQcmPxWBi",
+    "original_name": "f7553866-dfe0-44e6-a7fc-b1c8ed418633.preview.png",
+    "mime_type": "image/png",
+    "file_size": 315942,
+    "file_url": "https://drive.google.com/file/d/1x5ncLYAS01n6YVby4cJGZmlgQcmPxWBi/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1sHdR9CNKzev4npGXlMWtpVvVgo4mjC5W",
+    "original_name": "f7ac9427-6768-4317-8c06-f55b6629d442.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1042774,
+    "file_url": "https://drive.google.com/file/d/1sHdR9CNKzev4npGXlMWtpVvVgo4mjC5W/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1yo7y-hVHr751elCWEzNo0pZq2AGtmzq_",
+    "original_name": "f7f55d30-c7f6-4e52-ada0-e2b4db0bea7e.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1294786,
+    "file_url": "https://drive.google.com/file/d/1yo7y-hVHr751elCWEzNo0pZq2AGtmzq_/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "10iFGDwalaTIz-fu6xGS0RmATyPY9I9wa",
+    "original_name": "f884e411-40c1-4061-90b4-533d14e54262.preview.png",
+    "mime_type": "image/png",
+    "file_size": 150565,
+    "file_url": "https://drive.google.com/file/d/10iFGDwalaTIz-fu6xGS0RmATyPY9I9wa/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1VDESnQBs15ltrbt2CymqyjGrxSXdNdhi",
+    "original_name": "f9512072-53b9-487e-b16f-c6c745e6bb6b.preview.png",
+    "mime_type": "image/png",
+    "file_size": 301782,
+    "file_url": "https://drive.google.com/file/d/1VDESnQBs15ltrbt2CymqyjGrxSXdNdhi/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "19t1J8Z6aaDA8MdOoJ78H2DOpaMuKCqB9",
+    "original_name": "f961faa1-afd6-4b4f-99bf-87d8e65bf9f2.preview.png",
+    "mime_type": "image/png",
+    "file_size": 330405,
+    "file_url": "https://drive.google.com/file/d/19t1J8Z6aaDA8MdOoJ78H2DOpaMuKCqB9/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "13rz8RGjakp3yyM54gKwKstfZiTrYO7JM",
+    "original_name": "f9cf6e21-0e88-442f-913e-2fcfe3139554.preview.png",
+    "mime_type": "image/png",
+    "file_size": 301630,
+    "file_url": "https://drive.google.com/file/d/13rz8RGjakp3yyM54gKwKstfZiTrYO7JM/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1c1Eoa5hDf03glwko52YqU2Pe3Cus9Jbt",
+    "original_name": "fa02b401-950c-4eb9-8db2-cfa7f3d3c52e.preview.png",
+    "mime_type": "image/png",
+    "file_size": 258946,
+    "file_url": "https://drive.google.com/file/d/1c1Eoa5hDf03glwko52YqU2Pe3Cus9Jbt/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1FId1I09t43ngCjIo6FiSY5tmwf6_YJVo",
+    "original_name": "fa3a5e54-0a00-4b73-b4f9-904f5493d3a7.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1271330,
+    "file_url": "https://drive.google.com/file/d/1FId1I09t43ngCjIo6FiSY5tmwf6_YJVo/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1VLaxu3uYssguw975D48gOTcVicSmvxA1",
+    "original_name": "fa3d9f12-d52d-4cff-9cd7-2_Leistungsübersicht_vom_12.04.23_625b72.pdf",
+    "mime_type": "application/pdf",
+    "file_size": 17179,
+    "file_url": "https://drive.google.com/file/d/1VLaxu3uYssguw975D48gOTcVicSmvxA1/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1yRaQvBDm9aQwHfir-1SDqIct6dKxu_7p",
+    "original_name": "fa3d9f12-d52d-4cff-9cd7-2baf1ea7318e.preview.png",
+    "mime_type": "image/png",
+    "file_size": 202311,
+    "file_url": "https://drive.google.com/file/d/1yRaQvBDm9aQwHfir-1SDqIct6dKxu_7p/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1ru0TQVKO4t-IzuCLd0dMMSJDmlSydOGP",
+    "original_name": "fb6c5f2f-f029-4cad-8eca-cd4cb335bc03.preview.png",
+    "mime_type": "image/png",
+    "file_size": 262186,
+    "file_url": "https://drive.google.com/file/d/1ru0TQVKO4t-IzuCLd0dMMSJDmlSydOGP/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1SY0WtNnPatwmFLqYdYySMX1-huswp_VQ",
+    "original_name": "fb7e9c36-3fdb-4e92-aeeb-e694a3ac54e1.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1478013,
+    "file_url": "https://drive.google.com/file/d/1SY0WtNnPatwmFLqYdYySMX1-huswp_VQ/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1Cy038kGyYn0GsYe3vwe45BC894vmrtkV",
+    "original_name": "fb8fc373-12ef-45c8-8f11-d58b2d78ee23.preview.png",
+    "mime_type": "image/png",
+    "file_size": 320431,
+    "file_url": "https://drive.google.com/file/d/1Cy038kGyYn0GsYe3vwe45BC894vmrtkV/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1dOJ6mQuOkehi5h3ZrRq-ISSWz67s8EIM",
+    "original_name": "fc335366-fbf3-4366-acd8-5f05978ac94e.preview.png",
+    "mime_type": "image/png",
+    "file_size": 225758,
+    "file_url": "https://drive.google.com/file/d/1dOJ6mQuOkehi5h3ZrRq-ISSWz67s8EIM/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1fPtNlrF-rmIbqelLYvlDyeP8UZQL8G6x",
+    "original_name": "fcae0dea-b959-4f4b-86f8-ad99ee58bcf2.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1800330,
+    "file_url": "https://drive.google.com/file/d/1fPtNlrF-rmIbqelLYvlDyeP8UZQL8G6x/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1UpQkH4uf2kcEDzc0bz7MK8SX_eWDlMP-",
+    "original_name": "fd049c58-43e5-4366-b359-91eb5899381d.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1190023,
+    "file_url": "https://drive.google.com/file/d/1UpQkH4uf2kcEDzc0bz7MK8SX_eWDlMP-/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1TGZjZTMCea6oMHgQq3nMPj-_1cgeQhly",
+    "original_name": "fd46d830-252a-4253-b671-a506e88419bd.preview.png",
+    "mime_type": "image/png",
+    "file_size": 1655877,
+    "file_url": "https://drive.google.com/file/d/1TGZjZTMCea6oMHgQq3nMPj-_1cgeQhly/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1j_bw9oABoVr0-CQGaroXWcU32gbwRzHU",
+    "original_name": "fd6d0aca-797f-4122-8096-9a900ff0be2a.preview.png",
+    "mime_type": "image/png",
+    "file_size": 191470,
+    "file_url": "https://drive.google.com/file/d/1j_bw9oABoVr0-CQGaroXWcU32gbwRzHU/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1NFTNZg7CzehRAkb3foWa8VfoRiJheWdc",
+    "original_name": "fdd60e4a-32c5-4133-bf43-a0041332a99f.preview.png",
+    "mime_type": "image/png",
+    "file_size": 248639,
+    "file_url": "https://drive.google.com/file/d/1NFTNZg7CzehRAkb3foWa8VfoRiJheWdc/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1dIfceiwixPNQSG7AccFJdV3TEZIzBgaH",
+    "original_name": "fe0cb3fd-04e3-4ab7-96fe-51173242fa1a.preview.png",
+    "mime_type": "image/png",
+    "file_size": 242835,
+    "file_url": "https://drive.google.com/file/d/1dIfceiwixPNQSG7AccFJdV3TEZIzBgaH/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1he1lDqjmr8bm41nJ9UMfaqV54tiU2EKp",
+    "original_name": "fe0d3d96-d22f-4f30-9cf4-e405d6048cf1.preview.png",
+    "mime_type": "image/png",
+    "file_size": 971791,
+    "file_url": "https://drive.google.com/file/d/1he1lDqjmr8bm41nJ9UMfaqV54tiU2EKp/view?usp=drivesdk",
+    "folder_path": "2023/Ausgaben_2023",
+    "target_folder_id": "1NMlTFDw6SsyVEy5aimP0Awz3Tq3N1_vH",
+    "year": "2023",
+    "cashflow": "Ausgaben",
+    "category": "Sonstiges"
+  },
+  {
+    "drive_file_id": "1mgLSUXQp-lTQv9O2gRRgBtFM6BB06U9n",
+    "original_name": "fed294d3-e9d7-497e-b7bc-12e95cf79947.preview.png",
+    "mime_type": "image/png",
+    "file_size": 282983,
+    "file_url": "https://drive.google.com/file/d/1mgLSUXQp-lTQv9O2gRRgBtFM6BB06U9n/view?usp=drivesdk",
+    "folder_path": "2023/Einnahmen_2023",
+    "target_folder_id": "1ksurKQAYf9vxSg9SV-KYYqV0ojKMuJge",
+    "year": "2023",
+    "cashflow": "Einnahmen",
+    "category": "Sonstiges"
+  },
+  {
+ 
+```

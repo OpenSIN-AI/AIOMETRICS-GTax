@@ -4,18 +4,32 @@ import * as path from 'path';
 import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
 import { withPipelineLock } from './pipeline_lock.js';
+import { parsePositiveInt, withGoogleApiRetry } from './shared/google_api_retry.js';
 
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID as string;
 const YEAR = process.env.AUDIT_YEAR || '2023';
 const MAX_OUTPUT_ROWS = Number.parseInt(process.env.MICRO_PLAUSI_MAX_ROWS || '400', 10);
 const REPORT_PATH = path.join(process.cwd(), 'docs', 'MICRO_PLAUSIBILITY_DUPLICATE.md');
 const PLAUSI_TAB = 'Plausibilitaet_Micro';
+const REQUEST_TIMEOUT_MS = parsePositiveInt(process.env.MICRO_PLAUSI_REQUEST_TIMEOUT_MS, 30000);
+const API_MAX_RETRIES = parsePositiveInt(process.env.MICRO_PLAUSI_API_MAX_RETRIES, 4);
+const API_RETRY_BASE_MS = parsePositiveInt(process.env.MICRO_PLAUSI_API_RETRY_BASE_MS, 1500);
+const API_RETRY_MAX_MS = parsePositiveInt(process.env.MICRO_PLAUSI_API_RETRY_MAX_MS, 15000);
 
 const auth = new JWT({
   keyFile: process.env.GOOGLE_CREDENTIALS_PATH,
   scopes: ['https://www.googleapis.com/auth/spreadsheets']
 });
 const sheets = google.sheets({ version: 'v4', auth });
+
+async function withApiRetry<T>(operation: string, fn: () => Promise<T>): Promise<T> {
+  return withGoogleApiRetry(operation, fn, {
+    maxAttempts: API_MAX_RETRIES,
+    baseDelayMs: API_RETRY_BASE_MS,
+    maxDelayMs: API_RETRY_MAX_MS,
+    loggerPrefix: 'micro_plausibility_duplicate'
+  });
+}
 
 function normalize(s: string): string {
   return (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -39,26 +53,41 @@ function yearFromDate(raw: string): string {
 }
 
 async function ensureTabExists(title: string): Promise<void> {
-  const meta = await sheets.spreadsheets.get({
-    spreadsheetId: SPREADSHEET_ID,
-    fields: 'sheets.properties.title'
-  });
+  const meta = await withApiRetry(
+    `sheets.spreadsheets.get.${title}`,
+    () => sheets.spreadsheets.get({
+      spreadsheetId: SPREADSHEET_ID,
+      fields: 'sheets.properties.title'
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   const exists = (meta.data.sheets || []).some((s) => s.properties?.title === title);
   if (exists) return;
-  await sheets.spreadsheets.batchUpdate({
-    spreadsheetId: SPREADSHEET_ID,
-    requestBody: {
-      requests: [{ addSheet: { properties: { title } } }]
-    }
-  });
+  await withApiRetry(
+    `sheets.spreadsheets.batchUpdate.add_sheet.${title}`,
+    () => sheets.spreadsheets.batchUpdate({
+      spreadsheetId: SPREADSHEET_ID,
+      requestBody: {
+        requests: [{ addSheet: { properties: { title } } }]
+      }
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
 }
 
 async function main(): Promise<void> {
   if (!SPREADSHEET_ID) throw new Error('Missing GOOGLE_SHEET_ID');
-  const r = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID,
-    range: 'Buchhaltung_DB!A1:AZ'
-  });
+  const r = await withApiRetry(
+    'sheets.values.get.buchhaltung_db',
+    () => sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Buchhaltung_DB!A1:AZ'
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
   const rows = (r.data.values || []) as string[][];
   if (rows.length <= 1) {
     console.log(JSON.stringify({ status: 'ok', findings: 0, reason: 'empty_db' }, null, 2));
@@ -144,16 +173,26 @@ async function main(): Promise<void> {
   ];
   for (const f of limited) values.push([f.severity, f.type, f.drive_file_id, f.dateiname, f.details]);
 
-  await sheets.spreadsheets.values.clear({
-    spreadsheetId: SPREADSHEET_ID,
-    range: `${PLAUSI_TAB}!A:Z`
-  });
-  await sheets.spreadsheets.values.update({
-    spreadsheetId: SPREADSHEET_ID,
-    range: `${PLAUSI_TAB}!A1`,
-    valueInputOption: 'USER_ENTERED',
-    requestBody: { values }
-  });
+  await withApiRetry(
+    `sheets.values.clear.${PLAUSI_TAB}`,
+    () => sheets.spreadsheets.values.clear({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `${PLAUSI_TAB}!A:Z`
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
+  await withApiRetry(
+    `sheets.values.update.${PLAUSI_TAB}`,
+    () => sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `${PLAUSI_TAB}!A1`,
+      valueInputOption: 'USER_ENTERED',
+      requestBody: { values }
+    }, {
+      timeout: REQUEST_TIMEOUT_MS
+    })
+  );
 
   const countByType = new Map<string, number>();
   for (const f of findings) countByType.set(f.type, (countByType.get(f.type) || 0) + 1);

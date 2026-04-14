@@ -1,14 +1,14 @@
 # AUDIT 2022 STRICT
 
-- Zeitstempel: 2026-02-24T22:27:13.468Z
+- Zeitstempel: 2026-02-27T02:06:09.043Z
 - Spreadsheet: https://docs.google.com/spreadsheets/d/1z-13LMaXRsDbtJFkujGJIwxVHyUgsBwM9W-LNlGg9-o
 - Einnahmen Folder: 1heeyEdcPB858Y6wKCiMSRrs1UAj0hpdK
 - Ausgaben Folder: 1Lf2D7xUyUl1OAPVy1rA1GhJu_k6ZZKe4
 
 ## Sync
 
-- Einnahmen Drive: 2 | Sheet: 2 | DriveOnly: 0 | SheetOnly: 0
-- Ausgaben Drive: 3 | Sheet: 3 | DriveOnly: 0 | SheetOnly: 0
+- Einnahmen Drive: 1 | Sheet: 1 | DriveOnly: 0 | SheetOnly: 0
+- Ausgaben Drive: 2 | Sheet: 2 | DriveOnly: 0 | SheetOnly: 0
 
 ## Ausgaben Verstöße (Drive-basiert)
 

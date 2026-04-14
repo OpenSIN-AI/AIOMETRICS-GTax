@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GTax Drive + Sheets Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">GT</span>
+          <div>
+            <h1>GTax Workspace</h1>
+            <p>Drive + Sheets via Service Account</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button id="refresh-all" class="btn solid">Alles aktualisieren</button>
+          <span id="health-chip" class="chip warning">Connecting...</span>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <aside class="sidebar">
+          <div class="nav-section">
+            <h2>Views</h2>
+            <button id="view-drive" class="nav-item active">Drive Explorer</button>
+            <button id="view-sheets" class="nav-item">Sheets Grid</button>
+          </div>
+
+          <div class="nav-section">
+            <h2>Session</h2>
+            <div class="meta-card">
+              <p><span>Status</span><strong id="session-status">Booting</strong></p>
+              <p><span>Sheet Rows</span><strong id="sheet-row-count">-</strong></p>
+              <p><span>Drive Files</span><strong id="drive-file-count">-</strong></p>
+            </div>
+            <div class="token-box">
+              <label for="api-token">API Token (optional)</label>
+              <input id="api-token" type="password" placeholder="Bearer token" />
+              <button id="save-token-btn" class="btn">Token speichern</button>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <h2>Hinweis</h2>
+            <p class="hint">Dieser Viewer arbeitet serverseitig mit dem Dienstkonto. Keine Credential-Daten gelangen in den Browser.</p>
+          </div>
+        </aside>
+
+        <main class="content">
+          <section id="drive-view" class="view active">
+            <div class="toolbar">
+              <div id="drive-breadcrumb" class="breadcrumb"></div>
+              <div class="toolbar-right">
+                <input id="drive-search" type="search" placeholder="Dateien im Ordner suchen" />
+                <button id="drive-search-btn" class="btn">Suchen</button>
+                <button id="drive-more-btn" class="btn">Mehr laden</button>
+                <button id="drive-reset-btn" class="btn">Reset</button>
+              </div>
+            </div>
+
+            <div class="split-layout">
+              <div class="panel drive-panel">
+                <div class="panel-head">
+                  <h3>Dateien</h3>
+                  <span id="drive-folder-name" class="chip neutral">-</span>
+                </div>
+                <div class="table-wrap">
+                  <table id="drive-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Typ</th>
+                        <th>Geaendert</th>
+                        <th>Groesse</th>
+                      </tr>
+                    </thead>
+                    <tbody id="drive-rows"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <aside class="panel details-panel">
+                <div class="panel-head">
+                  <h3>Details</h3>
+                </div>
+                <div id="file-details" class="details-body empty">Keine Datei ausgewaehlt</div>
+                <div class="details-actions">
+                  <button id="open-file-btn" class="btn solid" disabled>Oeffnen</button>
+                  <button id="download-file-btn" class="btn" disabled>Download/Export</button>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section id="sheets-view" class="view">
+            <div class="toolbar sheet-toolbar">
+              <div id="sheet-tabs" class="tabs"></div>
+              <div class="toolbar-right">
+                <button id="sheet-refresh-btn" class="btn">Sheet neu laden</button>
+                <button id="sheet-batch-btn" class="btn">BatchGet Test</button>
+              </div>
+            </div>
+
+            <div class="panel formula-panel">
+              <label for="formula-value">Aktive Zelle</label>
+              <input id="formula-value" type="text" readonly />
+            </div>
+
+            <div class="panel sheet-panel">
+              <div class="panel-head">
+                <h3 id="sheet-title">Spreadsheet</h3>
+                <span id="sheet-range" class="chip neutral">-</span>
+              </div>
+              <div class="sheet-grid-wrap">
+                <table id="sheet-grid">
+                  <thead id="sheet-head"></thead>
+                  <tbody id="sheet-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

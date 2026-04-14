@@ -1,11 +1,13 @@
 export type WorkerRole = 'write' | 'read' | 'ocr' | 'qa';
 export type WorkerStatus = 'ACTIVE' | 'LEGACY';
 export type MicioProfile = 'core' | 'ocr' | 'qa';
+export type WorkerScheduleClass = 'core' | 'ocr' | 'qa' | 'manual';
 
 export type WorkerId =
   | 'micro_sync_drive_changes'
   | 'micro_sheet_delete_archive_sync'
   | 'micro_enrich_buchhaltung_db'
+  | 'micro_resolve_unclear'
   | 'micro_tax_category_assign'
   | 'micro_konto_assign'
   | 'micro_plausibility_duplicate'
@@ -33,6 +35,8 @@ export interface WorkerDefinition {
   id: WorkerId;
   status: WorkerStatus;
   role: WorkerRole;
+  scheduleClass?: WorkerScheduleClass;
+  enabledByDefault?: boolean;
   sourcePath: string;
   distEntry?: string;
   requiredEnv: string[];
@@ -47,6 +51,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micro_sync_drive_changes',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_sync_drive_changes.ts',
     distEntry: 'dist-micro/orchestrator/micro_sync_drive_changes.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -58,16 +64,21 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micro_sheet_delete_archive_sync',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_sheet_delete_archive_sync.ts',
     distEntry: 'dist-micro/orchestrator/micro_sheet_delete_archive_sync.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
     defaultTimeoutMs: 45000,
-    defaultBatch: 30
+    defaultBatch: 30,
+    micioProfiles: ['core']
   },
   {
     id: 'micro_enrich_buchhaltung_db',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_enrich_buchhaltung_db.ts',
     distEntry: 'dist-micro/orchestrator/micro_enrich_buchhaltung_db.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -76,9 +87,24 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     micioProfiles: ['core']
   },
   {
+    id: 'micro_resolve_unclear',
+    status: 'ACTIVE',
+    role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
+    sourcePath: 'src/orchestrator/micro_resolve_unclear.ts',
+    distEntry: 'dist-micro/orchestrator/micro_resolve_unclear.js',
+    requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
+    defaultTimeoutMs: 90000,
+    defaultBatch: 300,
+    micioProfiles: ['core']
+  },
+  {
     id: 'micro_tax_category_assign',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_tax_category_assign.ts',
     distEntry: 'dist-micro/orchestrator/micro_tax_category_assign.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -90,6 +116,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micro_konto_assign',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_konto_assign.ts',
     distEntry: 'dist-micro/orchestrator/micro_konto_assign.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -101,15 +129,20 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micro_plausibility_duplicate',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_plausibility_duplicate.ts',
     distEntry: 'dist-micro/orchestrator/micro_plausibility_duplicate.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
-    defaultTimeoutMs: 60000
+    defaultTimeoutMs: 60000,
+    micioProfiles: ['core']
   },
   {
     id: 'micro_sheet_formula_guard',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'core',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_sheet_formula_guard.ts',
     distEntry: 'dist-micro/orchestrator/micro_sheet_formula_guard.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -120,6 +153,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micro_ocr_audit_1nm',
     status: 'ACTIVE',
     role: 'ocr',
+    scheduleClass: 'ocr',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_ocr_audit_1nm.ts',
     distEntry: 'dist-micro/orchestrator/micro_ocr_audit_1nm.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -131,16 +166,21 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micro_clean_private_1nm',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'ocr',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_clean_private_1nm.ts',
     distEntry: 'dist-micro/orchestrator/micro_clean_private_1nm.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
     defaultTimeoutMs: 60000,
-    defaultBatch: 2
+    defaultBatch: 2,
+    micioProfiles: ['ocr']
   },
   {
     id: 'micro_local_118_tesseract_filter',
     status: 'ACTIVE',
     role: 'ocr',
+    scheduleClass: 'ocr',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/micro_local_118_tesseract_filter.ts',
     distEntry: 'dist-micro/orchestrator/micro_local_118_tesseract_filter.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -152,6 +192,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'micio_scheduler',
     status: 'ACTIVE',
     role: 'qa',
+    scheduleClass: 'manual',
+    enabledByDefault: false,
     sourcePath: 'src/orchestrator/micio_scheduler.ts',
     distEntry: 'dist-micro/orchestrator/micio_scheduler.js',
     requiredEnv: [],
@@ -161,6 +203,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'zio_guard_worker',
     status: 'ACTIVE',
     role: 'qa',
+    scheduleClass: 'manual',
+    enabledByDefault: false,
     sourcePath: 'src/orchestrator/zio_guard_worker.ts',
     distEntry: 'dist-micro/orchestrator/zio_guard_worker.js',
     requiredEnv: [],
@@ -170,6 +214,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'aiometrics_worker',
     status: 'ACTIVE',
     role: 'qa',
+    scheduleClass: 'manual',
+    enabledByDefault: false,
     sourcePath: 'src/orchestrator/aiometrics_worker.ts',
     distEntry: 'dist-micro/orchestrator/aiometrics_worker.js',
     requiredEnv: [],
@@ -179,6 +225,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'check_all_years_integrity',
     status: 'ACTIVE',
     role: 'read',
+    scheduleClass: 'qa',
+    enabledByDefault: false,
     sourcePath: 'src/orchestrator/check_all_years_integrity.ts',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
     defaultTimeoutMs: 120000
@@ -187,6 +235,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'check_2023_integrity',
     status: 'ACTIVE',
     role: 'read',
+    scheduleClass: 'qa',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/check_2023_integrity.ts',
     distEntry: 'dist-micro/orchestrator/check_2023_integrity.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -197,6 +247,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'audit_2023_strict',
     status: 'ACTIVE',
     role: 'qa',
+    scheduleClass: 'qa',
+    enabledByDefault: true,
     sourcePath: 'src/orchestrator/audit_2023_strict.ts',
     distEntry: 'dist-micro/orchestrator/audit_2023_strict.js',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
@@ -207,6 +259,8 @@ export const WORKER_MANIFEST: WorkerDefinition[] = [
     id: 'repair_2023',
     status: 'ACTIVE',
     role: 'write',
+    scheduleClass: 'manual',
+    enabledByDefault: false,
     sourcePath: 'src/orchestrator/repair_2023.ts',
     requiredEnv: ['GOOGLE_CREDENTIALS_PATH', 'GOOGLE_SHEET_ID'],
     defaultTimeoutMs: 120000,
@@ -286,13 +340,17 @@ export const LEGACY_WORKERS = WORKER_MANIFEST.filter((w) => w.status === 'LEGACY
 export const MICIO_PROFILE_WORKERS: Record<MicioProfile, WorkerId[]> = {
   core: [
     'micro_sync_drive_changes',
+    'micro_sheet_delete_archive_sync',
     'micro_enrich_buchhaltung_db',
+    'micro_resolve_unclear',
     'micro_tax_category_assign',
     'micro_konto_assign',
+    'micro_plausibility_duplicate',
     'micro_sheet_formula_guard'
   ],
   ocr: [
     'micro_ocr_audit_1nm',
+    'micro_clean_private_1nm',
     'micro_local_118_tesseract_filter'
   ],
   qa: [
@@ -311,4 +369,8 @@ export function getWorkerDefinition(id: WorkerId): WorkerDefinition {
 
 export function getMicioProfileWorkers(profile: MicioProfile): WorkerDefinition[] {
   return MICIO_PROFILE_WORKERS[profile].map((id) => getWorkerDefinition(id));
+}
+
+export function getDefaultEnabledActiveWorkers(): WorkerDefinition[] {
+  return ACTIVE_WORKERS.filter((worker) => worker.enabledByDefault === true);
 }

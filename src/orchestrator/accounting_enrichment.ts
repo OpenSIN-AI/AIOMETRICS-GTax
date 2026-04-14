@@ -131,9 +131,52 @@ async function runWithRateLimitRetry<T>(fn: () => Promise<T>, op: string): Promi
 }
 
 function parseAmount(raw: string): number {
-  const clean = raw.replace(/\./g, '').replace(',', '.').replace(/[^\d.-]/g, '');
-  const n = Number.parseFloat(clean);
-  return Number.isFinite(n) ? n : 0;
+  const cleaned = String(raw || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/[^\d,.\-]/g, '')
+    .trim();
+  if (!cleaned) return 0;
+
+  const sign = cleaned.startsWith('-') ? -1 : 1;
+  const unsigned = cleaned.replace(/-/g, '');
+  if (!unsigned) return 0;
+
+  const hasComma = unsigned.includes(',');
+  const hasDot = unsigned.includes('.');
+  let normalized = unsigned;
+
+  if (hasComma && hasDot) {
+    // Decimal separator is usually the right-most symbol.
+    normalized = unsigned.lastIndexOf(',') > unsigned.lastIndexOf('.')
+      ? unsigned.replace(/\./g, '').replace(/,/g, '.')
+      : unsigned.replace(/,/g, '');
+  } else if (hasComma) {
+    const lastComma = unsigned.lastIndexOf(',');
+    const frac = unsigned.slice(lastComma + 1);
+    if (frac.length === 2) {
+      normalized = `${unsigned.slice(0, lastComma).replace(/[.,]/g, '')}.${frac}`;
+    } else if (unsigned.split(',').length === 2 && frac.length === 3) {
+      normalized = unsigned.replace(/,/g, '');
+    } else {
+      normalized = unsigned.replace(/,/g, '.');
+    }
+  } else if (hasDot) {
+    const lastDot = unsigned.lastIndexOf('.');
+    const frac = unsigned.slice(lastDot + 1);
+    if (frac.length === 2) {
+      normalized = `${unsigned.slice(0, lastDot).replace(/\./g, '')}.${frac}`;
+    } else if (unsigned.split('.').length === 2 && frac.length === 3) {
+      normalized = unsigned.replace(/\./g, '');
+    }
+  }
+
+  const n = Number.parseFloat(normalized);
+  return Number.isFinite(n) ? sign * n : 0;
+}
+
+function roundCurrency(value: number): number {
+  if (!Number.isFinite(value)) return 0;
+  return Math.round(value * 100) / 100;
 }
 
 function toIsoDate(raw: string): string {
@@ -498,17 +541,42 @@ async function main(): Promise<void> {
     'target_folder_id',
     'analyzed_at'
   ];
+  const moneyFieldNames = new Set([
+    'mwst_19_betrag',
+    'mwst_7_betrag',
+    'mwst_0_betrag',
+    'netto_gesamt',
+    'brutto_gesamt',
+    'geschaeftliche_mwst',
+    'private_mwst',
+    'geschaeftlicher_anteil_brutto',
+    'privater_anteil_brutto'
+  ]);
+  const moneyColumnIndexes = dbHeaders
+    .map((header, index) => (moneyFieldNames.has(header) ? index : -1))
+    .filter((index) => index >= 0);
 
   const existingDb = await sheets.spreadsheets.values.get({
     spreadsheetId,
     range: `${dbSheetTitle}`
   });
   const dbRows = existingDb.data.values || [];
-  const existingByDriveId = new Map<string, string[]>();
+  const existingByDriveId = new Map<string, Array<string | number>>();
   if (dbRows.length > 1) {
     for (const row of dbRows.slice(1)) {
       const driveId = row[0] || '';
-      if (driveId) existingByDriveId.set(driveId, row);
+      if (!driveId) continue;
+      const normalized = [...(row as Array<string | number>)];
+      for (const index of moneyColumnIndexes) {
+        const raw = normalized[index];
+        const text = String(raw ?? '').trim();
+        if (!text) continue;
+        const parsed = parseAmount(text);
+        if (Number.isFinite(parsed)) {
+          normalized[index] = roundCurrency(parsed);
+        }
+      }
+      existingByDriveId.set(driveId, normalized);
     }
   }
 
@@ -528,15 +596,15 @@ async function main(): Promise<void> {
       '',
       '',
       '',
-      '0.00',
-      '0.00',
-      '0.00',
-      '0.00',
-      '0.00',
-      '0.00',
-      '0.00',
-      '0.00',
-      '0.00',
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
       '',
       '',
       '',
@@ -832,15 +900,15 @@ async function main(): Promise<void> {
         parsed.belegdatum,
         parsed.leistungsdatum,
         parsed.steuerkategorie,
-        parsed.mwst19.toFixed(2),
-        parsed.mwst7.toFixed(2),
-        parsed.mwst0.toFixed(2),
-        parsed.nettoGesamt.toFixed(2),
-        parsed.bruttoGesamt.toFixed(2),
-        parsed.geschaeftlicheMwst.toFixed(2),
-        parsed.privateMwst.toFixed(2),
-        parsed.geschaeftlicherAnteilBrutto.toFixed(2),
-        parsed.privaterAnteilBrutto.toFixed(2),
+        roundCurrency(parsed.mwst19),
+        roundCurrency(parsed.mwst7),
+        roundCurrency(parsed.mwst0),
+        roundCurrency(parsed.nettoGesamt),
+        roundCurrency(parsed.bruttoGesamt),
+        roundCurrency(parsed.geschaeftlicheMwst),
+        roundCurrency(parsed.privateMwst),
+        roundCurrency(parsed.geschaeftlicherAnteilBrutto),
+        roundCurrency(parsed.privaterAnteilBrutto),
         parsed.sollkonto,
         parsed.habenkonto,
         parsed.iban,
@@ -878,7 +946,7 @@ async function main(): Promise<void> {
       () => sheets.spreadsheets.values.update({
         spreadsheetId,
         range: `${dbSheetTitle}!A1`,
-        valueInputOption: 'USER_ENTERED',
+        valueInputOption: 'RAW',
         requestBody: { values: [dbHeaders, ...finalRows] }
       }),
       'db.update'

@@ -1,14 +1,14 @@
 # Final Acceptance Report
 
-- Timestamp: 2026-02-26T01:58:02.256Z
-- Run ID: 51d1cdbb-f7d2-4c4e-b507-2e073ea45649
-- Scope years: 2000, 2004, 2016, 2022, 2023, 2024, 2025, 2026
+- Timestamp: 2026-02-27T12:52:36.457Z
+- Run ID: c86a305a-1c1e-43d2-b035-e70fbd0c28ca
+- Scope years: 2000, 2016, 2022, 2023, 2024, 2025, 2026
 - Done (all gates green): YES
 
 ## KPI Summary
 
-- records_before: 1828
-- records_after: 1828
+- records_before: 1822
+- records_after: 1811
 - driveOnly_total: 0
 - sheetOnly_total: 0
 - duplicate_drive_file_id_total: 0
@@ -29,7 +29,6 @@
 ## Yearly Gate Status
 
 - 2000: pass=true driveOnly=0 sheetOnly=0 duplicateDriveIds=0
-- 2004: pass=true driveOnly=0 sheetOnly=0 duplicateDriveIds=0
 - 2016: pass=true driveOnly=0 sheetOnly=0 duplicateDriveIds=0
 - 2022: pass=true driveOnly=0 sheetOnly=0 duplicateDriveIds=0
 - 2023: pass=true driveOnly=0 sheetOnly=0 duplicateDriveIds=0
@@ -42,70 +41,71 @@
 
 ## Stage Results
 
-- build: OK (267651ms)
-- start_sync#1: OK (241121ms)
-- soft_audit#1: OK (148794ms)
-- integrity_check#1: OK (133092ms)
-- mismatch_resolve#1: OK (119594ms)
-- quality_check#1: OK (98512ms)
-- contract_sync_guard#1: OK (39013ms)
-- governance_check#1: OK (3582ms)
-- idempotency_check#1: OK (155915ms)
+- build: OK (5394ms)
+- start_sync#1: OK (140828ms)
+- soft_audit#1: OK (79078ms)
+- integrity_check#1: OK (17414ms)
+- mismatch_resolve#1: OK (66151ms)
+- quality_check#1: OK (25106ms)
+- contract_sync_guard#1: OK (23329ms)
+- governance_check#1: OK (4560ms)
+- idempotency_check#1: OK (145503ms)
 
 ## QA Issues (Top 50)
 
 - MEDIUM | 1toCRELAsvvRLmjTwWqZHoALN9yQ7aEoK | 2000 | Sonstiges | weak_text_extraction, missing_amount_pattern
-- MEDIUM | 1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO | 2022 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 1dIrxIKmh7ulb0TKC-hPr431Jmh-N-zIm | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
+- HIGH | 1X2t4_OqAOfi7PJk-olbJozyD8ihOxFqO | 2022 | Rechnungen | missing_metadata
 - MEDIUM | 1vDG9ecAM_rzCHLER5Hyd-BwYx6WS0vOb | 2025 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
 - MEDIUM | 11yKeHBkFGme_cHKRjbGPDdorloqwHfCh | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
-- HIGH | 1k-eEfIZFZMXRV9gxrv5Ur26cue7Okwd3 | 2026 | Sonstiges | missing_metadata
+- HIGH | 1p7kZxRZdACeVQXjA4GzPgFhvMfkgiSN_ | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1Fy8iDcOH5w90NsZVA6WdrjW1OTZhh2Fy | 2026 | Vertraege | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 1e09ZeYJ5IXn8tamnwonWFxzJSeqNI4Yo | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
+- MEDIUM | 1wf9AKbaOzUt3WzpLiQoLYaPhsTzLQbxx | 2023 | Rechnungen | invalid_amount_pattern
+- MEDIUM | 1dIrxIKmh7ulb0TKC-hPr431Jmh-N-zIm | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
 - MEDIUM | 1fn7hr3lNXXP_dulTu7akES2J1iWFkP84 | 2025 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
 - MEDIUM | 1Sl-MPbqUG6RNfGBj2pE6peOGF0huThXY | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 1wf9AKbaOzUt3WzpLiQoLYaPhsTzLQbxx | 2023 | Rechnungen | invalid_amount_pattern
-- MEDIUM | 1ihbpI1kb9vZrD8GshMVqPhy3Es-DFdlb | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
-- MEDIUM | 1EYNaFTV7L-2gL7FECu4SNdPNjl6TZCxh | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb | 2023 | Rechnungen | invalid_amount_pattern
-- MEDIUM | 1-lM5l0aYQ8-PeXEepzVDrII9dnjPruBl | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
-- MEDIUM | 1NtL1j8nn_lxcPhpsF3nClXDR4-ENVDfC | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
 - MEDIUM | 1Sm73OznokeIqZfUYktcBTBUaesjNxjm0 | 2026 | Sonstiges | missing_amount_pattern
-- MEDIUM | 1R4pM1ui6GHth5gjYBehKhfWW6-fGfk3E | 2025 | Sonstiges | missing_amount_pattern
-- HIGH | 1YhfEsUeMbjuzmfAhaem9EDKK3WPkkJGM | 2023 | Sonstiges | missing_metadata
-- MEDIUM | 19cNIuJ02kWp1L7uDgKmBSHPUMeAFfSAu | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
-- HIGH | 1BdMtBd_Gu3l_xU491z1s8tQv09YVeWtM | 2023 | Sonstiges | missing_metadata
+- MEDIUM | 1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb | 2023 | Rechnungen | invalid_amount_pattern
+- MEDIUM | 1e09ZeYJ5IXn8tamnwonWFxzJSeqNI4Yo | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
+- MEDIUM | 1EYNaFTV7L-2gL7FECu4SNdPNjl6TZCxh | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
+- MEDIUM | 1ihbpI1kb9vZrD8GshMVqPhy3Es-DFdlb | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
+- MEDIUM | 1NtL1j8nn_lxcPhpsF3nClXDR4-ENVDfC | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
+- MEDIUM | 1-lM5l0aYQ8-PeXEepzVDrII9dnjPruBl | 2023 | Sonstiges | weak_text_extraction, missing_amount_pattern
+- HIGH | 19cNIuJ02kWp1L7uDgKmBSHPUMeAFfSAu | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1JDfCgF_G2vfp9_gW2cuW-wmyQ-81ItUy | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 1j7ztz3ZKYn16z4o8IUwuVouqzUP4JaCE | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
-- HIGH | 1n1HxIaJRvU-sWWdqF3mjnAFHpqFJPBu9 | 2023 | Sonstiges | missing_metadata
+- HIGH | 1j7ztz3ZKYn16z4o8IUwuVouqzUP4JaCE | 2026 | Rechnungen | missing_metadata
+- HIGH | 1YhfEsUeMbjuzmfAhaem9EDKK3WPkkJGM | 2023 | Sonstiges | missing_metadata
 - MEDIUM | 1IeQrMNQS0TYAYllZvSlHOWz2_fyukJ1f | 2025 | Sonstiges | missing_amount_pattern
-- MEDIUM | 1hF20dThc3a8KlvjenQL4rDEn1Iaoz_yE | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
-- HIGH | 18ws1ndidR-paQVgYvB8dKvdOVnjASQ4q | 2023 | Sonstiges | missing_metadata
-- MEDIUM | 1zo-76SoIxnF7c5L5KltRpXekwF9JW2wB | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 139jRvMViJBaiALgsTUwk-EfAwtkprqrn | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
+- HIGH | 139jRvMViJBaiALgsTUwk-EfAwtkprqrn | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1es2NIM1NGlUiFu8LSsDibfAo08sq3NJ- | 2026 | Sonstiges | missing_amount_pattern
-- MEDIUM | 1zShOzsvLRLMWQMHxZ5JwGcIgZiuvlegC | 2023 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
-- MEDIUM | 10JO_PFPsKq9lqOxrhuyEbxaLdHTL0Rd8 | 2024 | Sonstiges | missing_metadata, missing_amount_pattern
-- MEDIUM | 12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5 | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
+- HIGH | 1BdMtBd_Gu3l_xU491z1s8tQv09YVeWtM | 2023 | Sonstiges | missing_metadata
+- MEDIUM | 1zo-76SoIxnF7c5L5KltRpXekwF9JW2wB | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
+- HIGH | 12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5 | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1-1qBGDdz8A9NCJ5zMScko-6g5SxboHwf | 2026 | Sonstiges | missing_amount_pattern
-- MEDIUM | 1MDP334pHdfoOvhChrb2aSsTZt5XhedXh | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
+- HIGH | 1zShOzsvLRLMWQMHxZ5JwGcIgZiuvlegC | 2023 | Rechnungen | missing_metadata
+- HIGH | 1n1HxIaJRvU-sWWdqF3mjnAFHpqFJPBu9 | 2023 | Sonstiges | missing_metadata
+- MEDIUM | 10JO_PFPsKq9lqOxrhuyEbxaLdHTL0Rd8 | 2024 | Sonstiges | missing_metadata, missing_amount_pattern
+- HIGH | 1MDP334pHdfoOvhChrb2aSsTZt5XhedXh | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1c-RIQZpkTGFjkgyzgB-KLEjh6CRovvWw | 2026 | Sonstiges | weak_text_extraction, missing_amount_pattern
-- MEDIUM | 1Chlrls0ADa1UxTvCSDd8eZw7AXNadW8x | 2023 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
-- HIGH | 1nTCcXoyjUparwOd2rW_m-5ZDbbmwmw2h | 2023 | Sonstiges | missing_metadata
-- MEDIUM | 1p7kZxRZdACeVQXjA4GzPgFhvMfkgiSN_ | 2026 | Rechnungen | weak_text_extraction, missing_metadata, missing_amount_pattern
+- HIGH | 18ws1ndidR-paQVgYvB8dKvdOVnjASQ4q | 2023 | Sonstiges | missing_metadata
+- HIGH | 1PuWyKYHdvrye2Ypaiqi13tYif6RpAeVp | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1C8AWbGuJ8wiq3dYzvamFKE1KlYzk1PQh | 2026 | Sonstiges | weak_text_extraction, missing_amount_pattern
-- HIGH | 1ac15t5y7ak1wpAfL-9QkXGY6qu37_z-M | 2023 | Sonstiges | missing_metadata
+- HIGH | 1Chlrls0ADa1UxTvCSDd8eZw7AXNadW8x | 2023 | Rechnungen | missing_metadata
+- HIGH | 1tD1ldR4Yo3JSD513fuciPrImCilQ4Jtq | 2026 | Rechnungen | missing_metadata
 - MEDIUM | 1D7dw_kQCqOBcJT7IbvdYE9RF3xbnzaTw | 2025 | Sonstiges | weak_text_extraction, missing_metadata, missing_amount_pattern
+- HIGH | 1-zumKDbaN_xuScjzHfGhqzo2bnFOXN_b | 2026 | Rechnungen | missing_metadata
+- MEDIUM | 1XpGSbS2UZb8m3Yrqt2BTMpp24fpesWp7 | 2026 | Sonstiges | missing_amount_pattern
+- HIGH | 1nTCcXoyjUparwOd2rW_m-5ZDbbmwmw2h | 2023 | Sonstiges | missing_metadata
+- HIGH | 1fwCXiMWsYDdTfGAuD40UPLPN3lQhS1GC | 2026 | Rechnungen | missing_metadata
+- MEDIUM | 1D-lRciMSIfyzzWgc1Hmb8OP51rouCXBy | 2026 | Sonstiges | weak_text_extraction, missing_amount_pattern
 
 ## JSON Appendix
 
 ```json
 {
-  "timestamp": "2026-02-26T01:58:02.256Z",
-  "runId": "51d1cdbb-f7d2-4c4e-b507-2e073ea45649",
+  "timestamp": "2026-02-27T12:52:36.457Z",
+  "runId": "c86a305a-1c1e-43d2-b035-e70fbd0c28ca",
   "scopeYears": [
     "2000",
-    "2004",
     "2016",
     "2022",
     "2023",
@@ -115,7 +115,6 @@
   ],
   "years": [
     "2000",
-    "2004",
     "2016",
     "2022",
     "2023",
@@ -127,80 +126,82 @@
     {
       "stage": "build",
       "ok": true,
-      "startedAt": "2026-02-26T01:37:54.978Z",
-      "finishedAt": "2026-02-26T01:42:22.629Z",
-      "durationMs": 267651
+      "startedAt": "2026-02-27T12:44:09.092Z",
+      "finishedAt": "2026-02-27T12:44:14.486Z",
+      "durationMs": 5394
     },
     {
       "stage": "start_sync#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:42:22.629Z",
-      "finishedAt": "2026-02-26T01:46:23.747Z",
-      "durationMs": 241121
+      "startedAt": "2026-02-27T12:44:14.486Z",
+      "finishedAt": "2026-02-27T12:46:35.314Z",
+      "durationMs": 140828
     },
     {
       "stage": "soft_audit#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:46:23.751Z",
-      "finishedAt": "2026-02-26T01:48:52.545Z",
-      "durationMs": 148794
+      "startedAt": "2026-02-27T12:46:35.314Z",
+      "finishedAt": "2026-02-27T12:47:54.392Z",
+      "durationMs": 79078
     },
     {
       "stage": "integrity_check#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:48:52.545Z",
-      "finishedAt": "2026-02-26T01:51:05.637Z",
-      "durationMs": 133092
+      "startedAt": "2026-02-27T12:47:54.393Z",
+      "finishedAt": "2026-02-27T12:48:11.807Z",
+      "durationMs": 17414
     },
     {
       "stage": "mismatch_resolve#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:51:05.637Z",
-      "finishedAt": "2026-02-26T01:53:05.231Z",
-      "durationMs": 119594
+      "startedAt": "2026-02-27T12:48:11.807Z",
+      "finishedAt": "2026-02-27T12:49:17.958Z",
+      "durationMs": 66151
     },
     {
       "stage": "quality_check#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:53:05.231Z",
-      "finishedAt": "2026-02-26T01:54:43.743Z",
-      "durationMs": 98512
+      "startedAt": "2026-02-27T12:49:17.958Z",
+      "finishedAt": "2026-02-27T12:49:43.064Z",
+      "durationMs": 25106
     },
     {
       "stage": "contract_sync_guard#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:54:43.743Z",
-      "finishedAt": "2026-02-26T01:55:22.756Z",
-      "durationMs": 39013
+      "startedAt": "2026-02-27T12:49:43.064Z",
+      "finishedAt": "2026-02-27T12:50:06.393Z",
+      "durationMs": 23329
     },
     {
       "stage": "governance_check#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:55:22.756Z",
-      "finishedAt": "2026-02-26T01:55:26.338Z",
-      "durationMs": 3582
+      "startedAt": "2026-02-27T12:50:06.393Z",
+      "finishedAt": "2026-02-27T12:50:10.952Z",
+      "durationMs": 4560
     },
     {
       "stage": "idempotency_check#1",
       "ok": true,
-      "startedAt": "2026-02-26T01:55:26.338Z",
-      "finishedAt": "2026-02-26T01:58:02.252Z",
-      "durationMs": 155915
+      "startedAt": "2026-02-27T12:50:10.953Z",
+      "finishedAt": "2026-02-27T12:52:36.456Z",
+      "durationMs": 145503
     }
   ],
   "baseline": {
-    "records": 1828,
+    "records": 1822,
     "categories": {
-      "Rechnungen": 184,
-      "Sonstiges": 1643,
-      "Vertraege": 1
+      "Rechnungen": 176,
+      "Sonstiges": 1640,
+      "Vertraege": 1,
+      "Unkategorisiert": 5
     },
     "tabs": [
       "Archiv",
       "Audit_Tabellen",
       "Audit_Tabellen_Legacy_20260225024542",
+      "Audit_Tabellen_Legacy_20260227040425",
+      "Audit_Tabellen_Legacy_20260227124256",
       "Ausgaben_2000",
-      "Ausgaben_2004",
       "Ausgaben_2016",
       "Ausgaben_2022",
       "Ausgaben_2023",
@@ -212,7 +213,6 @@
       "Eigenbeleg",
       "Eigenbelege",
       "Einnahmen_2000",
-      "Einnahmen_2004",
       "Einnahmen_2016",
       "Einnahmen_2022",
       "Einnahmen_2023",
@@ -223,6 +223,7 @@
       "Fehlende Belege",
       "Finanz-Cockpit",
       "Harte Duplikatpruefung",
+      "OCR_HARD_FAILS",
       "Ordner_2022",
       "Ordner_2023",
       "Ordner_2024",
@@ -254,18 +255,19 @@
     "forbiddenMarkerHits": 0
   },
   "after": {
-    "records": 1828,
+    "records": 1811,
     "categories": {
-      "Rechnungen": 184,
-      "Sonstiges": 1643,
+      "Rechnungen": 175,
+      "Sonstiges": 1635,
       "Vertraege": 1
     },
     "tabs": [
       "Archiv",
       "Audit_Tabellen",
       "Audit_Tabellen_Legacy_20260225024542",
+      "Audit_Tabellen_Legacy_20260227040425",
+      "Audit_Tabellen_Legacy_20260227124256",
       "Ausgaben_2000",
-      "Ausgaben_2004",
       "Ausgaben_2016",
       "Ausgaben_2022",
       "Ausgaben_2023",
@@ -277,7 +279,6 @@
       "Eigenbeleg",
       "Eigenbelege",
       "Einnahmen_2000",
-      "Einnahmen_2004",
       "Einnahmen_2016",
       "Einnahmen_2022",
       "Einnahmen_2023",
@@ -288,6 +289,7 @@
       "Fehlende Belege",
       "Finanz-Cockpit",
       "Harte Duplikatpruefung",
+      "OCR_HARD_FAILS",
       "Ordner_2022",
       "Ordner_2023",
       "Ordner_2024",
@@ -341,13 +343,6 @@
       "pass": true
     },
     {
-      "year": "2004",
-      "driveOnly": 0,
-      "sheetOnly": 0,
-      "duplicateDriveIds": 0,
-      "pass": true
-    },
-    {
       "year": "2016",
       "driveOnly": 0,
       "sheetOnly": 0,
@@ -393,10 +388,9 @@
   "governanceFindings": [],
   "contractSync": {
     "version": "2026.1",
-    "timestamp": "2026-02-26T01:55:22.666Z",
+    "timestamp": "2026-02-27T12:50:06.362Z",
     "scopeYears": [
       "2000",
-      "2004",
       "2016",
       "2022",
       "2023",
@@ -407,8 +401,8 @@
     "gates": {
       "gateA": {
         "pass": true,
-        "driveCount": 1828,
-        "sheetCount": 1828,
+        "driveCount": 1811,
+        "sheetCount": 1811,
         "driveOnly": 0,
         "sheetOnly": 0,
         "duplicateDriveIds": 0
@@ -419,13 +413,6 @@
         "perYear": [
           {
             "year": "2000",
-            "driveOnly": 0,
-            "sheetOnly": 0,
-            "duplicateDriveIds": 0,
-            "pass": true
-          },
-          {
-            "year": "2004",
             "driveOnly": 0,
             "sheetOnly": 0,
             "duplicateDriveIds": 0,
@@ -493,29 +480,29 @@
           {
             "tab": "EÜR",
             "cell": "B5",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!M2:M>0));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!M2:M>0));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!M2:M>0));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B6",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!N2:N>0));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!N2:N>0));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!N2:N>0));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B7",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; Buchhaltung_DB!O2:O>0));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!O2:O>0));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; Buchhaltung_DB!O2:O>0));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B8",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B5:B7);0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0))-SUM(B5:B7);0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Einnahme\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0))-SUM(B5:B7);0)",
             "pass": true
           },
           {
@@ -528,64 +515,85 @@
           {
             "tab": "EÜR",
             "cell": "B12",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)material|pv\")));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)material|pv\")));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"material|waren|pv|photovoltaik\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"material|waren|pv|photovoltaik\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B13",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)kraftstoff|benzin|diesel\")));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)kraftstoff|benzin|diesel\")));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"kraftstoff|benzin|diesel|tank\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"kraftstoff|benzin|diesel|tank\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B14",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)telekommunikation|it|hosting|domain\")));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)telekommunikation|it|hosting|domain\")));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"bewirt|restaurant|cafe|imbiss|wolt|lieferando\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"bewirt|restaurant|cafe|imbiss|wolt|lieferando\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B15",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)versicherung\")));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2; REGEXMATCH(Buchhaltung_DB!L2:L;\"(?i)versicherung\")));0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"telekommunikation|it|hosting|domain|software|cloud\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"telekommunikation|it|hosting|domain|software|cloud\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B16",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(B12:B15);0)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"strom|energie\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"strom|energie\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B17",
-            "expectedFormula": "=SUM(B12:B16)",
-            "actualFormula": "=SUM(B12:B16)",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"miete|pacht\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"miete|pacht\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B18",
-            "expectedFormula": "=B9-B17",
-            "actualFormula": "=B9-B17",
+            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"versicherung\")));0)",
+            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!Q2:Q; (N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0; ((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0; REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"versicherung\")));0)",
             "pass": true
           },
           {
             "tab": "EÜR",
             "cell": "B19",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))+SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2))-SUM(FILTER(Buchhaltung_DB!N2:N; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=$B$2));0)",
+            "expectedFormula": "=MAX(0;B20-SUM(B12:B18))",
+            "actualFormula": "=MAX(0;B20-SUM(B12:B18))",
             "pass": true
           },
           {
-            "tab": "Finanz-Cockpit",
-            "cell": "B2",
-            "expectedFormula": "=YEAR(TODAY())",
-            "actualFormula": "=YEAR(TODAY())",
+            "tab": "EÜR",
+            "cell": "B20",
+            "expectedFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!Q2:Q))",
+            "actualFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!Q2:Q))",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B22",
+            "expectedFormula": "=B9-B20",
+            "actualFormula": "=B9-B20",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B23",
+            "expectedFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!U2:U))",
+            "actualFormula": "=SUMPRODUCT(N((N(Buchhaltung_DB!E2:E=\"Ausgabe\")+N(N(Buchhaltung_DB!E2:E<>\"Einnahme\")*N(Buchhaltung_DB!E2:E<>\"Ausgabe\")>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C&\" \"&Buchhaltung_DB!L2:L);\"einnahmen.{0,12}berschussrechnung|umsatzsteuer.{0,18}voranmeldung|steuerbescheid|jahresabschluss|gewinn.{0,8}verlust|kontenblatt|\\\\bbwa\\\\b|\\\\belster\\\\b\"))=0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"ausgaben|material|waren|kraftstoff|benzin|bewirt|telekommunikation|it|hosting|strom|energie|miete|versicherung|sonstige\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\bausgabe\\\\b|\\\\brechnung\\\\b|\\\\binvoice\\\\b|\\\\bquittung\\\\b|\\\\bbestellung\\\\b\"))>0)*N(N(REGEXMATCH(LOWER(Buchhaltung_DB!L2:L);\"einnahmen|photovoltaik|\\\\bpv\\\\b\"))+N(REGEXMATCH(LOWER(Buchhaltung_DB!D2:D&\" \"&Buchhaltung_DB!C2:C);\"\\\\beinnahme\\\\b|\\\\bgutschrift\\\\b|\\\\bumsatz\\\\b\"))=0))>0)*N(((N($B$2)=0)+N(IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));IFERROR(YEAR(Buchhaltung_DB!J2:J);IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!D2:D;\"(20\\\\d{2})\"));IFERROR(VALUE(REGEXEXTRACT(Buchhaltung_DB!C2:C;\"(20\\\\d{2})\"));0))))=$B$2))>0)*N(Buchhaltung_DB!U2:U))",
+            "pass": true
+          },
+          {
+            "tab": "EÜR",
+            "cell": "B24",
+            "expectedFormula": "=B22+B23",
+            "actualFormula": "=B22+B23",
             "pass": true
           },
           {
@@ -597,37 +605,37 @@
           },
           {
             "tab": "Finanz-Cockpit",
-            "cell": "E5",
-            "expectedFormula": "=IFERROR(EÜR!B17;0)",
-            "actualFormula": "=IFERROR('EÜR'!B17;0)",
+            "cell": "D5",
+            "expectedFormula": "=IFERROR(EÜR!B20;0)",
+            "actualFormula": "=IFERROR('EÜR'!B20;0)",
+            "pass": true
+          },
+          {
+            "tab": "Finanz-Cockpit",
+            "cell": "F5",
+            "expectedFormula": "=B5-D5",
+            "actualFormula": "=B5-D5",
             "pass": true
           },
           {
             "tab": "Finanz-Cockpit",
             "cell": "H5",
-            "expectedFormula": "=IFERROR(EÜR!B18;0)",
-            "actualFormula": "=IFERROR('EÜR'!B18;0)",
+            "expectedFormula": "=IFERROR(Steuerreport!B10;0)",
+            "actualFormula": "=IFERROR(Steuerreport!B10;0)",
             "pass": true
           },
           {
             "tab": "Finanz-Cockpit",
-            "cell": "K5",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Einnahme\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
+            "cell": "J5",
+            "expectedFormula": "=IFERROR(Steuerreport!B11;0)",
+            "actualFormula": "=IFERROR(Steuerreport!B11;0)",
             "pass": true
           },
           {
             "tab": "Finanz-Cockpit",
-            "cell": "N5",
-            "expectedFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
-            "actualFormula": "=IFERROR(SUM(FILTER(Buchhaltung_DB!M2:M; Buchhaltung_DB!E2:E=\"Ausgabe\"; IFERROR(YEAR(DATEVALUE(Buchhaltung_DB!J2:J));0)=B2));0)",
-            "pass": true
-          },
-          {
-            "tab": "Finanz-Cockpit",
-            "cell": "Q5",
-            "expectedFormula": "=K5-N5",
-            "actualFormula": "=K5-N5",
+            "cell": "L5",
+            "expectedFormula": "=H5-J5",
+            "actualFormula": "=H5-J5",
             "pass": true
           }
         ],
@@ -636,40 +644,64 @@
             "label": "YearLink",
             "leftRef": "Finanz-Cockpit!B2",
             "rightRef": "EÜR!B2",
-            "expected": "2026.00",
-            "actual": "2026.00",
+            "expected": "0.00",
+            "actual": "0.00",
             "pass": true
           },
           {
             "label": "IncomeKPI",
             "leftRef": "Finanz-Cockpit!B5",
             "rightRef": "EÜR!B9",
-            "expected": "0.00",
-            "actual": "0.00",
+            "expected": "387495.83",
+            "actual": "387495.83",
             "pass": true
           },
           {
             "label": "ExpenseKPI",
-            "leftRef": "Finanz-Cockpit!E5",
-            "rightRef": "EÜR!B17",
-            "expected": "0.00",
-            "actual": "0.00",
+            "leftRef": "Finanz-Cockpit!D5",
+            "rightRef": "EÜR!B20",
+            "expected": "222938.67",
+            "actual": "222938.67",
             "pass": true
           },
           {
             "label": "ResultKPI",
-            "leftRef": "Finanz-Cockpit!H5",
-            "rightRef": "EÜR!B18",
-            "expected": "0.00",
-            "actual": "0.00",
+            "leftRef": "Finanz-Cockpit!F5",
+            "rightRef": "EÜR!B22",
+            "expected": "164557.16",
+            "actual": "164557.16",
             "pass": true
           },
           {
-            "label": "CockpitSaldoArithmetic",
-            "leftRef": "Finanz-Cockpit!Q5",
-            "rightRef": "Finanz-Cockpit!K5-N5",
-            "expected": "0.00",
-            "actual": "0.00",
+            "label": "OutputTaxKPI",
+            "leftRef": "Finanz-Cockpit!H5",
+            "rightRef": "Steuerreport!B10",
+            "expected": "59518.58",
+            "actual": "59518.58",
+            "pass": true
+          },
+          {
+            "label": "InputTaxKPI",
+            "leftRef": "Finanz-Cockpit!J5",
+            "rightRef": "Steuerreport!B11",
+            "expected": "34039.29",
+            "actual": "34039.29",
+            "pass": true
+          },
+          {
+            "label": "TaxSaldoKPI",
+            "leftRef": "Finanz-Cockpit!L5",
+            "rightRef": "Steuerreport!B12",
+            "expected": "25479.29",
+            "actual": "25479.29",
+            "pass": true
+          },
+          {
+            "label": "CockpitTaxSaldoArithmetic",
+            "leftRef": "Finanz-Cockpit!L5",
+            "rightRef": "Finanz-Cockpit!H5-J5",
+            "expected": "25479.29",
+            "actual": "25479.29",
             "pass": true
           }
         ]
@@ -697,22 +729,9 @@
       "original_name": "2022 Einnahmen-Überschus_Einnahmen-Ueberschussrechnung_fuer__27b56b.pdf",
       "year": "2022",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1dIrxIKmh7ulb0TKC-hPr431Jmh-N-zIm",
-      "original_name": "0000-00-00_Ausgabe_1759344446766-belege2023-02c8bb9c-a178-40df-9b54-6a3cc81396e9_383066be-1a5d-4262-bb22-d02d8684a9ae_BetragUnbekannt.pdf",
-      "year": "2023",
-      "category": "Sonstiges",
-      "severity": "MEDIUM",
-      "failures": [
-        "weak_text_extraction",
-        "missing_amount_pattern"
+        "missing_metadata"
       ]
     },
     {
@@ -740,10 +759,10 @@
       ]
     },
     {
-      "drive_file_id": "1k-eEfIZFZMXRV9gxrv5Ur26cue7Okwd3",
-      "original_name": "0000-00-00_Ausgabe_Sun®yster_N_8087673_BetragUnbekannt.pdf",
+      "drive_file_id": "1p7kZxRZdACeVQXjA4GzPgFhvMfkgiSN_",
+      "original_name": "4358.1.1_Abschlagsrechnung_|_Angebot:_4358.1_75f213.pdf",
       "year": "2026",
-      "category": "Sonstiges",
+      "category": "Rechnungen",
       "severity": "HIGH",
       "failures": [
         "missing_metadata"
@@ -762,8 +781,18 @@
       ]
     },
     {
-      "drive_file_id": "1e09ZeYJ5IXn8tamnwonWFxzJSeqNI4Yo",
-      "original_name": "0000-00-00_Ausgabe_1759344447006-belege2023-0fc03a94-d72c-4174-9837-8e7eb9f3c9ba_b68aca19-2f58-4afa-987d-61852be3381b_BetragUnbekannt.pdf",
+      "drive_file_id": "1wf9AKbaOzUt3WzpLiQoLYaPhsTzLQbxx",
+      "original_name": "0000-00-00_Einnahme_2023-37_Rechnung_für_ausgeführte_Arbeiten_688495_01638727721_1.00EUR.pdf",
+      "year": "2023",
+      "category": "Rechnungen",
+      "severity": "MEDIUM",
+      "failures": [
+        "invalid_amount_pattern"
+      ]
+    },
+    {
+      "drive_file_id": "1dIrxIKmh7ulb0TKC-hPr431Jmh-N-zIm",
+      "original_name": "0000-00-00_Ausgabe_1759344446766-belege2023-02c8bb9c-a178-40df-9b54-6a3cc81396e9_383066be-1a5d-4262-bb22-d02d8684a9ae_BetragUnbekannt.pdf",
       "year": "2023",
       "category": "Sonstiges",
       "severity": "MEDIUM",
@@ -797,8 +826,18 @@
       ]
     },
     {
-      "drive_file_id": "1wf9AKbaOzUt3WzpLiQoLYaPhsTzLQbxx",
-      "original_name": "0000-00-00_Einnahme_2023-37_Rechnung_für_ausgeführte_Arbeiten_688495_01638727721_1.00EUR.pdf",
+      "drive_file_id": "1Sm73OznokeIqZfUYktcBTBUaesjNxjm0",
+      "original_name": "0000-00-00_Ausgabe_(_dri_adf96a3a-4d2c-4417-8ec1-4de3ba9d997a_BetragUnbekannt.pdf",
+      "year": "2026",
+      "category": "Sonstiges",
+      "severity": "MEDIUM",
+      "failures": [
+        "missing_amount_pattern"
+      ]
+    },
+    {
+      "drive_file_id": "1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb",
+      "original_name": "0000-00-00_Einnahme_2023-38_Rechnung_für_Solarmodule_montieren_6f3445_01638727721_1.00EUR.pdf",
       "year": "2023",
       "category": "Rechnungen",
       "severity": "MEDIUM",
@@ -807,8 +846,8 @@
       ]
     },
     {
-      "drive_file_id": "1ihbpI1kb9vZrD8GshMVqPhy3Es-DFdlb",
-      "original_name": "0000-00-00_Ausgabe_1759344447645-belege2023-2c8786d6-4ead-41c1-8194-3e4264ac3346_d1ab2f78-bd70-4525-9c75-76cfe69e5ea3_BetragUnbekannt.pdf",
+      "drive_file_id": "1e09ZeYJ5IXn8tamnwonWFxzJSeqNI4Yo",
+      "original_name": "0000-00-00_Ausgabe_1759344447006-belege2023-0fc03a94-d72c-4174-9837-8e7eb9f3c9ba_b68aca19-2f58-4afa-987d-61852be3381b_BetragUnbekannt.pdf",
       "year": "2023",
       "category": "Sonstiges",
       "severity": "MEDIUM",
@@ -830,18 +869,8 @@
       ]
     },
     {
-      "drive_file_id": "1AC9gTcSl73Kl82L2ftCDdPcCbzOU0Myb",
-      "original_name": "0000-00-00_Einnahme_2023-38_Rechnung_für_Solarmodule_montieren_6f3445_01638727721_1.00EUR.pdf",
-      "year": "2023",
-      "category": "Rechnungen",
-      "severity": "MEDIUM",
-      "failures": [
-        "invalid_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1-lM5l0aYQ8-PeXEepzVDrII9dnjPruBl",
-      "original_name": "0000-00-00_Ausgabe_1759344447943-belege2023-2e8fd778-12e6-4504-89bb-e6405502f281_07cbc32d-d05e-4e4c-a685-ee9c298196cb_BetragUnbekannt.pdf",
+      "drive_file_id": "1ihbpI1kb9vZrD8GshMVqPhy3Es-DFdlb",
+      "original_name": "0000-00-00_Ausgabe_1759344447645-belege2023-2c8786d6-4ead-41c1-8194-3e4264ac3346_d1ab2f78-bd70-4525-9c75-76cfe69e5ea3_BetragUnbekannt.pdf",
       "year": "2023",
       "category": "Sonstiges",
       "severity": "MEDIUM",
@@ -863,33 +892,14 @@
       ]
     },
     {
-      "drive_file_id": "1Sm73OznokeIqZfUYktcBTBUaesjNxjm0",
-      "original_name": "0000-00-00_Ausgabe_(_dri_adf96a3a-4d2c-4417-8ec1-4de3ba9d997a_BetragUnbekannt.pdf",
-      "year": "2026",
-      "category": "Sonstiges",
-      "severity": "MEDIUM",
-      "failures": [
-        "missing_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1R4pM1ui6GHth5gjYBehKhfWW6-fGfk3E",
-      "original_name": "2025_Einnahme_ZOE_ohne_belegnr_2025_Einnahme_ZOE_ohne_belegnr_WhatsApp_Image_2025_07_06_at_.jpeg",
-      "year": "2025",
-      "category": "Sonstiges",
-      "severity": "MEDIUM",
-      "failures": [
-        "missing_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1YhfEsUeMbjuzmfAhaem9EDKK3WPkkJGM",
-      "original_name": "2023_Ausgaben_RECLASS_2023_09_23_Ausgabe_Aufladen_de_Tel_0800_3468258_support_aufladen_de_QUITTUNG_Auf.pdf",
+      "drive_file_id": "1-lM5l0aYQ8-PeXEepzVDrII9dnjPruBl",
+      "original_name": "0000-00-00_Ausgabe_1759344447943-belege2023-2e8fd778-12e6-4504-89bb-e6405502f281_07cbc32d-d05e-4e4c-a685-ee9c298196cb_BetragUnbekannt.pdf",
       "year": "2023",
       "category": "Sonstiges",
-      "severity": "HIGH",
+      "severity": "MEDIUM",
       "failures": [
-        "missing_metadata"
+        "weak_text_extraction",
+        "missing_amount_pattern"
       ]
     },
     {
@@ -897,18 +907,6 @@
       "original_name": "35707_invoicefetcher®_STANDARD_5401ff.pdf",
       "year": "2026",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
-      "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1BdMtBd_Gu3l_xU491z1s8tQv09YVeWtM",
-      "original_name": "2023_Ausgaben_RECLASS_2023_09_24_Ausgabe_Aufladen_de_Tel_0800_3468258_support_aufladen_de_QUITTUNG_Auf.pdf",
-      "year": "2023",
-      "category": "Sonstiges",
       "severity": "HIGH",
       "failures": [
         "missing_metadata"
@@ -931,16 +929,14 @@
       "original_name": "4090.4.1_Abschlagsrechnung_|_Angebot:_4090.4.pdf",
       "year": "2026",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
+        "missing_metadata"
       ]
     },
     {
-      "drive_file_id": "1n1HxIaJRvU-sWWdqF3mjnAFHpqFJPBu9",
-      "original_name": "2023-01-10_Ausgabe_ACI_A_A_A_A_A_-Nr._19.87EUR.pdf",
+      "drive_file_id": "1YhfEsUeMbjuzmfAhaem9EDKK3WPkkJGM",
+      "original_name": "2023_Ausgaben_RECLASS_2023_09_23_Ausgabe_Aufladen_de_Tel_0800_3468258_support_aufladen_de_QUITTUNG_Auf.pdf",
       "year": "2023",
       "category": "Sonstiges",
       "severity": "HIGH",
@@ -959,20 +955,28 @@
       ]
     },
     {
-      "drive_file_id": "1hF20dThc3a8KlvjenQL4rDEn1Iaoz_yE",
-      "original_name": "4121.9.2_Schlussrechnung_|_Angebot:_4121.9_5b91e4.pdf",
+      "drive_file_id": "139jRvMViJBaiALgsTUwk-EfAwtkprqrn",
+      "original_name": "4253.6.2_Abschlagsrechnung_|_Angebot:_4253.6_469a86.pdf",
       "year": "2026",
       "category": "Rechnungen",
+      "severity": "HIGH",
+      "failures": [
+        "missing_metadata"
+      ]
+    },
+    {
+      "drive_file_id": "1es2NIM1NGlUiFu8LSsDibfAo08sq3NJ-",
+      "original_name": "0000-00-00_Ausgabe_£_Sun_Tankstell_49935d7d-dac1-45b4-abce-0357627cbeb0_BetragUnbekannt.pdf",
+      "year": "2026",
+      "category": "Sonstiges",
       "severity": "MEDIUM",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
         "missing_amount_pattern"
       ]
     },
     {
-      "drive_file_id": "18ws1ndidR-paQVgYvB8dKvdOVnjASQ4q",
-      "original_name": "2023-01-10_Ausgabe_Sun_Tankstelle_-Nr._19.87EUR.pdf",
+      "drive_file_id": "1BdMtBd_Gu3l_xU491z1s8tQv09YVeWtM",
+      "original_name": "2023_Ausgaben_RECLASS_2023_09_24_Ausgabe_Aufladen_de_Tel_0800_3468258_support_aufladen_de_QUITTUNG_Auf.pdf",
       "year": "2023",
       "category": "Sonstiges",
       "severity": "HIGH",
@@ -993,20 +997,18 @@
       ]
     },
     {
-      "drive_file_id": "139jRvMViJBaiALgsTUwk-EfAwtkprqrn",
-      "original_name": "4253.6.2_Abschlagsrechnung_|_Angebot:_4253.6_469a86.pdf",
+      "drive_file_id": "12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5",
+      "original_name": "4353.2.2_Schlussrechnung.pdf",
       "year": "2026",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
+        "missing_metadata"
       ]
     },
     {
-      "drive_file_id": "1es2NIM1NGlUiFu8LSsDibfAo08sq3NJ-",
-      "original_name": "0000-00-00_Ausgabe_£_Sun_Tankstell_49935d7d-dac1-45b4-abce-0357627cbeb0_BetragUnbekannt.pdf",
+      "drive_file_id": "1-1qBGDdz8A9NCJ5zMScko-6g5SxboHwf",
+      "original_name": "0000-00-00_Ausgabe_£_Sun_Tankstell_d9cacf4c-78e9-4de8-96ce-240f26679467_BetragUnbekannt.pdf",
       "year": "2026",
       "category": "Sonstiges",
       "severity": "MEDIUM",
@@ -1019,11 +1021,19 @@
       "original_name": "DS-ASE-INV-DE-2023-405020_Rechnung.pdf",
       "year": "2023",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
+        "missing_metadata"
+      ]
+    },
+    {
+      "drive_file_id": "1n1HxIaJRvU-sWWdqF3mjnAFHpqFJPBu9",
+      "original_name": "2023-01-10_Ausgabe_ACI_A_A_A_A_A_-Nr._19.87EUR.pdf",
+      "year": "2023",
+      "category": "Sonstiges",
+      "severity": "HIGH",
+      "failures": [
+        "missing_metadata"
       ]
     },
     {
@@ -1038,37 +1048,13 @@
       ]
     },
     {
-      "drive_file_id": "12AS8ChFBMSbSrcac01g9qZP8ShrZQcS5",
-      "original_name": "4353.2.2_Schlussrechnung.pdf",
-      "year": "2026",
-      "category": "Rechnungen",
-      "severity": "MEDIUM",
-      "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1-1qBGDdz8A9NCJ5zMScko-6g5SxboHwf",
-      "original_name": "0000-00-00_Ausgabe_£_Sun_Tankstell_d9cacf4c-78e9-4de8-96ce-240f26679467_BetragUnbekannt.pdf",
-      "year": "2026",
-      "category": "Sonstiges",
-      "severity": "MEDIUM",
-      "failures": [
-        "missing_amount_pattern"
-      ]
-    },
-    {
       "drive_file_id": "1MDP334pHdfoOvhChrb2aSsTZt5XhedXh",
       "original_name": "4357.7.4_Schlussrechnung_e5b185.pdf",
       "year": "2026",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
+        "missing_metadata"
       ]
     },
     {
@@ -1083,20 +1069,8 @@
       ]
     },
     {
-      "drive_file_id": "1Chlrls0ADa1UxTvCSDd8eZw7AXNadW8x",
-      "original_name": "GMI-2023-197684_GetMyInvoices_Lizenz_Standard_900875.pdf",
-      "year": "2023",
-      "category": "Rechnungen",
-      "severity": "MEDIUM",
-      "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
-      ]
-    },
-    {
-      "drive_file_id": "1nTCcXoyjUparwOd2rW_m-5ZDbbmwmw2h",
-      "original_name": "2023-03-21_Einnahme_2023-03-1037_Guthaben_f95a21_D-20457_50.00EUR.pdf",
+      "drive_file_id": "18ws1ndidR-paQVgYvB8dKvdOVnjASQ4q",
+      "original_name": "2023-01-10_Ausgabe_Sun_Tankstelle_-Nr._19.87EUR.pdf",
       "year": "2023",
       "category": "Sonstiges",
       "severity": "HIGH",
@@ -1105,15 +1079,13 @@
       ]
     },
     {
-      "drive_file_id": "1p7kZxRZdACeVQXjA4GzPgFhvMfkgiSN_",
-      "original_name": "4358.1.1_Abschlagsrechnung_|_Angebot:_4358.1_75f213.pdf",
+      "drive_file_id": "1PuWyKYHdvrye2Ypaiqi13tYif6RpAeVp",
+      "original_name": "4358.1.2_Schlussrechnung_9b30b7.pdf",
       "year": "2026",
       "category": "Rechnungen",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "failures": [
-        "weak_text_extraction",
-        "missing_metadata",
-        "missing_amount_pattern"
+        "missing_metadata"
       ]
     },
     {
@@ -1128,10 +1100,20 @@
       ]
     },
     {
-      "drive_file_id": "1ac15t5y7ak1wpAfL-9QkXGY6qu37_z-M",
-      "original_name": "2023-03-25_Einnahme_202303-87242_100_Stück_Bohrschrauben_6,3_X_50_mi_24ecc0_87242_19.00EUR.pdf",
+      "drive_file_id": "1Chlrls0ADa1UxTvCSDd8eZw7AXNadW8x",
+      "original_name": "GMI-2023-197684_GetMyInvoices_Lizenz_Standard_900875.pdf",
       "year": "2023",
-      "category": "Sonstiges",
+      "category": "Rechnungen",
+      "severity": "HIGH",
+      "failures": [
+        "missing_metadata"
+      ]
+    },
+    {
+      "drive_file_id": "1tD1ldR4Yo3JSD513fuciPrImCilQ4Jtq",
+      "original_name": "4358.3.2_Schlussrechnung_|_Angebot:_4358.3_3ec86b.pdf",
+      "year": "2026",
+      "category": "Rechnungen",
       "severity": "HIGH",
       "failures": [
         "missing_metadata"
@@ -1148,20 +1130,70 @@
         "missing_metadata",
         "missing_amount_pattern"
       ]
+    },
+    {
+      "drive_file_id": "1-zumKDbaN_xuScjzHfGhqzo2bnFOXN_b",
+      "original_name": "4401.7.1_Abschlagsrechnung_|_Angebot:_4401.7.pdf",
+      "year": "2026",
+      "category": "Rechnungen",
+      "severity": "HIGH",
+      "failures": [
+        "missing_metadata"
+      ]
+    },
+    {
+      "drive_file_id": "1XpGSbS2UZb8m3Yrqt2BTMpp24fpesWp7",
+      "original_name": "0000-00-00_Ausgabe_170898_FIX_STANGENROHR_EN25,_KLEMMSCHELLE_533ad7_169ad4d7-5d4b-407c-9981-3d4ef1dde967_BetragUnbekannt.pdf",
+      "year": "2026",
+      "category": "Sonstiges",
+      "severity": "MEDIUM",
+      "failures": [
+        "missing_amount_pattern"
+      ]
+    },
+    {
+      "drive_file_id": "1nTCcXoyjUparwOd2rW_m-5ZDbbmwmw2h",
+      "original_name": "2023-03-21_Einnahme_2023-03-1037_Guthaben_f95a21_D-20457_50.00EUR.pdf",
+      "year": "2023",
+      "category": "Sonstiges",
+      "severity": "HIGH",
+      "failures": [
+        "missing_metadata"
+      ]
+    },
+    {
+      "drive_file_id": "1fwCXiMWsYDdTfGAuD40UPLPN3lQhS1GC",
+      "original_name": "4457.5.3_Teilrechnung_0352a4.pdf",
+      "year": "2026",
+      "category": "Rechnungen",
+      "severity": "HIGH",
+      "failures": [
+        "missing_metadata"
+      ]
+    },
+    {
+      "drive_file_id": "1D-lRciMSIfyzzWgc1Hmb8OP51rouCXBy",
+      "original_name": "0000-00-00_Ausgabe_1718441_Big_Mac_4a4a15_382276d1-c036-4aab-8645-e4c616af2a6b_BetragUnbekannt.pdf",
+      "year": "2026",
+      "category": "Sonstiges",
+      "severity": "MEDIUM",
+      "failures": [
+        "weak_text_extraction",
+        "missing_amount_pattern"
+      ]
     }
   ],
   "auditSchemaMigration": {
-    "migrated": false,
+    "migrated": true,
     "canonicalSheetTitle": "Audit_Tabellen",
+    "legacySheetTitle": "Audit_Tabellen_Legacy_20260227124256",
     "previousHeader": [
-      "run_id",
-      "timestamp",
-      "action",
-      "target",
-      "drive_file_id",
-      "before_json",
-      "after_json",
-      "reason"
+      "sheet_title",
+      "sheet_id",
+      "rows",
+      "cols",
+      "header_preview",
+      "bewertung"
     ],
     "canonicalHeader": [
       "run_id",
@@ -1175,33 +1207,31 @@
     ]
   },
   "mismatchResolutionStats": {
-    "belegeBefore": 1828,
-    "belegeAfter": 1828,
-    "yearlyTabsTouched": 16,
+    "belegeBefore": 1811,
+    "belegeAfter": 1811,
+    "yearlyTabsTouched": 14,
     "staleYearTabsDeleted": [],
-    "actionsTotal": 2746,
+    "actionsTotal": 2251,
     "actionsByType": {
-      "DELETE_YEARLY_ORPHAN": 1293,
-      "INSERT_YEARLY_MISSING": 746,
-      "UPDATE_YEAR": 707
+      "DELETE_YEARLY_ORPHAN": 774,
+      "INSERT_YEARLY_MISSING": 773,
+      "UPDATE_YEAR": 704
     },
     "actionsByYear": {
-      "2000": 3,
-      "2004": 2,
-      "2016": 2,
-      "2022": 10,
-      "2023": 1558,
-      "2024": 20,
-      "2025": 93,
-      "2026": 1058
+      "2000": 1,
+      "2016": 1,
+      "2022": 6,
+      "2023": 1432,
+      "2024": 30,
+      "2025": 38,
+      "2026": 743
     }
   },
   "hardFailReasons": [],
   "integrity": {
-    "timestamp": "2026-02-26T01:54:20.360Z",
+    "timestamp": "2026-02-27T12:49:35.454Z",
     "years": [
       "2000",
-      "2004",
       "2016",
       "2022",
       "2023",
@@ -1213,27 +1243,6 @@
     "summaries": [
       {
         "year": "2000",
-        "income": {
-          "driveCount": 0,
-          "sheetCount": 0,
-          "driveOnly": 0,
-          "sheetOnly": 0,
-          "duplicateDriveIdsInSheet": 0,
-          "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 0
-        },
-        "expense": {
-          "driveCount": 0,
-          "sheetCount": 0,
-          "driveOnly": 0,
-          "sheetOnly": 0,
-          "duplicateDriveIdsInSheet": 0,
-          "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 0
-        }
-      },
-      {
-        "year": "2004",
         "income": {
           "driveCount": 0,
           "sheetCount": 0,
@@ -1283,70 +1292,70 @@
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         },
         "expense": {
-          "driveCount": 4,
-          "sheetCount": 4,
+          "driveCount": 2,
+          "sheetCount": 2,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         }
       },
       {
         "year": "2023",
         "income": {
-          "driveCount": 121,
-          "sheetCount": 121,
+          "driveCount": 135,
+          "sheetCount": 135,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         },
         "expense": {
-          "driveCount": 680,
-          "sheetCount": 680,
+          "driveCount": 657,
+          "sheetCount": 657,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         }
       },
       {
         "year": "2024",
         "income": {
-          "driveCount": 5,
-          "sheetCount": 5,
+          "driveCount": 6,
+          "sheetCount": 6,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         },
         "expense": {
-          "driveCount": 8,
-          "sheetCount": 8,
+          "driveCount": 15,
+          "sheetCount": 15,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         }
       },
       {
         "year": "2025",
         "income": {
-          "driveCount": 16,
-          "sheetCount": 16,
+          "driveCount": 14,
+          "sheetCount": 14,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         },
         "expense": {
           "driveCount": 139,
@@ -1355,28 +1364,28 @@
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         }
       },
       {
         "year": "2026",
         "income": {
-          "driveCount": 18,
-          "sheetCount": 18,
+          "driveCount": 19,
+          "sheetCount": 19,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         },
         "expense": {
-          "driveCount": 834,
-          "sheetCount": 834,
+          "driveCount": 821,
+          "sheetCount": 821,
           "driveOnly": 0,
           "sheetOnly": 0,
           "duplicateDriveIdsInSheet": 0,
           "potentialPrivateRows": 0,
-          "potentialDuplicateBusinessKeys": 1
+          "potentialDuplicateBusinessKeys": 0
         }
       }
     ],
@@ -1385,11 +1394,6 @@
         "driveOnlyFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2000_drive_only.json",
         "sheetOnlyFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2000_sheet_only.json",
         "duplicateFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2000_duplicate_drive_ids.json"
-      },
-      "2004": {
-        "driveOnlyFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2004_drive_only.json",
-        "sheetOnlyFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2004_sheet_only.json",
-        "duplicateFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2004_duplicate_drive_ids.json"
       },
       "2016": {
         "driveOnlyFullPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/mismatch/2016_drive_only.json",
@@ -1424,12 +1428,12 @@
     }
   },
   "idempotency": {
-    "firstRunId": "3f4928bd-7441-4c40-8ce5-4cde3139ae42",
-    "secondRunId": "9f0161c8-1ea2-43b0-baa6-38e4cba017ff",
+    "firstRunId": "37e43526-645f-4799-a9c4-803aba066bc3",
+    "secondRunId": "8016be64-87b5-4992-bd80-10865f7b1d3b",
     "secondRunMutations": 0,
     "pass": true
   },
-  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_51d1cdbb-f7d2-4c4e-b507-2e073ea45649.json",
+  "canonicalDriveIndexPath": "/Users/jeremy/dev/AIOMETRICS-GTax/docs/CANONICAL_DRIVE_INDEX_c86a305a-1c1e-43d2-b035-e70fbd0c28ca.json",
   "loopHistory": [
     {
       "iteration": 1,
