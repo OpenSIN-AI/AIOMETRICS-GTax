@@ -5,7 +5,7 @@
     "onFailure": "/Users/jeremy/dev/AIOMETRICS-GTax/.opencode/hooks/pcpm-after-run.sh"
   },
   "pcpm": {
-    "brainRepoPath": "/Users/jeremy/dev/AIOMETRICS-GTax",
+    "brainRepoPath": "/Users/jeremy/dev/global-brain",
     "projectId": "AIOMETRICS-GTax",
     "goalId": "default-goal",
     "goalDescription": "Continue development",
