@@ -64,7 +64,7 @@
     "better-sqlite3": "^12.10.0",
     "dotenv": "^16.4.5",
     "googleapis": "^131.0.0",
-    "pdfjs-dist": "^4.0.379",
+    "pdfjs-dist": "^6.0.227",
     "sharp": "^0.33.2",
     "tesseract.js": "^7.0.0",
     "uuid": "^9.0.1",
