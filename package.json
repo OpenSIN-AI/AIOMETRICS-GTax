@@ -67,7 +67,7 @@
     "pdfjs-dist": "^6.0.227",
     "sharp": "^0.33.2",
     "tesseract.js": "^7.0.0",
-    "uuid": "^9.0.1",
+    "uuid": "^14.0.1",
     "ws": "^8.21.0"
   },
   "devDependencies": {
