@@ -63,7 +63,7 @@
     "axios": "^1.6.7",
     "better-sqlite3": "^12.10.0",
     "dotenv": "^16.4.5",
-    "googleapis": "^131.0.0",
+    "googleapis": "^173.0.0",
     "pdfjs-dist": "^6.0.227",
     "sharp": "^0.33.2",
     "tesseract.js": "^7.0.0",
